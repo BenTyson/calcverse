@@ -13,6 +13,9 @@ import { QuarterlyTaxCalc } from '@components/calculators/QuarterlyTaxCalc';
 import { W2vs1099Calc } from '@components/calculators/W2vs1099Calc';
 import { TwitchRevenueCalc } from '@components/calculators/TwitchRevenueCalc';
 import { ProjectRateCalc } from '@components/calculators/ProjectRateCalc';
+import { KofiCalc } from '@components/calculators/KofiCalc';
+import { PodcastSponsorshipCalc } from '@components/calculators/PodcastSponsorshipCalc';
+import { InstacartCalc } from '@components/calculators/InstacartCalc';
 
 export function getStaticPaths() {
   return [
@@ -25,8 +28,11 @@ export function getStaticPaths() {
     { params: { slug: 'creator/patreon-calculator' } },
     { params: { slug: 'creator/etsy-fee-calculator' } },
     { params: { slug: 'creator/substack-calculator' } },
+    { params: { slug: 'creator/kofi-calculator' } },
+    { params: { slug: 'creator/podcast-calculator' } },
     { params: { slug: 'gig-economy/doordash-calculator' } },
     { params: { slug: 'gig-economy/uber-lyft-calculator' } },
+    { params: { slug: 'gig-economy/instacart-calculator' } },
     { params: { slug: 'gig-economy/airbnb-calculator' } },
     { params: { slug: 'side-hustle/time-to-goal-calculator' } },
   ];
@@ -71,6 +77,14 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Substack Revenue Calculator',
     component: 'substack',
   },
+  'creator/kofi-calculator': {
+    title: 'Ko-fi Earnings Calculator',
+    component: 'kofi',
+  },
+  'creator/podcast-calculator': {
+    title: 'Podcast Sponsorship Calculator',
+    component: 'podcast',
+  },
   'gig-economy/doordash-calculator': {
     title: 'DoorDash Earnings Calculator',
     component: 'doordash',
@@ -78,6 +92,10 @@ const calculators: Record<string, { title: string; component: string }> = {
   'gig-economy/uber-lyft-calculator': {
     title: 'Uber/Lyft Earnings Calculator',
     component: 'uberlyft',
+  },
+  'gig-economy/instacart-calculator': {
+    title: 'Instacart Earnings Calculator',
+    component: 'instacart',
   },
   'gig-economy/airbnb-calculator': {
     title: 'Airbnb Profit Calculator',
@@ -108,8 +126,11 @@ if (!calculator) {
     {calculator.component === 'patreon' && <PatreonCalc client:load />}
     {calculator.component === 'etsy' && <EtsyFeesCalc client:load />}
     {calculator.component === 'substack' && <SubstackCalc client:load />}
+    {calculator.component === 'kofi' && <KofiCalc client:load />}
+    {calculator.component === 'podcast' && <PodcastSponsorshipCalc client:load />}
     {calculator.component === 'doordash' && <DoorDashCalc client:load />}
     {calculator.component === 'uberlyft' && <UberLyftCalc client:load />}
+    {calculator.component === 'instacart' && <InstacartCalc client:load />}
     {calculator.component === 'airbnb' && <AirbnbProfitCalc client:load />}
     {calculator.component === 'sidehustle' && <SideHustleGoalCalc client:load />}
   </div>

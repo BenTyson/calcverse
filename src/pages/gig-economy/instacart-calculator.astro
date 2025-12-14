@@ -1,0 +1,60 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { InstacartCalc } from '@components/calculators/InstacartCalc';
+
+const faqs = [
+  {
+    question: 'How much do Instacart shoppers make?',
+    answer:
+      'Instacart shoppers typically earn $15-25 per hour including tips. Earnings vary based on location, time of day, batch selection strategy, and tip rates. Full-service shoppers who shop and deliver generally earn more than in-store shoppers.',
+  },
+  {
+    question: 'How does Instacart pay work?',
+    answer:
+      'Instacart pays a base amount per batch (order) plus any customer tips. Base pay varies by order complexity, number of items, and distance. Tips are 100% yours and can be added/modified by customers for up to 24 hours after delivery.',
+  },
+  {
+    question: 'What expenses should Instacart shoppers track?',
+    answer:
+      'Key expenses include gas, car maintenance, phone/data plan, insulated bags, and car insurance. You can deduct mileage (currently $0.67/mile for 2024) or actual vehicle expenses on your taxes. Keep receipts and track everything!',
+  },
+  {
+    question: 'When are the best times to do Instacart?',
+    answer:
+      'Peak earning times are typically weekend mornings (8-11am), Sunday afternoons, and weekday evenings (5-8pm). Holidays and bad weather often bring surge pricing and better tips. Avoid slow periods like weekday mid-afternoons.',
+  },
+  {
+    question: 'Should I accept every batch?',
+    answer:
+      'No! Cherry-picking batches is key to maximizing earnings. Look for good tip-to-item ratios, reasonable distances, and avoid multi-batch orders with poor tips. A good rule: aim for at least $1 per item or $20+ total per batch.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'DoorDash Earnings Calculator',
+    description: 'Estimate delivery driver earnings',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Uber/Lyft Earnings Calculator',
+    description: 'Calculate rideshare driver income',
+    href: '/gig-economy/uber-lyft-calculator',
+    category: 'Gig Economy',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Instacart Earnings Calculator - Estimate Shopper Income"
+  description="Calculate your potential Instacart shopper earnings. See weekly, monthly, and annual income estimates after expenses."
+  calculatorName="Instacart Earnings Calculator"
+  category="Gig Economy"
+  categorySlug="gig-economy"
+  slug="instacart-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <InstacartCalc client:load />
+</CalculatorLayout>

@@ -1,0 +1,60 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { KofiCalc } from '@components/calculators/KofiCalc';
+
+const faqs = [
+  {
+    question: 'How much does Ko-fi take from donations?',
+    answer:
+      'Free Ko-fi accounts pay a 5% platform fee on donations and memberships. Ko-fi Gold members ($6/month) pay 0% platform fees. All accounts pay payment processing fees (PayPal/Stripe) of approximately 2.9% + $0.30 per transaction.',
+  },
+  {
+    question: 'Is Ko-fi Gold worth it?',
+    answer:
+      'Ko-fi Gold costs $6/month and removes the 5% platform fee. If you receive more than $120/month in donations and memberships, Gold pays for itself. Gold also includes features like a custom page URL, analytics, and scheduled posts.',
+  },
+  {
+    question: 'How do Ko-fi memberships work?',
+    answer:
+      'Ko-fi memberships are recurring monthly payments from supporters. You can offer tiers with different benefits. Ko-fi takes 5% (or 0% with Gold) plus payment processing. Members can cancel anytime.',
+  },
+  {
+    question: 'Does Ko-fi take a cut from shop sales?',
+    answer:
+      'No! Ko-fi takes 0% from shop sales - you only pay payment processing fees (around 2.9% + $0.30). This makes Ko-fi Shop very competitive for selling digital products, art, and merch.',
+  },
+  {
+    question: 'Ko-fi vs Patreon - which is better?',
+    answer:
+      'Ko-fi has lower fees (5% vs 8-12%) and takes 0% from shop sales. Patreon has more features for large creators. Ko-fi is better for small creators and one-time donations. Many creators use both!',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Patreon Earnings Calculator',
+    description: 'Calculate Patreon take-home after fees',
+    href: '/creator/patreon-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Twitch Revenue Calculator',
+    description: 'Estimate Twitch earnings from subs and bits',
+    href: '/creator/twitch-calculator',
+    category: 'Creator',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Ko-fi Earnings Calculator - Estimate Your Creator Income"
+  description="Calculate your Ko-fi earnings from donations, memberships, and shop sales. See your take-home after fees and whether Ko-fi Gold is worth it."
+  calculatorName="Ko-fi Earnings Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="kofi-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <KofiCalc client:load />
+</CalculatorLayout>

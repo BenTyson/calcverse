@@ -1,0 +1,60 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { PodcastSponsorshipCalc } from '@components/calculators/PodcastSponsorshipCalc';
+
+const faqs = [
+  {
+    question: 'What is podcast CPM?',
+    answer:
+      'CPM stands for "cost per mille" (cost per thousand). In podcasting, it\'s how much advertisers pay per 1,000 downloads. A $25 CPM means you earn $25 for every 1,000 times your episode with that ad is downloaded. CPM varies by niche, audience demographics, and ad placement.',
+  },
+  {
+    question: 'How many downloads do I need to get sponsors?',
+    answer:
+      'Most podcast networks and sponsors look for at least 5,000 downloads per episode within the first 30 days. However, smaller podcasts with highly engaged niche audiences can attract sponsors earlier. Some networks accept podcasts with 1,000+ downloads.',
+  },
+  {
+    question: 'What\'s the difference between pre-roll, mid-roll, and post-roll ads?',
+    answer:
+      'Pre-roll ads play at the start (15-30 seconds), mid-roll ads play during the episode (60 seconds), and post-roll ads play at the end (15-30 seconds). Mid-roll ads have the highest CPM because listeners are most engaged. Pre-roll is second, and post-roll pays the least.',
+  },
+  {
+    question: 'Should I use a podcast network or sell ads directly?',
+    answer:
+      'Direct sales typically pay 2-3x more than networks, but require more work. Networks handle sales and fill your inventory automatically. Many podcasters start with networks, then transition to direct sales as they grow. Some use both.',
+  },
+  {
+    question: 'How do affiliate deals work for podcasts?',
+    answer:
+      'With affiliate deals, you promote a product with a unique promo code or link. You earn a commission (typically 10-30%) on each sale. Popular affiliate categories include software, courses, and subscription services. Unlike CPM ads, affiliate income depends on listener action.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'YouTube AdSense Calculator',
+    description: 'Estimate YouTube earnings from views',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Patreon Earnings Calculator',
+    description: 'Calculate Patreon take-home after fees',
+    href: '/creator/patreon-calculator',
+    category: 'Creator',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Podcast Sponsorship Calculator - Estimate Your Ad Revenue"
+  description="Calculate potential podcast sponsorship and advertising revenue based on downloads, CPM rates, and ad inventory. See what your podcast could earn."
+  calculatorName="Podcast Sponsorship Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="podcast-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <PodcastSponsorshipCalc client:load />
+</CalculatorLayout>
