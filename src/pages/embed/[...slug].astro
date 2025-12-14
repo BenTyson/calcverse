@@ -9,11 +9,19 @@ import { SubstackCalc } from '@components/calculators/SubstackCalc';
 import { DoorDashCalc } from '@components/calculators/DoorDashCalc';
 import { UberLyftCalc } from '@components/calculators/UberLyftCalc';
 import { AirbnbProfitCalc } from '@components/calculators/AirbnbProfitCalc';
+import { QuarterlyTaxCalc } from '@components/calculators/QuarterlyTaxCalc';
+import { W2vs1099Calc } from '@components/calculators/W2vs1099Calc';
+import { TwitchRevenueCalc } from '@components/calculators/TwitchRevenueCalc';
+import { ProjectRateCalc } from '@components/calculators/ProjectRateCalc';
 
 export function getStaticPaths() {
   return [
     { params: { slug: 'freelance/hourly-rate-calculator' } },
+    { params: { slug: 'freelance/quarterly-tax-calculator' } },
+    { params: { slug: 'freelance/w2-vs-1099-calculator' } },
+    { params: { slug: 'freelance/project-rate-calculator' } },
     { params: { slug: 'creator/youtube-adsense-calculator' } },
+    { params: { slug: 'creator/twitch-calculator' } },
     { params: { slug: 'creator/patreon-calculator' } },
     { params: { slug: 'creator/etsy-fee-calculator' } },
     { params: { slug: 'creator/substack-calculator' } },
@@ -31,9 +39,25 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Freelancer Hourly Rate Calculator',
     component: 'freelancer',
   },
+  'freelance/quarterly-tax-calculator': {
+    title: 'Quarterly Tax Estimator',
+    component: 'quarterlytax',
+  },
+  'freelance/w2-vs-1099-calculator': {
+    title: 'W2 vs 1099 Comparison Calculator',
+    component: 'w2vs1099',
+  },
+  'freelance/project-rate-calculator': {
+    title: 'Project Rate Calculator',
+    component: 'projectrate',
+  },
   'creator/youtube-adsense-calculator': {
     title: 'YouTube AdSense Calculator',
     component: 'youtube',
+  },
+  'creator/twitch-calculator': {
+    title: 'Twitch Revenue Calculator',
+    component: 'twitch',
   },
   'creator/patreon-calculator': {
     title: 'Patreon Earnings Calculator',
@@ -76,7 +100,11 @@ if (!calculator) {
   <div class="max-w-3xl mx-auto">
     <h1 class="text-xl font-bold text-gray-900 mb-4">{calculator.title}</h1>
     {calculator.component === 'freelancer' && <FreelancerRateCalc client:load />}
+    {calculator.component === 'quarterlytax' && <QuarterlyTaxCalc client:load />}
+    {calculator.component === 'w2vs1099' && <W2vs1099Calc client:load />}
+    {calculator.component === 'projectrate' && <ProjectRateCalc client:load />}
     {calculator.component === 'youtube' && <YouTubeAdSenseCalc client:load />}
+    {calculator.component === 'twitch' && <TwitchRevenueCalc client:load />}
     {calculator.component === 'patreon' && <PatreonCalc client:load />}
     {calculator.component === 'etsy' && <EtsyFeesCalc client:load />}
     {calculator.component === 'substack' && <SubstackCalc client:load />}

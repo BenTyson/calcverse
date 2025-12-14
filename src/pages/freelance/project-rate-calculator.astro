@@ -1,0 +1,60 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { ProjectRateCalc } from '@components/calculators/ProjectRateCalc';
+
+const faqs = [
+  {
+    question: 'How do I convert my hourly rate to a project rate?',
+    answer:
+      'Start by estimating the total hours needed, then multiply by your hourly rate. Add buffer for scope creep (15-20%), revision time, and a profit margin. This calculator automates this process and suggests tiered pricing options.',
+  },
+  {
+    question: 'Should I charge hourly or project-based?',
+    answer:
+      'Project-based pricing is often better for both parties. Clients get cost certainty, and you can earn more if you work efficiently. However, hourly works better for ongoing or undefined scope work. Many freelancers use project rates for defined deliverables.',
+  },
+  {
+    question: 'How much scope buffer should I include?',
+    answer:
+      'A 10-20% scope buffer is standard for well-defined projects. For vague or complex projects, consider 25-30%. This protects you from scope creep and unexpected complications. It\'s better to come in under budget than to ask for more money.',
+  },
+  {
+    question: 'How do I handle rush fees?',
+    answer:
+      'Rush fees compensate for the disruption to your schedule and the stress of tight deadlines. Standard rush fees are 25-50% extra for accelerated timelines, and 75-100% for emergency/same-day work. Always communicate these upfront.',
+  },
+  {
+    question: 'What if the project takes longer than estimated?',
+    answer:
+      'This is why scope buffers and clear contracts matter. Define exactly what\'s included in the project price. Additional work beyond scope should be billed separately. Track your time to improve future estimates.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Freelancer Hourly Rate Calculator',
+    description: 'Calculate your ideal hourly rate based on income goals',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate your quarterly tax payments',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Project Rate Calculator - Convert Hourly to Project Pricing"
+  description="Calculate project-based pricing from your hourly rate. Includes scope buffer, revision rounds, complexity adjustments, and tiered pricing suggestions."
+  calculatorName="Project Rate Calculator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="project-rate-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <ProjectRateCalc client:load />
+</CalculatorLayout>

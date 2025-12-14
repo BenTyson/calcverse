@@ -1,0 +1,60 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { QuarterlyTaxCalc } from '@components/calculators/QuarterlyTaxCalc';
+
+const faqs = [
+  {
+    question: 'What are quarterly estimated taxes?',
+    answer:
+      'Quarterly estimated taxes are payments freelancers and self-employed individuals make four times a year to cover their income tax and self-employment tax. Unlike W-2 employees who have taxes withheld from each paycheck, freelancers must pay their taxes in quarterly installments.',
+  },
+  {
+    question: 'When are quarterly tax payments due?',
+    answer:
+      'Quarterly tax payments are due on April 15 (Q1), June 15 (Q2), September 15 (Q3), and January 15 of the following year (Q4). If a due date falls on a weekend or holiday, the deadline moves to the next business day.',
+  },
+  {
+    question: 'What is self-employment tax?',
+    answer:
+      'Self-employment tax is the Social Security and Medicare tax that self-employed individuals pay. The current rate is 15.3% (12.4% for Social Security up to the wage base limit, plus 2.9% for Medicare). This is equivalent to both the employer and employee portions of FICA taxes.',
+  },
+  {
+    question: 'What happens if I don\'t pay quarterly taxes?',
+    answer:
+      'If you don\'t pay enough tax throughout the year through withholding or estimated payments, you may have to pay an underpayment penalty. The IRS generally expects you to pay at least 90% of your current year tax liability or 100% of your prior year tax (110% if your AGI was over $150,000).',
+  },
+  {
+    question: 'Can I deduct business expenses from my freelance income?',
+    answer:
+      'Yes! Legitimate business expenses reduce your taxable income. Common deductions include home office expenses, equipment, software subscriptions, professional development, health insurance premiums, and business travel. Keep detailed records of all expenses.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Freelancer Hourly Rate Calculator',
+    description: 'Calculate your ideal hourly rate based on income goals',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Calculate how long to reach your financial goal',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Quarterly Tax Calculator for Freelancers - Estimate Your Payments"
+  description="Calculate your quarterly estimated tax payments as a freelancer. Includes self-employment tax, federal income tax, and state tax estimates."
+  calculatorName="Quarterly Tax Estimator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="quarterly-tax-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <QuarterlyTaxCalc client:load />
+</CalculatorLayout>

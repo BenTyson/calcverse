@@ -1,0 +1,60 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { TwitchRevenueCalc } from '@components/calculators/TwitchRevenueCalc';
+
+const faqs = [
+  {
+    question: 'How much do Twitch streamers make per subscriber?',
+    answer:
+      'Twitch streamers typically receive 50% of the subscription price. For a $4.99 Tier 1 sub, that\'s about $2.50. Top Partners with negotiated contracts may receive up to 70% ($3.50 per sub). Tier 2 ($9.99) and Tier 3 ($24.99) subs pay proportionally more.',
+  },
+  {
+    question: 'How do Twitch bits work for streamers?',
+    answer:
+      'Streamers receive $0.01 per bit. So 1,000 bits = $10 for the streamer. Unlike subscriptions, Twitch takes their cut from the viewer when they purchase bits, so streamers get 100% of the bit value. Bits are a great source of revenue from non-subscribers.',
+  },
+  {
+    question: 'How much can I make from Twitch ads?',
+    answer:
+      'Ad revenue varies based on viewer count, viewer location, and ad frequency. Small streamers (50-100 viewers) might earn $2-5 per hour of streaming. Larger streamers with thousands of viewers can earn significantly more. Running more ads increases revenue but may hurt viewer experience.',
+  },
+  {
+    question: 'What\'s the difference between Affiliate and Partner?',
+    answer:
+      'Affiliates get access to subscriptions, bits, and some ad revenue with a standard 50/50 split. Partners get additional benefits like custom emote slots, squad streaming, and importantly - the ability to negotiate a better revenue split (up to 70/30). Partner status requires consistent viewership.',
+  },
+  {
+    question: 'How do Twitch Prime subs affect my revenue?',
+    answer:
+      'Prime Gaming (formerly Twitch Prime) subscriptions pay the same as Tier 1 subs ($2.50 on standard split). Viewers with Amazon Prime can subscribe to one channel per month for free. These count toward your sub count and Affiliate/Partner requirements.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'YouTube AdSense Calculator',
+    description: 'Estimate YouTube earnings from views and ads',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Patreon Earnings Calculator',
+    description: 'Calculate Patreon take-home after fees',
+    href: '/creator/patreon-calculator',
+    category: 'Creator',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Twitch Revenue Calculator - Estimate Streamer Earnings"
+  description="Calculate your potential Twitch earnings from subscriptions, bits, and ads. See how much money you can make as a Twitch streamer."
+  calculatorName="Twitch Revenue Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="twitch-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <TwitchRevenueCalc client:load />
+</CalculatorLayout>

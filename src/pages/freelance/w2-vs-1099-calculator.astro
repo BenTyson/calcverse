@@ -1,0 +1,60 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { W2vs1099Calc } from '@components/calculators/W2vs1099Calc';
+
+const faqs = [
+  {
+    question: 'What is the difference between W2 and 1099?',
+    answer:
+      'A W2 employee works for a company that withholds taxes, provides benefits, and pays the employer portion of payroll taxes. A 1099 contractor is self-employed, responsible for their own taxes, benefits, and business expenses. Contractors typically have more flexibility but less job security.',
+  },
+  {
+    question: 'How much more should I charge as a 1099 contractor?',
+    answer:
+      'Most financial advisors recommend charging 15-30% more as a contractor to account for self-employment tax (15.3%), health insurance costs, lack of paid time off, and missing employer benefits like 401k matching. Use this calculator to find your specific break-even point.',
+  },
+  {
+    question: 'What is self-employment tax?',
+    answer:
+      'Self-employment tax is the Social Security and Medicare tax that self-employed individuals pay. It\'s currently 15.3% (12.4% Social Security + 2.9% Medicare). As an employee, your employer pays half of this; as a contractor, you pay the full amount but can deduct half on your taxes.',
+  },
+  {
+    question: 'What benefits should I factor into a W2 vs 1099 comparison?',
+    answer:
+      'Consider health insurance (often $500-2000/month for self-coverage), 401k employer match (typically 3-6% of salary), paid time off (2-4 weeks), life and disability insurance, professional development budgets, and equipment provided by employers.',
+  },
+  {
+    question: 'Can I deduct expenses as a 1099 contractor?',
+    answer:
+      'Yes! As a contractor, you can deduct legitimate business expenses including home office costs, equipment, software, professional development, business travel, and health insurance premiums. These deductions reduce your taxable income.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Calculate your estimated quarterly tax payments',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Freelancer Hourly Rate Calculator',
+    description: 'Calculate your ideal hourly rate based on income goals',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="W2 vs 1099 Calculator - Compare Employee vs Contractor Pay"
+  description="Compare take-home pay between W2 employment and 1099 contractor work. See the real difference after taxes, benefits, and expenses."
+  calculatorName="W2 vs 1099 Comparison Calculator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="w2-vs-1099-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <W2vs1099Calc client:load />
+</CalculatorLayout>
