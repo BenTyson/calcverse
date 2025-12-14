@@ -1,0 +1,55 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { YouTubeAdSenseCalc } from '@components/calculators/YouTubeAdSenseCalc';
+
+const faqs = [
+  {
+    question: 'How much does YouTube pay per 1,000 views?',
+    answer:
+      'YouTube pays creators through RPM (Revenue Per Mille), which typically ranges from $1-$10 per 1,000 views. However, this varies dramatically based on your niche, audience location, and engagement. Finance channels can earn $15-30+ per 1,000 views, while gaming channels might earn $2-5.',
+  },
+  {
+    question: 'What niches have the highest YouTube CPM?',
+    answer:
+      'Finance, investing, and business content typically have the highest CPMs ($8-30+), followed by technology ($5-20), health and fitness ($5-18), and education ($4-15). Gaming and entertainment tend to have lower CPMs ($2-10) but often make up for it with higher view counts.',
+  },
+  {
+    question: 'How do I increase my YouTube RPM?',
+    answer:
+      'Focus on high-value niches, create longer videos (8+ minutes) to enable mid-roll ads, build an audience in high-CPM countries (US, UK, Canada), improve watch time and engagement, and ensure your content is advertiser-friendly. Avoid controversial topics that might limit ads.',
+  },
+  {
+    question: 'When can I start earning money on YouTube?',
+    answer:
+      'To join the YouTube Partner Program, you need at least 1,000 subscribers AND either 4,000 watch hours in the past 12 months OR 10 million Shorts views in 90 days. Once accepted, you can start earning from ads, memberships, and Super Chat.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Calculate your ideal freelance rate',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="YouTube AdSense Calculator - Estimate Your Earnings"
+  description="Calculate potential YouTube ad revenue based on your views, niche, and audience. Free CPM and RPM calculator for YouTubers."
+  calculatorName="YouTube AdSense Revenue Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="youtube-adsense-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <YouTubeAdSenseCalc client:load />
+</CalculatorLayout>

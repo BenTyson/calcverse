@@ -1,0 +1,46 @@
+---
+import EmbedLayout from '@layouts/EmbedLayout.astro';
+import { FreelancerRateCalc } from '@components/calculators/FreelancerRateCalc';
+import { YouTubeAdSenseCalc } from '@components/calculators/YouTubeAdSenseCalc';
+import { SideHustleGoalCalc } from '@components/calculators/SideHustleGoalCalc';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'freelance/hourly-rate-calculator' } },
+    { params: { slug: 'creator/youtube-adsense-calculator' } },
+    { params: { slug: 'side-hustle/time-to-goal-calculator' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const calculators: Record<string, { title: string; component: string }> = {
+  'freelance/hourly-rate-calculator': {
+    title: 'Freelancer Hourly Rate Calculator',
+    component: 'freelancer',
+  },
+  'creator/youtube-adsense-calculator': {
+    title: 'YouTube AdSense Calculator',
+    component: 'youtube',
+  },
+  'side-hustle/time-to-goal-calculator': {
+    title: 'Side Hustle Time to Goal Calculator',
+    component: 'sidehustle',
+  },
+};
+
+const calculator = calculators[slug as string];
+
+if (!calculator) {
+  return Astro.redirect('/404');
+}
+---
+
+<EmbedLayout title={calculator.title}>
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-xl font-bold text-gray-900 mb-4">{calculator.title}</h1>
+    {calculator.component === 'freelancer' && <FreelancerRateCalc client:load />}
+    {calculator.component === 'youtube' && <YouTubeAdSenseCalc client:load />}
+    {calculator.component === 'sidehustle' && <SideHustleGoalCalc client:load />}
+  </div>
+</EmbedLayout>

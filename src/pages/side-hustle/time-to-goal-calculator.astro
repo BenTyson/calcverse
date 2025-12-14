@@ -1,0 +1,55 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { SideHustleGoalCalc } from '@components/calculators/SideHustleGoalCalc';
+
+const faqs = [
+  {
+    question: 'How much can I realistically make from a side hustle?',
+    answer:
+      'This varies widely based on your skills and time investment. Freelancers typically earn $25-100+/hour depending on expertise. With 10 hours per week at $25/hour after expenses, you could save around $800-1000/month. Skilled professionals in tech or finance can earn significantly more.',
+  },
+  {
+    question: 'How do I calculate my side hustle hourly rate?',
+    answer:
+      'Track your total earnings and divide by hours worked, including admin time. For project-based work, estimate hours per project. Remember to subtract expenses and set aside 20-30% for taxes to get your true net hourly rate.',
+  },
+  {
+    question: 'Should I reinvest side hustle income back into the business?',
+    answer:
+      "It depends on your goals. Early on, reinvesting in tools, training, and marketing can accelerate growth. Once established, you might save more toward your goal. A common approach is to reinvest 10-20% while saving the rest.",
+  },
+  {
+    question: "What's a realistic growth rate for a side hustle?",
+    answer:
+      'Most side hustles can grow 3-10% monthly through rate increases and efficiency gains. Exceptional growth (15%+) is possible but usually requires significant time investment or a scalable business model. Be conservative in your projections.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Calculate your ideal freelance rate',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'YouTube AdSense Calculator',
+    description: 'Estimate your YouTube earnings',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Side Hustle Time to Goal Calculator - Plan Your Path"
+  description="Calculate how long your side hustle will take to reach your financial goal. Plan your path to $10K, $50K, or more with our free calculator."
+  calculatorName="Side Hustle Time to Goal Calculator"
+  category="Side Hustle"
+  categorySlug="side-hustle"
+  slug="time-to-goal-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <SideHustleGoalCalc client:load />
+</CalculatorLayout>

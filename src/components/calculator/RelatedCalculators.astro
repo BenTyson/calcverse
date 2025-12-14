@@ -1,0 +1,37 @@
+---
+interface Calculator {
+  name: string;
+  description: string;
+  href: string;
+  category: string;
+}
+
+interface Props {
+  calculators: Calculator[];
+  title?: string;
+}
+
+const { calculators, title = 'Related Calculators' } = Astro.props;
+---
+
+{calculators.length > 0 && (
+  <section class="mt-12">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">{title}</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {calculators.map((calc) => (
+        <a
+          href={calc.href}
+          class="block p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-md transition-all group"
+        >
+          <span class="text-xs font-medium text-brand-600 uppercase tracking-wide">
+            {calc.category}
+          </span>
+          <h3 class="font-semibold text-gray-900 mt-1 group-hover:text-brand-600 transition-colors">
+            {calc.name}
+          </h3>
+          <p class="text-sm text-gray-600 mt-1">{calc.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

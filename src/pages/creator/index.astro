@@ -1,0 +1,59 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const calculators = [
+  {
+    name: 'YouTube AdSense Revenue Calculator',
+    description: 'Estimate your YouTube earnings based on views, niche, and audience location',
+    href: '/creator/youtube-adsense-calculator',
+  },
+];
+---
+
+<BaseLayout
+  title="Creator Calculators - YouTube, Twitch & More | Calcverse"
+  description="Free calculators for content creators. Estimate YouTube AdSense revenue, Twitch earnings, and more."
+>
+  <section class="bg-gradient-to-b from-red-600 to-red-700 text-white py-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Creator Calculators</h1>
+      <p class="text-xl text-red-100">
+        Tools to help content creators estimate and maximize their revenue
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid gap-6">
+        {calculators.map((calc) => (
+          <a
+            href={calc.href}
+            class="block p-6 bg-white rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-lg transition-all group"
+          >
+            <h2 class="font-semibold text-xl text-gray-900 group-hover:text-brand-600 transition-colors">
+              {calc.name}
+            </h2>
+            <p class="text-gray-600 mt-2">{calc.description}</p>
+            <span class="inline-flex items-center text-brand-600 font-medium mt-4">
+              Use Calculator
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-red-50 rounded-xl p-6">
+        <h3 class="font-semibold text-gray-900 mb-2">More Creator Calculators Coming Soon</h3>
+        <ul class="text-gray-600 space-y-1">
+          <li>Twitch Revenue Calculator</li>
+          <li>Patreon Earnings Estimator</li>
+          <li>Etsy Seller Fee Calculator</li>
+          <li>Podcast Sponsorship Calculator</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

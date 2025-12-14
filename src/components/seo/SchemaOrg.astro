@@ -1,0 +1,36 @@
+---
+import {
+  generateWebApplicationSchema,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  type CalculatorSEO,
+  type FAQ,
+  type BreadcrumbItem,
+} from '@lib/seo/schema';
+
+interface Props {
+  calculator?: CalculatorSEO;
+  faqs?: FAQ[];
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const { calculator, faqs, breadcrumbs } = Astro.props;
+
+const schemas: object[] = [];
+
+if (calculator) {
+  schemas.push(generateWebApplicationSchema(calculator));
+}
+
+if (faqs && faqs.length > 0) {
+  schemas.push(generateFAQSchema(faqs));
+}
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  schemas.push(generateBreadcrumbSchema(breadcrumbs));
+}
+---
+
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

@@ -1,0 +1,55 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { FreelancerRateCalc } from '@components/calculators/FreelancerRateCalc';
+
+const faqs = [
+  {
+    question: 'How do I calculate my freelance hourly rate?',
+    answer:
+      'Start with your desired annual take-home income, add taxes (self-employment + income tax), business expenses, and a profit margin. Divide by your annual billable hours (weekly billable hours × weeks worked) to get your minimum hourly rate.',
+  },
+  {
+    question: 'What expenses should I factor into my freelance rate?',
+    answer:
+      'Include software subscriptions, equipment, insurance, marketing costs, professional development, home office expenses, and any other costs of running your business. A common mistake is forgetting to account for health insurance if you\'re self-employed.',
+  },
+  {
+    question: 'How many billable hours should I expect per week?',
+    answer:
+      'Most freelancers can realistically bill 25-35 hours per week. The rest goes to admin tasks, marketing, invoicing, client communication, and professional development. New freelancers often overestimate billable time.',
+  },
+  {
+    question: 'Should I charge different rates for different clients?',
+    answer:
+      'Yes, many successful freelancers use value-based pricing. You might charge more for rush jobs, complex projects, or clients where your work generates significant ROI. Some freelancers also offer retainer discounts for long-term clients.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'YouTube AdSense Calculator',
+    description: 'Estimate your YouTube earnings based on views and niche',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Calculate how long to reach your financial goal',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Freelancer Hourly Rate Calculator - Find Your Ideal Rate"
+  description="Calculate the perfect freelance hourly rate based on your income goals, expenses, and taxes. Free tool for freelancers and consultants."
+  calculatorName="Freelancer Hourly Rate Calculator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="hourly-rate-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <FreelancerRateCalc client:load />
+</CalculatorLayout>
