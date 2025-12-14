@@ -9,13 +9,20 @@ calcverse/
 │   │   ├── calculators/          # React calculator components
 │   │   │   ├── FreelancerRateCalc.tsx
 │   │   │   ├── YouTubeAdSenseCalc.tsx
-│   │   │   └── SideHustleGoalCalc.tsx
+│   │   │   ├── SideHustleGoalCalc.tsx
+│   │   │   ├── PatreonCalc.tsx
+│   │   │   ├── EtsyFeesCalc.tsx
+│   │   │   ├── SubstackCalc.tsx
+│   │   │   ├── DoorDashCalc.tsx
+│   │   │   ├── UberLyftCalc.tsx
+│   │   │   └── AirbnbProfitCalc.tsx
 │   │   ├── ui/
 │   │   │   ├── inputs/           # Reusable input components
 │   │   │   │   ├── NumberInput.tsx
 │   │   │   │   ├── CurrencyInput.tsx
 │   │   │   │   ├── SliderInput.tsx
-│   │   │   │   └── DropdownInput.tsx
+│   │   │   │   ├── DropdownInput.tsx
+│   │   │   │   └── ModeToggle.tsx     # Quick/Advanced toggle
 │   │   │   └── results/          # Reusable result components
 │   │   │       ├── ResultCard.tsx
 │   │   │       └── ResultBreakdown.tsx
@@ -36,7 +43,13 @@ calcverse/
 │   │   ├── calculators/          # Pure calculation logic
 │   │   │   ├── freelancer-rate.ts
 │   │   │   ├── youtube-adsense.ts
-│   │   │   └── side-hustle-goal.ts
+│   │   │   ├── side-hustle-goal.ts
+│   │   │   ├── patreon-earnings.ts
+│   │   │   ├── etsy-fees.ts
+│   │   │   ├── substack-revenue.ts
+│   │   │   ├── doordash-earnings.ts
+│   │   │   ├── uber-lyft-earnings.ts
+│   │   │   └── airbnb-profit.ts
 │   │   ├── utils/
 │   │   │   ├── formatters.ts     # Number/currency formatting
 │   │   │   └── url-state.ts      # URL state encoding
@@ -49,12 +62,20 @@ calcverse/
 │   │   │   └── hourly-rate-calculator.astro
 │   │   ├── creator/
 │   │   │   ├── index.astro
-│   │   │   └── youtube-adsense-calculator.astro
+│   │   │   ├── youtube-adsense-calculator.astro
+│   │   │   ├── patreon-calculator.astro
+│   │   │   ├── etsy-fee-calculator.astro
+│   │   │   └── substack-calculator.astro
+│   │   ├── gig-economy/          # NEW CATEGORY
+│   │   │   ├── index.astro
+│   │   │   ├── doordash-calculator.astro
+│   │   │   ├── uber-lyft-calculator.astro
+│   │   │   └── airbnb-calculator.astro
 │   │   ├── side-hustle/
 │   │   │   ├── index.astro
 │   │   │   └── time-to-goal-calculator.astro
 │   │   └── embed/
-│   │       └── [...slug].astro   # Embed routes
+│   │       └── [...slug].astro   # Embed routes (9 calculators)
 │   └── styles/
 │       └── global.css            # Tailwind + custom theme
 ├── public/
@@ -107,12 +128,16 @@ url.searchParams.set('s', encoded);
 
 // Decode state from URL
 const decoded = JSON.parse(atob(encoded));
+
+// Mode (Quick/Advanced) is also stored in URL
+url.searchParams.set('mode', 'advanced'); // or omit for 'quick'
 ```
 
 Every calculator:
 1. Reads initial state from URL on mount
 2. Updates URL when state changes
 3. Generates shareable links with state
+4. Persists Quick/Advanced mode preference in URL
 
 ### 3. SEO Infrastructure
 

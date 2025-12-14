@@ -1,24 +1,38 @@
 # CALCVERSE - Project Overview
 
-> **Last Updated**: 2025-12-13
-> **Current Phase**: Phase 1 Complete - Ready for Phase 2
-> **Status**: 3 calculators live, ready to deploy
+> **Last Updated**: 2025-12-14
+> **Current Phase**: Phase 2 Complete - Ready for Phase 3
+> **Status**: 9 calculators live, ready to deploy
 
 ---
 
 ## Quick Status
 
-| Metric | Current | Phase 2 Target |
+| Metric | Current | Phase 3 Target |
 |--------|---------|----------------|
-| Calculators Live | 3 | 15 |
-| Categories | 3 | 4 |
-| Build Size | 460KB | <1MB |
+| Calculators Live | 9 | 15+ |
+| Categories | 4 | 5 |
+| Build Size | ~600KB | <1MB |
 | Deployment | Ready | Cloudflare Pages |
 
 **Live Calculators:**
-1. Freelancer Hourly Rate (`/freelance/hourly-rate-calculator`)
+
+### Freelance (1)
+1. Freelancer Hourly Rate (`/freelance/hourly-rate-calculator`) - *with Quick/Advanced mode*
+
+### Creator (4)
 2. YouTube AdSense Revenue (`/creator/youtube-adsense-calculator`)
-3. Side Hustle Time to Goal (`/side-hustle/time-to-goal-calculator`)
+3. Patreon Earnings (`/creator/patreon-calculator`)
+4. Etsy Fee Calculator (`/creator/etsy-fee-calculator`)
+5. Substack Revenue (`/creator/substack-calculator`)
+
+### Gig Economy (3) - NEW CATEGORY
+6. DoorDash Earnings (`/gig-economy/doordash-calculator`)
+7. Uber/Lyft Driver Earnings (`/gig-economy/uber-lyft-calculator`)
+8. Airbnb Profit (`/gig-economy/airbnb-calculator`)
+
+### Side Hustle (1)
+9. Side Hustle Time to Goal (`/side-hustle/time-to-goal-calculator`)
 
 ---
 
@@ -80,26 +94,45 @@ npm run preview  # Preview production build
 - [x] Embed system
 - [x] URL state sharing
 
-### Phase 2: Core Calculators (NEXT)
-- [ ] Add 12 more calculators (15 total)
-- [ ] Category landing pages (basic versions exist)
+### Phase 2: Core Calculators ✅ COMPLETE
+- [x] Quick/Advanced mode toggle pattern
+- [x] New Gig Economy category (emerald color)
+- [x] 6 new calculators (Patreon, Etsy, Substack, DoorDash, Uber/Lyft, Airbnb)
+- [x] All calculators with Quick/Advanced mode
+- [x] Updated navigation and category pages
+- [x] Build passing (23 pages)
+
+### Phase 3: Deployment & Monetization (NEXT)
 - [ ] Deploy to Cloudflare Pages
 - [ ] Submit sitemap to Google Search Console
-
-### Phase 3: Monetization
 - [ ] Apply for Google AdSense
 - [ ] Add ad placements
 - [ ] Set up affiliate links
 - [ ] Add Plausible analytics
 
 ### Phase 4: Scale
-- [ ] Expand to 30+ calculators
+- [ ] Expand to 15+ calculators
+- [ ] Add Personal Finance category
 - [ ] Programmatic SEO variations
 - [ ] Backlink outreach
 
 ---
 
 ## Session Log
+
+### 2025-12-14 - Phase 2 Implementation
+- Added Quick/Advanced mode pattern to calculators
+- Created new Gig Economy category with emerald color scheme
+- Built 6 new calculators:
+  - Patreon Earnings (Creator)
+  - Etsy Fee Calculator (Creator)
+  - Substack Revenue (Creator)
+  - DoorDash Earnings (Gig Economy)
+  - Uber/Lyft Driver Earnings (Gig Economy)
+  - Airbnb Profit (Gig Economy)
+- Updated ResultCard and ResultBreakdown for 'gig' category
+- All calculators support Quick/Advanced mode with URL persistence
+- Build now produces 23 pages
 
 ### 2025-12-13 - Phase 1 Implementation
 - Built complete Astro project from scratch
@@ -119,26 +152,29 @@ npm run preview  # Preview production build
 
 ## Calculator Backlog
 
-### Priority 1 - Phase 2
-4. Freelancer quarterly tax estimator
-5. W2 vs 1099 comparison calculator
-6. Etsy seller fee calculator
-7. Twitch subscriber revenue calculator
-8. Patreon take-home calculator
-9. Uber/Lyft net earnings calculator
+### Priority 1 - Phase 3 (Freelance Focus)
+- Quarterly Tax Estimator
+- W2 vs 1099 Comparison
+- Project Rate Calculator
+- Freelance Retirement Planner
 
-### Priority 2 - Phase 2
-10. Airbnb profit calculator
-11. FIRE runway calculator
-12. Emergency fund calculator
-13. Rent vs Buy calculator
-14. DoorDash earnings calculator
-15. Subscription audit calculator
+### Priority 2 - Phase 3 (Creator & Gig)
+- Twitch Revenue Calculator
+- Ko-fi Earnings Calculator
+- TaskRabbit Calculator
+- Instacart Shopper Calculator
+
+### Priority 3 - Personal Finance (New Category)
+- FIRE Runway Calculator
+- Emergency Fund Calculator
+- Rent vs Buy Calculator
+- Subscription Audit Calculator
 
 ### Future Ideas
 - 3D printing cost calculator
 - Podcast hosting cost comparison
-- Newsletter revenue estimator
 - Stock option value calculator
 - Crypto tax estimator
 - Solar panel ROI calculator
+- Amazon Flex Calculator
+- Turo Car Rental Calculator

@@ -1,0 +1,61 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { SubstackCalc } from '@components/calculators/SubstackCalc';
+
+const faqs = [
+  {
+    question: 'How much does Substack take from creators?',
+    answer:
+      'Substack takes 10% of your revenue. Stripe payment processing adds another ~2.9% + $0.30 per transaction. Total fees are typically 12-14% of gross revenue, depending on your average transaction size.',
+  },
+  {
+    question: 'What\'s a good Substack conversion rate?',
+    answer:
+      'Most newsletters convert 2-5% of free subscribers to paid annually. Top performers hit 8-10%. Conversion depends on content value, audience quality, and pricing. $5-10/month is the sweet spot for most niches.',
+  },
+  {
+    question: 'How much do Substack writers make?',
+    answer:
+      'It varies wildly. The top 10 Substacks each make $1M+/year. Writers with 500 paid subscribers at $5/month earn ~$25K/year after fees. Most writers make under $10K/year. Build a large, engaged free list first.',
+  },
+  {
+    question: 'Should I offer annual subscriptions on Substack?',
+    answer:
+      'Yes! Annual subscribers pay 10 months upfront (with the typical 2-month discount) and churn at about 1/3 the rate of monthly subscribers. Aim for 30-50% of subscribers on annual plans.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Patreon Earnings',
+    description: 'Calculate membership platform earnings',
+    href: '/creator/patreon-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'YouTube AdSense Revenue',
+    description: 'Estimate your YouTube ad earnings',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Calculate your ideal freelance rate',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Substack Calculator - Newsletter Revenue Calculator"
+  description="Calculate your Substack newsletter earnings after fees. Project subscriber growth and see your net take-home from paid subscriptions."
+  calculatorName="Substack Revenue Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="substack-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <SubstackCalc client:load />
+</CalculatorLayout>

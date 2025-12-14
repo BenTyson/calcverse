@@ -12,24 +12,33 @@ interface Props {
 }
 
 const { calculators, title = 'Related Calculators' } = Astro.props;
+
+// Category color mappings
+const categoryColors: Record<string, string> = {
+  'Freelance': 'text-freelance-600 bg-freelance-50',
+  'Creator': 'text-creator-600 bg-creator-50',
+  'Gig Economy': 'text-gig-600 bg-gig-50',
+  'Side Hustle': 'text-sidehustle-600 bg-sidehustle-50',
+  'Finance': 'text-finance-600 bg-finance-50',
+};
 ---
 
 {calculators.length > 0 && (
-  <section class="mt-12">
-    <h2 class="text-xl font-bold text-gray-900 mb-4">{title}</h2>
+  <section class="mt-10">
+    <h2 class="heading-md text-neutral-900 mb-6">{title}</h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {calculators.map((calc) => (
         <a
           href={calc.href}
-          class="block p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-md transition-all group"
+          class="group block p-5 bg-white rounded-2xl border border-neutral-100 hover:border-neutral-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
         >
-          <span class="text-xs font-medium text-brand-600 uppercase tracking-wide">
+          <span class={`inline-block text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md ${categoryColors[calc.category] || 'text-neutral-600 bg-neutral-100'}`}>
             {calc.category}
           </span>
-          <h3 class="font-semibold text-gray-900 mt-1 group-hover:text-brand-600 transition-colors">
+          <h3 class="font-bold text-neutral-900 mt-3 group-hover:text-primary-600 transition-colors">
             {calc.name}
           </h3>
-          <p class="text-sm text-gray-600 mt-1">{calc.description}</p>
+          <p class="text-sm text-neutral-500 mt-2 leading-relaxed">{calc.description}</p>
         </a>
       ))}
     </div>

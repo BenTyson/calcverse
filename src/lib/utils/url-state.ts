@@ -17,7 +17,8 @@ export function decodeState<T extends Record<string, unknown>>(
 }
 
 export function updateUrlState<T extends Record<string, unknown>>(
-  state: T
+  state: T,
+  mode?: 'quick' | 'advanced'
 ): void {
   if (typeof window === 'undefined') return;
 
@@ -26,6 +27,14 @@ export function updateUrlState<T extends Record<string, unknown>>(
 
   const url = new URL(window.location.href);
   url.searchParams.set('s', encoded);
+
+  // Include mode in URL if advanced (quick is default, so omit it)
+  if (mode === 'advanced') {
+    url.searchParams.set('mode', 'advanced');
+  } else {
+    url.searchParams.delete('mode');
+  }
+
   window.history.replaceState({}, '', url.toString());
 }
 
@@ -43,9 +52,25 @@ export function getInitialState<T extends Record<string, unknown>>(
   return decoded ? { ...defaults, ...decoded } : defaults;
 }
 
-export function getShareUrl(baseUrl: string, state: Record<string, unknown>): string {
+export function getInitialMode(): 'quick' | 'advanced' {
+  if (typeof window === 'undefined') return 'quick';
+
+  const url = new URL(window.location.href);
+  return url.searchParams.get('mode') === 'advanced' ? 'advanced' : 'quick';
+}
+
+export function getShareUrl(
+  baseUrl: string,
+  state: Record<string, unknown>,
+  mode?: 'quick' | 'advanced'
+): string {
   const encoded = encodeState(state);
   const url = new URL(baseUrl);
   url.searchParams.set('s', encoded);
+
+  if (mode === 'advanced') {
+    url.searchParams.set('mode', 'advanced');
+  }
+
   return url.toString();
 }

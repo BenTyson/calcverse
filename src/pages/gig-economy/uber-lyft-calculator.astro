@@ -1,0 +1,61 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { UberLyftCalc } from '@components/calculators/UberLyftCalc';
+
+const faqs = [
+  {
+    question: 'How much do Uber drivers really make per hour?',
+    answer:
+      'After expenses, most Uber/Lyft drivers earn $10-20/hour net. Gross earnings of $20-30/hour are reduced by gas, maintenance, and depreciation. Location, hours worked, and vehicle efficiency greatly impact take-home pay.',
+  },
+  {
+    question: 'How much does driving for Uber cost per mile?',
+    answer:
+      'Total vehicle costs average $0.30-0.50 per mile including gas (~$0.12-0.18/mile), depreciation (~$0.15/mile), and maintenance (~$0.05-0.10/mile). Use the IRS rate of $0.67/mile as a benchmark—if your earnings per mile are lower, you may be losing money.',
+  },
+  {
+    question: 'Is Uber or Lyft better for drivers?',
+    answer:
+      'Pay is similar between platforms. Most successful drivers use both apps simultaneously to minimize downtime. Uber has more ride volume in most markets, while Lyft sometimes offers better bonuses. Test both in your market.',
+  },
+  {
+    question: 'How do I calculate my true Uber earnings?',
+    answer:
+      'True earnings = Gross pay - (Gas + Maintenance + Depreciation + Self-employment tax). Don\'t forget you pay 15.3% self-employment tax on net earnings. Track all miles and expenses for accurate calculations.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'DoorDash Earnings',
+    description: 'Calculate delivery driver earnings',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Airbnb Profit',
+    description: 'Calculate short-term rental income',
+    href: '/gig-economy/airbnb-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Uber & Lyft Calculator - Calculate Your True Driver Earnings"
+  description="Calculate your real Uber and Lyft earnings after gas, maintenance, and depreciation. See your true hourly rate and annual income potential."
+  calculatorName="Uber/Lyft Driver Earnings Calculator"
+  category="Gig Economy"
+  categorySlug="gig-economy"
+  slug="uber-lyft-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <UberLyftCalc client:load />
+</CalculatorLayout>

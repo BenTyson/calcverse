@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://calcverse.example.com',
+  site: 'https://calcverse-production.up.railway.app',
   integrations: [
     react(),
     sitemap({

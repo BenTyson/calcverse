@@ -1,0 +1,61 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { PatreonCalc } from '@components/calculators/PatreonCalc';
+
+const faqs = [
+  {
+    question: 'How much does Patreon take from creators?',
+    answer:
+      'Patreon takes between 5-12% depending on your plan: Lite (5%), Pro (8%), or Premium (12%). On top of this, payment processing fees apply (typically 2.9% + $0.30 per transaction). For most creators, total fees range from 8-15% of gross earnings.',
+  },
+  {
+    question: 'What is a good Patreon churn rate?',
+    answer:
+      'A healthy Patreon churn rate is 3-7% monthly. Above 10% indicates retention issues. To reduce churn, engage regularly with patrons, deliver promised content consistently, and create a sense of community. Some churn is normal—people\'s financial situations change.',
+  },
+  {
+    question: 'How much can you realistically make on Patreon?',
+    answer:
+      'Earnings vary wildly. Most creators with 100+ patrons earn $500-$2,000/month. Top creators make $50,000+/month. The key is conversion rate—typically 1-5% of your audience will become paying patrons. Focus on building a loyal audience first.',
+  },
+  {
+    question: 'Which Patreon plan should I choose?',
+    answer:
+      'Start with Lite (5%) if you just need basic features. Choose Pro (8%) for most creators—it includes analytics, merch integration, and promotional tools. Premium (12%) is for larger creators needing team accounts and dedicated support.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'YouTube AdSense Revenue',
+    description: 'Estimate your YouTube ad earnings',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Substack Revenue',
+    description: 'Calculate newsletter subscription earnings',
+    href: '/creator/substack-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Patreon Calculator - Estimate Your Creator Earnings"
+  description="Calculate your Patreon earnings after fees. See how much you'll actually take home based on patron count, pledge amount, and plan tier."
+  calculatorName="Patreon Earnings Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="patreon-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <PatreonCalc client:load />
+</CalculatorLayout>

@@ -3,35 +3,45 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 
 const calculators = [
   {
-    name: 'Side Hustle Time to Goal Calculator',
-    description: 'Calculate how long your side hustle will take to reach your financial goal',
-    href: '/side-hustle/time-to-goal-calculator',
+    name: 'Uber/Lyft Driver Earnings Calculator',
+    description: 'Calculate your true rideshare earnings after gas, maintenance, and depreciation',
+    href: '/gig-economy/uber-lyft-calculator',
+  },
+  {
+    name: 'DoorDash/Delivery Earnings Calculator',
+    description: 'Track your delivery earnings and calculate your effective hourly rate',
+    href: '/gig-economy/doordash-calculator',
+  },
+  {
+    name: 'Airbnb Profit Calculator',
+    description: 'Estimate your short-term rental profit after all fees and expenses',
+    href: '/gig-economy/airbnb-calculator',
   },
 ];
 
 const upcomingCalculators = [
-  'Gig Economy Earnings Calculator',
-  'Side Income Tax Estimator',
-  'Multiple Income Stream Planner',
-  'Side Hustle vs Full-Time Comparison',
+  'TaskRabbit Earnings Calculator',
+  'Instacart Shopper Calculator',
+  'Amazon Flex Calculator',
+  'Turo Car Rental Calculator',
 ];
 ---
 
 <BaseLayout
-  title="Side Hustle Calculators - Plan Your Goals | Calcverse"
-  description="Free calculators for side hustlers. Plan your path to financial goals and track your progress."
+  title="Gig Economy Calculators - Rideshare, Delivery & Rental | Calcverse"
+  description="Free calculators for gig workers. Calculate your true earnings for Uber, Lyft, DoorDash, and Airbnb after all expenses."
 >
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-sidehustle-500 to-sidehustle-600 text-white py-16 md:py-20">
+  <section class="bg-gradient-to-br from-gig-500 to-gig-600 text-white py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-6">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       </div>
-      <h1 class="heading-lg mb-4">Side Hustle Calculators</h1>
+      <h1 class="heading-lg mb-4">Gig Economy Calculators</h1>
       <p class="text-xl text-white/80 max-w-2xl mx-auto">
-        Tools to help you plan and achieve your side hustle goals
+        Tools for rideshare drivers, delivery workers, and short-term rental hosts
       </p>
     </div>
   </section>
@@ -43,13 +53,13 @@ const upcomingCalculators = [
         {calculators.map((calc) => (
           <a
             href={calc.href}
-            class="group block p-6 bg-white rounded-2xl border border-neutral-100 hover:border-sidehustle-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            class="group block p-6 bg-white rounded-2xl border border-neutral-100 hover:border-gig-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
-            <h2 class="font-bold text-xl text-neutral-900 group-hover:text-sidehustle-600 transition-colors">
+            <h2 class="font-bold text-xl text-neutral-900 group-hover:text-gig-600 transition-colors">
               {calc.name}
             </h2>
             <p class="text-neutral-600 mt-2 leading-relaxed">{calc.description}</p>
-            <span class="inline-flex items-center text-sidehustle-600 font-semibold mt-4 group-hover:gap-2 transition-all">
+            <span class="inline-flex items-center text-gig-600 font-semibold mt-4 group-hover:gap-2 transition-all">
               Use Calculator
               <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -62,8 +72,8 @@ const upcomingCalculators = [
       <!-- Coming Soon -->
       <div class="mt-12 card-elevated p-6">
         <h3 class="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-sidehustle-500 animate-pulse"></span>
-          More Side Hustle Calculators Coming Soon
+          <span class="w-2 h-2 rounded-full bg-gig-500 animate-pulse"></span>
+          More Gig Economy Calculators Coming Soon
         </h3>
         <ul class="text-neutral-600 space-y-2">
           {upcomingCalculators.map((calc) => (

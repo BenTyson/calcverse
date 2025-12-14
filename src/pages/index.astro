@@ -6,29 +6,46 @@ const categories = [
     name: 'Freelance',
     description: 'Calculate rates, taxes, and compare employment options',
     href: '/freelance',
-    icon: '💼',
-    color: 'bg-blue-50 border-blue-200 hover:border-blue-400',
+    gradient: 'from-freelance-500 to-freelance-600',
+    bgLight: 'bg-freelance-50',
+    borderColor: 'border-freelance-100 hover:border-freelance-300',
+    textColor: 'text-freelance-600',
   },
   {
     name: 'Creator',
     description: 'Estimate revenue from YouTube, Twitch, and more',
     href: '/creator',
-    icon: '🎬',
-    color: 'bg-red-50 border-red-200 hover:border-red-400',
+    gradient: 'from-creator-500 to-creator-600',
+    bgLight: 'bg-creator-50',
+    borderColor: 'border-creator-100 hover:border-creator-300',
+    textColor: 'text-creator-600',
+  },
+  {
+    name: 'Gig Economy',
+    description: 'Track earnings for rideshare, delivery, and rentals',
+    href: '/gig-economy',
+    gradient: 'from-gig-500 to-gig-600',
+    bgLight: 'bg-gig-50',
+    borderColor: 'border-gig-100 hover:border-gig-300',
+    textColor: 'text-gig-600',
   },
   {
     name: 'Side Hustle',
     description: 'Plan your path to financial goals',
     href: '/side-hustle',
-    icon: '🚀',
-    color: 'bg-green-50 border-green-200 hover:border-green-400',
+    gradient: 'from-sidehustle-500 to-sidehustle-600',
+    bgLight: 'bg-sidehustle-50',
+    borderColor: 'border-sidehustle-100 hover:border-sidehustle-300',
+    textColor: 'text-sidehustle-600',
   },
   {
     name: 'Personal Finance',
     description: 'FIRE planning, emergency funds, and budgeting',
     href: '/personal-finance',
-    icon: '💰',
-    color: 'bg-yellow-50 border-yellow-200 hover:border-yellow-400',
+    gradient: 'from-finance-500 to-finance-600',
+    bgLight: 'bg-finance-50',
+    borderColor: 'border-finance-100',
+    textColor: 'text-finance-600',
     comingSoon: true,
   },
 ];
@@ -39,18 +56,21 @@ const featuredCalculators = [
     description: 'Calculate your ideal rate based on income goals, taxes, and expenses',
     href: '/freelance/hourly-rate-calculator',
     category: 'Freelance',
+    categoryColor: 'text-freelance-600 bg-freelance-50',
   },
   {
     name: 'YouTube AdSense Revenue',
     description: 'Estimate earnings based on views, niche, and audience location',
     href: '/creator/youtube-adsense-calculator',
     category: 'Creator',
+    categoryColor: 'text-creator-600 bg-creator-50',
   },
   {
     name: 'Side Hustle Time to Goal',
     description: 'Plan how long to reach your financial target',
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
+    categoryColor: 'text-sidehustle-600 bg-sidehustle-50',
   },
 ];
 ---
@@ -59,133 +79,195 @@ const featuredCalculators = [
   title="Calcverse - Free Calculators for Freelancers, Creators & Side Hustlers"
   description="Free financial calculators for freelancers, content creators, and side hustlers. Calculate rates, estimate revenue, and plan your path to financial goals."
 >
-  <section class="bg-gradient-to-b from-brand-600 to-brand-700 text-white py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-        Smart Calculators for
-        <span class="text-brand-200">Smart Earners</span>
-      </h1>
-      <p class="text-xl md:text-2xl text-brand-100 max-w-3xl mx-auto mb-8">
-        Free tools to help freelancers, creators, and side hustlers make better financial decisions.
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="#calculators"
-          class="px-6 py-3 bg-white text-brand-600 font-semibold rounded-lg hover:bg-brand-50 transition-colors"
-        >
-          Explore Calculators
-        </a>
-        <a
-          href="/freelance/hourly-rate-calculator"
-          class="px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg border border-brand-400 hover:bg-brand-400 transition-colors"
-        >
-          Try Hourly Rate Calculator
-        </a>
+  <!-- Hero Section -->
+  <section class="bg-mesh py-20 md:py-32 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <!-- Announcement Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-neutral-200 shadow-sm mb-8">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+          </span>
+          <span class="text-sm font-medium text-neutral-600">New calculators added monthly</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="heading-xl text-neutral-900 mb-6">
+          Smart calculators for<br />
+          <span class="text-gradient">smart earners</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-xl text-neutral-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Free tools to help freelancers, creators, and side hustlers make smarter financial decisions.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="#calculators"
+            class="px-8 py-4 bg-neutral-900 text-white font-semibold rounded-xl hover:bg-neutral-800 transition-all duration-200 shadow-lg shadow-neutral-900/25"
+          >
+            Explore Calculators
+          </a>
+          <a
+            href="/freelance/hourly-rate-calculator"
+            class="px-8 py-4 bg-white text-neutral-900 font-semibold rounded-xl border border-neutral-200 hover:border-neutral-300 hover:shadow-lg transition-all duration-200"
+          >
+            Try Rate Calculator
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-gray-50" id="categories">
+  <!-- Categories Section -->
+  <section class="py-20 bg-white" id="categories">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
-        Browse by Category
-      </h2>
-      <p class="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
-        Find the right calculator for your situation
-      </p>
+      <div class="text-center mb-14">
+        <h2 class="heading-lg text-neutral-900 mb-4">
+          Browse by Category
+        </h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">
+          Find the right calculator for your situation
+        </p>
+      </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {categories.map((cat) => (
           <a
             href={cat.comingSoon ? '#' : cat.href}
-            class={`block p-6 rounded-xl border-2 transition-all ${cat.color} ${
-              cat.comingSoon ? 'opacity-60 cursor-not-allowed' : 'hover:shadow-lg'
+            class={`group block p-6 rounded-2xl border bg-white transition-all duration-300 ${cat.borderColor} ${
+              cat.comingSoon ? 'opacity-60 cursor-not-allowed' : 'hover:shadow-xl hover:-translate-y-1'
             }`}
           >
-            <span class="text-3xl">{cat.icon}</span>
-            <h3 class="font-semibold text-gray-900 mt-3 flex items-center gap-2">
+            <!-- Gradient Icon Square -->
+            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${cat.gradient} mb-4`}></div>
+
+            <h3 class="font-semibold text-neutral-900 text-lg flex items-center gap-2">
               {cat.name}
               {cat.comingSoon && (
-                <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full">
+                <span class="text-xs bg-neutral-100 text-neutral-500 px-2 py-0.5 rounded-full font-medium">
                   Soon
                 </span>
               )}
             </h3>
-            <p class="text-sm text-gray-600 mt-1">{cat.description}</p>
+            <p class="text-sm text-neutral-500 mt-2 leading-relaxed">{cat.description}</p>
+
+            {!cat.comingSoon && (
+              <div class={`mt-4 flex items-center gap-1 text-sm font-medium ${cat.textColor} opacity-0 group-hover:opacity-100 transition-opacity`}>
+                <span>Explore</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            )}
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-white" id="calculators">
+  <!-- Featured Calculators Section -->
+  <section class="py-20 bg-neutral-50" id="calculators">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
-        Featured Calculators
-      </h2>
-      <p class="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
-        Our most popular tools to help you make smarter decisions
-      </p>
+      <div class="text-center mb-14">
+        <h2 class="heading-lg text-neutral-900 mb-4">
+          Featured Calculators
+        </h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">
+          Our most popular tools to help you make smarter decisions
+        </p>
+      </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-3 gap-8">
         {featuredCalculators.map((calc) => (
           <a
             href={calc.href}
-            class="group block p-6 bg-white rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-lg transition-all"
+            class="group block p-6 bg-white rounded-2xl border border-neutral-100 hover:border-neutral-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
-            <span class="text-xs font-medium text-brand-600 uppercase tracking-wide">
+            <span class={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full ${calc.categoryColor}`}>
               {calc.category}
             </span>
-            <h3 class="font-semibold text-gray-900 text-lg mt-2 group-hover:text-brand-600 transition-colors">
+            <h3 class="font-bold text-neutral-900 text-xl mt-4 group-hover:text-primary-600 transition-colors">
               {calc.name}
             </h3>
-            <p class="text-gray-600 mt-2">{calc.description}</p>
-            <span class="inline-flex items-center text-brand-600 font-medium mt-4 group-hover:gap-2 transition-all">
-              Try it free
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <p class="text-neutral-500 mt-3 leading-relaxed">{calc.description}</p>
+            <div class="mt-6 flex items-center gap-2 text-primary-600 font-semibold">
+              <span>Try it free</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
-            </span>
+            </div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-gray-900 text-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">
-        Why Calcverse?
-      </h2>
-      <div class="grid md:grid-cols-3 gap-8 mt-10">
-        <div>
-          <div class="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <!-- Why Calcverse Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="heading-lg text-neutral-900 mb-4">
+          Why Calcverse?
+        </h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">
+          Built for modern earners who value speed, privacy, and simplicity
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-primary-500/25">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h3 class="font-semibold text-lg">Fast & Free</h3>
-          <p class="text-gray-400 mt-2">No sign-up required. Get instant results without any cost.</p>
+          <h3 class="font-bold text-lg text-neutral-900">Fast & Free</h3>
+          <p class="text-neutral-500 mt-3 leading-relaxed">No sign-up required. Get instant results without any cost.</p>
         </div>
-        <div>
-          <div class="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sidehustle-500 to-sidehustle-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-sidehustle-500/25">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
             </svg>
           </div>
-          <h3 class="font-semibold text-lg">Shareable Results</h3>
-          <p class="text-gray-400 mt-2">Share your calculations with a simple link. Embed on your site.</p>
+          <h3 class="font-bold text-lg text-neutral-900">Shareable Results</h3>
+          <p class="text-neutral-500 mt-3 leading-relaxed">Share your calculations with a simple link. Embed on your site.</p>
         </div>
-        <div>
-          <div class="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-creator-500 to-creator-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-creator-500/25">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h3 class="font-semibold text-lg">Privacy First</h3>
-          <p class="text-gray-400 mt-2">Your data stays in your browser. We don't store anything.</p>
+          <h3 class="font-bold text-lg text-neutral-900">Privacy First</h3>
+          <p class="text-neutral-500 mt-3 leading-relaxed">Your data stays in your browser. We don't store anything.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-neutral-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="heading-lg text-white mb-6">
+        Ready to make smarter decisions?
+      </h2>
+      <p class="text-neutral-400 text-lg mb-10 max-w-2xl mx-auto">
+        Join thousands of freelancers, creators, and side hustlers using Calcverse to plan their financial future.
+      </p>
+      <a
+        href="/freelance/hourly-rate-calculator"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-sidehustle-500 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-primary-500/25"
+      >
+        <span>Get Started Free</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
     </div>
   </section>
 </BaseLayout>

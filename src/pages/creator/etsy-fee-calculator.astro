@@ -1,0 +1,61 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { EtsyFeesCalc } from '@components/calculators/EtsyFeesCalc';
+
+const faqs = [
+  {
+    question: 'How much does Etsy take per sale?',
+    answer:
+      'Etsy takes approximately 10-12% per sale in standard fees: $0.20 listing fee, 6.5% transaction fee, and 3% + $0.25 payment processing. If you use Etsy Ads or Offsite Ads, fees can reach 20-25% or more.',
+  },
+  {
+    question: 'What is Etsy\'s offsite ads fee?',
+    answer:
+      'Offsite Ads is Etsy\'s program where they advertise your products on Google, Facebook, Instagram, and other platforms. You\'re charged 12% (or 15% for shops earning $10k+/year) only when a sale results from these ads. Shops under $10k can opt out.',
+  },
+  {
+    question: 'How do I price items on Etsy to make a profit?',
+    answer:
+      'A good formula: (Item Cost + Shipping Cost + Desired Profit) / (1 - Fee Rate). For example, if your costs are $10 and you want $15 profit with 12% fees: ($10 + $15) / 0.88 = $28.41. Always account for all Etsy fees in your pricing.',
+  },
+  {
+    question: 'Are Etsy fees worth it?',
+    answer:
+      'Etsy provides access to millions of buyers actively searching for handmade and vintage items. While fees are higher than self-hosted stores, the built-in traffic and trust often make it worthwhile, especially for new sellers. Many successful sellers use both Etsy and their own website.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Patreon Earnings',
+    description: 'Calculate your creator subscription earnings',
+    href: '/creator/patreon-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'YouTube AdSense Revenue',
+    description: 'Estimate your YouTube ad earnings',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Etsy Fee Calculator - Calculate Your True Profit"
+  description="Calculate Etsy seller fees including listing, transaction, payment processing, and advertising fees. See your actual profit per item."
+  calculatorName="Etsy Fee Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="etsy-fee-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <EtsyFeesCalc client:load />
+</CalculatorLayout>

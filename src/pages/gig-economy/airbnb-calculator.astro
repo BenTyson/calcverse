@@ -1,0 +1,61 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { AirbnbProfitCalc } from '@components/calculators/AirbnbProfitCalc';
+
+const faqs = [
+  {
+    question: 'How much can you make with Airbnb?',
+    answer:
+      'Profit varies wildly by location, property type, and occupancy. A spare room might net $500-1,500/month, while a full property in a desirable location can profit $2,000-5,000+/month. Subtract all expenses—many hosts overestimate profits by ignoring cleaning, supplies, and wear.',
+  },
+  {
+    question: 'What is a good Airbnb occupancy rate?',
+    answer:
+      'Professional hosts target 50-70% occupancy. Above 80% might mean you\'re underpriced. Below 40% often indicates pricing or listing issues. Occupancy varies seasonally—beach properties peak in summer, ski areas in winter.',
+  },
+  {
+    question: 'How much does Airbnb take from hosts?',
+    answer:
+      'Most hosts pay a 3% service fee per booking. Some markets use "simplified pricing" with 14-16% host fees (but lower guest fees). Payment processing is included. Compare with VRBO (3-5%) and Booking.com (15%) fees.',
+  },
+  {
+    question: 'What are typical Airbnb expenses?',
+    answer:
+      'Budget for: cleaning ($50-150/turnover), supplies ($100-200/month), utilities increase ($50-200/month), linens/towels replacement ($50-100/month), maintenance reserve (5-10% of revenue), and insurance ($100-300/month for STR coverage).',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Uber/Lyft Earnings',
+    description: 'Calculate rideshare driver earnings',
+    href: '/gig-economy/uber-lyft-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'DoorDash Earnings',
+    description: 'Calculate delivery driver earnings',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Airbnb Profit Calculator - Calculate Your STR Income"
+  description="Calculate your Airbnb rental profit after all fees and expenses. See your break-even occupancy rate and monthly/annual income potential."
+  calculatorName="Airbnb Profit Calculator"
+  category="Gig Economy"
+  categorySlug="gig-economy"
+  slug="airbnb-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <AirbnbProfitCalc client:load />
+</CalculatorLayout>

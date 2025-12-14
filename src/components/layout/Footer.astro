@@ -4,33 +4,46 @@ const currentYear = new Date().getFullYear();
 const categories = [
   { name: 'Freelance', href: '/freelance' },
   { name: 'Creator', href: '/creator' },
+  { name: 'Gig Economy', href: '/gig-economy' },
   { name: 'Side Hustle', href: '/side-hustle' },
 ];
 
 const calculators = [
-  { name: 'Hourly Rate', href: '/freelance/hourly-rate-calculator' },
-  { name: 'YouTube AdSense', href: '/creator/youtube-adsense-calculator' },
-  { name: 'Time to Goal', href: '/side-hustle/time-to-goal-calculator' },
+  { name: 'Hourly Rate Calculator', href: '/freelance/hourly-rate-calculator' },
+  { name: 'YouTube AdSense Calculator', href: '/creator/youtube-adsense-calculator' },
+  { name: 'Time to Goal Calculator', href: '/side-hustle/time-to-goal-calculator' },
 ];
 ---
 
-<footer class="bg-gray-900 text-gray-300">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<footer class="bg-neutral-950 text-neutral-400">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <!-- Brand -->
       <div class="md:col-span-2">
-        <span class="text-2xl font-bold text-white">Calcverse</span>
-        <p class="mt-3 text-gray-400 max-w-md">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 via-sidehustle-500 to-creator-500 flex items-center justify-center">
+            <span class="text-white font-bold text-sm">C</span>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-white">
+            Calcverse
+          </span>
+        </a>
+        <p class="mt-4 text-neutral-500 max-w-sm leading-relaxed">
           Free calculators for freelancers, creators, and side hustlers.
           Make smarter financial decisions with our simple, accurate tools.
         </p>
       </div>
 
+      <!-- Categories -->
       <div>
-        <h3 class="text-white font-semibold mb-3">Categories</h3>
-        <ul class="space-y-2">
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Categories</h3>
+        <ul class="space-y-3">
           {categories.map((cat) => (
             <li>
-              <a href={cat.href} class="hover:text-white transition-colors">
+              <a
+                href={cat.href}
+                class="text-neutral-400 hover:text-white transition-colors duration-200"
+              >
                 {cat.name}
               </a>
             </li>
@@ -38,12 +51,16 @@ const calculators = [
         </ul>
       </div>
 
+      <!-- Popular Calculators -->
       <div>
-        <h3 class="text-white font-semibold mb-3">Popular Calculators</h3>
-        <ul class="space-y-2">
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Popular</h3>
+        <ul class="space-y-3">
           {calculators.map((calc) => (
             <li>
-              <a href={calc.href} class="hover:text-white transition-colors">
+              <a
+                href={calc.href}
+                class="text-neutral-400 hover:text-white transition-colors duration-200"
+              >
                 {calc.name}
               </a>
             </li>
@@ -52,8 +69,15 @@ const calculators = [
       </div>
     </div>
 
-    <div class="mt-10 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-      <p>&copy; {currentYear} Calcverse. All rights reserved.</p>
+    <!-- Bottom -->
+    <div class="mt-12 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-neutral-500 text-sm">
+        &copy; {currentYear} Calcverse. All rights reserved.
+      </p>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/privacy" class="text-neutral-500 hover:text-white transition-colors">Privacy</a>
+        <a href="/terms" class="text-neutral-500 hover:text-white transition-colors">Terms</a>
+      </div>
     </div>
   </div>
 </footer>

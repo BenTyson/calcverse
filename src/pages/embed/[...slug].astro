@@ -3,11 +3,23 @@ import EmbedLayout from '@layouts/EmbedLayout.astro';
 import { FreelancerRateCalc } from '@components/calculators/FreelancerRateCalc';
 import { YouTubeAdSenseCalc } from '@components/calculators/YouTubeAdSenseCalc';
 import { SideHustleGoalCalc } from '@components/calculators/SideHustleGoalCalc';
+import { PatreonCalc } from '@components/calculators/PatreonCalc';
+import { EtsyFeesCalc } from '@components/calculators/EtsyFeesCalc';
+import { SubstackCalc } from '@components/calculators/SubstackCalc';
+import { DoorDashCalc } from '@components/calculators/DoorDashCalc';
+import { UberLyftCalc } from '@components/calculators/UberLyftCalc';
+import { AirbnbProfitCalc } from '@components/calculators/AirbnbProfitCalc';
 
 export function getStaticPaths() {
   return [
     { params: { slug: 'freelance/hourly-rate-calculator' } },
     { params: { slug: 'creator/youtube-adsense-calculator' } },
+    { params: { slug: 'creator/patreon-calculator' } },
+    { params: { slug: 'creator/etsy-fee-calculator' } },
+    { params: { slug: 'creator/substack-calculator' } },
+    { params: { slug: 'gig-economy/doordash-calculator' } },
+    { params: { slug: 'gig-economy/uber-lyft-calculator' } },
+    { params: { slug: 'gig-economy/airbnb-calculator' } },
     { params: { slug: 'side-hustle/time-to-goal-calculator' } },
   ];
 }
@@ -22,6 +34,30 @@ const calculators: Record<string, { title: string; component: string }> = {
   'creator/youtube-adsense-calculator': {
     title: 'YouTube AdSense Calculator',
     component: 'youtube',
+  },
+  'creator/patreon-calculator': {
+    title: 'Patreon Earnings Calculator',
+    component: 'patreon',
+  },
+  'creator/etsy-fee-calculator': {
+    title: 'Etsy Fee Calculator',
+    component: 'etsy',
+  },
+  'creator/substack-calculator': {
+    title: 'Substack Revenue Calculator',
+    component: 'substack',
+  },
+  'gig-economy/doordash-calculator': {
+    title: 'DoorDash Earnings Calculator',
+    component: 'doordash',
+  },
+  'gig-economy/uber-lyft-calculator': {
+    title: 'Uber/Lyft Earnings Calculator',
+    component: 'uberlyft',
+  },
+  'gig-economy/airbnb-calculator': {
+    title: 'Airbnb Profit Calculator',
+    component: 'airbnb',
   },
   'side-hustle/time-to-goal-calculator': {
     title: 'Side Hustle Time to Goal Calculator',
@@ -41,6 +77,12 @@ if (!calculator) {
     <h1 class="text-xl font-bold text-gray-900 mb-4">{calculator.title}</h1>
     {calculator.component === 'freelancer' && <FreelancerRateCalc client:load />}
     {calculator.component === 'youtube' && <YouTubeAdSenseCalc client:load />}
+    {calculator.component === 'patreon' && <PatreonCalc client:load />}
+    {calculator.component === 'etsy' && <EtsyFeesCalc client:load />}
+    {calculator.component === 'substack' && <SubstackCalc client:load />}
+    {calculator.component === 'doordash' && <DoorDashCalc client:load />}
+    {calculator.component === 'uberlyft' && <UberLyftCalc client:load />}
+    {calculator.component === 'airbnb' && <AirbnbProfitCalc client:load />}
     {calculator.component === 'sidehustle' && <SideHustleGoalCalc client:load />}
   </div>
 </EmbedLayout>

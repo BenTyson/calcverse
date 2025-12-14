@@ -8,11 +8,12 @@ A passive income calculator network targeting long-tail SEO keywords. Built with
 
 ## Current Status
 
-**Phase 1 COMPLETE** - 3 calculators live, ready to deploy to Cloudflare Pages.
+**Phase 2 COMPLETE** - 9 calculators live across 4 categories, ready to deploy to Cloudflare Pages.
 
 | What | Status |
 |------|--------|
-| Calculators | 3 live (target: 50) |
+| Calculators | 9 live (target: 15+) |
+| Categories | 4 (Freelance, Creator, Gig Economy, Side Hustle) |
 | Deployment | Ready (not yet deployed) |
 | Analytics | Not set up (add after domain) |
 | Monetization | Not set up (Phase 3) |
@@ -65,15 +66,29 @@ npm run preview
 
 ## Current Calculators
 
-1. **Freelancer Hourly Rate** - `/freelance/hourly-rate-calculator`
-2. **YouTube AdSense Revenue** - `/creator/youtube-adsense-calculator`
-3. **Side Hustle Time to Goal** - `/side-hustle/time-to-goal-calculator`
+### Freelance (1)
+1. **Freelancer Hourly Rate** - `/freelance/hourly-rate-calculator` *(Quick/Advanced mode)*
 
-## Next Steps (Phase 2)
+### Creator (4)
+2. **YouTube AdSense Revenue** - `/creator/youtube-adsense-calculator`
+3. **Patreon Earnings** - `/creator/patreon-calculator`
+4. **Etsy Fee Calculator** - `/creator/etsy-fee-calculator`
+5. **Substack Revenue** - `/creator/substack-calculator`
+
+### Gig Economy (3) - NEW
+6. **DoorDash Earnings** - `/gig-economy/doordash-calculator`
+7. **Uber/Lyft Driver Earnings** - `/gig-economy/uber-lyft-calculator`
+8. **Airbnb Profit** - `/gig-economy/airbnb-calculator`
+
+### Side Hustle (1)
+9. **Side Hustle Time to Goal** - `/side-hustle/time-to-goal-calculator`
+
+## Next Steps (Phase 3)
 
 1. Deploy to Cloudflare Pages
-2. Add 12 more calculators
-3. Submit sitemap to Google Search Console
+2. Submit sitemap to Google Search Console
+3. Apply for AdSense
+4. Add more calculators (Freelance focus)
 
 ## Need Help?
 

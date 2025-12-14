@@ -1,45 +1,56 @@
 ---
 const categories = [
-  { name: 'Freelance', href: '/freelance' },
-  { name: 'Creator', href: '/creator' },
-  { name: 'Side Hustle', href: '/side-hustle' },
+  { name: 'Freelance', href: '/freelance', color: 'freelance' },
+  { name: 'Creator', href: '/creator', color: 'creator' },
+  { name: 'Gig Economy', href: '/gig-economy', color: 'gig' },
+  { name: 'Side Hustle', href: '/side-hustle', color: 'sidehustle' },
 ];
 ---
 
-<header class="bg-white border-b border-gray-200">
+<header class="sticky top-0 z-50 glass border-b border-neutral-100">
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <a href="/" class="flex items-center gap-2">
-        <span class="text-2xl font-bold text-brand-600">Calcverse</span>
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 via-sidehustle-500 to-creator-500 flex items-center justify-center transition-transform group-hover:scale-105">
+          <span class="text-white font-bold text-sm">C</span>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-neutral-900">
+          Calc<span class="text-gradient">verse</span>
+        </span>
       </a>
 
-      <div class="hidden md:flex items-center gap-6">
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-1">
         {categories.map((cat) => (
           <a
             href={cat.href}
-            class="text-gray-600 hover:text-brand-600 font-medium transition-colors"
+            class="relative px-4 py-2 text-neutral-600 hover:text-neutral-900 font-medium transition-colors rounded-lg hover:bg-neutral-100"
           >
             {cat.name}
           </a>
         ))}
       </div>
 
+      <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 text-gray-600 hover:text-brand-600"
+        class="md:hidden p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-lg transition-colors"
         aria-label="Toggle menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path id="menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path id="menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
 
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4 pt-2 space-y-1">
       {categories.map((cat) => (
         <a
           href={cat.href}
-          class="block py-2 text-gray-600 hover:text-brand-600 font-medium"
+          class="block px-4 py-3 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 font-medium rounded-xl transition-colors"
         >
           {cat.name}
         </a>
@@ -51,7 +62,12 @@ const categories = [
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
+    openIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
   });
 </script>

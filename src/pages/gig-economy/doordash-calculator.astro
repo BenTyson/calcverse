@@ -1,0 +1,61 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { DoorDashCalc } from '@components/calculators/DoorDashCalc';
+
+const faqs = [
+  {
+    question: 'How much do DoorDash drivers make per hour?',
+    answer:
+      'DoorDash drivers typically earn $15-25/hour before expenses in most markets. After gas and vehicle costs, net earnings are usually $10-18/hour. Top dashers in busy markets during peak hours can earn $25-30+/hour gross.',
+  },
+  {
+    question: 'How much does DoorDash pay per delivery?',
+    answer:
+      'DoorDash base pay ranges from $2-10+ per delivery, depending on distance, time, and desirability. Most deliveries pay $2.50-4 base. Customer tips typically add $3-5, making total earnings $5-9 per delivery on average.',
+  },
+  {
+    question: 'Is DoorDash worth it after gas?',
+    answer:
+      'It depends on your vehicle efficiency and local gas prices. At $3.50/gal and 25 MPG, gas costs about $0.14/mile. For a 5-mile delivery earning $7, gas costs $0.70—still profitable. Use a fuel-efficient car and minimize dead miles to maximize earnings.',
+  },
+  {
+    question: 'How do I track mileage for DoorDash taxes?',
+    answer:
+      'Use apps like Everlance, Stride, or MileIQ to automatically track miles. The IRS allows $0.67/mile deduction in 2024. Track from when you turn on the app until you\'re done—including driving to hotspots. Keep records for 3 years.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Uber/Lyft Driver Earnings',
+    description: 'Calculate rideshare driver earnings',
+    href: '/gig-economy/uber-lyft-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Airbnb Profit',
+    description: 'Calculate short-term rental income',
+    href: '/gig-economy/airbnb-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="DoorDash Calculator - Calculate Your True Earnings"
+  description="Calculate your real DoorDash earnings after gas and expenses. See your effective hourly rate, weekly income, and mileage deductions."
+  calculatorName="DoorDash Earnings Calculator"
+  category="Gig Economy"
+  categorySlug="gig-economy"
+  slug="doordash-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <DoorDashCalc client:load />
+</CalculatorLayout>

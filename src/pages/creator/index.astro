@@ -7,6 +7,27 @@ const calculators = [
     description: 'Estimate your YouTube earnings based on views, niche, and audience location',
     href: '/creator/youtube-adsense-calculator',
   },
+  {
+    name: 'Patreon Earnings Calculator',
+    description: 'Calculate your Patreon take-home after fees based on patron count and plan tier',
+    href: '/creator/patreon-calculator',
+  },
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate your true profit per item after all Etsy fees and costs',
+    href: '/creator/etsy-fee-calculator',
+  },
+  {
+    name: 'Substack Revenue Calculator',
+    description: 'Calculate newsletter subscription revenue after fees with growth projections',
+    href: '/creator/substack-calculator',
+  },
+];
+
+const upcomingCalculators = [
+  'Twitch Revenue Calculator',
+  'Podcast Sponsorship Calculator',
+  'Ko-fi Earnings Calculator',
 ];
 ---
 
@@ -14,30 +35,37 @@ const calculators = [
   title="Creator Calculators - YouTube, Twitch & More | Calcverse"
   description="Free calculators for content creators. Estimate YouTube AdSense revenue, Twitch earnings, and more."
 >
-  <section class="bg-gradient-to-b from-red-600 to-red-700 text-white py-12">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-creator-500 to-creator-600 text-white py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">Creator Calculators</h1>
-      <p class="text-xl text-red-100">
+      <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-6">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h1 class="heading-lg mb-4">Creator Calculators</h1>
+      <p class="text-xl text-white/80 max-w-2xl mx-auto">
         Tools to help content creators estimate and maximize their revenue
       </p>
     </div>
   </section>
 
-  <section class="py-12">
+  <!-- Calculators List -->
+  <section class="py-16">
     <div class="max-w-4xl mx-auto px-4">
       <div class="grid gap-6">
         {calculators.map((calc) => (
           <a
             href={calc.href}
-            class="block p-6 bg-white rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-lg transition-all group"
+            class="group block p-6 bg-white rounded-2xl border border-neutral-100 hover:border-creator-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
-            <h2 class="font-semibold text-xl text-gray-900 group-hover:text-brand-600 transition-colors">
+            <h2 class="font-bold text-xl text-neutral-900 group-hover:text-creator-600 transition-colors">
               {calc.name}
             </h2>
-            <p class="text-gray-600 mt-2">{calc.description}</p>
-            <span class="inline-flex items-center text-brand-600 font-medium mt-4">
+            <p class="text-neutral-600 mt-2 leading-relaxed">{calc.description}</p>
+            <span class="inline-flex items-center text-creator-600 font-semibold mt-4 group-hover:gap-2 transition-all">
               Use Calculator
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </span>
@@ -45,13 +73,21 @@ const calculators = [
         ))}
       </div>
 
-      <div class="mt-12 bg-red-50 rounded-xl p-6">
-        <h3 class="font-semibold text-gray-900 mb-2">More Creator Calculators Coming Soon</h3>
-        <ul class="text-gray-600 space-y-1">
-          <li>Twitch Revenue Calculator</li>
-          <li>Patreon Earnings Estimator</li>
-          <li>Etsy Seller Fee Calculator</li>
-          <li>Podcast Sponsorship Calculator</li>
+      <!-- Coming Soon -->
+      <div class="mt-12 card-elevated p-6">
+        <h3 class="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-creator-500 animate-pulse"></span>
+          More Creator Calculators Coming Soon
+        </h3>
+        <ul class="text-neutral-600 space-y-2">
+          {upcomingCalculators.map((calc) => (
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              {calc}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
