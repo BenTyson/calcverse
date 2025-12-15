@@ -1,38 +1,50 @@
 # CALCVERSE - Project Overview
 
 > **Last Updated**: 2025-12-14
-> **Current Phase**: Phase 2 Complete - Ready for Phase 3
-> **Status**: 9 calculators live, ready to deploy
+> **Current Phase**: Phase 3 - Marketing & Growth
+> **Status**: 16 calculators live, deployed on Railway
 
 ---
 
 ## Quick Status
 
-| Metric | Current | Phase 3 Target |
+| Metric | Current | Next Milestone |
 |--------|---------|----------------|
-| Calculators Live | 9 | 15+ |
-| Categories | 4 | 5 |
-| Build Size | ~600KB | <1MB |
-| Deployment | Ready | Cloudflare Pages |
+| Calculators Live | 16 | 20 |
+| Categories | 4 | 5 (add Personal Finance) |
+| Total Pages | 39 | 45+ |
+| Deployment | Railway (live) | Custom domain |
+| Traffic | Awaiting indexing | 1,000 visits/month |
 
-**Live Calculators:**
+**Production URL:** `https://calcverse-production.up.railway.app`
 
-### Freelance (1)
-1. Freelancer Hourly Rate (`/freelance/hourly-rate-calculator`) - *with Quick/Advanced mode*
+---
 
-### Creator (4)
-2. YouTube AdSense Revenue (`/creator/youtube-adsense-calculator`)
-3. Patreon Earnings (`/creator/patreon-calculator`)
-4. Etsy Fee Calculator (`/creator/etsy-fee-calculator`)
-5. Substack Revenue (`/creator/substack-calculator`)
+## Live Calculators (16)
 
-### Gig Economy (3) - NEW CATEGORY
-6. DoorDash Earnings (`/gig-economy/doordash-calculator`)
-7. Uber/Lyft Driver Earnings (`/gig-economy/uber-lyft-calculator`)
-8. Airbnb Profit (`/gig-economy/airbnb-calculator`)
+### Freelance (4)
+1. Freelancer Hourly Rate (`/freelance/hourly-rate-calculator`)
+2. Quarterly Tax Estimator (`/freelance/quarterly-tax-calculator`)
+3. W2 vs 1099 Comparison (`/freelance/w2-vs-1099-calculator`)
+4. Project Rate Calculator (`/freelance/project-rate-calculator`)
+
+### Creator (7)
+5. YouTube AdSense Revenue (`/creator/youtube-adsense-calculator`)
+6. Twitch Revenue (`/creator/twitch-calculator`)
+7. Podcast Sponsorship (`/creator/podcast-calculator`)
+8. Patreon Earnings (`/creator/patreon-calculator`)
+9. Ko-fi Earnings (`/creator/kofi-calculator`)
+10. Etsy Fee Calculator (`/creator/etsy-fee-calculator`)
+11. Substack Revenue (`/creator/substack-calculator`)
+
+### Gig Economy (4)
+12. DoorDash Earnings (`/gig-economy/doordash-calculator`)
+13. Uber/Lyft Driver Earnings (`/gig-economy/uber-lyft-calculator`)
+14. Instacart Shopper (`/gig-economy/instacart-calculator`)
+15. Airbnb Profit (`/gig-economy/airbnb-calculator`)
 
 ### Side Hustle (1)
-9. Side Hustle Time to Goal (`/side-hustle/time-to-goal-calculator`)
+16. Side Hustle Time to Goal (`/side-hustle/time-to-goal-calculator`)
 
 ---
 
@@ -53,16 +65,16 @@
 
 ---
 
-## Technical Stack (FINAL - Do Not Change)
+## Technical Stack
 
 | Layer | Choice | Status |
 |-------|--------|--------|
-| Framework | Astro 5 | Implemented |
-| UI Components | React 19 | Implemented |
-| Styling | Tailwind CSS 4 | Implemented |
-| Hosting | Cloudflare Pages | Ready to deploy |
-| Analytics | Plausible | Pending (add after domain) |
-| Ads | Google AdSense | Pending (Phase 3) |
+| Framework | Astro 5 | ✅ Implemented |
+| UI Components | React 19 | ✅ Implemented |
+| Styling | Tailwind CSS 4 | ✅ Implemented |
+| Hosting | Railway | ✅ Deployed |
+| Analytics | Plausible | ⏳ Pending (add when traffic exists) |
+| Ads | Google AdSense | ⏳ Pending (need traffic first) |
 
 ---
 
@@ -76,7 +88,7 @@
 
 **Key Commands:**
 ```bash
-npm run dev      # Start development server
+npm run dev      # Start development server (localhost:4321)
 npm run build    # Build for production
 npm run preview  # Preview production build
 ```
@@ -97,84 +109,126 @@ npm run preview  # Preview production build
 ### Phase 2: Core Calculators ✅ COMPLETE
 - [x] Quick/Advanced mode toggle pattern
 - [x] New Gig Economy category (emerald color)
-- [x] 6 new calculators (Patreon, Etsy, Substack, DoorDash, Uber/Lyft, Airbnb)
+- [x] 13 additional calculators (16 total)
 - [x] All calculators with Quick/Advanced mode
 - [x] Updated navigation and category pages
-- [x] Build passing (23 pages)
+- [x] Build passing (39 pages)
 
-### Phase 3: Deployment & Monetization (NEXT)
-- [ ] Deploy to Cloudflare Pages
-- [ ] Submit sitemap to Google Search Console
-- [ ] Apply for Google AdSense
-- [ ] Add ad placements
-- [ ] Set up affiliate links
-- [ ] Add Plausible analytics
+### Phase 3: Marketing & Growth 🔄 IN PROGRESS
+- [x] Deploy to Railway
+- [x] Privacy Policy and Terms of Service pages
+- [x] Production URL configured in astro.config.mjs
+- [ ] **Submit sitemap to Google Search Console**
+- [ ] **Create 2-3 backlinks for initial SEO**
+- [ ] Wait for Google indexing (2-4 weeks)
+- [ ] Add email capture for newsletter
+- [ ] Apply for Google AdSense (when traffic >1000/month)
+- [ ] Add Plausible analytics (when traffic exists)
 
-### Phase 4: Scale
-- [ ] Expand to 15+ calculators
+### Phase 4: Scale (FUTURE)
 - [ ] Add Personal Finance category
+- [ ] Expand to 20+ calculators
 - [ ] Programmatic SEO variations
-- [ ] Backlink outreach
+- [ ] Affiliate link integration
+- [ ] Upgrade to Mediavine (when traffic >50K sessions/month)
 
 ---
 
-## Session Log
+## Immediate TODO (Priority Order)
 
-### 2025-12-14 - Phase 2 Implementation
-- Added Quick/Advanced mode pattern to calculators
-- Created new Gig Economy category with emerald color scheme
-- Built 6 new calculators:
-  - Patreon Earnings (Creator)
-  - Etsy Fee Calculator (Creator)
-  - Substack Revenue (Creator)
-  - DoorDash Earnings (Gig Economy)
-  - Uber/Lyft Driver Earnings (Gig Economy)
-  - Airbnb Profit (Gig Economy)
-- Updated ResultCard and ResultBreakdown for 'gig' category
-- All calculators support Quick/Advanced mode with URL persistence
-- Build now produces 23 pages
+### 1. SEO Setup (DO THIS FIRST)
+- [ ] Go to Google Search Console
+- [ ] Add property: `https://calcverse-production.up.railway.app`
+- [ ] Verify ownership (HTML meta tag method)
+- [ ] Submit sitemap: `/sitemap-index.xml`
 
-### 2025-12-13 - Phase 1 Implementation
-- Built complete Astro project from scratch
-- Implemented 3 pilot calculators with full functionality
-- Created reusable component library (inputs, results, layouts)
-- Set up SEO infrastructure (schema.org, sitemap, meta tags)
-- Built embed system for external sites
-- URL state sharing for shareable results
-- Project ready for deployment
+### 2. Initial Backlinks
+- [ ] Post on Reddit (r/freelance, r/sidehustle, r/youtubers)
+- [ ] Submit to Product Hunt
+- [ ] Share on relevant Twitter/X communities
 
-### 2025-12-13 - Initial Planning
-- Completed ideation and research
-- Named project "Calcverse"
-- Created initial planning document
+### 3. Monitor & Wait
+- [ ] Check Search Console weekly for indexing progress
+- [ ] Monitor for crawl errors
+- [ ] Note which calculators get impressions first
 
 ---
 
 ## Calculator Backlog
 
-### Priority 1 - Phase 3 (Freelance Focus)
-- Quarterly Tax Estimator
-- W2 vs 1099 Comparison
-- Project Rate Calculator
-- Freelance Retirement Planner
+### Next to Build (when ready)
+- TaskRabbit Earnings Calculator (Gig Economy)
+- Amazon Flex Calculator (Gig Economy)
+- Turo Car Rental Calculator (Gig Economy)
+- Gumroad Revenue Calculator (Creator)
+- Teachable Course Calculator (Creator)
 
-### Priority 2 - Phase 3 (Creator & Gig)
-- Twitch Revenue Calculator
-- Ko-fi Earnings Calculator
-- TaskRabbit Calculator
-- Instacart Shopper Calculator
-
-### Priority 3 - Personal Finance (New Category)
+### Personal Finance Category (Future)
 - FIRE Runway Calculator
 - Emergency Fund Calculator
 - Rent vs Buy Calculator
 - Subscription Audit Calculator
 
 ### Future Ideas
-- 3D printing cost calculator
-- Podcast hosting cost comparison
-- Stock option value calculator
-- Crypto tax estimator
-- Solar panel ROI calculator
-- Amazon Flex Calculator
-- Turo Car Rental Calculator
+- Freelance Retirement Planner
+- Stock Option Calculator
+- Crypto Tax Estimator
+- Solar Panel ROI Calculator
+
+---
+
+## Session Log
+
+### 2025-12-14 - Phase 3 Setup + Calculator Expansion
+- Deployed to Railway via GitHub integration
+- Updated astro.config.mjs with production URL
+- Added Privacy Policy and Terms of Service pages
+- Built 7 new calculators:
+  - Quarterly Tax Estimator (Freelance)
+  - W2 vs 1099 Comparison (Freelance)
+  - Project Rate Calculator (Freelance)
+  - Twitch Revenue (Creator)
+  - Ko-fi Earnings (Creator)
+  - Podcast Sponsorship (Creator)
+  - Instacart Shopper (Gig Economy)
+- Total now: 16 calculators, 39 pages
+
+### 2025-12-14 - Phase 2 Implementation
+- Added Quick/Advanced mode pattern to calculators
+- Created new Gig Economy category with emerald color scheme
+- Built 6 new calculators (Patreon, Etsy, Substack, DoorDash, Uber/Lyft, Airbnb)
+- Updated ResultCard and ResultBreakdown for 'gig' category
+
+### 2025-12-13 - Phase 1 Implementation
+- Built complete Astro project from scratch
+- Implemented 3 pilot calculators with full functionality
+- Created reusable component library
+- Set up SEO infrastructure
+- Built embed system
+
+---
+
+## Key Metrics to Track
+
+Once analytics are set up:
+
+| Metric | Target | Notes |
+|--------|--------|-------|
+| Monthly Sessions | 10,000+ | AdSense threshold |
+| Avg. Time on Page | >2 min | Indicates engagement |
+| Bounce Rate | <70% | Calculator pages should be lower |
+| Top Calculator | N/A | Double down on winners |
+| Organic Traffic % | >80% | SEO is primary channel |
+
+---
+
+## Revenue Projections
+
+| Traffic Level | Estimated Monthly Revenue |
+|---------------|---------------------------|
+| 1,000 sessions | $5-20 (AdSense) |
+| 10,000 sessions | $50-200 (AdSense) |
+| 50,000 sessions | $500-1,500 (Mediavine) |
+| 100,000 sessions | $1,500-4,000 (Mediavine) |
+
+*Based on typical finance/calculator niche CPMs*

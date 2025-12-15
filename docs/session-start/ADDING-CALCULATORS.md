@@ -9,7 +9,11 @@ Adding a calculator requires 3 files:
 2. **UI Component** - `src/components/calculators/[Name]Calc.tsx`
 3. **Page** - `src/pages/[category]/[name]-calculator.astro`
 
-Plus updating the embed routes.
+Plus updating:
+- Embed routes (`src/pages/embed/[...slug].astro`)
+- Category index page (`src/pages/[category]/index.astro`)
+
+**All calculators should have Quick/Advanced mode** - this is standard across the project.
 
 ## Step-by-Step Guide
 
@@ -35,7 +39,7 @@ export interface QuarterlyTaxResults {
   breakdown: { label: string; amount: number }[];
 }
 
-// 3. Define defaults
+// 3. Define defaults (for Advanced mode)
 export const DEFAULT_INPUTS: QuarterlyTaxInputs = {
   quarterlyIncome: 25000,
   businessExpenses: 2000,
@@ -43,7 +47,13 @@ export const DEFAULT_INPUTS: QuarterlyTaxInputs = {
   estimatedTaxRate: 22,
 };
 
-// 4. Create pure calculation function
+// 4. Define Quick mode defaults (simplified fields hidden)
+export const QUICK_MODE_DEFAULTS: Partial<QuarterlyTaxInputs> = {
+  selfEmploymentTaxRate: 15.3,
+  estimatedTaxRate: 22,
+};
+
+// 5. Create pure calculation function
 export function calculateQuarterlyTax(
   inputs: QuarterlyTaxInputs
 ): QuarterlyTaxResults {
@@ -74,31 +84,41 @@ Create `src/components/calculators/[Name]Calc.tsx`:
 import { useState, useEffect } from 'react';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
+import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
 import {
   calculateQuarterlyTax,
   DEFAULT_INPUTS,
+  QUICK_MODE_DEFAULTS,
   type QuarterlyTaxInputs,
 } from '../../lib/calculators/quarterly-tax';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState } from '../../lib/utils/url-state';
+import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
 
 export function QuarterlyTaxCalc() {
-  // 1. Initialize state from URL or defaults
+  // 1. Initialize mode and state from URL
+  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
   const [inputs, setInputs] = useState<QuarterlyTaxInputs>(() =>
     getInitialState(DEFAULT_INPUTS)
   );
 
-  // 2. Calculate results
+  // 2. Apply quick mode defaults when switching to quick mode
+  useEffect(() => {
+    if (mode === 'quick') {
+      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
+    }
+  }, [mode]);
+
+  // 3. Calculate results
   const results = calculateQuarterlyTax(inputs);
 
-  // 3. Sync state to URL
+  // 4. Sync state to URL
   useEffect(() => {
-    updateUrlState(inputs);
-  }, [inputs]);
+    updateUrlState(inputs, mode);
+  }, [inputs, mode]);
 
-  // 4. Update helper
+  // 5. Update helper
   const updateInput = <K extends keyof QuarterlyTaxInputs>(
     key: K,
     value: QuarterlyTaxInputs[K]
@@ -106,9 +126,21 @@ export function QuarterlyTaxCalc() {
     setInputs((prev) => ({ ...prev, [key]: value }));
   };
 
-  // 5. Render UI
+  const isAdvanced = mode === 'advanced';
+
+  // 6. Render UI
   return (
     <div className="space-y-8">
+      {/* Mode Toggle */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <ModeToggle mode={mode} onChange={setMode} />
+        {mode === 'quick' && (
+          <p className="text-sm text-neutral-500">
+            Using standard tax rates
+          </p>
+        )}
+      </div>
+
       {/* Inputs */}
       <div className="grid md:grid-cols-2 gap-6">
         <CurrencyInput
@@ -117,7 +149,19 @@ export function QuarterlyTaxCalc() {
           value={inputs.quarterlyIncome}
           onChange={(v) => updateInput('quarterlyIncome', v)}
         />
-        {/* Add more inputs... */}
+
+        {/* Show advanced fields only in advanced mode */}
+        {isAdvanced && (
+          <SliderInput
+            id="taxRate"
+            label="Tax Rate"
+            value={inputs.estimatedTaxRate}
+            onChange={(v) => updateInput('estimatedTaxRate', v)}
+            min={10}
+            max={40}
+            suffix="%"
+          />
+        )}
       </div>
 
       {/* Results */}
@@ -125,7 +169,8 @@ export function QuarterlyTaxCalc() {
         <ResultCard
           label="Quarterly Tax Due"
           value={formatCurrency(results.quarterlyTaxDue)}
-          highlight
+          category="freelance"  // Use category for color theming
+          highlighted
         />
         <ResultBreakdown
           title="Breakdown"
@@ -133,6 +178,7 @@ export function QuarterlyTaxCalc() {
             label: item.label,
             value: formatCurrency(item.amount),
           }))}
+          category="freelance"
         />
       </div>
     </div>
@@ -235,6 +281,7 @@ Add the new calculator to `relatedCalculators` arrays in other calculators where
 | `CurrencyInput` | `@components/ui/inputs/CurrencyInput` | Dollar amounts |
 | `SliderInput` | `@components/ui/inputs/SliderInput` | Percentages, ranges |
 | `DropdownInput` | `@components/ui/inputs/DropdownInput` | Select from options |
+| `ModeToggle` | `@components/ui/inputs/ModeToggle` | Quick/Advanced mode toggle |
 
 ## Available Result Components
 
@@ -242,6 +289,12 @@ Add the new calculator to `relatedCalculators` arrays in other calculators where
 |-----------|--------|----------|
 | `ResultCard` | `@components/ui/results/ResultCard` | Single highlighted result |
 | `ResultBreakdown` | `@components/ui/results/ResultBreakdown` | Table of line items |
+
+**Category prop**: Pass `category` to ResultCard/ResultBreakdown for color theming:
+- `"freelance"` - Cyan colors
+- `"creator"` - Magenta colors
+- `"gig"` - Emerald colors
+- `"side-hustle"` - Purple colors
 
 ## Formatting Utilities
 
@@ -266,8 +319,20 @@ import {
 ## Testing Checklist
 
 - [ ] Calculator produces correct results
+- [ ] Quick mode shows simplified inputs
+- [ ] Advanced mode shows all inputs
 - [ ] URL state updates when inputs change
-- [ ] Shared URL restores correct state
+- [ ] Mode is preserved in URL
+- [ ] Shared URL restores correct state and mode
 - [ ] Embed version works
 - [ ] Mobile responsive
 - [ ] No console errors
+
+## Quick Reference: Category Colors
+
+| Category | URL prefix | Color | CSS class |
+|----------|------------|-------|-----------|
+| Freelance | `/freelance/` | Cyan | `freelance-*` |
+| Creator | `/creator/` | Magenta | `creator-*` |
+| Gig Economy | `/gig-economy/` | Emerald | `gig-*` |
+| Side Hustle | `/side-hustle/` | Purple | `sidehustle-*` |

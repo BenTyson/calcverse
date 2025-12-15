@@ -9,11 +9,13 @@
 | Framework | Astro 5 | SSG for performance, islands for interactivity |
 | UI Library | React 19 | Calculator interactivity, ecosystem |
 | Styling | Tailwind CSS 4 | Rapid development, small bundle |
-| Hosting | Cloudflare Pages | Free tier, edge performance |
-| Analytics | Plausible | Privacy-focused, no cookie banner |
+| Hosting | Railway | Simple deployment, GitHub integration, user familiarity |
+| Analytics | Plausible (pending) | Privacy-focused, no cookie banner |
 | Ads | AdSense → Mediavine | Start simple, upgrade at scale |
 
 **Why not Next.js?** Calculators are mostly static with small interactive islands. Astro's island architecture is simpler and produces better Core Web Vitals.
+
+**Why Railway instead of Cloudflare Pages?** User was already familiar with Railway and had existing projects there. Railway provides simple GitHub auto-deployment and a generous free tier. Could migrate to Cloudflare Pages later if needed.
 
 ## Architecture
 
@@ -71,12 +73,13 @@ Examples:
 
 These decisions can still be made:
 
-1. **Specific calculator prioritization** - Order of building Phase 2 calculators
+1. **Custom domain** - Currently using Railway subdomain
 2. **Affiliate programs** - Which to join, where to place
 3. **Email capture** - Whether to add, what to offer
 4. **Social media** - Whether to create accounts
 5. **OG images** - Currently placeholders, need real designs
-6. **Domain** - Currently using placeholder URL
+6. **Which calculators to build next** - See CALCULATOR-IDEAS.md for backlog
+7. **Personal Finance category** - Whether/when to add as 5th category
 
 ## If You Want to Change Something
 

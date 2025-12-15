@@ -1,52 +1,68 @@
 # Calculator Ideas & Backlog
 
-## Currently Live (Phase 1)
+## Currently Live (16 Calculators)
 
-| Calculator | Category | URL |
-|------------|----------|-----|
-| Freelancer Hourly Rate | Freelance | `/freelance/hourly-rate-calculator` |
-| YouTube AdSense Revenue | Creator | `/creator/youtube-adsense-calculator` |
-| Side Hustle Time to Goal | Side Hustle | `/side-hustle/time-to-goal-calculator` |
+### Freelance (4) - Cyan
+| Calculator | URL | Status |
+|------------|-----|--------|
+| Freelancer Hourly Rate | `/freelance/hourly-rate-calculator` | ✅ Live |
+| Quarterly Tax Estimator | `/freelance/quarterly-tax-calculator` | ✅ Live |
+| W2 vs 1099 Comparison | `/freelance/w2-vs-1099-calculator` | ✅ Live |
+| Project Rate Calculator | `/freelance/project-rate-calculator` | ✅ Live |
+
+### Creator (7) - Magenta
+| Calculator | URL | Status |
+|------------|-----|--------|
+| YouTube AdSense Revenue | `/creator/youtube-adsense-calculator` | ✅ Live |
+| Twitch Revenue | `/creator/twitch-calculator` | ✅ Live |
+| Podcast Sponsorship | `/creator/podcast-calculator` | ✅ Live |
+| Patreon Earnings | `/creator/patreon-calculator` | ✅ Live |
+| Ko-fi Earnings | `/creator/kofi-calculator` | ✅ Live |
+| Etsy Fee Calculator | `/creator/etsy-fee-calculator` | ✅ Live |
+| Substack Revenue | `/creator/substack-calculator` | ✅ Live |
+
+### Gig Economy (4) - Emerald
+| Calculator | URL | Status |
+|------------|-----|--------|
+| DoorDash Earnings | `/gig-economy/doordash-calculator` | ✅ Live |
+| Uber/Lyft Earnings | `/gig-economy/uber-lyft-calculator` | ✅ Live |
+| Instacart Shopper | `/gig-economy/instacart-calculator` | ✅ Live |
+| Airbnb Profit | `/gig-economy/airbnb-calculator` | ✅ Live |
+
+### Side Hustle (1) - Purple
+| Calculator | URL | Status |
+|------------|-----|--------|
+| Time to Goal | `/side-hustle/time-to-goal-calculator` | ✅ Live |
 
 ---
 
-## Phase 2 Priority (Build Next)
+## Next to Build (Phase 4 - When Ready)
 
-### Freelance Category
+### Gig Economy Expansion
+| Calculator | Description | Target Keyword |
+|------------|-------------|----------------|
+| TaskRabbit Earnings | Task/handyman gig earnings | "taskrabbit calculator" |
+| Amazon Flex | Delivery driver earnings | "amazon flex earnings calculator" |
+| Turo Car Rental | Vehicle rental profit | "turo profit calculator" |
 
-| Calculator | Description | Key Inputs | Target Keyword |
-|------------|-------------|------------|----------------|
-| Quarterly Tax Estimator | Calculate quarterly estimated payments | Income, expenses, tax rates | "freelance quarterly tax calculator" |
-| W2 vs 1099 Comparison | Compare employee vs contractor | Salary, benefits, tax rates | "w2 vs 1099 calculator" |
-| Project Rate Calculator | Quote projects based on hours | Hourly rate, estimated hours, complexity | "freelance project rate calculator" |
-
-### Creator Category
-
-| Calculator | Description | Key Inputs | Target Keyword |
-|------------|-------------|------------|----------------|
-| Twitch Revenue | Estimate Twitch earnings | Subs, bits, ads, hours | "twitch income calculator" |
-| Patreon Take-Home | Calculate after fees | Patrons, tier prices, fees | "patreon earnings calculator" |
-| Etsy Seller Fees | Calculate Etsy costs | Sale price, shipping, ads | "etsy fee calculator" |
-
-### Gig Economy Category (NEW)
-
-| Calculator | Description | Key Inputs | Target Keyword |
-|------------|-------------|------------|----------------|
-| Uber/Lyft Net Earnings | True earnings after expenses | Gross, miles, hours, expenses | "uber driver earnings calculator" |
-| Airbnb Profit | Rental profit after all costs | Nightly rate, occupancy, expenses | "airbnb profit calculator" |
-| DoorDash Earnings | Delivery driver take-home | Orders, tips, miles, time | "doordash earnings calculator" |
+### Creator Expansion
+| Calculator | Description | Target Keyword |
+|------------|-------------|----------------|
+| Gumroad Revenue | Digital product sales | "gumroad calculator" |
+| Teachable Course | Online course revenue | "course revenue calculator" |
+| TikTok Creator Fund | Short-form video earnings | "tiktok earnings calculator" |
 
 ### Personal Finance Category (NEW)
-
-| Calculator | Description | Key Inputs | Target Keyword |
-|------------|-------------|------------|----------------|
-| FIRE Runway | Time to financial independence | Savings, expenses, investments | "fire calculator" |
-| Emergency Fund | How much to save | Monthly expenses, job stability | "emergency fund calculator" |
-| Rent vs Buy | Should you buy a house | Rent, home price, rates, time | "rent vs buy calculator" |
+| Calculator | Description | Target Keyword |
+|------------|-------------|----------------|
+| FIRE Runway | Time to financial independence | "fire calculator" |
+| Emergency Fund | How much to save | "emergency fund calculator" |
+| Rent vs Buy | Should you buy a house | "rent vs buy calculator" |
+| Subscription Audit | Track monthly subscriptions | "subscription calculator" |
 
 ---
 
-## Phase 3+ Ideas
+## Future Ideas
 
 ### High-Potential Calculators
 

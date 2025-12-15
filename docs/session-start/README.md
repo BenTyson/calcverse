@@ -8,15 +8,17 @@ A passive income calculator network targeting long-tail SEO keywords. Built with
 
 ## Current Status
 
-**Phase 2 COMPLETE** - 9 calculators live across 4 categories, ready to deploy to Cloudflare Pages.
+**Phase 3 IN PROGRESS** - 16 calculators live, deployed on Railway, awaiting Google indexing.
 
 | What | Status |
 |------|--------|
-| Calculators | 9 live (target: 15+) |
+| Calculators | 16 live (target: 20+) |
 | Categories | 4 (Freelance, Creator, Gig Economy, Side Hustle) |
-| Deployment | Ready (not yet deployed) |
-| Analytics | Not set up (add after domain) |
-| Monetization | Not set up (Phase 3) |
+| Deployment | **LIVE** on Railway |
+| Analytics | Not set up (add when traffic exists) |
+| Monetization | Not set up (need traffic first) |
+
+**Production URL:** `https://calcverse-production.up.railway.app`
 
 ## Quick Start
 
@@ -64,31 +66,54 @@ npm run preview
 | `src/lib/utils/url-state.ts` | URL state encoding for sharing |
 | `src/lib/seo/schema.ts` | Schema.org markup generators |
 
-## Current Calculators
+## Current Calculators (16)
 
-### Freelance (1)
-1. **Freelancer Hourly Rate** - `/freelance/hourly-rate-calculator` *(Quick/Advanced mode)*
+### Freelance (4)
+1. **Freelancer Hourly Rate** - `/freelance/hourly-rate-calculator`
+2. **Quarterly Tax Estimator** - `/freelance/quarterly-tax-calculator`
+3. **W2 vs 1099 Comparison** - `/freelance/w2-vs-1099-calculator`
+4. **Project Rate Calculator** - `/freelance/project-rate-calculator`
 
-### Creator (4)
-2. **YouTube AdSense Revenue** - `/creator/youtube-adsense-calculator`
-3. **Patreon Earnings** - `/creator/patreon-calculator`
-4. **Etsy Fee Calculator** - `/creator/etsy-fee-calculator`
-5. **Substack Revenue** - `/creator/substack-calculator`
+### Creator (7)
+5. **YouTube AdSense Revenue** - `/creator/youtube-adsense-calculator`
+6. **Twitch Revenue** - `/creator/twitch-calculator`
+7. **Podcast Sponsorship** - `/creator/podcast-calculator`
+8. **Patreon Earnings** - `/creator/patreon-calculator`
+9. **Ko-fi Earnings** - `/creator/kofi-calculator`
+10. **Etsy Fee Calculator** - `/creator/etsy-fee-calculator`
+11. **Substack Revenue** - `/creator/substack-calculator`
 
-### Gig Economy (3) - NEW
-6. **DoorDash Earnings** - `/gig-economy/doordash-calculator`
-7. **Uber/Lyft Driver Earnings** - `/gig-economy/uber-lyft-calculator`
-8. **Airbnb Profit** - `/gig-economy/airbnb-calculator`
+### Gig Economy (4)
+12. **DoorDash Earnings** - `/gig-economy/doordash-calculator`
+13. **Uber/Lyft Driver Earnings** - `/gig-economy/uber-lyft-calculator`
+14. **Instacart Shopper** - `/gig-economy/instacart-calculator`
+15. **Airbnb Profit** - `/gig-economy/airbnb-calculator`
 
 ### Side Hustle (1)
-9. **Side Hustle Time to Goal** - `/side-hustle/time-to-goal-calculator`
+16. **Side Hustle Time to Goal** - `/side-hustle/time-to-goal-calculator`
 
-## Next Steps (Phase 3)
+*All calculators have Quick/Advanced mode and URL state sharing.*
 
-1. Deploy to Cloudflare Pages
-2. Submit sitemap to Google Search Console
-3. Apply for AdSense
-4. Add more calculators (Freelance focus)
+## Immediate TODO (Phase 3)
+
+### 1. SEO Setup (DO THIS FIRST)
+- [ ] Add site to Google Search Console
+- [ ] Verify ownership via HTML meta tag
+- [ ] Submit sitemap: `/sitemap-index.xml`
+
+### 2. Initial Backlinks
+- [ ] Post on Reddit (r/freelance, r/sidehustle, r/youtubers)
+- [ ] Submit to Product Hunt
+- [ ] Share on Twitter/X communities
+
+### 3. Monitor & Wait
+- [ ] Check Search Console weekly for indexing progress
+- [ ] Watch for crawl errors
+- [ ] Note which calculators get impressions first
+
+### 4. Future (When Traffic Exists)
+- [ ] Add Plausible analytics
+- [ ] Apply for Google AdSense (when >1000 visits/month)
 
 ## Need Help?
 

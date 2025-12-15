@@ -6,16 +6,23 @@
 calcverse/
 ├── src/
 │   ├── components/
-│   │   ├── calculators/          # React calculator components
+│   │   ├── calculators/          # React calculator components (16)
 │   │   │   ├── FreelancerRateCalc.tsx
+│   │   │   ├── QuarterlyTaxCalc.tsx
+│   │   │   ├── W2vs1099Calc.tsx
+│   │   │   ├── ProjectRateCalc.tsx
 │   │   │   ├── YouTubeAdSenseCalc.tsx
-│   │   │   ├── SideHustleGoalCalc.tsx
+│   │   │   ├── TwitchRevenueCalc.tsx
+│   │   │   ├── PodcastSponsorshipCalc.tsx
 │   │   │   ├── PatreonCalc.tsx
+│   │   │   ├── KofiCalc.tsx
 │   │   │   ├── EtsyFeesCalc.tsx
 │   │   │   ├── SubstackCalc.tsx
 │   │   │   ├── DoorDashCalc.tsx
 │   │   │   ├── UberLyftCalc.tsx
-│   │   │   └── AirbnbProfitCalc.tsx
+│   │   │   ├── InstacartCalc.tsx
+│   │   │   ├── AirbnbProfitCalc.tsx
+│   │   │   └── SideHustleGoalCalc.tsx
 │   │   ├── ui/
 │   │   │   ├── inputs/           # Reusable input components
 │   │   │   │   ├── NumberInput.tsx
@@ -40,42 +47,58 @@ calcverse/
 │   │   ├── CalculatorLayout.astro # Calculator pages
 │   │   └── EmbedLayout.astro     # Embed pages (minimal)
 │   ├── lib/
-│   │   ├── calculators/          # Pure calculation logic
+│   │   ├── calculators/          # Pure calculation logic (16)
 │   │   │   ├── freelancer-rate.ts
+│   │   │   ├── quarterly-tax.ts
+│   │   │   ├── w2-vs-1099.ts
+│   │   │   ├── project-rate.ts
 │   │   │   ├── youtube-adsense.ts
-│   │   │   ├── side-hustle-goal.ts
+│   │   │   ├── twitch-revenue.ts
+│   │   │   ├── podcast-sponsorship.ts
 │   │   │   ├── patreon-earnings.ts
+│   │   │   ├── kofi-earnings.ts
 │   │   │   ├── etsy-fees.ts
 │   │   │   ├── substack-revenue.ts
 │   │   │   ├── doordash-earnings.ts
 │   │   │   ├── uber-lyft-earnings.ts
-│   │   │   └── airbnb-profit.ts
+│   │   │   ├── instacart-earnings.ts
+│   │   │   ├── airbnb-profit.ts
+│   │   │   └── side-hustle-goal.ts
 │   │   ├── utils/
 │   │   │   ├── formatters.ts     # Number/currency formatting
-│   │   │   └── url-state.ts      # URL state encoding
+│   │   │   └── url-state.ts      # URL state encoding + mode
 │   │   └── seo/
 │   │       └── schema.ts         # Schema.org generators
 │   ├── pages/
 │   │   ├── index.astro           # Homepage
+│   │   ├── privacy.astro         # Privacy Policy (AdSense req)
+│   │   ├── terms.astro           # Terms of Service (AdSense req)
 │   │   ├── freelance/
 │   │   │   ├── index.astro       # Category page
-│   │   │   └── hourly-rate-calculator.astro
+│   │   │   ├── hourly-rate-calculator.astro
+│   │   │   ├── quarterly-tax-calculator.astro
+│   │   │   ├── w2-vs-1099-calculator.astro
+│   │   │   └── project-rate-calculator.astro
 │   │   ├── creator/
 │   │   │   ├── index.astro
 │   │   │   ├── youtube-adsense-calculator.astro
+│   │   │   ├── twitch-calculator.astro
+│   │   │   ├── podcast-calculator.astro
 │   │   │   ├── patreon-calculator.astro
+│   │   │   ├── kofi-calculator.astro
 │   │   │   ├── etsy-fee-calculator.astro
 │   │   │   └── substack-calculator.astro
-│   │   ├── gig-economy/          # NEW CATEGORY
+│   │   ├── gig-economy/
 │   │   │   ├── index.astro
 │   │   │   ├── doordash-calculator.astro
 │   │   │   ├── uber-lyft-calculator.astro
+│   │   │   ├── instacart-calculator.astro
 │   │   │   └── airbnb-calculator.astro
 │   │   ├── side-hustle/
 │   │   │   ├── index.astro
 │   │   │   └── time-to-goal-calculator.astro
 │   │   └── embed/
-│   │       └── [...slug].astro   # Embed routes (9 calculators)
+│   │       └── [...slug].astro   # Embed routes (16 calculators)
 │   └── styles/
 │       └── global.css            # Tailwind + custom theme
 ├── public/
@@ -85,7 +108,8 @@ calcverse/
 ├── docs/
 │   ├── CALCVERSE.md              # Project overview
 │   └── session-start/            # Agent documentation
-├── astro.config.mjs
+├── astro.config.mjs              # Site config (production URL set)
+├── railway.json                  # Railway deployment config
 ├── tsconfig.json
 └── package.json
 ```
@@ -193,10 +217,23 @@ interface Props {
 ### astro.config.mjs
 ```javascript
 export default defineConfig({
-  site: 'https://calcverse.example.com',  // Update when domain set
+  site: 'https://calcverse-production.up.railway.app',  // Production URL
   integrations: [react(), sitemap({ filter: ... })],
   vite: { plugins: [tailwindcss()] },
 });
+```
+
+### railway.json
+```json
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": { "builder": "NIXPACKS" },
+  "deploy": {
+    "startCommand": "npx serve dist -l 3000",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 100
+  }
+}
 ```
 
 ### tsconfig.json
@@ -214,11 +251,16 @@ Custom brand colors defined in `@theme`:
 
 ```
 dist/
-├── _astro/           # JS bundles (~60KB gzipped total)
-├── [pages]/          # Static HTML
+├── _astro/           # JS bundles
+├── [pages]/          # Static HTML (39 pages total)
 ├── sitemap-*.xml     # Auto-generated
 ├── robots.txt
 └── og-images/
 ```
 
-Total build size: ~460KB
+**39 pages total:**
+- 1 homepage
+- 4 category index pages
+- 16 calculator pages
+- 16 embed pages
+- 2 legal pages (privacy, terms)

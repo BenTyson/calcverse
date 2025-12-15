@@ -2,61 +2,66 @@
 
 ## Current Status
 
-- **Build:** Ready (`npm run build` succeeds)
-- **Deployment:** Not yet deployed
-- **Domain:** Not yet purchased
+- **Build:** Passing (`npm run build` succeeds)
+- **Deployment:** **LIVE** on Railway
+- **URL:** `https://calcverse-production.up.railway.app`
+- **Domain:** Using Railway subdomain (custom domain pending)
 
 ---
 
-## Deploy to Cloudflare Pages
+## Railway Deployment (Current Setup)
 
-### Option 1: Git Integration (Recommended)
+### How It Works
 
-1. **Push to GitHub**
-   ```bash
-   git add .
-   git commit -m "Initial commit - Phase 1 complete"
-   git push origin main
-   ```
+1. **GitHub Integration**: Railway auto-deploys when you push to `main`
+2. **Build Process**: Railway runs `npm run build` via Nixpacks
+3. **Static Serving**: Uses `serve` package to serve the `dist/` folder
+4. **Configuration**: `railway.json` defines the start command
 
-2. **Connect in Cloudflare Dashboard**
-   - Go to Cloudflare Dashboard → Pages
-   - Click "Create a project" → "Connect to Git"
-   - Select your repository
-   - Configure build settings:
-     - **Build command:** `npm run build`
-     - **Build output directory:** `dist`
-     - **Node.js version:** 20
+### railway.json
 
-3. **Environment Variables**
-   ```
-   NODE_VERSION=20
-   ```
-
-4. **Deploy**
-   - Click "Save and Deploy"
-   - Initial deploy takes 1-2 minutes
-
-### Option 2: Direct Upload
-
-```bash
-npm run build
-npx wrangler pages deploy dist --project-name=calcverse
+```json
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": { "builder": "NIXPACKS" },
+  "deploy": {
+    "startCommand": "npx serve dist -l 3000",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 100
+  }
+}
 ```
 
+### To Redeploy
+
+Just push to main:
+```bash
+git add .
+git commit -m "Your changes"
+git push origin main
+```
+
+Railway automatically rebuilds and deploys within 1-2 minutes.
+
+### View Deployment Status
+
+1. Go to [railway.app](https://railway.app)
+2. Open your project
+3. Click on the service to see build logs
+
 ---
 
-## Custom Domain Setup
+## Custom Domain Setup (Future)
 
-1. **Purchase domain** (e.g., calcverse.com)
-   - Namecheap, Cloudflare Registrar, or similar
+When ready for a custom domain:
 
-2. **Add to Cloudflare Pages**
-   - Pages project → Custom domains
-   - Add your domain
+1. **Purchase domain** (e.g., calcverse.com from Namecheap, Cloudflare, etc.)
+
+2. **Add to Railway:**
+   - Project Settings → Domains → Add Custom Domain
    - Follow DNS configuration instructions
 
-3. **Update astro.config.mjs**
+3. **Update astro.config.mjs:**
    ```javascript
    export default defineConfig({
      site: 'https://calcverse.com',  // Update this
@@ -64,43 +69,36 @@ npx wrangler pages deploy dist --project-name=calcverse
    });
    ```
 
-4. **Rebuild and redeploy**
+4. **Push changes** - Railway will redeploy automatically
 
 ---
 
 ## Post-Deployment Checklist
 
-### Immediate (Day 1)
+### Already Done
+- [x] All pages load correctly
+- [x] All 16 calculators working
+- [x] URL sharing functional
+- [x] Embed codes working
+- [x] Mobile responsive
+- [x] Sitemap at `/sitemap-index.xml`
+- [x] Privacy Policy and Terms of Service pages
+- [x] Production URL in astro.config.mjs
 
-- [ ] Verify all pages load correctly
-- [ ] Test all 3 calculators
-- [ ] Test URL sharing (copy URL with results, open in new tab)
-- [ ] Test embed codes
-- [ ] Check mobile responsiveness
-- [ ] Verify sitemap at `/sitemap-index.xml`
-
-### SEO Setup (Day 1-2)
-
+### SEO Setup (TODO - Manual Steps)
 - [ ] Add site to Google Search Console
-- [ ] Submit sitemap
-- [ ] Add site to Bing Webmaster Tools
-- [ ] Verify robots.txt allows crawling
+- [ ] Verify ownership (HTML meta tag or DNS)
+- [ ] Submit sitemap: `https://calcverse-production.up.railway.app/sitemap-index.xml`
+- [ ] Add site to Bing Webmaster Tools (optional)
 
-### Analytics (When Ready)
-
-- [ ] Sign up for Plausible Analytics
-- [ ] Add tracking script to BaseLayout.astro:
+### When Traffic Exists
+- [ ] Add Plausible Analytics script to BaseLayout.astro:
   ```html
-  <script defer data-domain="calcverse.com"
+  <script defer data-domain="calcverse-production.up.railway.app"
           src="https://plausible.io/js/script.js"></script>
   ```
-- [ ] Verify events are tracking
-
-### Monitoring
-
-- [ ] Set up Cloudflare Analytics (free, automatic)
+- [ ] Apply for Google AdSense (when >1000 visits/month)
 - [ ] Check Core Web Vitals in Search Console
-- [ ] Monitor for crawl errors
 
 ---
 
@@ -119,9 +117,9 @@ npm run build && npm run preview
 ```
 
 ### Production
-- Deployed to Cloudflare Pages
+- Deployed to Railway
 - Automatic HTTPS
-- Global CDN
+- Global deployment
 
 ---
 
@@ -130,39 +128,72 @@ npm run build && npm run preview
 ### Build Fails
 
 ```bash
-# Clear cache and rebuild
+# Clear cache and rebuild locally
 rm -rf node_modules .astro dist
 npm install
 npm run build
 ```
 
-### Deploy Fails
+### Deploy Fails on Railway
 
-1. Check Cloudflare Pages build logs
-2. Verify Node.js version is 20
-3. Ensure all dependencies are in package.json
+1. Check Railway build logs in dashboard
+2. Ensure `serve` package is in dependencies
+3. Verify `railway.json` is in repo root
+4. Check that `npm run build` works locally
 
 ### Pages Not Updating
 
-- Cloudflare caches aggressively
-- Wait 1-2 minutes after deploy
+- Railway deploys take 1-2 minutes
 - Hard refresh browser (Cmd+Shift+R)
-- Check Cloudflare dashboard for deploy status
+- Check Railway dashboard for deploy status
 
 ### Sitemap Issues
 
 - Sitemap is at `/sitemap-index.xml` (not `/sitemap.xml`)
 - Embed pages are excluded by design
-- Verify in Google Search Console
+- Privacy and Terms pages are included
 
 ---
 
-## Continuous Deployment
+## Monitoring
 
-Once Git integration is set up:
+### Free Monitoring Options
 
-1. Push to `main` branch
-2. Cloudflare automatically builds and deploys
-3. Preview deployments created for pull requests
+1. **Railway Metrics**: Built-in CPU/memory/requests dashboard
+2. **Google Search Console**: SEO performance, indexing, errors
+3. **Plausible Analytics**: Traffic stats (add when traffic exists)
 
-No manual deployment needed after initial setup.
+### What to Watch
+
+- Crawl errors in Search Console
+- Indexing progress for calculator pages
+- Which calculators get impressions/clicks first
+- Core Web Vitals scores
+
+---
+
+## Costs
+
+### Current (Free Tier)
+
+Railway offers a free tier with:
+- 500 hours of usage per month
+- 512 MB RAM
+- 1 GB disk
+
+This is sufficient for a static site.
+
+### If You Exceed Free Tier
+
+Railway pricing is usage-based:
+- ~$5/month for low-traffic static sites
+- Scales with actual usage
+
+### Alternative (If Needed)
+
+If costs become an issue, the site could be migrated to:
+- Cloudflare Pages (fully free for static sites)
+- Vercel (generous free tier)
+- Netlify (generous free tier)
+
+All would work with the current Astro setup.
