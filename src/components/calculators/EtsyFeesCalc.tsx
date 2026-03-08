@@ -5,6 +5,8 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { ChartCard } from '../ui/charts/ChartCard';
+import { DonutChart } from '../ui/charts/DonutChart';
 import {
   calculateEtsyFees,
   DEFAULT_INPUTS,
@@ -157,6 +159,21 @@ export function EtsyFeesCalc() {
             description="Of gross revenue"
           />
         </div>
+
+        <ChartCard title="Fee Breakdown" category="creator">
+          <DonutChart
+            data={[
+              { label: 'Listing Fee', value: results.listingFee },
+              { label: 'Transaction Fee', value: results.transactionFee },
+              { label: 'Processing Fee', value: results.paymentProcessingFee },
+              ...(results.etsyAdsFee > 0 ? [{ label: 'Etsy Ads', value: results.etsyAdsFee }] : []),
+              ...(results.offsiteAdsFee > 0 ? [{ label: 'Offsite Ads', value: results.offsiteAdsFee }] : []),
+            ]}
+            category="creator"
+            innerLabel="Total Fees"
+            innerValue={formatCurrency(results.totalFees)}
+          />
+        </ChartCard>
 
         <div className="grid md:grid-cols-2 gap-6">
           <ResultBreakdown

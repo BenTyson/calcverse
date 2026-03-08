@@ -27,6 +27,7 @@ Every calculator has 3 files:
 
 **Shared inputs:** `NumberInput`, `CurrencyInput`, `SliderInput`, `DropdownInput`, `ModeToggle` (in `src/components/ui/inputs/`)
 **Shared results:** `ResultCard`, `ResultBreakdown` (in `src/components/ui/results/`)
+**Shared charts:** `DonutChart`, `BarComparisonChart`, `ProjectionChart`, `ChartCard` (in `src/components/ui/charts/`)
 **URL state:** Base64-encoded in `?s=` param, mode in `?mode=` param
 **Embeds:** `/embed/[category]/[slug]` — uses `client:load` (not `client:visible`), minimal layout, noindex
 
@@ -43,6 +44,7 @@ Every calculator has 3 files:
 | URL state | `src/lib/utils/url-state.ts` |
 | Formatters | `src/lib/utils/formatters.ts` |
 | Error boundary | `src/components/ui/ErrorBoundary.tsx` |
+| Chart colors | `src/lib/utils/chart-colors.ts` |
 | Embed routes | `src/pages/embed/[...slug].astro` |
 
 ## Design System

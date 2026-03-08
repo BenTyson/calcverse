@@ -5,7 +5,9 @@
 | Phase | Status | Focus |
 |-------|--------|-------|
 | 1. Tech Debt & Rebrand | DONE | Rebrand, domain, a11y, ErrorBoundary, hydration |
-| 2. Data Visualization | NEXT | Recharts, charts in calculators, copy-results, animations |
+| 2a. Chart Components | DONE | Recharts, DonutChart, BarComparisonChart, ProjectionChart, ChartCard |
+| 2b. Chart Integration | DONE | Charts in 7 calculators (Freelancer, Etsy, Ko-fi, Quarterly, W2v1099, YouTube, SideHustle) |
+| 2c. Result Enhancements | NEXT | CopyResultsButton, count-up animation, Tooltip |
 | 3. Content System | PLANNED | Blog infrastructure, 8-10 articles, calculator content, about page |
 | 4. Monetization | PLANNED | Email capture, ad placements, affiliates, AdSense application |
 | 5. Calculator Expansion | PLANNED | Personal Finance (4), Gig (3), Creator (2) → 25+ total |
@@ -23,25 +25,11 @@
 
 ## Phase 2: Data Visualization
 
-### 2a. Chart Components
-- Install Recharts (`npm install recharts`)
-- Create `src/components/ui/charts/DonutChart.tsx` — breakdowns
-- Create `src/components/ui/charts/BarComparisonChart.tsx` — side-by-side
-- Create `src/components/ui/charts/ProjectionChart.tsx` — line charts
-- Create `src/components/ui/charts/ChartCard.tsx` — wrapper with `card-elevated` styling
-- Use category colors from design system
+### 2a. Chart Components — DONE
+Recharts installed. 4 chart components + color utility created in `src/components/ui/charts/`.
 
-### 2b. Chart Integration
-
-| Calculator | Chart Type | Data |
-|-----------|-----------|------|
-| FreelancerRateCalc | Donut — tax/expense/profit | Extend results |
-| W2vs1099Calc | Stacked bar — net income comparison | Already has w2/contractor data |
-| SideHustleGoalCalc | Line — savings growth over time | Add projectionData[] |
-| EtsyFeesCalc | Donut — fee breakdown | Data in results |
-| QuarterlyTaxCalc | Stacked bar — quarterly schedule | Data in results |
-| YouTubeAdSenseCalc | Bar — monthly vs annual | Data in results |
-| KofiCalc | Donut — replace basic bar | results.breakdown exists |
+### 2b. Chart Integration — DONE
+Charts integrated into 7 calculators: FreelancerRate (donut), Etsy (donut), Ko-fi (donut, replaced old stacked bar), QuarterlyTax (stacked bar), W2vs1099 (side-by-side bar), YouTube (side-by-side bar), SideHustleGoal (projection + goal line).
 
 ### 2c. Result Enhancements
 - `CopyResultsButton.tsx` — copies formatted summary to clipboard
@@ -147,7 +135,8 @@ Generate SVG OG images for all calculators (currently only 4 of 16 have them).
 ```
 Phase 0 (manual) ─── required before Phase 4
 Phase 1 (DONE)
-  ├── Phase 2 (charts) — high impact, independent
+Phase 2a-2b (DONE)
+  ├── Phase 2c (result enhancements) — NEXT
   ├── Phase 3 (content) — required before Phase 4
   └── Phase 5 (new calcs) — benefits from Phase 2
          └── Phase 4 (monetization) — needs Phase 0 + Phase 3

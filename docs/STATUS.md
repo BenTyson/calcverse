@@ -1,6 +1,6 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-07
+**Last Updated:** 2026-03-08
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
@@ -47,8 +47,9 @@
 - Terms of Service (`/terms`)
 - 404 page
 
-## What's Done (Phase 1 — Tech Debt & Rebrand)
+## What's Done
 
+### Phase 1 — Tech Debt & Rebrand
 - [x] Full rebrand: Calcverse → CalcFalcon
 - [x] Domain migration to calcfalcon.com (in code — DNS/Railway config is manual)
 - [x] Fixed all `text-brand-*` / `bg-brand-*` → `primary-*` (5 instances)
@@ -64,12 +65,29 @@
 - [x] Footer expanded to 6 calculators
 - [x] Custom 404 page
 
+### Phase 2a — Chart Components
+- [x] Installed Recharts
+- [x] `DonutChart.tsx` — pie/donut with inner label, category colors, legend
+- [x] `BarComparisonChart.tsx` — side-by-side or stacked bars, custom tooltip
+- [x] `ProjectionChart.tsx` — area/line chart with goal line support
+- [x] `ChartCard.tsx` — wrapper card with title/description
+- [x] `chart-colors.ts` — category-aware color palette utility
+
+### Phase 2b — Chart Integration (7 calculators)
+- [x] FreelancerRateCalc — Donut (tax/expense/profit breakdown)
+- [x] EtsyFeesCalc — Donut (fee breakdown)
+- [x] KofiCalc — Donut (replaced old stacked bar with DonutChart)
+- [x] QuarterlyTaxCalc — Stacked bar (quarterly payment schedule)
+- [x] W2vs1099Calc — Side-by-side bar (gross/taxes/net comparison)
+- [x] YouTubeAdSenseCalc — Side-by-side bar (low/mid/high earnings)
+- [x] SideHustleGoalCalc — Projection chart (cumulative earnings + goal line)
+
 ## What's NOT Done
 
 - No analytics (decision: Umami self-hosted)
 - No custom domain configured (DNS + Railway — manual step)
 - No Google Search Console submission
-- No data visualization / charts (Phase 2)
+- Phase 2c: result enhancements (CopyResultsButton, count-up animation, Tooltip)
 - No blog / content system (Phase 3)
 - No email capture (Phase 4)
 - No ad placements (Phase 4)

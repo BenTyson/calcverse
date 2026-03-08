@@ -15,9 +15,14 @@ calcfalcon/
 │   │   │   │   ├── SliderInput.tsx
 │   │   │   │   ├── DropdownInput.tsx
 │   │   │   │   └── ModeToggle.tsx
-│   │   │   └── results/
-│   │   │       ├── ResultCard.tsx
-│   │   │       └── ResultBreakdown.tsx
+│   │   │   ├── results/
+│   │   │   │   ├── ResultCard.tsx
+│   │   │   │   └── ResultBreakdown.tsx
+│   │   │   └── charts/
+│   │   │       ├── ChartCard.tsx          # Wrapper card with title
+│   │   │       ├── DonutChart.tsx         # Pie/donut breakdowns
+│   │   │       ├── BarComparisonChart.tsx # Side-by-side or stacked bars
+│   │   │       └── ProjectionChart.tsx    # Area/line with goal line
 │   │   ├── calculator/           # Astro wrapper components
 │   │   │   ├── ShareButtons.astro
 │   │   │   ├── EmbedCodeGenerator.astro
@@ -35,7 +40,8 @@ calcfalcon/
 │   │   ├── calculators/          # Pure calculation logic (16 files)
 │   │   ├── utils/
 │   │   │   ├── formatters.ts     # formatCurrency, formatNumber, formatPercent, etc.
-│   │   │   └── url-state.ts      # getInitialState, updateUrlState, getInitialMode
+│   │   │   ├── url-state.ts      # getInitialState, updateUrlState, getInitialMode
+│   │   │   └── chart-colors.ts   # getCategoryColors(), ChartCategory type
 │   │   └── seo/
 │   │       └── schema.ts         # Schema.org generators
 │   ├── pages/
@@ -128,6 +134,15 @@ All inputs follow this pattern:
 
 - `ResultCard`: Single result with `label`, `value`, `description`, `category` (for color), `highlight` (for emphasis), `size` ("sm" | "lg")
 - `ResultBreakdown`: List of `{ label, value, highlight? }` items with `title` and `category`
+
+### Chart Components
+
+All charts use Recharts, category-aware colors from `chart-colors.ts`, and `formatCurrency` tooltips.
+
+- `DonutChart`: `data: {label, value}[]`, `category`, `innerLabel`, `innerValue`. Filters out zero values.
+- `BarComparisonChart`: `data: {label, ...keys}[]`, `bars: {dataKey, label}[]`, `stacked?: boolean`. Side-by-side or stacked.
+- `ProjectionChart`: `data: {label, ...keys}[]`, `lines: {dataKey, label, areaFill?, dashed?}[]`, `goalLine?: {value, label}`.
+- `ChartCard`: Wrapper with `title`, `description?`, `category?`.
 
 ### ModeToggle
 

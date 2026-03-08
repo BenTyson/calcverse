@@ -6,6 +6,8 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { ChartCard } from '../ui/charts/ChartCard';
+import { DonutChart } from '../ui/charts/DonutChart';
 import {
   calculateKofiEarnings,
   DEFAULT_INPUTS,
@@ -215,35 +217,17 @@ export function KofiCalc() {
 
         {/* Revenue Breakdown Visual */}
         {results.breakdown.length > 0 && (
-          <div className="mb-6">
-            <h4 className="text-sm font-medium text-neutral-700 mb-3">Revenue Sources</h4>
-            <div className="h-8 rounded-lg overflow-hidden flex">
-              {results.breakdown.map((item, index) => {
-                const colors = ['bg-creator-500', 'bg-creator-400', 'bg-creator-300', 'bg-creator-200'];
-                return (
-                  <div
-                    key={item.label}
-                    className={`${colors[index]} flex items-center justify-center text-white text-xs font-medium`}
-                    style={{ width: `${item.percentage}%` }}
-                    title={`${item.label}: ${formatCurrency(item.value)}`}
-                  >
-                    {item.percentage > 20 && item.label}
-                  </div>
-                );
-              })}
-            </div>
-            <div className="flex flex-wrap gap-4 mt-2 text-sm">
-              {results.breakdown.map((item, index) => {
-                const colors = ['bg-creator-500', 'bg-creator-400', 'bg-creator-300', 'bg-creator-200'];
-                return (
-                  <div key={item.label} className="flex items-center gap-2">
-                    <span className={`w-3 h-3 rounded ${colors[index]}`}></span>
-                    <span className="text-neutral-600">{item.label}: {formatCurrency(item.value)}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <ChartCard title="Revenue Sources" category="creator" className="mb-6">
+            <DonutChart
+              data={results.breakdown.map((item) => ({
+                label: item.label,
+                value: item.value,
+              }))}
+              category="creator"
+              innerLabel="Monthly"
+              innerValue={formatCurrency(results.netMonthly)}
+            />
+          </ChartCard>
         )}
 
         <ResultBreakdown

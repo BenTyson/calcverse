@@ -6,6 +6,8 @@ import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { ChartCard } from '../ui/charts/ChartCard';
+import { BarComparisonChart } from '../ui/charts/BarComparisonChart';
 import {
   calculateQuarterlyTax,
   DEFAULT_INPUTS,
@@ -213,6 +215,24 @@ export function QuarterlyTaxCalc() {
             </p>
           </div>
         )}
+
+        <ChartCard title="Quarterly Payment Schedule" category="finance">
+          <BarComparisonChart
+            data={['Q1', 'Q2', 'Q3', 'Q4'].map((label) => ({
+              label,
+              seTax: results.selfEmploymentTax / 4,
+              federal: results.federalIncomeTax / 4,
+              state: results.stateTax / 4,
+            }))}
+            bars={[
+              { dataKey: 'seTax', label: 'SE Tax' },
+              { dataKey: 'federal', label: 'Federal' },
+              { dataKey: 'state', label: 'State' },
+            ]}
+            category="finance"
+            stacked
+          />
+        </ChartCard>
 
         <ResultBreakdown
           title="Tax Breakdown"

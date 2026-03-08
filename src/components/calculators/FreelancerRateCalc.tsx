@@ -6,6 +6,8 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { ChartCard } from '../ui/charts/ChartCard';
+import { DonutChart } from '../ui/charts/DonutChart';
 import {
   calculateFreelancerRate,
   DEFAULT_INPUTS,
@@ -174,6 +176,18 @@ export function FreelancerRateCalc() {
             description="Gross income"
           />
         </div>
+
+        <ChartCard title="Revenue Breakdown" category="freelance">
+          <DonutChart
+            data={results.breakdown.map((item) => ({
+              label: item.label,
+              value: item.amount,
+            }))}
+            category="freelance"
+            innerLabel="Total"
+            innerValue={formatCurrency(results.annualRevenue)}
+          />
+        </ChartCard>
 
         <div className="grid md:grid-cols-2 gap-6">
           <ResultBreakdown

@@ -5,6 +5,8 @@ import { NumberInput } from '../ui/inputs/NumberInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { ChartCard } from '../ui/charts/ChartCard';
+import { ProjectionChart } from '../ui/charts/ProjectionChart';
 import {
   calculateSideHustleGoal,
   DEFAULT_INPUTS,
@@ -162,6 +164,25 @@ export function SideHustleGoalCalc() {
             size="sm"
           />
         </div>
+
+        {results.timeline.length > 0 && (
+          <ChartCard title="Projected Growth" category="sidehustle" className="mb-6">
+            <ProjectionChart
+              data={results.timeline.map((t) => ({
+                label: `Mo ${t.month}`,
+                cumulative: t.cumulative,
+              }))}
+              lines={[
+                { dataKey: 'cumulative', label: 'Cumulative Earnings', areaFill: true },
+              ]}
+              category="sidehustle"
+              goalLine={{
+                value: inputs.goalAmount,
+                label: `Goal: ${formatCurrency(inputs.goalAmount)}`,
+              }}
+            />
+          </ChartCard>
+        )}
 
         {results.milestones.length > 0 && (
           <div className="mb-6">

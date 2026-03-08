@@ -6,6 +6,8 @@ import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { ChartCard } from '../ui/charts/ChartCard';
+import { BarComparisonChart } from '../ui/charts/BarComparisonChart';
 import {
   calculateW2vs1099,
   DEFAULT_INPUTS,
@@ -182,6 +184,33 @@ export function W2vs1099Calc() {
             </div>
           </div>
         </div>
+
+        <ChartCard title="W-2 vs 1099 Comparison" category="finance" className="mb-6">
+          <BarComparisonChart
+            data={[
+              {
+                label: 'Gross Income',
+                w2: results.w2.grossIncome,
+                contractor: results.contractor.grossIncome,
+              },
+              {
+                label: 'Total Taxes',
+                w2: results.w2.federalTax + results.w2.stateTax + results.w2.socialSecurityMedicare,
+                contractor: results.contractor.selfEmploymentTax + results.contractor.federalTax + results.contractor.stateTax,
+              },
+              {
+                label: 'Net Income',
+                w2: results.w2.netIncome,
+                contractor: results.contractor.netIncome,
+              },
+            ]}
+            bars={[
+              { dataKey: 'w2', label: 'W-2' },
+              { dataKey: 'contractor', label: '1099' },
+            ]}
+            category="finance"
+          />
+        </ChartCard>
 
         {/* Side by Side Comparison */}
         <div className="grid md:grid-cols-2 gap-6 mb-6">

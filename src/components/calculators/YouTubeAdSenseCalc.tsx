@@ -5,6 +5,8 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { ChartCard } from '../ui/charts/ChartCard';
+import { BarComparisonChart } from '../ui/charts/BarComparisonChart';
 import {
   calculateYouTubeRevenue,
   DEFAULT_INPUTS,
@@ -136,6 +138,21 @@ export function YouTubeAdSenseCalc() {
             description="Revenue per 1K views"
           />
         </div>
+
+        <ChartCard title="Earnings Estimates" category="creator" className="mb-6">
+          <BarComparisonChart
+            data={[
+              { label: 'Low', monthly: results.monthlyEarnings.low, annual: results.annualEarnings.low },
+              { label: 'Mid', monthly: results.monthlyEarnings.mid, annual: results.annualEarnings.mid },
+              { label: 'High', monthly: results.monthlyEarnings.high, annual: results.annualEarnings.high },
+            ]}
+            bars={[
+              { dataKey: 'monthly', label: 'Monthly' },
+              { dataKey: 'annual', label: 'Annual' },
+            ]}
+            category="creator"
+          />
+        </ChartCard>
 
         <div className="grid md:grid-cols-2 gap-6">
           <ResultBreakdown

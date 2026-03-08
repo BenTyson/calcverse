@@ -206,6 +206,14 @@ Add the calculator to the `calculators` array.
 | `ResultCard` | Single result (label, value, description, category, highlight, size) |
 | `ResultBreakdown` | Table of items (title, category, items: {label, value, highlight}) |
 
+### Charts (in `../ui/charts/`)
+| Component | Use Case |
+|-----------|----------|
+| `DonutChart` | Breakdowns (fees, revenue split). Props: `data: {label, value}[]`, `category`, `innerLabel`, `innerValue` |
+| `BarComparisonChart` | Side-by-side or stacked comparisons. Props: `data`, `bars: {dataKey, label}[]`, `stacked?` |
+| `ProjectionChart` | Growth/timeline data. Props: `data`, `lines: {dataKey, label, areaFill?}[]`, `goalLine?` |
+| `ChartCard` | Wrapper card for any chart. Props: `title`, `category?`, `description?` |
+
 ### Formatting
 ```typescript
 import { formatCurrency, formatNumber, formatPercent, formatDuration, formatCompactNumber } from '../../lib/utils/formatters';
