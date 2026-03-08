@@ -41,6 +41,8 @@ export function SliderInput({
         min={min}
         max={max}
         step={step}
+        aria-valuetext={formatValue(value)}
+        aria-describedby={helpText ? `${id}-help` : undefined}
         className="w-full h-2 bg-neutral-200 rounded-full appearance-none cursor-pointer
           [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5
           [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-primary-500
@@ -60,7 +62,7 @@ export function SliderInput({
         <span>{formatValue(min)}</span>
         <span>{formatValue(max)}</span>
       </div>
-      {helpText && <p className="text-xs text-neutral-500">{helpText}</p>}
+      {helpText && <p id={`${id}-help`} className="text-xs text-neutral-500">{helpText}</p>}
     </div>
   );
 }

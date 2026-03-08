@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
 import { DropdownInput } from '../ui/inputs/DropdownInput';
@@ -50,6 +51,7 @@ export function W2vs1099Calc() {
   const w2Better = results.difference < 0;
 
   return (
+    <ErrorBoundary>
     <div className="space-y-8">
       {/* Mode Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -296,5 +298,6 @@ export function W2vs1099Calc() {
         </div>
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

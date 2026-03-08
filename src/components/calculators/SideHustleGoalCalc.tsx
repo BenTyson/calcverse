@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
@@ -43,6 +44,7 @@ export function SideHustleGoalCalc() {
   );
 
   return (
+    <ErrorBoundary>
     <div className="space-y-8">
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
@@ -75,7 +77,7 @@ export function SideHustleGoalCalc() {
             </div>
             <div className="h-2 bg-gray-300 rounded-full overflow-hidden">
               <div
-                className="h-full bg-brand-600 transition-all duration-300"
+                className="h-full bg-primary-600 transition-all duration-300"
                 style={{ width: `${progressPercentage}%` }}
               />
             </div>
@@ -226,5 +228,6 @@ export function SideHustleGoalCalc() {
         </div>
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

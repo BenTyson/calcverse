@@ -14,12 +14,12 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/og-images/default.png',
+  ogImage = '/og-images/default.svg',
   canonicalUrl,
   noIndex = false,
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcverse.example.com';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
 const currentUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
@@ -59,8 +59,11 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-neutral-50 flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-neutral-900 focus:text-white focus:rounded-lg focus:font-medium">
+      Skip to content
+    </a>
     <Header />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer />

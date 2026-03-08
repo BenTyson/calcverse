@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
@@ -34,6 +35,7 @@ export function EtsyFeesCalc() {
   const isAdvanced = mode === 'advanced';
 
   return (
+    <ErrorBoundary>
     <div className="space-y-8">
       {/* Mode Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -206,5 +208,6 @@ export function EtsyFeesCalc() {
         )}
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

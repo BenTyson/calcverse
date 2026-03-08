@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
@@ -42,6 +43,7 @@ export function KofiCalc() {
   const isAdvanced = mode === 'advanced';
 
   return (
+    <ErrorBoundary>
     <div className="space-y-8">
       {/* Mode Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -287,5 +289,6 @@ export function KofiCalc() {
         </div>
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

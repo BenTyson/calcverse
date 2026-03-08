@@ -5,9 +5,11 @@ interface ModeToggleProps {
 
 export function ModeToggle({ mode, onChange }: ModeToggleProps) {
   return (
-    <div className="flex items-center gap-1 p-1 bg-neutral-100 rounded-xl w-fit">
+    <div className="flex items-center gap-1 p-1 bg-neutral-100 rounded-xl w-fit" role="radiogroup" aria-label="Calculator mode">
       <button
         onClick={() => onChange('quick')}
+        role="radio"
+        aria-checked={mode === 'quick'}
         className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
           mode === 'quick'
             ? 'bg-white text-neutral-900 shadow-sm'
@@ -18,6 +20,8 @@ export function ModeToggle({ mode, onChange }: ModeToggleProps) {
       </button>
       <button
         onClick={() => onChange('advanced')}
+        role="radio"
+        aria-checked={mode === 'advanced'}
         className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
           mode === 'advanced'
             ? 'bg-white text-neutral-900 shadow-sm'

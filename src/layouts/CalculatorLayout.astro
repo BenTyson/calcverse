@@ -37,7 +37,7 @@ const {
   ogImage,
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcverse.example.com';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
 const currentUrl = `${siteUrl}/${categorySlug}/${slug}`;
 const embedUrl = `${siteUrl}/embed/${categorySlug}/${slug}`;
 
@@ -58,6 +58,7 @@ const calculatorSEO = {
 const categoryColors: Record<string, { accent: string; light: string; text: string }> = {
   freelance: { accent: 'primary', light: 'freelance-50', text: 'freelance-600' },
   creator: { accent: 'creator', light: 'creator-50', text: 'creator-600' },
+  'gig-economy': { accent: 'gig', light: 'gig-50', text: 'gig-600' },
   'side-hustle': { accent: 'sidehustle', light: 'sidehustle-50', text: 'sidehustle-600' },
   finance: { accent: 'finance', light: 'finance-50', text: 'finance-600' },
 };

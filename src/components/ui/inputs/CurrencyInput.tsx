@@ -41,12 +41,13 @@ export function CurrencyInput({
           min={min}
           max={max}
           step={step}
+          aria-describedby={helpText ? `${id}-help` : undefined}
           className="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-3 text-neutral-900
             focus:border-primary-500 focus:ring-2 focus:ring-primary-500/10 focus:outline-none
             transition-all duration-200 shadow-sm hover:border-neutral-300"
         />
       </div>
-      {helpText && <p className="text-xs text-neutral-500">{helpText}</p>}
+      {helpText && <p id={`${id}-help`} className="text-xs text-neutral-500">{helpText}</p>}
     </div>
   );
 }

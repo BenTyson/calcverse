@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
 import { DropdownInput } from '../ui/inputs/DropdownInput';
@@ -46,6 +47,7 @@ export function YouTubeAdSenseCalc() {
     `${formatCurrency(Math.round(low))} - ${formatCurrency(Math.round(high))}`;
 
   return (
+    <ErrorBoundary>
     <div className="space-y-8">
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
@@ -107,9 +109,9 @@ export function YouTubeAdSenseCalc() {
       <div className="border-t pt-8">
         <h3 className="font-semibold text-gray-900 mb-4">Estimated Earnings</h3>
 
-        <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-xl p-4 mb-6">
+        <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl p-4 mb-6">
           <p className="text-sm text-gray-600 mb-2">Monthly Earnings Range</p>
-          <p className="text-3xl font-bold text-brand-700">
+          <p className="text-3xl font-bold text-primary-700">
             {formatRange(results.monthlyEarnings.low, results.monthlyEarnings.high)}
           </p>
           <p className="text-sm text-gray-500 mt-1">
@@ -165,5 +167,6 @@ export function YouTubeAdSenseCalc() {
         </div>
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

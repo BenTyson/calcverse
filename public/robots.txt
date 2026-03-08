@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /embed/
 
-Sitemap: https://calcverse.example.com/sitemap-index.xml
+Sitemap: https://calcfalcon.com/sitemap-index.xml
