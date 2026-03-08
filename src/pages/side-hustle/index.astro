@@ -1,5 +1,22 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaOrg from '@components/seo/SchemaOrg.astro';
+import type { FAQ } from '@lib/seo/schema';
+
+const faqs: FAQ[] = [
+  {
+    question: 'How much can I make with a side hustle?',
+    answer: 'It depends on the type and time invested. Service-based side hustles (freelancing, tutoring) typically earn $25-75 per hour. Product-based businesses have lower margins but can scale. Most side hustlers earn $500-2,000 per month.',
+  },
+  {
+    question: 'Do I need to pay taxes on side hustle income?',
+    answer: 'Yes, if you earn $400 or more in net self-employment income. You\'ll owe self-employment tax (15.3%) plus income tax. Set aside 25-30% of earnings for taxes and make quarterly estimated payments.',
+  },
+  {
+    question: 'How do I balance a side hustle with a full-time job?',
+    answer: 'Start with 5-10 hours per week. Focus on high-value activities that move the needle. Use our Time to Goal calculator to set realistic timelines. Avoid burnout by scheduling dedicated hustle time and protecting your rest days.',
+  },
+];
 
 const calculators = [
   {
@@ -21,6 +38,10 @@ const upcomingCalculators = [
   title="Side Hustle Calculators - Plan Your Goals | CalcFalcon"
   description="Free calculators for side hustlers. Plan your path to financial goals and track your progress."
 >
+  <Fragment slot="head">
+    <SchemaOrg faqs={faqs} />
+  </Fragment>
+
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-sidehustle-500 to-sidehustle-600 text-white py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -32,6 +53,18 @@ const upcomingCalculators = [
       <h1 class="heading-lg mb-4">Side Hustle Calculators</h1>
       <p class="text-xl text-white/80 max-w-2xl mx-auto">
         Tools to help you plan and achieve your side hustle goals
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-12 bg-white border-b border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-neutral-700 leading-relaxed mb-4">
+        Building a side hustle is a path to financial freedom, but it requires planning. Whether you're saving for a specific goal or building toward full-time self-employment, knowing your numbers is essential to staying on track and making smart decisions.
+      </p>
+      <p class="text-neutral-700 leading-relaxed">
+        These calculators help you set realistic timelines, understand the tax implications of extra income, and map out the financial journey from side project to serious revenue stream.
       </p>
     </div>
   </section>
@@ -75,6 +108,24 @@ const upcomingCalculators = [
             </li>
           ))}
         </ul>
+      </div>
+
+      <!-- FAQs -->
+      <div class="mt-12">
+        <h2 class="heading-md text-neutral-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="card-elevated p-5 group">
+              <summary class="font-medium text-neutral-900 cursor-pointer list-none flex justify-between items-center gap-4">
+                <span>{faq.question}</span>
+                <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="mt-4 text-neutral-600 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </div>
   </section>

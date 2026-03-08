@@ -1,0 +1,32 @@
+---
+import BlogLayout from '@layouts/BlogLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { slug: post.id },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const readTime = Math.ceil(post.body!.split(/\s+/).length / 250);
+---
+
+<BlogLayout
+  title={`${post.data.title} | CalcFalcon`}
+  description={post.data.description}
+  publishedDate={post.data.publishedDate}
+  updatedDate={post.data.updatedDate}
+  category={post.data.category}
+  calculatorSlug={post.data.calculatorSlug}
+  readTime={readTime}
+  ogImage={post.data.ogImage}
+>
+  <Content />
+</BlogLayout>

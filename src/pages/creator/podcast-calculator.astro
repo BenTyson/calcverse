@@ -43,6 +43,18 @@ const relatedCalculators = [
     href: '/creator/patreon-calculator',
     category: 'Creator',
   },
+  {
+    name: 'Substack Revenue Calculator',
+    description: 'Calculate newsletter earnings to complement podcast income',
+    href: '/creator/substack-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Set your rate for freelance podcasting work',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
 ];
 ---
 
@@ -57,4 +69,16 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <PodcastSponsorshipCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Podcast Sponsorship Calculator</h2>
+        <p>Start by entering your average downloads per episode (within the first 30 days of release) and how many episodes you publish per month. These two numbers are the foundation of podcast ad revenue — sponsors buy on a CPM (cost per thousand downloads) basis, so more downloads and more episodes directly multiply your earnings.</p>
+        <p>Switch to <strong>Advanced mode</strong> to model multiple ad placements per episode. The three standard placements are pre-roll (15-30 seconds at the start, typically $15-25 CPM), mid-roll (60 seconds during the episode, $20-50 CPM), and post-roll (15-30 seconds at the end, $10-15 CPM). Mid-roll commands the highest rates because listeners are most engaged and least likely to skip. You can also add affiliate revenue estimates for promo-code-based deals.</p>
+        <p>For realistic projections, keep in mind that most podcasts need at least 5,000 downloads per episode to attract network sponsors. Smaller shows with niche audiences (finance, B2B, tech) can command premium CPMs of $30-50+ because their listeners have higher purchasing power. General entertainment podcasts typically see lower CPMs of $15-25.</p>
+        <p>The calculator helps you compare total revenue across different scenarios. Try modeling what happens if you increase episode frequency, grow your audience by 20%, or add a second mid-roll ad. Many successful podcasters find that publishing consistently and growing downloads by even 10% per month compounds into significant revenue over 6-12 months.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

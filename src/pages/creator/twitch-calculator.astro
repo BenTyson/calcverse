@@ -43,6 +43,18 @@ const relatedCalculators = [
     href: '/creator/patreon-calculator',
     category: 'Creator',
   },
+  {
+    name: 'Ko-fi Earnings Calculator',
+    description: 'Estimate Ko-fi donation and membership income',
+    href: '/creator/kofi-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate your quarterly tax payments as a creator',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
 ];
 ---
 
@@ -57,4 +69,21 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <TwitchRevenueCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Twitch Revenue Calculator</h2>
+        <p>This calculator estimates your potential Twitch income from subscriptions, bits, and ad revenue. Whether you are an Affiliate exploring monetization for the first time or a Partner evaluating your revenue split, it provides a realistic earnings breakdown.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your average concurrent viewer count and current subscriber total. The calculator applies standard Twitch revenue assumptions to estimate your monthly and annual income. This gives you a quick snapshot without needing to dig into analytics.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to customize bits per stream, ad frequency and CPM, and your revenue split percentage. You can also model Tier 2 and Tier 3 subscriber counts separately, since these pay significantly more than standard Tier 1 subs.</p>
+        <h3>Affiliate vs Partner</h3>
+        <p>Twitch Affiliates receive a standard 50/50 split on subscriptions, meaning you keep roughly $2.50 from each $4.99 Tier 1 sub. Partners can negotiate improved splits of up to 70/30, which makes a major difference at scale. A streamer with 500 subscribers earns $1,250 per month at a 50/50 split versus $1,750 at 70/30 — an extra $6,000 annually from the split improvement alone.</p>
+        <h3>Growing Your Revenue</h3>
+        <p>Bits provide a reliable secondary income stream because streamers receive 100 percent of the bit value ($0.01 per bit). Encourage bit usage with on-screen alerts and bit-triggered interactions. For ad revenue, running two to three ad breaks per hour is a common balance between earning potential and viewer experience. Avoid front-loading ads, which drive away new viewers before they have a chance to engage with your content.</p>
+        <p>Consistency is the most important factor in growing Twitch income. A regular streaming schedule helps build a loyal audience that subscribes and cheers with bits month after month.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

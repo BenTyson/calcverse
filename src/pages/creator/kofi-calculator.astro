@@ -43,6 +43,18 @@ const relatedCalculators = [
     href: '/creator/twitch-calculator',
     category: 'Creator',
   },
+  {
+    name: 'YouTube AdSense Calculator',
+    description: 'Estimate YouTube ad revenue by niche',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Substack Revenue Calculator',
+    description: 'Calculate newsletter subscription earnings',
+    href: '/creator/substack-calculator',
+    category: 'Creator',
+  },
 ];
 ---
 
@@ -57,4 +69,16 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <KofiCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Ko-fi Earnings Calculator</h2>
+        <p>Begin by entering your expected monthly donation amount and the number of one-time supporters you receive. If you offer memberships, add your membership tiers and subscriber counts. The calculator applies Ko-fi's standard 5% platform fee plus payment processing fees to show your actual take-home amount.</p>
+        <p>Switch to <strong>Advanced mode</strong> to compare free vs. Ko-fi Gold accounts side by side. Gold costs $6/month but removes the 5% platform fee entirely. The key threshold: if your combined donation and membership income exceeds roughly $120/month, Gold pays for itself. Above that level, every additional dollar saves you 5 cents in fees. You can also model shop sales in Advanced mode — Ko-fi takes 0% commission on shop transactions, making it one of the most competitive platforms for selling digital products.</p>
+        <p>For accurate projections, factor in that donation income tends to be variable month-to-month, while memberships provide more predictable recurring revenue. Most creators see 2-5% of their audience convert to supporters, with average one-time donations ranging from $3-10. Membership subscribers typically stay for 3-6 months.</p>
+        <p>If you are deciding between Ko-fi and other platforms, consider that Ko-fi's fee structure (5% or 0% with Gold) is significantly lower than Patreon's 8-12%. However, Patreon offers more robust membership management tools. Many creators use Ko-fi for one-time support and shop sales while running memberships on another platform.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

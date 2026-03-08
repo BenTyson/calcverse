@@ -44,6 +44,12 @@ const relatedCalculators = [
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
   },
+  {
+    name: 'Instacart Earnings',
+    description: 'Estimate Instacart shopper earnings',
+    href: '/gig-economy/instacart-calculator',
+    category: 'Gig Economy',
+  },
 ];
 ---
 
@@ -58,4 +64,16 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <DoorDashCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the DoorDash Earnings Calculator</h2>
+        <p>Enter your average number of deliveries per hour and the average earnings per delivery (including tips). Most dashers complete 2-3 deliveries per hour and earn $5-9 per delivery depending on their market. The calculator shows your gross hourly and weekly earnings based on your typical schedule.</p>
+        <p>Switch to <strong>Advanced mode</strong> to see your true take-home after expenses. Enter your vehicle's fuel efficiency (MPG), local gas price, and average miles per delivery. The calculator factors in gas costs, vehicle maintenance (oil changes, tires, brakes), and depreciation to reveal your real hourly rate — which is often $5-10 less than the gross number DoorDash shows you.</p>
+        <p>To calculate your true hourly rate accurately, include all time spent dashing — not just active delivery time. Count time spent waiting for orders, driving to hotspots, and sitting in restaurant parking lots. Many dashers find their effective hourly rate drops 20-30% when accounting for idle time between deliveries.</p>
+        <p>Use the mileage tracking estimates to prepare for tax season. As an independent contractor, you can deduct $0.67 per mile driven for DoorDash (2024 IRS rate). Track miles from when you turn on the app until you stop, including driving to busy areas. At 15-20 miles per hour of dashing, mileage deductions can significantly reduce your tax burden. Set aside 20-25% of your net earnings for quarterly estimated tax payments to avoid surprises.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

@@ -38,6 +38,18 @@ const relatedCalculators = [
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
   },
+  {
+    name: 'W2 vs 1099 Calculator',
+    description: 'Compare take-home pay between employment and contracting',
+    href: '/freelance/w2-vs-1099-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate your quarterly estimated tax payments',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
 ];
 ---
 
@@ -52,4 +64,20 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <FreelancerRateCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Freelancer Hourly Rate Calculator</h2>
+        <p>This calculator helps you determine the minimum hourly rate you need to charge as a freelancer to meet your income goals after accounting for taxes, expenses, and time off. It works in two modes so you can get a quick estimate or run a detailed analysis.</p>
+        <h3>Quick Mode</h3>
+        <p>Start with three inputs: your desired annual take-home income, your estimated monthly business expenses, and the number of hours you plan to bill each week. The calculator handles the rest, applying standard tax assumptions to produce a recommended hourly rate. This is ideal when you need a ballpark figure for a proposal or client conversation.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced for a granular breakdown. You can set your federal and state tax rates, self-employment tax, desired profit margin, and weeks of paid time off. This mode is especially useful during annual rate reviews or when comparing offers across different states with varying tax burdens.</p>
+        <h3>Tips for Accurate Results</h3>
+        <p>Be realistic about billable hours. Most freelancers can bill 25 to 35 hours per week — the remainder goes to admin, marketing, invoicing, and professional development. New freelancers often overestimate this number, which leads to undercharging.</p>
+        <p>Start from your desired take-home pay, not from what competitors charge. Your expenses, tax situation, and lifestyle are unique. Include every recurring cost: software subscriptions, equipment, insurance, coworking fees, and professional development. Forgetting even one large expense like health insurance can throw off your rate by $10 or more per hour.</p>
+        <p>Finally, revisit your rate at least twice a year. As your skills grow and expenses change, your rate should reflect the current value you deliver to clients.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

@@ -38,6 +38,18 @@ const relatedCalculators = [
     href: '/creator/youtube-adsense-calculator',
     category: 'Creator',
   },
+  {
+    name: 'DoorDash Earnings Calculator',
+    description: 'Calculate delivery driver earnings after expenses',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate quarterly taxes on your side hustle income',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
 ];
 ---
 
@@ -52,4 +64,16 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <SideHustleGoalCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Side Hustle Time to Goal Calculator</h2>
+        <p>Enter your financial goal amount and your current monthly savings or side hustle income. The calculator projects how many months it will take to reach your target at your current pace. Whether you are saving for an emergency fund, paying off debt, or building a business runway, start with a specific dollar amount rather than a vague target.</p>
+        <p>Switch to <strong>Advanced mode</strong> to model growth scenarios. Enter a monthly growth rate to see how increasing your income over time accelerates your timeline. Most side hustles can realistically grow 3-10% per month through rate increases, efficiency gains, or expanding services. You can also adjust reinvestment percentage — putting 10-20% of earnings back into tools, marketing, or skills training can compound your growth rate.</p>
+        <p>For realistic goal setting, break large targets into milestones. Instead of focusing solely on a $50,000 goal, track progress at $5,000 and $10,000 checkpoints. The calculator helps you see whether your current trajectory is sustainable or whether you need to adjust your approach. If the projected timeline exceeds 24 months, consider whether you can increase hours, raise rates, or add a complementary income stream.</p>
+        <p>Do not forget to account for taxes in your planning. As a side hustler, you will owe self-employment tax (15.3%) plus income tax on your earnings. Set aside 25-30% of your side hustle income for taxes so your goal calculations reflect real take-home savings. Use the quarterly tax calculator to stay on top of estimated payments and avoid penalties at year-end.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

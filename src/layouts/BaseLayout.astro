@@ -9,6 +9,7 @@ interface Props {
   ogImage?: string;
   canonicalUrl?: string;
   noIndex?: boolean;
+  ogType?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   ogImage = '/og-images/default.svg',
   canonicalUrl,
   noIndex = false,
+  ogType = 'website',
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
@@ -45,7 +47,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <link rel="canonical" href={currentUrl} />
     {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={currentUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

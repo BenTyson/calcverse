@@ -44,6 +44,12 @@ const relatedCalculators = [
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
   },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate quarterly tax payments on your Etsy income',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
 ];
 ---
 
@@ -58,4 +64,20 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <EtsyFeesCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Etsy Fee Calculator</h2>
+        <p>Etsy fees are layered and can be confusing. This calculator breaks down every fee that applies to a sale so you can see your true profit per item and price your products accordingly.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your item price and your cost to make or source the product. The calculator applies Etsy's standard fees — the $0.20 listing fee, 6.5 percent transaction fee, and payment processing (3 percent plus $0.25) — to show your net profit and effective fee percentage. This is the fastest way to check whether a product is worth listing at a given price.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to account for shipping costs, Etsy Ads spend, and Offsite Ads fees. Offsite Ads deserve special attention: Etsy charges 12 percent (or 15 percent for shops earning over $10,000 per year) on any sale that results from their off-platform advertising. Shops earning under $10,000 annually can opt out, but larger shops cannot. This single fee can turn a profitable item into a break-even proposition if you have not priced for it.</p>
+        <h3>How Fees Stack Up on a Real Order</h3>
+        <p>Consider a $30 item that costs you $8 to produce. The listing fee is $0.20. The transaction fee is $1.95 (6.5 percent of $30). Payment processing is $1.15 (3 percent plus $0.25). That totals $3.30 in fees before any advertising, leaving you $18.70 in gross profit. If the sale came through Offsite Ads, add another $3.60 (12 percent), dropping your profit to $15.10. Knowing these numbers upfront prevents unpleasant surprises.</p>
+        <h3>Pricing Strategy</h3>
+        <p>Work backward from your desired profit. Add your production cost, shipping cost, and target profit, then divide by one minus your total fee rate. For example, if you want $15 profit on an $8 item with 12 percent total fees: ($8 plus $15) divided by 0.88 equals $26.14 minimum price. Round up to account for Offsite Ads if you cannot opt out. Revisit your pricing quarterly as costs and fee structures change.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

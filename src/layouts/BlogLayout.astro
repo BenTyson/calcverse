@@ -1,0 +1,154 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SchemaOrg from '@components/seo/SchemaOrg.astro';
+import type { ArticleSEO, BreadcrumbItem } from '@lib/seo/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  publishedDate: Date;
+  updatedDate?: Date;
+  category: string;
+  calculatorSlug?: string;
+  readTime: number;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  publishedDate,
+  updatedDate,
+  category,
+  calculatorSlug,
+  readTime,
+  ogImage,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
+const currentUrl = `${siteUrl}${Astro.url.pathname}`;
+
+const categoryLabels: Record<string, string> = {
+  freelance: 'Freelance',
+  creator: 'Creator',
+  'gig-economy': 'Gig Economy',
+  'side-hustle': 'Side Hustle',
+  finance: 'Finance',
+};
+
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  freelance: { bg: 'bg-freelance-100', text: 'text-freelance-700' },
+  creator: { bg: 'bg-creator-100', text: 'text-creator-700' },
+  'gig-economy': { bg: 'bg-gig-100', text: 'text-gig-700' },
+  'side-hustle': { bg: 'bg-sidehustle-100', text: 'text-sidehustle-700' },
+  finance: { bg: 'bg-finance-100', text: 'text-finance-700' },
+};
+
+const colors = categoryColors[category] || categoryColors.freelance;
+const label = categoryLabels[category] || category;
+
+const breadcrumbs: BreadcrumbItem[] = [
+  { name: 'Home', url: siteUrl },
+  { name: 'Blog', url: `${siteUrl}/blog` },
+  { name: title, url: currentUrl },
+];
+
+const article: ArticleSEO = {
+  headline: title,
+  description,
+  url: currentUrl,
+  publishedDate: publishedDate.toISOString(),
+  updatedDate: updatedDate?.toISOString(),
+  category: label,
+};
+
+const formattedDate = publishedDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Calculator CTA data
+const calculatorNames: Record<string, string> = {
+  '/freelance/hourly-rate-calculator': 'Freelancer Hourly Rate Calculator',
+  '/freelance/w2-vs-1099-calculator': 'W2 vs 1099 Calculator',
+  '/freelance/quarterly-tax-calculator': 'Quarterly Tax Estimator',
+  '/freelance/project-rate-calculator': 'Project Rate Calculator',
+  '/creator/youtube-adsense-calculator': 'YouTube AdSense Calculator',
+  '/creator/twitch-calculator': 'Twitch Calculator',
+  '/creator/etsy-fee-calculator': 'Etsy Fees Calculator',
+  '/creator/patreon-calculator': 'Patreon Calculator',
+  '/creator/substack-calculator': 'Substack Calculator',
+  '/creator/kofi-calculator': 'Ko-fi Calculator',
+  '/creator/podcast-calculator': 'Podcast Sponsorship Calculator',
+  '/gig-economy/doordash-calculator': 'DoorDash Calculator',
+  '/gig-economy/uber-lyft-calculator': 'Uber/Lyft Calculator',
+  '/gig-economy/instacart-calculator': 'Instacart Calculator',
+  '/gig-economy/airbnb-calculator': 'Airbnb Calculator',
+  '/side-hustle/time-to-goal-calculator': 'Side Hustle Time to Goal Calculator',
+};
+---
+
+<BaseLayout title={title} description={description} ogType="article" ogImage={ogImage}>
+  <Fragment slot="head">
+    <SchemaOrg article={article} breadcrumbs={breadcrumbs} />
+  </Fragment>
+
+  <div class="bg-neutral-50 min-h-screen">
+    <article class="max-w-3xl mx-auto px-4 py-8 md:py-12">
+      <!-- Breadcrumbs -->
+      <nav class="text-sm text-neutral-500 mb-6">
+        <ol class="flex items-center gap-2">
+          <li>
+            <a href="/" class="hover:text-neutral-900 transition-colors">Home</a>
+          </li>
+          <li class="text-neutral-300">/</li>
+          <li>
+            <a href="/blog" class="hover:text-neutral-900 transition-colors">Blog</a>
+          </li>
+          <li class="text-neutral-300">/</li>
+          <li class="text-neutral-900 font-medium truncate">{title}</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${colors.bg} ${colors.text}`}>
+            {label}
+          </span>
+          <span class="text-sm text-neutral-500">{readTime} min read</span>
+        </div>
+        <h1 class="heading-lg text-neutral-900">{title}</h1>
+        <p class="text-lg text-neutral-600 mt-3 leading-relaxed">{description}</p>
+        <time datetime={publishedDate.toISOString()} class="block text-sm text-neutral-500 mt-4">
+          {formattedDate}
+        </time>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-neutral prose-lg max-w-none">
+        <slot />
+      </div>
+
+      <!-- Calculator CTA -->
+      {calculatorSlug && (
+        <div class="mt-12 card-elevated p-6 md:p-8 border-l-4 border-primary-500">
+          <h3 class="font-bold text-lg text-neutral-900 mb-2">Try the Calculator</h3>
+          <p class="text-neutral-600 mb-4">
+            Put what you've learned into practice with our free {calculatorNames[calculatorSlug] || 'calculator'}.
+          </p>
+          <a
+            href={calculatorSlug}
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-colors"
+          >
+            Open Calculator
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </article>
+  </div>
+</BaseLayout>

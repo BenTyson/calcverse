@@ -44,6 +44,12 @@ const relatedCalculators = [
     href: '/freelance/hourly-rate-calculator',
     category: 'Freelance',
   },
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate Etsy seller fees and profit margins',
+    href: '/creator/etsy-fee-calculator',
+    category: 'Creator',
+  },
 ];
 ---
 
@@ -58,4 +64,16 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <SubstackCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Substack Revenue Calculator</h2>
+        <p>Start by entering your current free subscriber count and estimated paid conversion rate. Most Substack newsletters convert between 2-5% of free subscribers to paid, so begin with a conservative estimate unless you have existing data. Set your monthly subscription price — the $5-10 range works best for most niches, though specialized B2B content can command $15-30/month.</p>
+        <p>Switch to <strong>Advanced mode</strong> to model more realistic scenarios. You can adjust the split between monthly and annual subscribers — aim for 30-50% annual, since these subscribers churn at roughly one-third the rate of monthly ones. Set your monthly churn rate (typically 3-7% for monthly subscribers) to see how retention impacts long-term revenue. The calculator accounts for both Substack's 10% platform fee and Stripe's payment processing fees.</p>
+        <p>Use the projection to understand your growth trajectory. A newsletter with 5,000 free subscribers at a 3% conversion rate and $7/month pricing nets roughly $700-800/month after all fees. To increase revenue, focus on growing your free list through cross-promotions and SEO, improving conversion with premium content previews, and reducing churn by delivering consistent value to paid subscribers.</p>
+        <p>Remember that annual subscriptions (typically offered at a 10-20% discount) provide better cash flow predictability and significantly lower churn. If your calculator shows high monthly churn eating into growth, consider promoting annual plans more aggressively.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

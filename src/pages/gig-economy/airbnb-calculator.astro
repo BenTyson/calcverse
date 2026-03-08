@@ -44,6 +44,12 @@ const relatedCalculators = [
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
   },
+  {
+    name: 'Instacart Earnings',
+    description: 'Calculate Instacart shopper earnings',
+    href: '/gig-economy/instacart-calculator',
+    category: 'Gig Economy',
+  },
 ];
 ---
 
@@ -58,4 +64,16 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <AirbnbProfitCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Airbnb Profit Calculator</h2>
+        <p>Enter your nightly rate and expected occupancy percentage to see gross revenue estimates. Research comparable listings in your area to set a realistic nightly rate — price too high and occupancy drops, too low and you leave money on the table. Most successful hosts target 50-70% occupancy as a healthy baseline.</p>
+        <p>Switch to <strong>Advanced mode</strong> to account for all operating expenses. Enter cleaning costs per turnover (typically $50-150 depending on property size), monthly supplies budget, additional utility costs from guests, and short-term rental insurance premiums. The calculator subtracts Airbnb's 3% host service fee and all expenses to show your true monthly profit.</p>
+        <p>The break-even occupancy rate is one of the most important numbers in the results. This tells you the minimum occupancy percentage needed to cover all your fixed and variable costs. If your break-even is above 60%, your margins are tight and you may want to reduce expenses or increase your nightly rate. A healthy break-even occupancy is typically 35-45% — anything below that means strong profitability even in slow seasons.</p>
+        <p>For accurate projections, account for seasonal variation. Beach properties might see 90% occupancy in summer but 20% in winter. Budget for a maintenance reserve of 5-10% of gross revenue to handle repairs, appliance replacements, and furniture wear. Also consider that turnover costs scale with occupancy — higher occupancy means more cleaning fees, more supplies, and faster wear on linens and furnishings.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

@@ -38,6 +38,18 @@ const relatedCalculators = [
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
   },
+  {
+    name: 'Twitch Revenue Calculator',
+    description: 'Estimate Twitch streaming income from subs and bits',
+    href: '/creator/twitch-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Patreon Earnings Calculator',
+    description: 'Calculate Patreon take-home after fees',
+    href: '/creator/patreon-calculator',
+    category: 'Creator',
+  },
 ];
 ---
 
@@ -52,4 +64,21 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <YouTubeAdSenseCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the YouTube AdSense Revenue Calculator</h2>
+        <p>This calculator estimates your potential YouTube ad revenue based on view counts, content niche, and audience demographics. Whether you are planning a new channel or evaluating your current earnings potential, it gives you a realistic picture of what AdSense can generate.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your estimated monthly views and select your content niche. The calculator applies a niche-appropriate CPM range and produces a monthly and annual revenue estimate. This is useful for setting income expectations before you commit to a content schedule.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to customize your CPM, add sponsorship income, and factor in channel memberships or Super Chat revenue. You can also adjust the audience geography split, since viewers from the United States, United Kingdom, and Canada generate significantly higher CPMs than viewers from other regions.</p>
+        <h3>Understanding CPM vs RPM</h3>
+        <p>CPM (cost per mille) is what advertisers pay per 1,000 ad impressions. RPM (revenue per mille) is what you actually earn per 1,000 views after YouTube takes its 45 percent cut. RPM is always lower than CPM because not every view generates an ad impression, and YouTube retains nearly half of all ad revenue. When comparing earnings estimates across tools, make sure you know which metric is being used.</p>
+        <h3>Maximizing Your Revenue</h3>
+        <p>Create videos longer than eight minutes to enable mid-roll ads, which can double your RPM. Focus on evergreen content that continues to attract views months after upload. Build audience retention by hooking viewers in the first 30 seconds, since YouTube prioritizes watch time in its recommendation algorithm. High watch time leads to more impressions, which translates directly to more ad revenue.</p>
+        <p>Remember that AdSense is just one income stream. Most successful creators diversify with sponsorships, merchandise, memberships, and affiliate marketing to build a sustainable business.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

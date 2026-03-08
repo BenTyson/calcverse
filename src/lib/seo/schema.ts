@@ -48,6 +48,38 @@ export function generateFAQSchema(faqs: FAQ[]): object {
   };
 }
 
+export interface ArticleSEO {
+  headline: string;
+  description: string;
+  url: string;
+  publishedDate: string;
+  updatedDate?: string;
+  category: string;
+}
+
+export function generateArticleSchema(article: ArticleSEO): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.headline,
+    description: article.description,
+    url: article.url,
+    datePublished: article.publishedDate,
+    ...(article.updatedDate && { dateModified: article.updatedDate }),
+    articleSection: article.category,
+    author: {
+      '@type': 'Organization',
+      name: 'CalcFalcon',
+      url: 'https://calcfalcon.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CalcFalcon',
+      url: 'https://calcfalcon.com',
+    },
+  };
+}
+
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]): object {
   return {
     '@context': 'https://schema.org',

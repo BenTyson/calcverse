@@ -8,8 +8,8 @@
 | 2a. Chart Components | DONE | Recharts, DonutChart, BarComparisonChart, ProjectionChart, ChartCard |
 | 2b. Chart Integration | DONE | Charts in 7 calculators (Freelancer, Etsy, Ko-fi, Quarterly, W2v1099, YouTube, SideHustle) |
 | 2c. Result Enhancements | DONE | CopyResultsButton, count-up animation, Tooltip in all 16 calcs |
-| 3. Content System | NEXT | Blog infrastructure, 8-10 articles, calculator content, about page |
-| 4. Monetization | PLANNED | Email capture, ad placements, affiliates, AdSense application |
+| 3. Content System | DONE | Blog infrastructure, 8 articles, calculator content, about page |
+| 4. Monetization | NEXT | Email capture, ad placements, affiliates, AdSense application |
 | 5. Calculator Expansion | PLANNED | Personal Finance (4), Gig (3), Creator (2) → 25+ total |
 | 6. Polish & Scale | ONGOING | Analytics optimization, Mediavine, backlinks |
 
@@ -36,39 +36,9 @@ CopyResultsButton (lucide-react icons), useCountUp hook (rAF, prefers-reduced-mo
 
 ---
 
-## Phase 3: Content System & SEO Depth
+## Phase 3: Content System & SEO Depth — DONE
 
-Target: 30+ indexed pages (exceeds AdSense minimum)
-
-### 3a. Blog Infrastructure
-- `src/content/config.ts` — Astro Content Collections schema
-- `src/content/blog/` directory
-- `src/pages/blog/index.astro` — listing page
-- `src/pages/blog/[slug].astro` — article page
-- `src/layouts/BlogLayout.astro` — article layout with related calcs
-- Add Article schema to `src/lib/seo/schema.ts`
-- Update Header + Footer with Blog link
-
-### 3b. Pillar Articles (8-10)
-
-| Article | Target Keyword | Calculator |
-|---------|---------------|-----------|
-| How to Calculate Your Freelance Rate | "how to set freelance rates" | Hourly Rate |
-| W2 vs 1099: The Real Tax Difference | "w2 vs 1099 taxes" | W2vs1099 |
-| YouTube AdSense Rates by Niche | "youtube adsense rates" | YouTube |
-| DoorDash Driver Earnings: What to Expect | "doordash driver pay" | DoorDash |
-| How Much Do Twitch Streamers Make? | "twitch streamer income" | Twitch |
-| Etsy Fees Explained | "etsy seller fees" | Etsy |
-| Quarterly Tax Guide for Freelancers | "quarterly estimated taxes" | Quarterly Tax |
-| Side Hustle Taxes: What You Need to Know | "side hustle taxes" | Multiple |
-
-### 3c-3e. Content Enhancements
-- "How to Use This Calculator" content in each calculator's `<slot name="content" />`
-- Expand `relatedCalculators` arrays to 3-4 cross-category links
-- Enhance 4 category index pages with intros and FAQs
-- Create `src/pages/about.astro` (trust signal for AdSense)
-
-**Post-Phase 3:** 34-36 pages
+Blog infrastructure, 8 pillar articles, about page, calculator content enhancements, category page FAQs. 34 indexable pages (50 total with embeds).
 
 ---
 
@@ -133,11 +103,10 @@ Generate SVG OG images for all calculators (currently only 4 of 16 have them).
 ```
 Phase 0 (manual) ─── required before Phase 4
 Phase 1 (DONE)
-Phase 2a-2b (DONE)
-  ├── Phase 2c (DONE)
-  ├── Phase 3 (content) — NEXT, required before Phase 4
-  └── Phase 5 (new calcs) — benefits from Phase 2
-         └── Phase 4 (monetization) — needs Phase 0 + Phase 3
+Phase 2a-2c (DONE)
+Phase 3 (DONE)
+  ├── Phase 4 (monetization) — NEXT, needs Phase 0
+  └── Phase 5 (new calcs)
 Phase 6 (ongoing)
 ```
 

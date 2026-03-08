@@ -1,5 +1,22 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaOrg from '@components/seo/SchemaOrg.astro';
+import type { FAQ } from '@lib/seo/schema';
+
+const faqs: FAQ[] = [
+  {
+    question: 'How much should I charge as a freelancer?',
+    answer: 'It depends on your expertise, market, and costs. Most freelancers need to charge 30-50% more than their equivalent salary rate to cover self-employment tax, health insurance, and unpaid time off. Use our hourly rate calculator to find your ideal rate.',
+  },
+  {
+    question: 'Do freelancers pay more taxes?',
+    answer: 'Freelancers pay self-employment tax (15.3%) in addition to income tax. However, business deductions can offset some of this. The net tax burden is typically 5-10% higher than W2 employment.',
+  },
+  {
+    question: 'How do I handle irregular income?',
+    answer: 'Budget based on your worst month, not your best. Set aside 25-30% for taxes from every payment. Build a 3-6 month emergency fund. Use quarterly tax estimates to avoid penalties.',
+  },
+];
 
 const calculators = [
   {
@@ -34,6 +51,10 @@ const upcomingCalculators = [
   title="Freelance Calculators - Rates, Taxes & More | CalcFalcon"
   description="Free calculators for freelancers. Calculate your hourly rate, estimate quarterly taxes, and compare W2 vs 1099 options."
 >
+  <Fragment slot="head">
+    <SchemaOrg faqs={faqs} />
+  </Fragment>
+
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-freelance-500 to-freelance-600 text-white py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -45,6 +66,21 @@ const upcomingCalculators = [
       <h1 class="heading-lg mb-4">Freelance Calculators</h1>
       <p class="text-xl text-white/80 max-w-2xl mx-auto">
         Tools to help freelancers and consultants make smarter financial decisions
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-12 bg-white border-b border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-neutral-700 leading-relaxed mb-4">
+        Freelancing requires a different approach to finances than traditional employment. Without an employer handling taxes, benefits, and retirement contributions, every financial decision falls on you. These calculators help you navigate the unique challenges of self-employment.
+      </p>
+      <p class="text-neutral-700 leading-relaxed mb-4">
+        Whether you're setting rates that actually cover your taxes and expenses, estimating quarterly tax payments to avoid penalties, or comparing the real cost of freelancing versus W2 employment, having accurate numbers is the foundation of a sustainable freelance business.
+      </p>
+      <p class="text-neutral-700 leading-relaxed">
+        Use these tools to make informed decisions about pricing, tax planning, and the true financial picture of your freelance career.
       </p>
     </div>
   </section>
@@ -88,6 +124,24 @@ const upcomingCalculators = [
             </li>
           ))}
         </ul>
+      </div>
+
+      <!-- FAQs -->
+      <div class="mt-12">
+        <h2 class="heading-md text-neutral-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="card-elevated p-5 group">
+              <summary class="font-medium text-neutral-900 cursor-pointer list-none flex justify-between items-center gap-4">
+                <span>{faq.question}</span>
+                <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="mt-4 text-neutral-600 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </div>
   </section>

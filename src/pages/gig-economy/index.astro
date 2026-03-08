@@ -1,5 +1,22 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaOrg from '@components/seo/SchemaOrg.astro';
+import type { FAQ } from '@lib/seo/schema';
+
+const faqs: FAQ[] = [
+  {
+    question: 'What is the best gig economy app to work for?',
+    answer: 'DoorDash and Uber tend to have the highest volume of available work. Instacart often has the best per-hour earnings for selective shoppers. Many gig workers use multiple apps simultaneously to maximize earnings and reduce downtime.',
+  },
+  {
+    question: 'Do gig workers pay taxes?',
+    answer: 'Yes. Gig income is self-employment income, subject to income tax plus 15.3% self-employment tax. You\'ll receive 1099 forms and should make quarterly estimated tax payments if you expect to owe $1,000 or more.',
+  },
+  {
+    question: 'How much do gig workers really make per hour?',
+    answer: 'After expenses, most gig workers earn $12-20 per hour. Gross pay of $20-30/hour is significantly reduced by gas ($0.12-0.18 per mile), vehicle maintenance and depreciation, and taxes. Track all expenses carefully to know your real number.',
+  },
+];
 
 const calculators = [
   {
@@ -35,6 +52,10 @@ const upcomingCalculators = [
   title="Gig Economy Calculators - Rideshare, Delivery & Rental | CalcFalcon"
   description="Free calculators for gig workers. Calculate your true earnings for Uber, Lyft, DoorDash, and Airbnb after all expenses."
 >
+  <Fragment slot="head">
+    <SchemaOrg faqs={faqs} />
+  </Fragment>
+
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-gig-500 to-gig-600 text-white py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -46,6 +67,18 @@ const upcomingCalculators = [
       <h1 class="heading-lg mb-4">Gig Economy Calculators</h1>
       <p class="text-xl text-white/80 max-w-2xl mx-auto">
         Tools for rideshare drivers, delivery workers, and short-term rental hosts
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-12 bg-white border-b border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-neutral-700 leading-relaxed mb-4">
+        Gig economy earnings look different on paper than in your pocket. Gas, vehicle depreciation, maintenance, and self-employment taxes significantly reduce your gross pay. Without accounting for these costs, it's easy to overestimate what you're actually earning per hour.
+      </p>
+      <p class="text-neutral-700 leading-relaxed">
+        These calculators show your true hourly earnings after all costs, helping you make smarter decisions about which platforms to work on, when to drive, and whether gig work is worth it for your situation.
       </p>
     </div>
   </section>
@@ -89,6 +122,24 @@ const upcomingCalculators = [
             </li>
           ))}
         </ul>
+      </div>
+
+      <!-- FAQs -->
+      <div class="mt-12">
+        <h2 class="heading-md text-neutral-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="card-elevated p-5 group">
+              <summary class="font-medium text-neutral-900 cursor-pointer list-none flex justify-between items-center gap-4">
+                <span>{faq.question}</span>
+                <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="mt-4 text-neutral-600 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </div>
   </section>

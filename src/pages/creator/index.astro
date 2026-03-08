@@ -1,5 +1,22 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaOrg from '@components/seo/SchemaOrg.astro';
+import type { FAQ } from '@lib/seo/schema';
+
+const faqs: FAQ[] = [
+  {
+    question: 'Which platform pays creators the most?',
+    answer: 'It depends on your content type and audience size. YouTube pays per view (CPM model), Patreon and Substack charge subscription fees, and Etsy takes transaction fees. Diversifying across platforms is the safest strategy for maximizing and stabilizing income.',
+  },
+  {
+    question: 'How much do content creators make?',
+    answer: 'It varies enormously. Most creators with modest followings earn $100-2,000 per month. Top earners make six figures. Platform fees typically take 8-20% of gross revenue, so understanding net earnings is critical.',
+  },
+  {
+    question: 'Should I use multiple platforms?',
+    answer: 'Yes. Platform diversification reduces risk and reaches different audiences. Many successful creators combine 2-3 platforms (e.g., YouTube + Patreon + Ko-fi) to build multiple revenue streams.',
+  },
+];
 
 const calculators = [
   {
@@ -49,6 +66,10 @@ const upcomingCalculators = [
   title="Creator Calculators - YouTube, Twitch & More | CalcFalcon"
   description="Free calculators for content creators. Estimate YouTube AdSense revenue, Twitch earnings, and more."
 >
+  <Fragment slot="head">
+    <SchemaOrg faqs={faqs} />
+  </Fragment>
+
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-creator-500 to-creator-600 text-white py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -60,6 +81,18 @@ const upcomingCalculators = [
       <h1 class="heading-lg mb-4">Creator Calculators</h1>
       <p class="text-xl text-white/80 max-w-2xl mx-auto">
         Tools to help content creators estimate and maximize their revenue
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-12 bg-white border-b border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-neutral-700 leading-relaxed mb-4">
+        Content creation platforms each have unique fee structures and revenue models. From YouTube's CPM-based ad revenue to Patreon's subscription fees and Etsy's transaction cuts, understanding what you'll actually earn after platform fees, payment processing, and taxes is essential for building a sustainable creative business.
+      </p>
+      <p class="text-neutral-700 leading-relaxed">
+        These calculators break down the real numbers behind each platform so you can make informed decisions about where to focus your effort and how to price your content, products, and memberships.
       </p>
     </div>
   </section>
@@ -103,6 +136,24 @@ const upcomingCalculators = [
             </li>
           ))}
         </ul>
+      </div>
+
+      <!-- FAQs -->
+      <div class="mt-12">
+        <h2 class="heading-md text-neutral-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="card-elevated p-5 group">
+              <summary class="font-medium text-neutral-900 cursor-pointer list-none flex justify-between items-center gap-4">
+                <span>{faq.question}</span>
+                <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="mt-4 text-neutral-600 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </div>
   </section>

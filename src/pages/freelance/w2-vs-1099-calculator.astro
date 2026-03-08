@@ -43,6 +43,18 @@ const relatedCalculators = [
     href: '/freelance/hourly-rate-calculator',
     category: 'Freelance',
   },
+  {
+    name: 'Project Rate Calculator',
+    description: 'Convert hourly rates to project-based pricing',
+    href: '/freelance/project-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate Etsy seller fees and true profit margin',
+    href: '/creator/etsy-fee-calculator',
+    category: 'Creator',
+  },
 ];
 ---
 
@@ -57,4 +69,21 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <W2vs1099Calc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the W2 vs 1099 Comparison Calculator</h2>
+        <p>Deciding between a salaried position and a contract engagement is one of the biggest financial decisions a freelancer can make. This calculator breaks down the true cost difference so you can compare offers on equal footing.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter the W-2 salary and the proposed 1099 hourly or annual rate. The calculator applies standard assumptions for taxes and benefits to show you a side-by-side comparison of take-home pay. Use this when you receive a new offer and need a fast gut check.</p>
+        <h3>Advanced Mode</h3>
+        <p>Toggle to Advanced to customize the comparison with real numbers. You can specify employer-provided benefits like health insurance premiums, 401(k) match percentages, paid time off, and other perks on the W-2 side. On the 1099 side, enter your actual business deductions, retirement contributions, and self-funded insurance costs. This level of detail reveals the true gap between the two arrangements.</p>
+        <h3>What the Results Show</h3>
+        <p>The comparison covers total compensation, effective tax burden, and the equivalent hourly rate for each scenario. Pay close attention to the total compensation figure, which includes the monetary value of benefits. A $120,000 salary with full benefits often outpaces a $130,000 contract when you account for self-employment tax, insurance, and lost PTO.</p>
+        <h3>When 1099 Wins</h3>
+        <p>Contracting tends to win when the rate premium is 25 percent or more above the equivalent salary, when you have significant business deductions, or when you already have health coverage through a spouse or marketplace plan. It also offers flexibility, the ability to deduct a home office, and the option to work with multiple clients simultaneously.</p>
+        <p>Run the numbers with your real expenses before making a decision. The right choice depends on your personal financial situation, not rules of thumb.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

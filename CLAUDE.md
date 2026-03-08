@@ -5,7 +5,7 @@ SEO-driven calculator site for freelancers, creators, and gig workers. Generates
 **Domain:** calcfalcon.com
 **Stack:** Astro 5 (SSG) + React 19 + Tailwind CSS 4
 **Hosting:** Railway (auto-deploy from main)
-**Live:** 16 calculators, 40 pages, 4 categories
+**Live:** 16 calculators, 50 pages, 5 sections (4 calculator categories + blog)
 
 ## Commands
 
@@ -40,7 +40,9 @@ Every calculator has 3 files:
 | Site config | `astro.config.mjs` (site: calcfalcon.com) |
 | Base layout | `src/layouts/BaseLayout.astro` |
 | Calculator layout | `src/layouts/CalculatorLayout.astro` |
+| Blog layout | `src/layouts/BlogLayout.astro` |
 | Embed layout | `src/layouts/EmbedLayout.astro` |
+| Content config | `src/content.config.ts` |
 | Design system | `src/styles/global.css` |
 | SEO schemas | `src/lib/seo/schema.ts` |
 | URL state | `src/lib/utils/url-state.ts` |

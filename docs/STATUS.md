@@ -6,7 +6,7 @@
 
 ## What's Live
 
-**16 calculators** across **4 categories**, **40 built pages** (24 indexable + 16 embeds)
+**16 calculators** across **4 categories**, **50 built pages** (34 indexable + 16 embeds)
 
 ### Freelance (4) — Cyan
 | Calculator | Slug |
@@ -42,7 +42,9 @@
 
 ## Other Pages
 - Homepage (`/`)
-- 4 category index pages
+- 4 category index pages (with intro paragraphs + FAQ structured data)
+- Blog index (`/blog`) + 8 pillar articles
+- About page (`/about`)
 - Privacy Policy (`/privacy`)
 - Terms of Service (`/terms`)
 - 404 page
@@ -93,12 +95,27 @@
 - [x] Tooltips on 13 calculators for financial jargon (SE tax, FICA, CPM, RPM, etc.)
 - [x] Installed `lucide-react` dependency
 
+### Phase 3 — Content System & SEO Depth
+- [x] Installed `@tailwindcss/typography` — `prose` classes active
+- [x] Content Collections config (`src/content.config.ts`) with `glob` loader
+- [x] `ArticleSEO` interface + `generateArticleSchema()` in schema.ts
+- [x] `ogType` prop added to BaseLayout (default "website", blog uses "article")
+- [x] `BlogLayout.astro` — breadcrumbs, article header, category badge, read time, calculator CTA
+- [x] SchemaOrg.astro updated with `article` prop
+- [x] Blog listing page (`/blog`) + article page (`/blog/[slug]`)
+- [x] Header: Blog link added (desktop + mobile)
+- [x] Footer: Blog + About links added
+- [x] About page (`/about`)
+- [x] 8 pillar articles: freelance rate, W2 vs 1099, YouTube CPM, DoorDash earnings, Twitch revenue, Etsy fees, quarterly taxes, side hustle taxes
+- [x] "How to Use" content sections in all 16 calculator pages (`<Fragment slot="content">`)
+- [x] `relatedCalculators` expanded to 3-4 cross-category links in all 16 calculators
+- [x] 4 category index pages enhanced with intro paragraphs + FAQ sections + FAQ structured data
+
 ## What's NOT Done
 
 - No analytics (decision: Umami self-hosted)
 - No custom domain configured (DNS + Railway — manual step)
 - No Google Search Console submission
-- No blog / content system (Phase 3)
 - No email capture (Phase 4)
 - No ad placements (Phase 4)
 - No affiliate links (Phase 4)

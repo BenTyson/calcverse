@@ -44,6 +44,12 @@ const relatedCalculators = [
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
   },
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate Etsy fees and profit per sale',
+    href: '/creator/etsy-fee-calculator',
+    category: 'Creator',
+  },
 ];
 ---
 
@@ -58,4 +64,20 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <PatreonCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Patreon Earnings Calculator</h2>
+        <p>This calculator shows you what you will actually take home from Patreon after platform fees and payment processing costs. It helps you set realistic revenue expectations and choose the right plan for your creator business.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your current patron count and average pledge amount. The calculator applies standard Patreon fees to produce your estimated monthly and annual take-home. This is useful for quick projections when planning content investments or evaluating whether Patreon is viable for your audience size.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to model different scenarios in detail. You can set your monthly churn rate, select your Patreon plan tier (Lite at 5 percent, Pro at 8 percent, or Premium at 12 percent), and adjust payment processing assumptions. The churn rate input is especially important for long-term planning, since even a 2 percent difference in monthly churn compounds dramatically over a year.</p>
+        <h3>Choosing the Right Plan</h3>
+        <p>The Lite plan at 5 percent is tempting for its low fee, but it lacks analytics, merch integration, and promotional tools that help you grow. Most creators benefit from the Pro plan at 8 percent, which pays for itself through better conversion and retention tools. Only consider Premium at 12 percent if you need team accounts or manage a high-volume page where dedicated support saves you significant time.</p>
+        <h3>Maximizing Patron Retention</h3>
+        <p>Churn is the silent revenue killer on Patreon. A healthy monthly churn rate is 3 to 7 percent. To stay in that range, deliver on your promises consistently, post patron-only content on a predictable schedule, and engage directly through comments and community posts. Creators who treat Patreon as a community rather than a tip jar see significantly lower churn. Consider offering an annual billing option, which locks in patrons and reduces payment-related churn from expired cards.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>

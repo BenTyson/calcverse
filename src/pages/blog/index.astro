@@ -1,0 +1,85 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+
+const categoryLabels: Record<string, string> = {
+  freelance: 'Freelance',
+  creator: 'Creator',
+  'gig-economy': 'Gig Economy',
+  'side-hustle': 'Side Hustle',
+  finance: 'Finance',
+};
+
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  freelance: { bg: 'bg-freelance-100', text: 'text-freelance-700' },
+  creator: { bg: 'bg-creator-100', text: 'text-creator-700' },
+  'gig-economy': { bg: 'bg-gig-100', text: 'text-gig-700' },
+  'side-hustle': { bg: 'bg-sidehustle-100', text: 'text-sidehustle-700' },
+  finance: { bg: 'bg-finance-100', text: 'text-finance-700' },
+};
+---
+
+<BaseLayout
+  title="Blog - Freelance & Creator Finance Guides | CalcFalcon"
+  description="Practical guides on freelance rates, creator earnings, gig economy taxes, and side hustle finances. Data-driven advice with free calculator tools."
+>
+  <!-- Hero -->
+  <section class="bg-neutral-950 text-white py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="heading-lg mb-4">CalcFalcon Blog</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Practical guides on freelance rates, creator earnings, and side hustle finances
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      {posts.length === 0 ? (
+        <p class="text-neutral-500 text-center text-lg">Articles coming soon.</p>
+      ) : (
+        <div class="grid gap-6">
+          {posts.map((post) => {
+            const colors = categoryColors[post.data.category] || categoryColors.freelance;
+            const label = categoryLabels[post.data.category] || post.data.category;
+            const formattedDate = post.data.publishedDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+            return (
+              <a
+                href={`/blog/${post.id}`}
+                class="group block p-6 bg-white rounded-2xl border border-neutral-100 hover:border-neutral-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${colors.bg} ${colors.text}`}>
+                    {label}
+                  </span>
+                  <time datetime={post.data.publishedDate.toISOString()} class="text-sm text-neutral-500">
+                    {formattedDate}
+                  </time>
+                </div>
+                <h2 class="font-bold text-xl text-neutral-900 group-hover:text-primary-600 transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="text-neutral-600 mt-2 leading-relaxed">{post.data.description}</p>
+                <span class="inline-flex items-center text-primary-600 font-semibold mt-4 group-hover:gap-2 transition-all">
+                  Read article
+                  <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

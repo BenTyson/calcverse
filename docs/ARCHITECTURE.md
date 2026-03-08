@@ -34,8 +34,12 @@ calcfalcon/
 │   │   │   └── Footer.astro
 │   │   └── seo/
 │   │       └── SchemaOrg.astro
+│   ├── content/
+│   │   └── blog/                  # Markdown articles (8)
+│   ├── content.config.ts          # Content Collections schema (glob loader)
 │   ├── layouts/
-│   │   ├── BaseLayout.astro      # Site-wide (skip-to-content, fonts, meta)
+│   │   ├── BaseLayout.astro      # Site-wide (skip-to-content, fonts, meta, ogType)
+│   │   ├── BlogLayout.astro      # Blog articles (breadcrumbs, category badge, read time, CTA)
 │   │   ├── CalculatorLayout.astro # Calculator pages (breadcrumbs, share, FAQs)
 │   │   └── EmbedLayout.astro     # Embed pages (minimal, noindex)
 │   ├── hooks/
@@ -51,8 +55,12 @@ calcfalcon/
 │   ├── pages/
 │   │   ├── index.astro
 │   │   ├── 404.astro
+│   │   ├── about.astro
 │   │   ├── privacy.astro
 │   │   ├── terms.astro
+│   │   ├── blog/
+│   │   │   ├── index.astro       # Blog listing
+│   │   │   └── [slug].astro      # Article pages (from Content Collections)
 │   │   ├── freelance/            # 1 index + 4 calculators
 │   │   ├── creator/              # 1 index + 7 calculators
 │   │   ├── gig-economy/          # 1 index + 4 calculators
@@ -109,6 +117,7 @@ Each calculator page generates:
 generateWebApplicationSchema({ name, description, url, category })
 generateFAQSchema([{ question, answer }])
 generateBreadcrumbSchema([{ name, url }])
+generateArticleSchema({ headline, description, url, publishedDate, updatedDate?, category })
 ```
 
 ## Embed System
@@ -174,4 +183,4 @@ vite: { plugins: [tailwindcss()] }
 
 ## Build Output
 
-40 static HTML pages in `dist/`. Auto-generated sitemap at `/sitemap-index.xml`.
+50 static HTML pages in `dist/`. Auto-generated sitemap at `/sitemap-index.xml` (34 indexable, 16 embeds excluded).

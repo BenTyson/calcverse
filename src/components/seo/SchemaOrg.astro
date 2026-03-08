@@ -3,18 +3,21 @@ import {
   generateWebApplicationSchema,
   generateFAQSchema,
   generateBreadcrumbSchema,
+  generateArticleSchema,
   type CalculatorSEO,
   type FAQ,
   type BreadcrumbItem,
+  type ArticleSEO,
 } from '@lib/seo/schema';
 
 interface Props {
   calculator?: CalculatorSEO;
   faqs?: FAQ[];
   breadcrumbs?: BreadcrumbItem[];
+  article?: ArticleSEO;
 }
 
-const { calculator, faqs, breadcrumbs } = Astro.props;
+const { calculator, faqs, breadcrumbs, article } = Astro.props;
 
 const schemas: object[] = [];
 
@@ -28,6 +31,10 @@ if (faqs && faqs.length > 0) {
 
 if (breadcrumbs && breadcrumbs.length > 0) {
   schemas.push(generateBreadcrumbSchema(breadcrumbs));
+}
+
+if (article) {
+  schemas.push(generateArticleSchema(article));
 }
 ---
 

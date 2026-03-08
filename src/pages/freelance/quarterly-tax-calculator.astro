@@ -43,6 +43,18 @@ const relatedCalculators = [
     href: '/side-hustle/time-to-goal-calculator',
     category: 'Side Hustle',
   },
+  {
+    name: 'W2 vs 1099 Calculator',
+    description: 'Compare employee vs contractor take-home pay',
+    href: '/freelance/w2-vs-1099-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'DoorDash Calculator',
+    description: 'Calculate delivery driver earnings after expenses',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
 ];
 ---
 
@@ -57,4 +69,21 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
 >
   <QuarterlyTaxCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Quarterly Tax Estimator</h2>
+        <p>Freelancers and self-employed workers do not have taxes withheld from their income, so the IRS requires you to make estimated tax payments four times a year. This calculator helps you figure out how much to set aside each quarter so you avoid underpayment penalties at tax time.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your expected net self-employment income for the year and the calculator will estimate your quarterly payment amount. It factors in federal income tax, self-employment tax (Social Security and Medicare), and a standard deduction. This gives you a fast, conservative number you can use to set up automatic transfers to a tax savings account.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to fine-tune your estimate. You can itemize business deductions, set your state tax rate, choose your filing status, and enter any additional W-2 withholding that offsets your obligation. This is particularly useful if you have mixed income from both employment and freelancing.</p>
+        <h3>Key Deadlines</h3>
+        <p>Quarterly payments are due on April 15, June 15, September 15, and January 15 of the following year. If a deadline falls on a weekend or holiday, it shifts to the next business day. Missing a deadline can trigger an underpayment penalty even if you pay the full amount later.</p>
+        <h3>The Safe Harbor Rule</h3>
+        <p>You can avoid penalties by paying at least 100 percent of your prior year's total tax liability (110 percent if your adjusted gross income exceeded $150,000) or 90 percent of your current year's liability, whichever is smaller. When in doubt, use last year's return as a baseline and adjust upward if your income is growing.</p>
+        <p>Consider opening a separate high-yield savings account for tax funds. Each time you receive a payment from a client, transfer 25 to 30 percent into that account so the money is ready when deadlines arrive.</p>
+      </div>
+    </section>
+  </Fragment>
 </CalculatorLayout>
