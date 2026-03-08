@@ -5,8 +5,10 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { ChartCard } from '../ui/charts/ChartCard';
 import { BarComparisonChart } from '../ui/charts/BarComparisonChart';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateYouTubeRevenue,
   DEFAULT_INPUTS,
@@ -14,7 +16,7 @@ import {
   LOCATION_MULTIPLIERS,
   type YouTubeAdSenseInputs,
 } from '../../lib/calculators/youtube-adsense';
-import { formatCurrency, formatCompactNumber } from '../../lib/utils/formatters';
+import { formatCurrency } from '../../lib/utils/formatters';
 import { getInitialState, updateUrlState } from '../../lib/utils/url-state';
 
 const nicheOptions = Object.entries(NICHE_CPMS).map(([value, data]) => ({
@@ -47,6 +49,13 @@ export function YouTubeAdSenseCalc() {
 
   const formatRange = (low: number, high: number) =>
     `${formatCurrency(Math.round(low))} - ${formatCurrency(Math.round(high))}`;
+
+  const getResultsText = () =>
+    `YouTube AdSense Calculator (CalcFalcon)\n` +
+    `Monthly Earnings (Est.): ${formatCurrency(Math.round(results.monthlyEarnings.mid))}\n` +
+    `Annual Earnings (Est.): ${formatCurrency(Math.round(results.annualEarnings.mid))}\n` +
+    `Per Video (Est.): ${formatCurrency(Math.round(results.earningsPerVideo.mid))}\n` +
+    `https://calcfalcon.com/creator/youtube-adsense-calculator`;
 
   return (
     <ErrorBoundary>
@@ -109,7 +118,10 @@ export function YouTubeAdSenseCalc() {
       </div>
 
       <div className="border-t pt-8">
-        <h3 className="font-semibold text-gray-900 mb-4">Estimated Earnings</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-gray-900">Estimated Earnings</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="creator" />
+        </div>
 
         <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl p-4 mb-6">
           <p className="text-sm text-gray-600 mb-2">Monthly Earnings Range</p>
@@ -125,6 +137,8 @@ export function YouTubeAdSenseCalc() {
           <ResultCard
             label="Annual Earnings (Est.)"
             value={formatCurrency(Math.round(results.annualEarnings.mid))}
+            numericValue={Math.round(results.annualEarnings.mid)}
+            formatFn={(n) => formatCurrency(Math.round(n))}
             description={formatRange(results.annualEarnings.low, results.annualEarnings.high)}
           />
           <ResultCard
@@ -160,7 +174,9 @@ export function YouTubeAdSenseCalc() {
             items={Object.entries(NICHE_CPMS)
               .slice(0, 6)
               .map(([key, data]) => ({
-                label: data.label,
+                label: key === inputs.niche
+                  ? <Tooltip text="Cost Per Mille — amount advertisers pay per 1,000 ad impressions">{data.label}</Tooltip>
+                  : data.label,
                 value: `$${data.low} - $${data.high}`,
                 highlight: key === inputs.niche,
               }))}

@@ -1,3 +1,5 @@
+import { useCountUp } from '../../../hooks/useCountUp';
+
 interface ResultCardProps {
   label: string;
   value: string;
@@ -5,6 +7,13 @@ interface ResultCardProps {
   highlight?: boolean;
   size?: 'sm' | 'md' | 'lg';
   category?: 'freelance' | 'creator' | 'gig' | 'sidehustle' | 'finance';
+  numericValue?: number;
+  formatFn?: (n: number) => string;
+}
+
+function AnimatedValue({ numericValue, formatFn }: { numericValue: number; formatFn: (n: number) => string }) {
+  const animated = useCountUp({ end: numericValue });
+  return <>{formatFn(animated)}</>;
 }
 
 export function ResultCard({
@@ -14,6 +23,8 @@ export function ResultCard({
   highlight = false,
   size = 'md',
   category = 'freelance',
+  numericValue,
+  formatFn,
 }: ResultCardProps) {
   const sizeClasses = {
     sm: 'text-2xl',
@@ -37,6 +48,10 @@ export function ResultCard({
     finance: 'shadow-finance-500/25',
   };
 
+  const displayValue = numericValue !== undefined && formatFn
+    ? <AnimatedValue numericValue={numericValue} formatFn={formatFn} />
+    : value;
+
   if (highlight) {
     return (
       <div
@@ -45,7 +60,7 @@ export function ResultCard({
       >
         <p className="text-sm font-medium text-white/80">{label}</p>
         <p className={`${sizeClasses[size]} font-extrabold mt-2 tracking-tight`}>
-          {value}
+          {displayValue}
         </p>
         {description && (
           <p className="text-sm mt-2 text-white/70">{description}</p>
@@ -58,7 +73,7 @@ export function ResultCard({
     <div className="rounded-2xl p-5 bg-neutral-100 border border-neutral-200">
       <p className="text-sm font-medium text-neutral-500">{label}</p>
       <p className={`${sizeClasses[size]} font-bold mt-1 text-neutral-900 tracking-tight`}>
-        {value}
+        {displayValue}
       </p>
       {description && (
         <p className="text-sm mt-1 text-neutral-500">{description}</p>

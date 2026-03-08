@@ -9,6 +9,7 @@ calcfalcon/
 │   │   ├── calculators/          # React calculator components (16)
 │   │   ├── ui/
 │   │   │   ├── ErrorBoundary.tsx # Error boundary wrapper
+│   │   │   ├── Tooltip.tsx      # Accessible hover/focus tooltip
 │   │   │   ├── inputs/           # Reusable input components
 │   │   │   │   ├── NumberInput.tsx
 │   │   │   │   ├── CurrencyInput.tsx
@@ -16,8 +17,9 @@ calcfalcon/
 │   │   │   │   ├── DropdownInput.tsx
 │   │   │   │   └── ModeToggle.tsx
 │   │   │   ├── results/
-│   │   │   │   ├── ResultCard.tsx
-│   │   │   │   └── ResultBreakdown.tsx
+│   │   │   │   ├── ResultCard.tsx        # Supports count-up via numericValue/formatFn
+│   │   │   │   ├── ResultBreakdown.tsx   # label accepts ReactNode (for Tooltip)
+│   │   │   │   └── CopyResultsButton.tsx # Clipboard copy with Lucide icons
 │   │   │   └── charts/
 │   │   │       ├── ChartCard.tsx          # Wrapper card with title
 │   │   │       ├── DonutChart.tsx         # Pie/donut breakdowns
@@ -36,6 +38,8 @@ calcfalcon/
 │   │   ├── BaseLayout.astro      # Site-wide (skip-to-content, fonts, meta)
 │   │   ├── CalculatorLayout.astro # Calculator pages (breadcrumbs, share, FAQs)
 │   │   └── EmbedLayout.astro     # Embed pages (minimal, noindex)
+│   ├── hooks/
+│   │   └── useCountUp.ts         # rAF count-up animation hook
 │   ├── lib/
 │   │   ├── calculators/          # Pure calculation logic (16 files)
 │   │   ├── utils/

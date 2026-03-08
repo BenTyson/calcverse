@@ -44,6 +44,7 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import {
   calculateMyCalc,
   DEFAULT_INPUTS,
@@ -203,8 +204,14 @@ Add the calculator to the `calculators` array.
 ### Results
 | Component | Use Case |
 |-----------|----------|
-| `ResultCard` | Single result (label, value, description, category, highlight, size) |
-| `ResultBreakdown` | Table of items (title, category, items: {label, value, highlight}) |
+| `ResultCard` | Single result. Props: `label, value, description?, category?, highlight?, size?`. Opt-in count-up: add `numericValue` + `formatFn` |
+| `ResultBreakdown` | Table of items. Props: `title?, category?, items: {label: ReactNode, value, highlight?}[]`. Label accepts `<Tooltip>` |
+| `CopyResultsButton` | Clipboard copy button. Props: `getResultsText: () => string, category?`. Place at top of results section |
+
+### UI Utilities
+| Component | Use Case |
+|-----------|----------|
+| `Tooltip` | Hover/focus tooltip for jargon. Props: `text: string, children: ReactNode`. Wrap breakdown labels: `<Tooltip text="...">Label</Tooltip>` |
 
 ### Charts (in `../ui/charts/`)
 | Component | Use Case |

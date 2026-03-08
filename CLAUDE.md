@@ -26,8 +26,10 @@ Every calculator has 3 files:
 | Page | `src/pages/[category]/[slug].astro` | Astro wrapper with `CalculatorLayout`, uses `client:visible` |
 
 **Shared inputs:** `NumberInput`, `CurrencyInput`, `SliderInput`, `DropdownInput`, `ModeToggle` (in `src/components/ui/inputs/`)
-**Shared results:** `ResultCard`, `ResultBreakdown` (in `src/components/ui/results/`)
+**Shared results:** `ResultCard`, `ResultBreakdown`, `CopyResultsButton` (in `src/components/ui/results/`)
 **Shared charts:** `DonutChart`, `BarComparisonChart`, `ProjectionChart`, `ChartCard` (in `src/components/ui/charts/`)
+**Shared UI:** `Tooltip` (in `src/components/ui/Tooltip.tsx`)
+**Hooks:** `useCountUp` (in `src/hooks/useCountUp.ts`)
 **URL state:** Base64-encoded in `?s=` param, mode in `?mode=` param
 **Embeds:** `/embed/[category]/[slug]` — uses `client:load` (not `client:visible`), minimal layout, noindex
 

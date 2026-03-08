@@ -5,6 +5,8 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateAirbnbProfit,
   DEFAULT_INPUTS,
@@ -33,6 +35,13 @@ export function AirbnbProfitCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Airbnb Profit Calculator (CalcFalcon)\n` +
+    `Monthly Net Profit: ${formatCurrency(results.monthlyNet)}\n` +
+    `Annual Profit: ${formatCurrency(results.annualNet)}\n` +
+    `Break-Even Occupancy: ${results.breakEvenOccupancy}%\n` +
+    `https://calcfalcon.com/gig-economy/airbnb-profit-calculator`;
 
   return (
     <ErrorBoundary>
@@ -144,11 +153,16 @@ export function AirbnbProfitCalc() {
       </div>
 
       <div className="border-t border-neutral-200 pt-8">
-        <h3 className="font-semibold text-neutral-900 mb-4">Your Profit</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Your Profit</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="gig" />
+        </div>
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Monthly Net Profit"
             value={formatCurrency(results.monthlyNet)}
+            numericValue={results.monthlyNet}
+            formatFn={formatCurrency}
             description={`${results.profitMargin}% margin`}
             highlight
             size="lg"
@@ -172,7 +186,7 @@ export function AirbnbProfitCalc() {
             category="gig"
             items={[
               { label: 'Gross Revenue', value: formatCurrency(results.monthlyGross) },
-              { label: 'Airbnb Fee', value: `-${formatCurrency(results.airbnbFee)}` },
+              { label: <Tooltip text="Platform service fee charged to hosts (typically 3%)">Airbnb Fee</Tooltip>, value: `-${formatCurrency(results.airbnbFee)}` },
               { label: 'Cleaning Costs', value: `-${formatCurrency(results.monthlyCleaningCosts)}` },
               { label: 'Operating Costs', value: `-${formatCurrency(results.monthlyOperatingCosts)}` },
               { label: 'Net Profit', value: formatCurrency(results.monthlyNet), highlight: true },

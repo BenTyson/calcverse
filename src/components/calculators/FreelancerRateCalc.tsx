@@ -6,8 +6,10 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { ChartCard } from '../ui/charts/ChartCard';
 import { DonutChart } from '../ui/charts/DonutChart';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateFreelancerRate,
   DEFAULT_INPUTS,
@@ -36,6 +38,14 @@ export function FreelancerRateCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Freelancer Rate Calculator (CalcFalcon)\n` +
+    `Hourly Rate: ${formatCurrency(results.hourlyRate)}\n` +
+    `Daily Rate: ${formatCurrency(results.dailyRate)}\n` +
+    `Monthly Revenue: ${formatCurrency(results.monthlyRevenue)}\n` +
+    `Annual Revenue: ${formatCurrency(results.annualRevenue)}\n` +
+    `https://calcfalcon.com/freelance/freelancer-rate-calculator`;
 
   return (
     <ErrorBoundary>
@@ -155,11 +165,16 @@ export function FreelancerRateCalc() {
       )}
 
       <div className="border-t border-neutral-200 pt-8">
-        <h3 className="font-semibold text-neutral-900 mb-4">Your Rates</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Your Rates</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="freelance" />
+        </div>
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Hourly Rate"
             value={formatCurrency(results.hourlyRate)}
+            numericValue={results.hourlyRate}
+            formatFn={formatCurrency}
             description="Minimum to charge"
             highlight
             size="lg"
@@ -195,7 +210,9 @@ export function FreelancerRateCalc() {
             category="freelance"
             items={[
               ...results.breakdown.map((item) => ({
-                label: item.label,
+                label: item.label === 'Self-Employment Tax'
+                  ? <Tooltip text="Social Security (12.4%) + Medicare (2.9%) tax for self-employed workers">Self-Employment Tax</Tooltip>
+                  : item.label,
                 value: formatCurrency(item.amount),
               })),
               {

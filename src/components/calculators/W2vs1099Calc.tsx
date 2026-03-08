@@ -6,8 +6,10 @@ import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { ChartCard } from '../ui/charts/ChartCard';
 import { BarComparisonChart } from '../ui/charts/BarComparisonChart';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateW2vs1099,
   DEFAULT_INPUTS,
@@ -51,6 +53,13 @@ export function W2vs1099Calc() {
 
   const isAdvanced = mode === 'advanced';
   const w2Better = results.difference < 0;
+
+  const getResultsText = () =>
+    `W2 vs 1099 Calculator (CalcFalcon)\n` +
+    `W2 Net Take-Home: ${formatCurrency(results.w2.netIncome)}\n` +
+    `1099 Net Take-Home: ${formatCurrency(results.contractor.netIncome)}\n` +
+    `${w2Better ? 'W2' : '1099'} comes out ahead by ${formatCurrency(Math.abs(results.difference))}/year\n` +
+    `https://calcfalcon.com/freelance/w2-vs-1099-calculator`;
 
   return (
     <ErrorBoundary>
@@ -166,7 +175,10 @@ export function W2vs1099Calc() {
 
       {/* Results */}
       <div className="pt-6 border-t border-neutral-100">
-        <h3 className="font-semibold text-neutral-900 mb-4">Comparison Results</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Comparison Results</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="freelance" />
+        </div>
 
         {/* Winner Badge */}
         <div className={`mb-6 p-4 rounded-xl ${w2Better ? 'bg-blue-50 border border-blue-100' : 'bg-green-50 border border-green-100'}`}>
@@ -234,7 +246,7 @@ export function W2vs1099Calc() {
                 <span className="text-blue-800">-{formatCurrency(results.w2.stateTax)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-blue-600">FICA (SS + Medicare)</span>
+                <span className="text-blue-600"><Tooltip text="Federal Insurance Contributions Act — Social Security (6.2%) + Medicare (1.45%)">FICA (SS + Medicare)</Tooltip></span>
                 <span className="text-blue-800">-{formatCurrency(results.w2.socialSecurityMedicare)}</span>
               </div>
               {results.w2.retirement > 0 && (
@@ -254,7 +266,7 @@ export function W2vs1099Calc() {
                 </div>
               )}
               <div className="flex justify-between text-sm">
-                <span className="text-blue-600">Effective Tax Rate</span>
+                <span className="text-blue-600"><Tooltip text="Total tax paid as a percentage of gross income">Effective Tax Rate</Tooltip></span>
                 <span className="text-blue-800">{results.w2.effectiveTaxRate.toFixed(1)}%</span>
               </div>
             </div>
@@ -278,7 +290,7 @@ export function W2vs1099Calc() {
                 </div>
               )}
               <div className="flex justify-between text-sm">
-                <span className="text-green-600">Self-Employment Tax</span>
+                <span className="text-green-600"><Tooltip text="Social Security (12.4%) + Medicare (2.9%) — contractors pay both halves">Self-Employment Tax</Tooltip></span>
                 <span className="text-green-800">-{formatCurrency(results.contractor.selfEmploymentTax)}</span>
               </div>
               <div className="flex justify-between text-sm">
@@ -300,7 +312,7 @@ export function W2vs1099Calc() {
                 <span className="font-bold text-green-900">{formatCurrency(results.contractor.netIncome)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-green-600">Effective Tax Rate</span>
+                <span className="text-green-600"><Tooltip text="Total tax paid as a percentage of gross income">Effective Tax Rate</Tooltip></span>
                 <span className="text-green-800">{results.contractor.effectiveTaxRate.toFixed(1)}%</span>
               </div>
             </div>

@@ -7,6 +7,8 @@ import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculatePatreonEarnings,
   DEFAULT_INPUTS,
@@ -41,6 +43,13 @@ export function PatreonCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Patreon Earnings Calculator (CalcFalcon)\n` +
+    `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
+    `Annual Earnings: ${formatCurrency(results.annualNet)}\n` +
+    `Effective Fee: ${results.effectiveFeePct}%\n` +
+    `https://calcfalcon.com/creator/patreon-calculator`;
 
   return (
     <ErrorBoundary>
@@ -107,11 +116,16 @@ export function PatreonCalc() {
       </div>
 
       <div className="border-t border-neutral-200 pt-8">
-        <h3 className="font-semibold text-neutral-900 mb-4">Your Earnings</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Your Earnings</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="creator" />
+        </div>
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Monthly Net"
             value={formatCurrency(results.monthlyNet)}
+            numericValue={results.monthlyNet}
+            formatFn={formatCurrency}
             description="After all fees"
             highlight
             size="lg"
@@ -143,7 +157,7 @@ export function PatreonCalc() {
                 value: `-${formatCurrency(results.patreonFee)}`,
               },
               {
-                label: 'Payment Processing',
+                label: <Tooltip text="Credit card and PayPal transaction fees (2.9% + $0.30 per transaction)">Payment Processing</Tooltip>,
                 value: `-${formatCurrency(results.paymentProcessingFee)}`,
               },
               {

@@ -6,8 +6,10 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { ChartCard } from '../ui/charts/ChartCard';
 import { DonutChart } from '../ui/charts/DonutChart';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateKofiEarnings,
   DEFAULT_INPUTS,
@@ -43,6 +45,13 @@ export function KofiCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Ko-fi Earnings Calculator (CalcFalcon)\n` +
+    `Monthly Take-Home: ${formatCurrency(results.netMonthly)}\n` +
+    `Annual Earnings: ${formatCurrency(results.netAnnual)}\n` +
+    `Total Fees: ${results.feePercentage.toFixed(1)}%\n` +
+    `https://calcfalcon.com/creator/ko-fi-calculator`;
 
   return (
     <ErrorBoundary>
@@ -191,15 +200,20 @@ export function KofiCalc() {
 
       {/* Results */}
       <div className="pt-6 border-t border-neutral-100">
-        <h3 className="font-semibold text-neutral-900 mb-4">Estimated Earnings</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Estimated Earnings</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="creator" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Monthly Take-Home"
             value={formatCurrency(results.netMonthly)}
+            numericValue={results.netMonthly}
+            formatFn={formatCurrency}
             description="After all fees"
             category="creator"
-            highlighted
+            highlight
           />
           <ResultCard
             label="Annual Earnings"
@@ -237,10 +251,10 @@ export function KofiCalc() {
             { label: 'Membership Revenue', value: formatCurrency(results.membershipRevenue) },
             ...(results.shopRevenue > 0 ? [{ label: 'Shop Sales', value: formatCurrency(results.shopRevenue) }] : []),
             ...(results.commissionRevenue > 0 ? [{ label: 'Commission Revenue', value: formatCurrency(results.commissionRevenue) }] : []),
-            { label: 'Gross Monthly', value: formatCurrency(results.grossMonthly), highlighted: true },
-            { label: `Platform Fees (${inputs.goldMember ? '0%' : '5%'})`, value: `-${formatCurrency(results.platformFees)}` },
-            { label: 'Payment Processing', value: `-${formatCurrency(results.paymentProcessingFees)}` },
-            { label: 'Net Monthly', value: formatCurrency(results.netMonthly), highlighted: true },
+            { label: 'Gross Monthly', value: formatCurrency(results.grossMonthly), highlight: true },
+            { label: <Tooltip text="Ko-fi takes 5% on free accounts, 0% for Gold members ($6/mo)">Platform Fees ({inputs.goldMember ? '0%' : '5%'})</Tooltip>, value: `-${formatCurrency(results.platformFees)}` },
+            { label: <Tooltip text="PayPal or Stripe processing fees (~2.9% + $0.30)">Payment Processing</Tooltip>, value: `-${formatCurrency(results.paymentProcessingFees)}` },
+            { label: 'Net Monthly', value: formatCurrency(results.netMonthly), highlight: true },
           ]}
           category="creator"
         />
@@ -248,7 +262,7 @@ export function KofiCalc() {
         {/* Ko-fi Gold Comparison */}
         {!inputs.goldMember && results.platformFees > 6 && (
           <div className="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-100">
-            <h4 className="font-semibold text-amber-900 mb-2">💡 Ko-fi Gold Worth It?</h4>
+            <h4 className="font-semibold text-amber-900 mb-2">Ko-fi Gold Worth It?</h4>
             <p className="text-amber-800 text-sm">
               You're paying <strong>{formatCurrency(results.platformFees)}</strong> in platform fees.
               Ko-fi Gold costs $6/month and removes the 5% fee.

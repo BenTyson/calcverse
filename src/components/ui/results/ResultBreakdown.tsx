@@ -1,5 +1,5 @@
 interface BreakdownItem {
-  label: string;
+  label: React.ReactNode;
   value: string;
   highlight?: boolean;
 }

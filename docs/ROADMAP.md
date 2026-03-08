@@ -7,8 +7,8 @@
 | 1. Tech Debt & Rebrand | DONE | Rebrand, domain, a11y, ErrorBoundary, hydration |
 | 2a. Chart Components | DONE | Recharts, DonutChart, BarComparisonChart, ProjectionChart, ChartCard |
 | 2b. Chart Integration | DONE | Charts in 7 calculators (Freelancer, Etsy, Ko-fi, Quarterly, W2v1099, YouTube, SideHustle) |
-| 2c. Result Enhancements | NEXT | CopyResultsButton, count-up animation, Tooltip |
-| 3. Content System | PLANNED | Blog infrastructure, 8-10 articles, calculator content, about page |
+| 2c. Result Enhancements | DONE | CopyResultsButton, count-up animation, Tooltip in all 16 calcs |
+| 3. Content System | NEXT | Blog infrastructure, 8-10 articles, calculator content, about page |
 | 4. Monetization | PLANNED | Email capture, ad placements, affiliates, AdSense application |
 | 5. Calculator Expansion | PLANNED | Personal Finance (4), Gig (3), Creator (2) → 25+ total |
 | 6. Polish & Scale | ONGOING | Analytics optimization, Mediavine, backlinks |
@@ -31,10 +31,8 @@ Recharts installed. 4 chart components + color utility created in `src/component
 ### 2b. Chart Integration — DONE
 Charts integrated into 7 calculators: FreelancerRate (donut), Etsy (donut), Ko-fi (donut, replaced old stacked bar), QuarterlyTax (stacked bar), W2vs1099 (side-by-side bar), YouTube (side-by-side bar), SideHustleGoal (projection + goal line).
 
-### 2c. Result Enhancements
-- `CopyResultsButton.tsx` — copies formatted summary to clipboard
-- Count-up animation in `ResultCard` — custom `useCountUp` hook, no external dep
-- `Tooltip.tsx` — hover explanation for terms like "Self-Employment Tax"
+### 2c. Result Enhancements — DONE
+CopyResultsButton (lucide-react icons), useCountUp hook (rAF, prefers-reduced-motion), Tooltip component. Integrated into all 16 calculators. ResultCard supports `numericValue`/`formatFn` for opt-in animation. ResultBreakdown label accepts `React.ReactNode` for tooltips.
 
 ---
 
@@ -136,8 +134,8 @@ Generate SVG OG images for all calculators (currently only 4 of 16 have them).
 Phase 0 (manual) ─── required before Phase 4
 Phase 1 (DONE)
 Phase 2a-2b (DONE)
-  ├── Phase 2c (result enhancements) — NEXT
-  ├── Phase 3 (content) — required before Phase 4
+  ├── Phase 2c (DONE)
+  ├── Phase 3 (content) — NEXT, required before Phase 4
   └── Phase 5 (new calcs) — benefits from Phase 2
          └── Phase 4 (monetization) — needs Phase 0 + Phase 3
 Phase 6 (ongoing)

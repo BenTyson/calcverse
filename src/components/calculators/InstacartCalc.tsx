@@ -6,6 +6,7 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import {
   calculateInstacartEarnings,
   DEFAULT_INPUTS,
@@ -50,6 +51,13 @@ export function InstacartCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Instacart Earnings Calculator (CalcFalcon)\n` +
+    `Weekly Earnings: ${formatCurrency(results.netWeeklyEarnings)}\n` +
+    `Hourly Rate: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Monthly Earnings: ${formatCurrency(results.netMonthlyEarnings)}\n` +
+    `https://calcfalcon.com/gig-economy/instacart-calculator`;
 
   return (
     <ErrorBoundary>
@@ -208,15 +216,20 @@ export function InstacartCalc() {
 
       {/* Results */}
       <div className="pt-6 border-t border-neutral-100">
-        <h3 className="font-semibold text-neutral-900 mb-4">Estimated Earnings</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Estimated Earnings</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="gig" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <ResultCard
             label="Weekly Earnings"
             value={formatCurrency(results.netWeeklyEarnings)}
+            numericValue={results.netWeeklyEarnings}
+            formatFn={formatCurrency}
             description="After gas expenses"
             category="gig"
-            highlighted
+            highlight
           />
           <ResultCard
             label="Monthly Earnings"
@@ -244,9 +257,9 @@ export function InstacartCalc() {
             { label: `Base Pay (${inputs.batchesPerWeek} batches)`, value: formatCurrency(results.basePay) },
             { label: 'Tips', value: formatCurrency(results.tips) },
             ...(results.peakBonuses > 0 ? [{ label: 'Peak Hour Bonuses', value: formatCurrency(results.peakBonuses) }] : []),
-            { label: 'Gross Weekly', value: formatCurrency(results.grossWeeklyEarnings), highlighted: true },
+            { label: 'Gross Weekly', value: formatCurrency(results.grossWeeklyEarnings), highlight: true },
             { label: 'Gas Expenses', value: `-${formatCurrency(results.gasExpenses)}` },
-            { label: 'Net Weekly', value: formatCurrency(results.netWeeklyEarnings), highlighted: true },
+            { label: 'Net Weekly', value: formatCurrency(results.netWeeklyEarnings), highlight: true },
           ]}
           category="gig"
         />

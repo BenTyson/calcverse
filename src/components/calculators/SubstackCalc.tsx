@@ -6,6 +6,8 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateSubstackRevenue,
   DEFAULT_INPUTS,
@@ -34,6 +36,13 @@ export function SubstackCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Substack Revenue Calculator (CalcFalcon)\n` +
+    `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
+    `Annual Revenue: ${formatCurrency(results.annualNet)}\n` +
+    `Per Subscriber: ${formatCurrency(results.revenuePerSubscriber)}/mo\n` +
+    `https://calcfalcon.com/creator/substack-calculator`;
 
   return (
     <ErrorBoundary>
@@ -126,11 +135,16 @@ export function SubstackCalc() {
       </div>
 
       <div className="border-t border-neutral-200 pt-8">
-        <h3 className="font-semibold text-neutral-900 mb-4">Your Revenue</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Your Revenue</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="creator" />
+        </div>
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Monthly Net"
             value={formatCurrency(results.monthlyNet)}
+            numericValue={results.monthlyNet}
+            formatFn={formatCurrency}
             description="After all fees"
             highlight
             size="lg"
@@ -155,7 +169,7 @@ export function SubstackCalc() {
             items={[
               { label: 'Monthly Gross', value: formatCurrency(results.monthlyGross) },
               { label: 'Substack Fee (10%)', value: `-${formatCurrency(results.substackFee)}` },
-              { label: 'Stripe Fees', value: `-${formatCurrency(results.stripeFee)}` },
+              { label: <Tooltip text="Stripe payment processing: 2.9% + $0.30 per transaction">Stripe Fees</Tooltip>, value: `-${formatCurrency(results.stripeFee)}` },
               { label: 'Net Revenue', value: formatCurrency(results.monthlyNet), highlight: true },
             ]}
           />

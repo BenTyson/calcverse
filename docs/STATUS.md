@@ -82,12 +82,22 @@
 - [x] YouTubeAdSenseCalc — Side-by-side bar (low/mid/high earnings)
 - [x] SideHustleGoalCalc — Projection chart (cumulative earnings + goal line)
 
+### Phase 2c — Result Enhancements
+- [x] `CopyResultsButton.tsx` — clipboard copy with Lucide Copy/Check icons, category-aware styling
+- [x] `useCountUp.ts` hook — rAF count-up animation (ease-out, 600ms), respects `prefers-reduced-motion`
+- [x] `Tooltip.tsx` — accessible hover/focus tooltip with `aria-describedby`, keyboard-focusable
+- [x] `ResultCard` — added optional `numericValue`/`formatFn` props for opt-in count-up (backward-compatible)
+- [x] `ResultBreakdown` — changed `label` type from `string` to `React.ReactNode` (backward-compatible)
+- [x] All 16 calculators: CopyResultsButton integrated at top of results
+- [x] All 16 calculators: count-up animation on primary highlighted ResultCard
+- [x] Tooltips on 13 calculators for financial jargon (SE tax, FICA, CPM, RPM, etc.)
+- [x] Installed `lucide-react` dependency
+
 ## What's NOT Done
 
 - No analytics (decision: Umami self-hosted)
 - No custom domain configured (DNS + Railway — manual step)
 - No Google Search Console submission
-- Phase 2c: result enhancements (CopyResultsButton, count-up animation, Tooltip)
 - No blog / content system (Phase 3)
 - No email capture (Phase 4)
 - No ad placements (Phase 4)

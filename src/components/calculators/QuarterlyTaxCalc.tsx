@@ -6,8 +6,10 @@ import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { ChartCard } from '../ui/charts/ChartCard';
 import { BarComparisonChart } from '../ui/charts/BarComparisonChart';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateQuarterlyTax,
   DEFAULT_INPUTS,
@@ -51,6 +53,13 @@ export function QuarterlyTaxCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Quarterly Tax Calculator (CalcFalcon)\n` +
+    `Quarterly Payment: ${formatCurrency(results.quarterlyPayment)}\n` +
+    `Total Annual Tax: ${formatCurrency(results.totalAnnualTax)}\n` +
+    `Effective Tax Rate: ${results.effectiveTaxRate.toFixed(1)}%\n` +
+    `https://calcfalcon.com/freelance/quarterly-tax-calculator`;
 
   return (
     <ErrorBoundary>
@@ -181,15 +190,20 @@ export function QuarterlyTaxCalc() {
 
       {/* Results */}
       <div className="pt-6 border-t border-neutral-100">
-        <h3 className="font-semibold text-neutral-900 mb-4">Your Estimated Taxes</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Your Estimated Taxes</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="freelance" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Quarterly Payment"
             value={formatCurrency(results.quarterlyPayment)}
+            numericValue={results.quarterlyPayment}
+            formatFn={formatCurrency}
             description="Pay this each quarter"
             category="freelance"
-            highlighted
+            highlight
           />
           <ResultCard
             label="Total Annual Tax"
@@ -239,11 +253,11 @@ export function QuarterlyTaxCalc() {
           items={[
             { label: 'Gross Freelance Income', value: formatCurrency(inputs.annualIncome) },
             { label: 'Business Expenses', value: `-${formatCurrency(inputs.businessExpenses)}` },
-            { label: 'Net Self-Employment Income', value: formatCurrency(results.netSelfEmploymentIncome), highlighted: true },
-            { label: 'Self-Employment Tax', value: formatCurrency(results.selfEmploymentTax) },
+            { label: <Tooltip text="Gross income minus business expenses">Net Self-Employment Income</Tooltip>, value: formatCurrency(results.netSelfEmploymentIncome) },
+            { label: <Tooltip text="Social Security (12.4%) + Medicare (2.9%) tax for self-employed workers">Self-Employment Tax</Tooltip>, value: formatCurrency(results.selfEmploymentTax) },
             { label: 'Federal Income Tax', value: formatCurrency(results.federalIncomeTax) },
             { label: 'State Tax', value: formatCurrency(results.stateTax) },
-            { label: 'Total Annual Tax', value: formatCurrency(results.totalAnnualTax), highlighted: true },
+            { label: 'Total Annual Tax', value: formatCurrency(results.totalAnnualTax), highlight: true },
           ]}
           category="freelance"
         />

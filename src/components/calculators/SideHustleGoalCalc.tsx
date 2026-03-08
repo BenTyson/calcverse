@@ -5,6 +5,7 @@ import { NumberInput } from '../ui/inputs/NumberInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { ChartCard } from '../ui/charts/ChartCard';
 import { ProjectionChart } from '../ui/charts/ProjectionChart';
 import {
@@ -44,6 +45,13 @@ export function SideHustleGoalCalc() {
     (inputs.currentSavings / inputs.goalAmount) * 100,
     100
   );
+
+  const getResultsText = () =>
+    `Side Hustle Goal Calculator (CalcFalcon)\n` +
+    `Time to Goal: ${formatDuration(results.monthsToGoal)}\n` +
+    `Avg Monthly: ${formatCurrency(results.averageMonthlyEarnings)}\n` +
+    `Total Hours: ${formatNumber(results.totalHoursWorked)}\n` +
+    `https://calcfalcon.com/side-hustle/time-to-goal-calculator`;
 
   return (
     <ErrorBoundary>
@@ -137,7 +145,10 @@ export function SideHustleGoalCalc() {
       </div>
 
       <div className="border-t pt-8">
-        <h3 className="font-semibold text-gray-900 mb-4">Your Timeline</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-gray-900">Your Timeline</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="sidehustle" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <ResultCard
@@ -160,6 +171,8 @@ export function SideHustleGoalCalc() {
           <ResultCard
             label="Avg Monthly"
             value={formatCurrency(results.averageMonthlyEarnings)}
+            numericValue={results.averageMonthlyEarnings}
+            formatFn={formatCurrency}
             description="net earnings"
             size="sm"
           />

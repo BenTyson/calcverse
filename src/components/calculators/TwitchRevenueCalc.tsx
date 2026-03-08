@@ -6,6 +6,7 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import {
   calculateTwitchRevenue,
   DEFAULT_INPUTS,
@@ -51,6 +52,13 @@ export function TwitchRevenueCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Twitch Revenue Calculator (CalcFalcon)\n` +
+    `Monthly Revenue: ${formatCurrency(results.netMonthly)}\n` +
+    `Annual Revenue: ${formatCurrency(results.netAnnual)}\n` +
+    `Revenue Per Viewer: ${formatCurrency(results.revenuePerViewer)}/mo\n` +
+    `https://calcfalcon.com/creator/twitch-revenue-calculator`;
 
   return (
     <ErrorBoundary>
@@ -202,15 +210,20 @@ export function TwitchRevenueCalc() {
 
       {/* Results */}
       <div className="pt-6 border-t border-neutral-100">
-        <h3 className="font-semibold text-neutral-900 mb-4">Estimated Earnings</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Estimated Earnings</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="creator" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Monthly Revenue"
             value={formatCurrency(results.netMonthly)}
+            numericValue={results.netMonthly}
+            formatFn={formatCurrency}
             description="After Twitch's cut"
             category="creator"
-            highlighted
+            highlight
           />
           <ResultCard
             label="Annual Revenue"
@@ -265,12 +278,12 @@ export function TwitchRevenueCalc() {
             { label: 'Tier 1 Sub Revenue', value: formatCurrency(results.subscriptionRevenue.tier1) },
             { label: 'Tier 2 Sub Revenue', value: formatCurrency(results.subscriptionRevenue.tier2) },
             { label: 'Tier 3 Sub Revenue', value: formatCurrency(results.subscriptionRevenue.tier3) },
-            { label: 'Total Sub Revenue', value: formatCurrency(results.subscriptionRevenue.total), highlighted: true },
+            { label: 'Total Sub Revenue', value: formatCurrency(results.subscriptionRevenue.total), highlight: true },
             { label: 'Bits Revenue', value: formatCurrency(results.bitsRevenue) },
             { label: 'Ad Revenue', value: formatCurrency(results.adRevenue) },
             { label: 'Sponsorships', value: formatCurrency(results.sponsorshipRevenue) },
             { label: 'Twitch Fees (Subs Only)', value: `-${formatCurrency(results.twitchFees)}` },
-            { label: 'Net Monthly Revenue', value: formatCurrency(results.netMonthly), highlighted: true },
+            { label: 'Net Monthly Revenue', value: formatCurrency(results.netMonthly), highlight: true },
           ]}
           category="creator"
         />

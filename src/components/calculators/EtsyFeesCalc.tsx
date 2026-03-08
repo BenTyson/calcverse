@@ -5,8 +5,10 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { ChartCard } from '../ui/charts/ChartCard';
 import { DonutChart } from '../ui/charts/DonutChart';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateEtsyFees,
   DEFAULT_INPUTS,
@@ -35,6 +37,13 @@ export function EtsyFeesCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Etsy Fee Calculator (CalcFalcon)\n` +
+    `Net Profit: ${formatCurrency(results.netProfit)}\n` +
+    `Total Fees: ${formatCurrency(results.totalFees)} (${results.feePercentage}%)\n` +
+    `Profit Margin: ${results.profitMargin}%\n` +
+    `https://calcfalcon.com/creator/etsy-fee-calculator`;
 
   return (
     <ErrorBoundary>
@@ -138,11 +147,16 @@ export function EtsyFeesCalc() {
       )}
 
       <div className="border-t border-neutral-200 pt-8">
-        <h3 className="font-semibold text-neutral-900 mb-4">Per-Item Analysis</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Per-Item Analysis</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="creator" />
+        </div>
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Net Profit"
             value={formatCurrency(results.netProfit)}
+            numericValue={results.netProfit}
+            formatFn={formatCurrency}
             description="After all fees & costs"
             highlight
             size="lg"
@@ -180,11 +194,11 @@ export function EtsyFeesCalc() {
             title="Fee Breakdown"
             category="creator"
             items={[
-              { label: 'Listing Fee', value: formatCurrency(results.listingFee) },
-              { label: 'Transaction Fee (6.5%)', value: formatCurrency(results.transactionFee) },
-              { label: 'Payment Processing', value: formatCurrency(results.paymentProcessingFee) },
+              { label: <Tooltip text="$0.20 per listing, renewed every 4 months or on sale">Listing Fee</Tooltip>, value: formatCurrency(results.listingFee) },
+              { label: <Tooltip text="6.5% of item price + shipping charged">Transaction Fee (6.5%)</Tooltip>, value: formatCurrency(results.transactionFee) },
+              { label: <Tooltip text="Credit card processing: 3% + $0.25 per transaction">Payment Processing</Tooltip>, value: formatCurrency(results.paymentProcessingFee) },
               ...(results.etsyAdsFee > 0 ? [{ label: 'Etsy Ads', value: formatCurrency(results.etsyAdsFee) }] : []),
-              ...(results.offsiteAdsFee > 0 ? [{ label: 'Offsite Ads', value: formatCurrency(results.offsiteAdsFee) }] : []),
+              ...(results.offsiteAdsFee > 0 ? [{ label: <Tooltip text="12% fee on sales from off-platform advertising (Google, Facebook, etc.)">Offsite Ads</Tooltip>, value: formatCurrency(results.offsiteAdsFee) }] : []),
               { label: 'Total Fees', value: formatCurrency(results.totalFees), highlight: true },
             ]}
           />

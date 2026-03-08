@@ -7,6 +7,8 @@ import { DropdownInput } from '../ui/inputs/DropdownInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateProjectRate,
   DEFAULT_INPUTS,
@@ -44,6 +46,13 @@ export function ProjectRateCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Project Rate Calculator (CalcFalcon)\n` +
+    `Project Price: ${formatCurrency(results.totalProjectPrice)}\n` +
+    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Base Hours Value: ${formatCurrency(results.basePrice)}\n` +
+    `https://calcfalcon.com/freelance/project-rate-calculator`;
 
   return (
     <ErrorBoundary>
@@ -187,15 +196,20 @@ export function ProjectRateCalc() {
 
       {/* Results */}
       <div className="pt-6 border-t border-neutral-100">
-        <h3 className="font-semibold text-neutral-900 mb-4">Your Project Quote</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Your Project Quote</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="freelance" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Project Price"
             value={formatCurrency(results.totalProjectPrice)}
+            numericValue={results.totalProjectPrice}
+            formatFn={formatCurrency}
             description="Total quote to client"
             category="freelance"
-            highlighted
+            highlight
           />
           <ResultCard
             label="Effective Hourly"
@@ -250,10 +264,10 @@ export function ProjectRateCalc() {
             ...(results.complexityAdjustment > 0 ? [{ label: 'Complexity Adjustment', value: `+${formatCurrency(results.complexityAdjustment)}` }] : []),
             ...(results.rushAdjustment > 0 ? [{ label: 'Rush Fee', value: `+${formatCurrency(results.rushAdjustment)}` }] : []),
             { label: `Revisions (${inputs.revisionRounds} × ${inputs.hoursPerRevision} hrs)`, value: formatCurrency(results.revisionCost) },
-            { label: `Scope Buffer (${inputs.scopeBuffer}%)`, value: formatCurrency(results.scopeBufferAmount) },
-            { label: `Profit Margin (${inputs.profitMargin}%)`, value: formatCurrency(results.profitAmount) },
+            { label: <Tooltip text="Extra budget to account for scope creep and unforeseen work">Scope Buffer ({inputs.scopeBuffer}%)</Tooltip>, value: formatCurrency(results.scopeBufferAmount) },
+            { label: <Tooltip text="Additional margin above costs for profit and business growth">Profit Margin ({inputs.profitMargin}%)</Tooltip>, value: formatCurrency(results.profitAmount) },
             ...(results.expensesTotal > 0 ? [{ label: 'Expenses', value: formatCurrency(results.expensesTotal) }] : []),
-            { label: 'Total Project Price', value: formatCurrency(results.totalProjectPrice), highlighted: true },
+            { label: 'Total Project Price', value: formatCurrency(results.totalProjectPrice), highlight: true },
           ]}
           category="freelance"
         />

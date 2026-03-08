@@ -6,6 +6,8 @@ import { SliderInput } from '../ui/inputs/SliderInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculatePodcastSponsorship,
   DEFAULT_INPUTS,
@@ -42,6 +44,13 @@ export function PodcastSponsorshipCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `Podcast Sponsorship Calculator (CalcFalcon)\n` +
+    `Monthly Revenue: ${formatCurrency(results.netMonthly)}\n` +
+    `Annual Revenue: ${formatCurrency(results.netAnnual)}\n` +
+    `Effective CPM: ${formatCurrency(results.effectiveCPM)}\n` +
+    `https://calcfalcon.com/creator/podcast-sponsorship-calculator`;
 
   return (
     <ErrorBoundary>
@@ -199,15 +208,20 @@ export function PodcastSponsorshipCalc() {
 
       {/* Results */}
       <div className="pt-6 border-t border-neutral-100">
-        <h3 className="font-semibold text-neutral-900 mb-4">Estimated Revenue</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Estimated Revenue</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="creator" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <ResultCard
             label="Monthly Revenue"
             value={formatCurrency(results.netMonthly)}
+            numericValue={results.netMonthly}
+            formatFn={formatCurrency}
             description="Total estimated earnings"
             category="creator"
-            highlighted
+            highlight
           />
           <ResultCard
             label="Annual Revenue"
@@ -265,13 +279,13 @@ export function PodcastSponsorshipCalc() {
         <ResultBreakdown
           title="Revenue Breakdown"
           items={[
-            { label: `Pre-Roll Ads (${inputs.preRollSpots} spots)`, value: formatCurrency(results.preRollRevenue) },
-            { label: `Mid-Roll Ads (${inputs.midRollSpots} spots)`, value: formatCurrency(results.midRollRevenue) },
-            { label: `Post-Roll Ads (${inputs.postRollSpots} spots)`, value: formatCurrency(results.postRollRevenue) },
-            { label: 'Total Ad Revenue', value: formatCurrency(results.totalAdRevenue), highlighted: true },
+            { label: <Tooltip text="15-30 sec ads before the episode starts">Pre-Roll Ads ({inputs.preRollSpots} spots)</Tooltip>, value: formatCurrency(results.preRollRevenue) },
+            { label: <Tooltip text="60 sec ads mid-episode — highest CPM placement">Mid-Roll Ads ({inputs.midRollSpots} spots)</Tooltip>, value: formatCurrency(results.midRollRevenue) },
+            { label: <Tooltip text="15-30 sec ads at the end of the episode">Post-Roll Ads ({inputs.postRollSpots} spots)</Tooltip>, value: formatCurrency(results.postRollRevenue) },
+            { label: 'Total Ad Revenue', value: formatCurrency(results.totalAdRevenue), highlight: true },
             ...(results.affiliateRevenue > 0 ? [{ label: 'Affiliate Revenue', value: formatCurrency(results.affiliateRevenue) }] : []),
             ...(results.premiumRevenue > 0 ? [{ label: 'Premium Subscriptions', value: formatCurrency(results.premiumRevenue) }] : []),
-            { label: 'Total Monthly Revenue', value: formatCurrency(results.grossMonthly), highlighted: true },
+            { label: 'Total Monthly Revenue', value: formatCurrency(results.grossMonthly), highlight: true },
           ]}
           category="creator"
         />

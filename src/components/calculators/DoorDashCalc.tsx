@@ -5,6 +5,8 @@ import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
+import { CopyResultsButton } from '../ui/results/CopyResultsButton';
+import { Tooltip } from '../ui/Tooltip';
 import {
   calculateDoorDashEarnings,
   DEFAULT_INPUTS,
@@ -33,6 +35,13 @@ export function DoorDashCalc() {
   };
 
   const isAdvanced = mode === 'advanced';
+
+  const getResultsText = () =>
+    `DoorDash Earnings Calculator (CalcFalcon)\n` +
+    `Weekly Net: ${formatCurrency(results.weeklyNet)}\n` +
+    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
+    `https://calcfalcon.com/gig-economy/doordash-calculator`;
 
   return (
     <ErrorBoundary>
@@ -138,11 +147,16 @@ export function DoorDashCalc() {
       </div>
 
       <div className="border-t border-neutral-200 pt-8">
-        <h3 className="font-semibold text-neutral-900 mb-4">Your Earnings</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-neutral-900">Your Earnings</h3>
+          <CopyResultsButton getResultsText={getResultsText} category="gig" />
+        </div>
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Weekly Net"
             value={formatCurrency(results.weeklyNet)}
+            numericValue={results.weeklyNet}
+            formatFn={formatCurrency}
             description="After gas costs"
             highlight
             size="lg"
@@ -192,8 +206,8 @@ export function DoorDashCalc() {
               size="sm"
             />
             <div className="bg-gig-50 rounded-xl p-4 text-sm text-gig-800">
-              <strong>Tax tip:</strong> Track your miles! The IRS allows $0.67/mile
-              deduction for 2024. At {results.weeklyMiles} miles/week, that's{' '}
+              <strong>Tax tip:</strong> Track your miles! The <Tooltip text="You can deduct $0.67 per business mile driven instead of tracking actual vehicle expenses">IRS mileage deduction</Tooltip> allows $0.67/mile
+              for 2024. At {results.weeklyMiles} miles/week, that's{' '}
               {formatCurrency(results.weeklyMiles * 0.67 * 52)}/year in deductions.
             </div>
           </div>
