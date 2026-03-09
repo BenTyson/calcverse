@@ -1,6 +1,7 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { QuarterlyTaxCalc } from '@components/calculators/QuarterlyTaxCalc';
+import { MONETIZATION } from '@lib/config/monetization';
 
 const faqs = [
   {
@@ -67,6 +68,13 @@ const relatedCalculators = [
   slug="quarterly-tax-calculator"
   faqs={faqs}
   relatedCalculators={relatedCalculators}
+  affiliateProduct={{
+    product: MONETIZATION.affiliates.quickbooks.label,
+    description: 'Track expenses, maximize deductions, and estimate quarterly taxes automatically.',
+    url: MONETIZATION.affiliates.quickbooks.url,
+    category: 'freelance',
+    badge: 'Recommended',
+  }}
 >
   <QuarterlyTaxCalc client:visible />
   <Fragment slot="content">

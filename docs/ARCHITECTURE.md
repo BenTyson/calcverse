@@ -25,6 +25,11 @@ calcfalcon/
 │   │   │       ├── DonutChart.tsx         # Pie/donut breakdowns
 │   │   │       ├── BarComparisonChart.tsx # Side-by-side or stacked bars
 │   │   │       └── ProjectionChart.tsx    # Area/line with goal line
+│   │   ├── monetization/
+│   │   │   ├── AdSlot.astro             # CLS-safe ad placeholders
+│   │   │   ├── EmailCapture.tsx         # React email form (inline/compact)
+│   │   │   ├── AffiliateCard.astro      # Partner recommendation card
+│   │   │   └── AffiliateDisclosure.astro # FTC disclosure text
 │   │   ├── calculator/           # Astro wrapper components
 │   │   │   ├── ShareButtons.astro
 │   │   │   ├── EmbedCodeGenerator.astro
@@ -46,6 +51,8 @@ calcfalcon/
 │   │   └── useCountUp.ts         # rAF count-up animation hook
 │   ├── lib/
 │   │   ├── calculators/          # Pure calculation logic (16 files)
+│   │   ├── config/
+│   │   │   └── monetization.ts   # Affiliate URLs, AdSense publisher ID
 │   │   ├── utils/
 │   │   │   ├── formatters.ts     # formatCurrency, formatNumber, formatPercent, etc.
 │   │   │   ├── url-state.ts      # getInitialState, updateUrlState, getInitialMode
@@ -61,6 +68,8 @@ calcfalcon/
 │   │   ├── blog/
 │   │   │   ├── index.astro       # Blog listing
 │   │   │   └── [slug].astro      # Article pages (from Content Collections)
+│   │   ├── api/
+│   │   │   └── subscribe.ts      # SSR endpoint (prerender = false)
 │   │   ├── freelance/            # 1 index + 4 calculators
 │   │   ├── creator/              # 1 index + 7 calculators
 │   │   ├── gig-economy/          # 1 index + 4 calculators
@@ -72,7 +81,8 @@ calcfalcon/
 ├── public/
 │   ├── favicon.svg
 │   ├── robots.txt
-│   └── og-images/
+│   ├── og-images/
+│   └── downloads/                # Lead magnets (PDFs)
 ├── astro.config.mjs
 ├── railway.json
 ├── tsconfig.json
@@ -166,9 +176,12 @@ Renders as `role="radiogroup"` with `role="radio"` + `aria-checked` buttons.
 ### astro.config.mjs
 ```javascript
 site: 'https://calcfalcon.com'
+adapter: node({ mode: 'standalone' })  // For SSR endpoints
 integrations: [react(), sitemap({ filter: excludes /embed/ })]
 vite: { plugins: [tailwindcss()] }
 ```
+
+Pages default to static (prerendered). Individual pages opt out with `export const prerender = false` for SSR.
 
 ### Path Aliases (tsconfig.json)
 - `@/*` → `src/*`
@@ -178,9 +191,15 @@ vite: { plugins: [tailwindcss()] }
 
 ### railway.json
 ```json
-{ "deploy": { "startCommand": "npx serve dist -l 3000" } }
+{ "deploy": { "startCommand": "node ./dist/server/entry.mjs" } }
 ```
+
+Note: Start command changed from `npx serve` to node server entry for SSR support.
+
+### Environment Variables
+- `RESEND_API_KEY` — Resend API key for email capture
+- `RESEND_AUDIENCE_ID` — Resend audience ID for contact list
 
 ## Build Output
 
-50 static HTML pages in `dist/`. Auto-generated sitemap at `/sitemap-index.xml` (34 indexable, 16 embeds excluded).
+49 prerendered HTML pages + 1 SSR endpoint in `dist/`. Auto-generated sitemap at `/sitemap-index.xml` (34 indexable, 16 embeds excluded).

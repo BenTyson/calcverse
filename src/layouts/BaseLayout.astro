@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
+import { MONETIZATION } from '@lib/config/monetization';
 
 interface Props {
   title: string;
@@ -58,6 +59,9 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullOgImage} />
 
+    {MONETIZATION.adsense.publisherId && (
+      <meta name="google-adsense-account" content={MONETIZATION.adsense.publisherId} />
+    )}
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-neutral-50 flex flex-col">

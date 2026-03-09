@@ -1,0 +1,21 @@
+---
+interface Props {
+  slot: string;
+  format: 'leaderboard' | 'rectangle';
+}
+
+const { slot, format } = Astro.props;
+
+const styles = {
+  leaderboard: 'min-h-[50px] sm:min-h-[90px] max-w-[728px]',
+  rectangle: 'min-h-[280px] max-w-[336px]',
+};
+---
+
+<div
+  class={`mx-auto border border-dashed border-neutral-200 flex items-center justify-center ${styles[format]}`}
+  data-ad-slot={slot}
+>
+  <!-- AdSense code here -->
+  <span class="text-xs text-neutral-400">Advertisement</span>
+</div>

@@ -4,6 +4,10 @@ import SchemaOrg from '@components/seo/SchemaOrg.astro';
 import ShareButtons from '@components/calculator/ShareButtons.astro';
 import EmbedCodeGenerator from '@components/calculator/EmbedCodeGenerator.astro';
 import RelatedCalculators from '@components/calculator/RelatedCalculators.astro';
+import AdSlot from '@components/monetization/AdSlot.astro';
+import AffiliateCard from '@components/monetization/AffiliateCard.astro';
+import AffiliateDisclosure from '@components/monetization/AffiliateDisclosure.astro';
+import { EmailCapture } from '@components/monetization/EmailCapture';
 import type { FAQ, BreadcrumbItem } from '@lib/seo/schema';
 
 interface RelatedCalc {
@@ -11,6 +15,14 @@ interface RelatedCalc {
   description: string;
   href: string;
   category: string;
+}
+
+interface AffiliateProduct {
+  product: string;
+  description: string;
+  url: string;
+  category: string;
+  badge?: string;
 }
 
 interface Props {
@@ -23,6 +35,7 @@ interface Props {
   faqs?: FAQ[];
   relatedCalculators?: RelatedCalc[];
   ogImage?: string;
+  affiliateProduct?: AffiliateProduct;
 }
 
 const {
@@ -35,6 +48,7 @@ const {
   faqs = [],
   relatedCalculators = [],
   ogImage,
+  affiliateProduct,
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
@@ -99,6 +113,25 @@ const colors = categoryColors[categorySlug] || categoryColors.freelance;
         <slot />
       </div>
 
+      <!-- Affiliate -->
+      {affiliateProduct && (
+        <div class="mb-6">
+          <AffiliateCard
+            product={affiliateProduct.product}
+            description={affiliateProduct.description}
+            url={affiliateProduct.url}
+            category={affiliateProduct.category}
+            badge={affiliateProduct.badge}
+          />
+          <AffiliateDisclosure />
+        </div>
+      )}
+
+      <!-- Ad: Mid -->
+      <div class="mb-10">
+        <AdSlot slot="calculator-mid" format="leaderboard" />
+      </div>
+
       <!-- Share & Embed -->
       <div class="grid md:grid-cols-2 gap-6 mb-10">
         <div class="card-elevated p-5">
@@ -135,8 +168,16 @@ const colors = categoryColors[categorySlug] || categoryColors.freelance;
         </section>
       )}
 
+      <!-- Ad: Bottom -->
+      <div class="mb-10">
+        <AdSlot slot="calculator-bottom" format="rectangle" />
+      </div>
+
       <!-- Additional Content Slot -->
       <slot name="content" />
+
+      <!-- Email Capture -->
+      <EmailCapture variant="inline" leadMagnet={true} client:visible />
 
       <!-- Related Calculators -->
       <RelatedCalculators calculators={relatedCalculators} />

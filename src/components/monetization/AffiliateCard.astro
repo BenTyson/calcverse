@@ -1,0 +1,43 @@
+---
+interface Props {
+  product: string;
+  description: string;
+  url: string;
+  category: string;
+  badge?: string;
+}
+
+const { product, description, url, category, badge } = Astro.props;
+
+const borderColors: Record<string, string> = {
+  freelance: 'border-l-primary-500',
+  creator: 'border-l-creator-500',
+  'gig-economy': 'border-l-gig-500',
+  'side-hustle': 'border-l-sidehustle-500',
+  finance: 'border-l-finance-500',
+};
+
+const borderColor = borderColors[category] || borderColors.freelance;
+---
+
+<div class={`card-elevated p-5 border-l-4 ${borderColor} relative`}>
+  <span class="absolute top-3 right-3 text-xs text-neutral-400 font-medium">Partner</span>
+  {badge && (
+    <span class="inline-block text-xs font-medium text-primary-700 bg-primary-50 px-2 py-0.5 rounded-full mb-2">
+      {badge}
+    </span>
+  )}
+  <h3 class="font-semibold text-neutral-900 mb-1">{product}</h3>
+  <p class="text-sm text-neutral-600 mb-3">{description}</p>
+  <a
+    href={url}
+    rel="nofollow sponsored"
+    target="_blank"
+    class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+  >
+    Learn More
+    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    </svg>
+  </a>
+</div>

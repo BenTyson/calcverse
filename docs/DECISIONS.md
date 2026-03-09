@@ -23,7 +23,7 @@ These are settled. Changing them requires explicit user approval.
 | Database | None | URL params for state sharing, no persistence needed |
 | Auth | None | No user accounts |
 | State | URL params (`?s=` base64, `?mode=`) | Shareable results |
-| Build | Static (SSG) | Maximum performance, no server costs |
+| Build | Static (SSG) + SSR endpoint | Static pages + `/api/subscribe` SSR via `@astrojs/node` |
 | Hydration | `client:visible` on pages, `client:load` on embeds | Performance — don't hydrate until scrolled into view |
 | Error handling | React ErrorBoundary in every calculator | Prevents blank pages on crash |
 
@@ -58,9 +58,18 @@ These are settled. Changing them requires explicit user approval.
 3. Email list: Newsletter with sponsored placements
 4. Prerequisites: custom domain + 30 pages content + 1K monthly visits for AdSense
 
+## Monetization
+
+| Decision | Choice | Why |
+|----------|--------|-----|
+| Ad slots | `AdSlot.astro` with CLS-safe min-heights | Prevent layout shift, ready for AdSense |
+| Email capture | Resend API via SSR endpoint | API key stays server-side |
+| SSR approach | `@astrojs/node` adapter, `prerender = false` per-endpoint | Astro 5 removed `output: 'hybrid'`; static default + per-route SSR opt-out |
+| Affiliate placement | Opt-in per calculator via `affiliateProduct` prop | Not all calcs have relevant products |
+| Affiliate links | `rel="nofollow sponsored"` | FTC compliance |
+
 ## What's Still Open
 
-- Which affiliate programs to join
 - Blog content voice (casual vs professional)
 - Whether to self-host Inter font
 - Social media presence

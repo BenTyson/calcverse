@@ -3,7 +3,7 @@
 SEO-driven calculator site for freelancers, creators, and gig workers. Generates passive income via display ads + affiliates.
 
 **Domain:** calcfalcon.com
-**Stack:** Astro 5 (SSG) + React 19 + Tailwind CSS 4
+**Stack:** Astro 5 (SSG + SSR hybrid) + React 19 + Tailwind CSS 4
 **Hosting:** Railway (auto-deploy from main)
 **Live:** 16 calculators, 50 pages, 5 sections (4 calculator categories + blog)
 
@@ -50,6 +50,12 @@ Every calculator has 3 files:
 | Error boundary | `src/components/ui/ErrorBoundary.tsx` |
 | Chart colors | `src/lib/utils/chart-colors.ts` |
 | Embed routes | `src/pages/embed/[...slug].astro` |
+| Monetization config | `src/lib/config/monetization.ts` |
+| Email API endpoint | `src/pages/api/subscribe.ts` (SSR, `prerender = false`) |
+| Ad slots | `src/components/monetization/AdSlot.astro` |
+| Email capture | `src/components/monetization/EmailCapture.tsx` |
+| Affiliate card | `src/components/monetization/AffiliateCard.astro` |
+| Manual tasks | `docs/ben.md` |
 
 ## Design System
 

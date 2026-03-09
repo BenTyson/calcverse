@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-08
+**Last Updated:** 2026-03-09
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**16 calculators** across **4 categories**, **50 built pages** (34 indexable + 16 embeds)
+**16 calculators** across **4 categories**, **50 routes** (34 indexable + 16 embeds + 1 SSR API endpoint)
 
 ### Freelance (4) — Cyan
 | Calculator | Slug |
@@ -45,9 +45,10 @@
 - 4 category index pages (with intro paragraphs + FAQ structured data)
 - Blog index (`/blog`) + 8 pillar articles
 - About page (`/about`)
-- Privacy Policy (`/privacy`)
+- Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
 - 404 page
+- API: `/api/subscribe` (SSR endpoint for email capture via Resend)
 
 ## What's Done
 
@@ -111,14 +112,30 @@
 - [x] `relatedCalculators` expanded to 3-4 cross-category links in all 16 calculators
 - [x] 4 category index pages enhanced with intro paragraphs + FAQ sections + FAQ structured data
 
+### Phase 4 — Monetization Infrastructure
+- [x] `@astrojs/node` adapter for hybrid SSG/SSR
+- [x] `AdSlot.astro` — CLS-safe ad placeholders (leaderboard 728x90, rectangle 336x280)
+- [x] Ad slots in CalculatorLayout (mid + bottom) and BlogLayout (after content)
+- [x] `EmailCapture.tsx` — React form with inline/compact variants, dark mode
+- [x] `/api/subscribe` — SSR endpoint using Resend API
+- [x] Email capture in CalculatorLayout, BlogLayout, and Footer
+- [x] Lead magnet: placeholder PDF at `/downloads/freelancer-tax-cheatsheet.pdf`
+- [x] `monetization.ts` — central config for affiliate URLs + AdSense publisher ID
+- [x] `AffiliateCard.astro` + `AffiliateDisclosure.astro` — partner cards with `rel="nofollow sponsored"`
+- [x] 4 calculator pages with affiliate products: QuarterlyTax→QuickBooks, W2vs1099→FreshBooks, YouTube→TubeBuddy, Etsy→EtsyAds
+- [x] Conditional AdSense verification meta tag in BaseLayout
+- [x] Privacy page updated with email, advertising, and affiliate sections
+- [x] `docs/ben.md` — manual tasks tracker
+
 ## What's NOT Done
 
 - No analytics (decision: Umami self-hosted)
 - No custom domain configured (DNS + Railway — manual step)
 - No Google Search Console submission
-- No email capture (Phase 4)
-- No ad placements (Phase 4)
-- No affiliate links (Phase 4)
+- Resend API key not configured (manual: see `docs/ben.md`)
+- Affiliate URLs are placeholders (`#`)
+- AdSense publisher ID not set (pending approval)
+- Placeholder PDF needs real content
 - Personal Finance category shows "Coming Soon"
 - Only 4 of 16 calculators have custom OG images (SVG)
 - SVG OG images may not render on all social platforms (PNG preferred)

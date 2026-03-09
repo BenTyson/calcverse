@@ -159,6 +159,13 @@ const relatedCalculators = [
   slug="my-calculator"
   faqs={faqs}
   relatedCalculators={relatedCalculators}
+  affiliateProduct={{
+    product: 'Product Name',
+    description: 'Why this product is relevant.',
+    url: '#',
+    category: 'freelance',
+    badge: 'Recommended',
+  }}
 >
   <MyCalc client:visible />
 </CalculatorLayout>
@@ -187,6 +194,7 @@ Add the calculator to the `calculators` array.
 - [ ] Embed route updated with `client:load`
 - [ ] Category index updated
 - [ ] Added to relatedCalculators in 2-3 other calculators
+- [ ] Optional: `affiliateProduct` prop if relevant product exists (URLs in `src/lib/config/monetization.ts`)
 - [ ] `npm run build` passes
 - [ ] Run `/update-phase` to update docs
 

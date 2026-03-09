@@ -9,8 +9,8 @@
 | 2b. Chart Integration | DONE | Charts in 7 calculators (Freelancer, Etsy, Ko-fi, Quarterly, W2v1099, YouTube, SideHustle) |
 | 2c. Result Enhancements | DONE | CopyResultsButton, count-up animation, Tooltip in all 16 calcs |
 | 3. Content System | DONE | Blog infrastructure, 8 articles, calculator content, about page |
-| 4. Monetization | NEXT | Email capture, ad placements, affiliates, AdSense application |
-| 5. Calculator Expansion | PLANNED | Personal Finance (4), Gig (3), Creator (2) → 25+ total |
+| 4. Monetization | DONE | Email capture, ad placements, affiliates, AdSense prep |
+| 5. Calculator Expansion | NEXT | Personal Finance (4), Gig (3), Creator (2) → 25+ total |
 | 6. Polish & Scale | ONGOING | Analytics optimization, Mediavine, backlinks |
 
 ## Phase 0: Manual/External Steps (User Action)
@@ -42,25 +42,9 @@ Blog infrastructure, 8 pillar articles, about page, calculator content enhanceme
 
 ---
 
-## Phase 4: Monetization Infrastructure
+## Phase 4: Monetization Infrastructure — DONE
 
-### 4a. Email Capture
-- `EmailCapture.tsx` — React form, Resend API (or Buttondown free tier)
-- Placements: after calculator results, footer, blog articles
-- Lead magnet: "Freelancer Tax Cheatsheet" PDF in `public/downloads/`
-
-### 4b. Ad Placement Zones
-- `AdSlot.astro` — properly-sized empty containers (pre-AdSense approval)
-- Placements: between calculator and share, between FAQs and related, blog sidebar
-
-### 4c. Affiliate Integration
-- `AffiliateCard.tsx` — styled recommendation with disclosure
-- Tax calcs → QuickBooks/FreshBooks, Creator calcs → platform signup, Gig calcs → referral programs
-- `AffiliateDisclosure.tsx` + update privacy.astro
-
-### 4d. AdSense Application
-- Update privacy.astro with ad/cookie disclosure
-- Add AdSense verification meta tag to BaseLayout.astro
+Ad slots, email capture (Resend), affiliate cards on 4 calculators, AdSense prep, privacy page updated. Manual setup tasks tracked in `docs/ben.md`.
 
 ---
 
@@ -105,8 +89,8 @@ Phase 0 (manual) ─── required before Phase 4
 Phase 1 (DONE)
 Phase 2a-2c (DONE)
 Phase 3 (DONE)
-  ├── Phase 4 (monetization) — NEXT, needs Phase 0
-  └── Phase 5 (new calcs)
+  ├── Phase 4 (monetization) — DONE
+  └── Phase 5 (new calcs) — NEXT
 Phase 6 (ongoing)
 ```
 

@@ -16,6 +16,8 @@ const calculators = [
   { name: 'Etsy Fees Calculator', href: '/creator/etsy-fee-calculator' },
   { name: 'Quarterly Tax Calculator', href: '/freelance/quarterly-tax-calculator' },
 ];
+
+import { EmailCapture } from '@components/monetization/EmailCapture';
 ---
 
 <footer class="bg-neutral-950 text-neutral-400">
@@ -71,6 +73,9 @@ const calculators = [
         </ul>
       </div>
     </div>
+
+    <!-- Newsletter -->
+    <EmailCapture variant="compact" dark={true} client:visible />
 
     <!-- Bottom -->
     <div class="mt-12 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row justify-between items-center gap-4">

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import SchemaOrg from '@components/seo/SchemaOrg.astro';
+import AdSlot from '@components/monetization/AdSlot.astro';
+import { EmailCapture } from '@components/monetization/EmailCapture';
 import type { ArticleSEO, BreadcrumbItem } from '@lib/seo/schema';
 
 interface Props {
@@ -131,6 +133,11 @@ const calculatorNames: Record<string, string> = {
         <slot />
       </div>
 
+      <!-- Ad: Blog Content -->
+      <div class="mt-10">
+        <AdSlot slot="blog-content" format="leaderboard" />
+      </div>
+
       <!-- Calculator CTA -->
       {calculatorSlug && (
         <div class="mt-12 card-elevated p-6 md:p-8 border-l-4 border-primary-500">
@@ -149,6 +156,9 @@ const calculatorNames: Record<string, string> = {
           </a>
         </div>
       )}
+
+      <!-- Email Capture -->
+      <EmailCapture variant="inline" client:visible />
     </article>
   </div>
 </BaseLayout>

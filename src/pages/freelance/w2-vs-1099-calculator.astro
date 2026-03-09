@@ -1,6 +1,7 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { W2vs1099Calc } from '@components/calculators/W2vs1099Calc';
+import { MONETIZATION } from '@lib/config/monetization';
 
 const faqs = [
   {
@@ -67,6 +68,12 @@ const relatedCalculators = [
   slug="w2-vs-1099-calculator"
   faqs={faqs}
   relatedCalculators={relatedCalculators}
+  affiliateProduct={{
+    product: MONETIZATION.affiliates.freshbooks.label,
+    description: 'Simple invoicing and expense tracking built for freelancers and contractors.',
+    url: MONETIZATION.affiliates.freshbooks.url,
+    category: 'freelance',
+  }}
 >
   <W2vs1099Calc client:visible />
   <Fragment slot="content">
