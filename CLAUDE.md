@@ -5,7 +5,7 @@ SEO-driven calculator site for freelancers, creators, and gig workers. Generates
 **Domain:** calcfalcon.com
 **Stack:** Astro 5 (SSG + SSR hybrid) + React 19 + Tailwind CSS 4
 **Hosting:** Railway (auto-deploy from main)
-**Live:** 20 calculators, 59 pages, 6 sections (5 calculator categories + blog)
+**Live:** 23 calculators, 65 pages, 6 sections (5 calculator categories + blog)
 
 ## Commands
 
@@ -75,6 +75,7 @@ Every calculator has 3 files:
 - `npm run build` must pass with 0 errors before work is considered done
 - Never hardcode domain URLs — use `Astro.site` with `https://calcfalcon.com` fallback
 - Run `/update-phase` after completing any roadmap phase
+- Run `/add-calculator` when adding a new calculator (full guided workflow)
 
 ## Docs
 
@@ -82,7 +83,7 @@ Every calculator has 3 files:
 |-----|-------------|
 | `docs/STATUS.md` | Current state, what's live, what's next |
 | `docs/ARCHITECTURE.md` | Deep technical reference |
-| `docs/ADDING-CALCULATORS.md` | Building new calculators |
+| `/add-calculator` skill | Full guided workflow for adding calculators |
 | `docs/DECISIONS.md` | What's decided (don't re-debate) |
 | `docs/ROADMAP.md` | Full implementation plan with phases |
 | `docs/CALCULATOR-IDEAS.md` | Backlog of calculator ideas |

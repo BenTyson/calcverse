@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-09
+**Last Updated:** 2026-03-10
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**20 calculators** across **5 categories**, **59 routes** (38 indexable + 20 embeds + 1 SSR API endpoint)
+**23 calculators** across **5 categories**, **65 routes** (44 indexable + 23 embeds + 1 SSR API endpoint) — note: this is an estimate, not counted manually
 
 ### Freelance (4) — Cyan
 | Calculator | Slug |
@@ -27,13 +27,16 @@
 | Etsy Fee Calculator | `/creator/etsy-fee-calculator` |
 | Substack Revenue | `/creator/substack-calculator` |
 
-### Gig Economy (4) — Emerald
+### Gig Economy (7) — Emerald
 | Calculator | Slug |
 |-----------|------|
 | DoorDash Earnings | `/gig-economy/doordash-calculator` |
 | Uber/Lyft Driver Earnings | `/gig-economy/uber-lyft-calculator` |
 | Instacart Shopper | `/gig-economy/instacart-calculator` |
 | Airbnb Profit | `/gig-economy/airbnb-calculator` |
+| Amazon Flex Earnings | `/gig-economy/amazon-flex-calculator` |
+| TaskRabbit Earnings | `/gig-economy/taskrabbit-calculator` |
+| Turo Profit | `/gig-economy/turo-calculator` |
 
 ### Side Hustle (1) — Purple
 | Calculator | Slug |
@@ -145,6 +148,15 @@
 - [x] Homepage: removed "Coming Soon", added count: 4, updated counters to 20
 - [x] Embed routes: all 4 calculators added
 - [x] CalculatorLayout: `personal-finance` category color mapping added
+
+### Phase 5b — Gig Economy Expansion
+- [x] Amazon Flex Earnings — block-based delivery calc with gas, maintenance, IRS mileage tip
+- [x] TaskRabbit Earnings — service fee, travel time/cost, supplies, DropdownInput for task category
+- [x] Turo Profit — monthly rental scope, break-even days, profit margin, protection plan trade-offs
+- [x] Embed routes: all 3 calculators added
+- [x] Gig Economy index: 7 calculators, removed Coming Soon section
+- [x] Homepage: updated counts to 23 calculators, 7 gig economy
+- [x] Cross-links: DoorDash→Amazon Flex, Airbnb→Turo, Instacart→Amazon Flex
 
 ## What's NOT Done
 

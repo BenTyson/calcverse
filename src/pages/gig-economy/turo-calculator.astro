@@ -1,0 +1,79 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { TuroProfitCalc } from '@components/calculators/TuroProfitCalc';
+
+const faqs = [
+  {
+    question: 'How much does Turo take from hosts?',
+    answer:
+      'Turo\'s host fee depends on your protection plan. The minimum plan takes 10-15%, standard takes 20-25%, and premium takes 30-35%. Lower plans mean more profit per rental but less coverage if something goes wrong. Most hosts start with the standard plan (25%).',
+  },
+  {
+    question: 'How much can you earn with Turo?',
+    answer:
+      'Earnings vary by car type and market. Economy cars ($30-50/day) in busy markets can net $200-500/month. Popular SUVs and trucks ($60-100/day) can net $500-1,500/month. Luxury or specialty vehicles command premium rates but have higher insurance and depreciation costs.',
+  },
+  {
+    question: 'How does depreciation affect Turo profitability?',
+    answer:
+      'Depreciation is the hidden cost most hosts ignore. Extra miles from renters accelerate depreciation by $0.10-0.30/mile depending on the vehicle. A car rented 15 days/month at 40 miles/day adds 7,200 annual miles, potentially $700-2,100 in extra depreciation. Factor this into your pricing.',
+  },
+  {
+    question: 'What insurance do I need for Turo?',
+    answer:
+      'Turo provides liability insurance for trips, but your personal auto insurance may not cover commercial use. Some insurers offer rideshare/rental add-ons ($20-50/month). Check with your provider — using Turo without proper coverage could void your personal policy in a non-Turo accident.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Airbnb Profit',
+    description: 'Calculate short-term rental income',
+    href: '/gig-economy/airbnb-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'DoorDash Earnings',
+    description: 'Calculate delivery driver earnings',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'FIRE Calculator',
+    description: 'Plan your path to financial independence',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Turo Calculator - Calculate Your Car Rental Profit"
+  description="Calculate your Turo car rental profit after host fees, insurance, and expenses. See your break-even days, monthly income, and profit margin."
+  calculatorName="Turo Profit Calculator"
+  category="Gig Economy"
+  categorySlug="gig-economy"
+  slug="turo-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <TuroProfitCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Turo Profit Calculator</h2>
+        <p>Enter your daily rental rate and expected days rented per month. Research comparable vehicles in your area on Turo to set a competitive daily rate — pricing too high reduces bookings, while pricing too low leaves money on the table. Most hosts in active markets see 10-20 booked days per month.</p>
+        <p>Switch to <strong>Advanced mode</strong> to account for all costs of hosting on Turo. The platform fee is the largest variable cost, ranging from 10-35% depending on your chosen protection plan. Add your car payment, insurance, maintenance, cleaning costs between rentals, and estimated depreciation to see your true monthly profit.</p>
+        <p>The break-even days metric shows the minimum number of booked days needed to cover all your costs. If your break-even is above 20 days, your margins are tight — consider reducing expenses or increasing your daily rate. A healthy break-even for most hosts is 8-14 days, leaving the remaining booked days as pure profit.</p>
+        <p>Don't forget depreciation — it's the most commonly overlooked cost. Extra mileage from renters accelerates your car's value loss significantly. Budget $100-300/month depending on your vehicle's age and value. Many successful Turo hosts buy reliable, in-demand vehicles specifically for the platform rather than renting their daily driver.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

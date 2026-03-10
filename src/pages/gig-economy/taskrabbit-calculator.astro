@@ -1,0 +1,79 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { TaskRabbitCalc } from '@components/calculators/TaskRabbitCalc';
+
+const faqs = [
+  {
+    question: 'How much does TaskRabbit take from taskers?',
+    answer:
+      'TaskRabbit charges a 15% service fee on all task earnings. So if you charge $40/hour for a 2-hour task ($80 total), TaskRabbit takes $12 and you receive $68. This fee covers platform access, payment processing, and the TaskRabbit guarantee.',
+  },
+  {
+    question: 'What are typical TaskRabbit hourly rates by category?',
+    answer:
+      'Rates vary by skill and market. General tasks: $25-40/hour. Cleaning: $30-50/hour. Handyman work: $40-80/hour. Moving help: $30-50/hour. Furniture assembly: $35-60/hour. Specialized skills like plumbing or electrical command $60-100+/hour in major cities.',
+  },
+  {
+    question: 'What are the highest-paying TaskRabbit tasks?',
+    answer:
+      'Handyman, plumbing, and electrical work consistently pay the most ($60-100+/hour). Furniture assembly (especially IKEA) offers high volume at $35-60/hour. Moving jobs pay well per task but are physically demanding. General tasks and cleaning have lower rates but steady demand.',
+  },
+  {
+    question: 'Do TaskRabbit earnings count as taxable income?',
+    answer:
+      'Yes. TaskRabbit income is self-employment income subject to income tax plus 15.3% self-employment tax. You\'ll receive a 1099 form if you earn $600 or more. Deduct business expenses like tools, supplies, travel, and a portion of your phone bill to reduce your tax burden.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'DoorDash Earnings',
+    description: 'Calculate delivery driver earnings',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate quarterly taxes on gig income',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Calculate your optimal hourly rate',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="TaskRabbit Calculator - Calculate Your True Earnings"
+  description="Calculate your real TaskRabbit earnings after service fees and expenses. See your effective hourly rate, per-task net pay, and monthly income potential."
+  calculatorName="TaskRabbit Earnings Calculator"
+  category="Gig Economy"
+  categorySlug="gig-economy"
+  slug="taskrabbit-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <TaskRabbitCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the TaskRabbit Earnings Calculator</h2>
+        <p>Enter the number of tasks you complete per week, your hourly rate, and average hours per task. Most active taskers complete 5-15 tasks per week, charging $30-60/hour depending on their skill category and local market. The calculator shows your gross weekly earnings before platform fees and expenses.</p>
+        <p>Switch to <strong>Advanced mode</strong> to account for TaskRabbit's 15% service fee, travel time and costs between tasks, and monthly supplies expenses. The service fee is the biggest deduction — on a $40/hour rate, you're effectively earning $34/hour before any other costs. Travel time between tasks further reduces your effective hourly rate.</p>
+        <p>Your effective hourly rate includes travel time, which most taskers underestimate. If you spend 30 minutes traveling to each 2-hour task, that's a 25% reduction in your real hourly rate. Minimize this by focusing on tasks within a tight geographic area and scheduling multiple tasks in the same neighborhood on the same day.</p>
+        <p>To maximize earnings, set your listed rate 20-30% above your minimum acceptable hourly rate. This covers the service fee, travel dead time, and gaps between tasks. Specialize in high-demand categories like furniture assembly or handyman work where you can charge premium rates and build repeat client relationships through strong reviews.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

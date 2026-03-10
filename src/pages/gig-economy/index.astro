@@ -39,12 +39,21 @@ const calculators = [
     description: 'Estimate your short-term rental profit after all fees and expenses',
     href: '/gig-economy/airbnb-calculator',
   },
-];
-
-const upcomingCalculators = [
-  'TaskRabbit Earnings Calculator',
-  'Amazon Flex Calculator',
-  'Turo Car Rental Calculator',
+  {
+    name: 'Amazon Flex Earnings Calculator',
+    description: 'Calculate your true Amazon Flex earnings after gas and vehicle expenses',
+    href: '/gig-economy/amazon-flex-calculator',
+  },
+  {
+    name: 'TaskRabbit Earnings Calculator',
+    description: 'Calculate your real TaskRabbit earnings after service fees and expenses',
+    href: '/gig-economy/taskrabbit-calculator',
+  },
+  {
+    name: 'Turo Profit Calculator',
+    description: 'Calculate your Turo car rental profit after host fees and expenses',
+    href: '/gig-economy/turo-calculator',
+  },
 ];
 ---
 
@@ -104,24 +113,6 @@ const upcomingCalculators = [
             </span>
           </a>
         ))}
-      </div>
-
-      <!-- Coming Soon -->
-      <div class="mt-12 card-elevated p-6">
-        <h3 class="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-gig-500 animate-pulse"></span>
-          More Gig Economy Calculators Coming Soon
-        </h3>
-        <ul class="text-neutral-600 space-y-2">
-          {upcomingCalculators.map((calc) => (
-            <li class="flex items-center gap-3">
-              <svg class="w-4 h-4 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              {calc}
-            </li>
-          ))}
-        </ul>
       </div>
 
       <!-- FAQs -->

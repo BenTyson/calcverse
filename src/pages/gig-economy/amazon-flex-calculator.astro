@@ -1,0 +1,79 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { AmazonFlexCalc } from '@components/calculators/AmazonFlexCalc';
+
+const faqs = [
+  {
+    question: 'How much does Amazon Flex pay per block?',
+    answer:
+      'Amazon Flex blocks typically pay $54-108 for 3-5 hour shifts, depending on your market, time of day, and demand. Base rates are $18-25/hour, but surge pricing during peak times (holidays, bad weather) can push blocks to $30-40/hour.',
+  },
+  {
+    question: 'Is Amazon Flex worth it for your car?',
+    answer:
+      'It depends on your vehicle costs. At 40 miles per block and 25 MPG, you\'ll spend about $5.60 in gas per block at $3.50/gallon. Add maintenance wear ($0.05/mile = $2.00) and your real block pay drops by $7.60. Fuel-efficient vehicles make Flex significantly more profitable.',
+  },
+  {
+    question: 'How many blocks can you do per week on Amazon Flex?',
+    answer:
+      'Most drivers can pick up 5-10 blocks per week, depending on availability in their market. Amazon limits drivers to 40 hours per week. Blocks are released at various times and go fast — many drivers use block-grabbing strategies to secure the best-paying shifts.',
+  },
+  {
+    question: 'Do you get tips with Amazon Flex?',
+    answer:
+      'Tips depend on the delivery type. Amazon Fresh and Whole Foods deliveries include customer tips (averaging $5-15 per block). Standard Amazon.com package deliveries rarely include tips. Fresh/Whole Foods blocks are generally more profitable due to tips.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'DoorDash Earnings',
+    description: 'Calculate delivery driver earnings',
+    href: '/gig-economy/doordash-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Uber/Lyft Earnings',
+    description: 'Calculate rideshare driver earnings',
+    href: '/gig-economy/uber-lyft-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Instacart Earnings',
+    description: 'Estimate Instacart shopper earnings',
+    href: '/gig-economy/instacart-calculator',
+    category: 'Gig Economy',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate quarterly taxes on gig income',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Amazon Flex Calculator - Calculate Your True Earnings"
+  description="Calculate your real Amazon Flex earnings after gas and vehicle expenses. See per-block net pay, effective hourly rate, and IRS mileage deductions."
+  calculatorName="Amazon Flex Earnings Calculator"
+  category="Gig Economy"
+  categorySlug="gig-economy"
+  slug="amazon-flex-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <AmazonFlexCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Amazon Flex Earnings Calculator</h2>
+        <p>Enter the number of delivery blocks you work per week, your average block pay, and the typical miles driven per block. Most Amazon Flex drivers complete 3-5 hour blocks paying $54-108, covering 30-50 miles of deliveries depending on the route type (logistics, Fresh, or Whole Foods).</p>
+        <p>Switch to <strong>Advanced mode</strong> to factor in tips, vehicle costs, and time per block. Fresh and Whole Foods blocks include customer tips averaging $5-15, while standard logistics blocks rarely have tips. Enter your gas price, vehicle MPG, and maintenance costs to see your true per-block and hourly earnings after all expenses.</p>
+        <p>The effective hourly rate is your most important number. Many Flex drivers see $18-25/hour gross but only $13-20/hour after gas and vehicle wear. Track your actual miles per block over several weeks to get an accurate picture — route complexity varies significantly between suburban logistics routes and dense urban Fresh deliveries.</p>
+        <p>Use the IRS mileage deduction estimate to plan for tax season. As an independent contractor, you can deduct $0.67 per business mile (2024 rate). At 200 miles per week, that's nearly $7,000/year in deductions. Keep a mileage log from when you start driving to the warehouse until your last delivery — apps like Stride or Everlance automate this.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

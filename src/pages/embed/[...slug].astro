@@ -20,6 +20,9 @@ import { FireCalc } from '@components/calculators/FireCalc';
 import { EmergencyFundCalc } from '@components/calculators/EmergencyFundCalc';
 import { RentVsBuyCalc } from '@components/calculators/RentVsBuyCalc';
 import { SubscriptionAuditCalc } from '@components/calculators/SubscriptionAuditCalc';
+import { AmazonFlexCalc } from '@components/calculators/AmazonFlexCalc';
+import { TaskRabbitCalc } from '@components/calculators/TaskRabbitCalc';
+import { TuroProfitCalc } from '@components/calculators/TuroProfitCalc';
 
 export function getStaticPaths() {
   return [
@@ -38,6 +41,9 @@ export function getStaticPaths() {
     { params: { slug: 'gig-economy/uber-lyft-calculator' } },
     { params: { slug: 'gig-economy/instacart-calculator' } },
     { params: { slug: 'gig-economy/airbnb-calculator' } },
+    { params: { slug: 'gig-economy/amazon-flex-calculator' } },
+    { params: { slug: 'gig-economy/taskrabbit-calculator' } },
+    { params: { slug: 'gig-economy/turo-calculator' } },
     { params: { slug: 'side-hustle/time-to-goal-calculator' } },
     { params: { slug: 'personal-finance/fire-calculator' } },
     { params: { slug: 'personal-finance/emergency-fund-calculator' } },
@@ -109,6 +115,18 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Airbnb Profit Calculator',
     component: 'airbnb',
   },
+  'gig-economy/amazon-flex-calculator': {
+    title: 'Amazon Flex Earnings Calculator',
+    component: 'amazonflex',
+  },
+  'gig-economy/taskrabbit-calculator': {
+    title: 'TaskRabbit Earnings Calculator',
+    component: 'taskrabbit',
+  },
+  'gig-economy/turo-calculator': {
+    title: 'Turo Profit Calculator',
+    component: 'turo',
+  },
   'side-hustle/time-to-goal-calculator': {
     title: 'Side Hustle Time to Goal Calculator',
     component: 'sidehustle',
@@ -156,6 +174,9 @@ if (!calculator) {
     {calculator.component === 'uberlyft' && <UberLyftCalc client:load />}
     {calculator.component === 'instacart' && <InstacartCalc client:load />}
     {calculator.component === 'airbnb' && <AirbnbProfitCalc client:load />}
+    {calculator.component === 'amazonflex' && <AmazonFlexCalc client:load />}
+    {calculator.component === 'taskrabbit' && <TaskRabbitCalc client:load />}
+    {calculator.component === 'turo' && <TuroProfitCalc client:load />}
     {calculator.component === 'sidehustle' && <SideHustleGoalCalc client:load />}
     {calculator.component === 'fire' && <FireCalc client:load />}
     {calculator.component === 'emergencyfund' && <EmergencyFundCalc client:load />}
