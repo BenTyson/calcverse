@@ -1,0 +1,90 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { GumroadCalc } from '@components/calculators/GumroadCalc';
+
+const faqs = [
+  {
+    question: 'How much does Gumroad charge per sale?',
+    answer:
+      'Gumroad charges a flat 10% fee on every transaction. This includes payment processing — there are no additional credit card fees, monthly subscriptions, or listing fees. This makes pricing simple compared to platforms like Etsy or Shopify.',
+  },
+  {
+    question: 'Is Gumroad good for selling digital products?',
+    answer:
+      'Gumroad is one of the best platforms for selling digital products like ebooks, courses, templates, software, and design assets. The flat 10% fee is competitive, there are no monthly costs, and you get built-in tools for email marketing, affiliates, and memberships.',
+  },
+  {
+    question: 'How does the Gumroad affiliate program work?',
+    answer:
+      'Gumroad has a built-in affiliate system. You set a commission rate (typically 25-50%), and affiliates get a unique link. When someone purchases through their link, the affiliate earns their commission. Gumroad handles all tracking and payouts automatically.',
+  },
+  {
+    question: 'How do Gumroad memberships work?',
+    answer:
+      'Gumroad memberships let you charge recurring monthly or annual fees for access to content, community, or ongoing deliverables. The same 10% fee applies to membership payments. Members can cancel anytime, and you get tools to manage tiers and content access.',
+  },
+  {
+    question: 'Gumroad vs Etsy vs Shopify — which should I use?',
+    answer:
+      'Gumroad (10% flat) is best for digital products with no monthly fee. Etsy (6.5% + listing fees) is best for handmade/vintage physical goods with built-in marketplace traffic. Shopify (2.9% + $39/mo) is best for high-volume stores that need full customization. Choose based on your product type and sales volume.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate true profit per item after Etsy fees',
+    href: '/creator/etsy-fee-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Ko-fi Earnings Calculator',
+    description: 'Calculate Ko-fi income from donations and shop sales',
+    href: '/creator/kofi-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Substack Revenue Calculator',
+    description: 'Calculate newsletter subscription revenue',
+    href: '/creator/substack-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Gumroad Calculator - Estimate Your Digital Product Revenue"
+  description="Calculate your Gumroad revenue after fees. Model product sales, memberships, affiliates, and refunds. Free Gumroad fee calculator."
+  calculatorName="Gumroad Revenue Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="gumroad-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <GumroadCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Gumroad Revenue Calculator</h2>
+        <p>Enter your product price and expected monthly sales to see your net revenue after Gumroad's 10% fee. The calculator shows exactly what you keep from each sale, making it easy to price your digital products profitably.</p>
+        <h3>Quick Mode</h3>
+        <p>Set your product price, monthly sales volume, and Gumroad's fee rate (default 10%). The calculator shows your gross revenue, fee deduction, and net take-home. Use this to quickly test different price points and see how they affect your bottom line.</p>
+        <h3>Advanced Mode</h3>
+        <p>Advanced mode adds membership revenue modeling, affiliate program costs, refund rate estimates, and email list revenue projections. If you use Gumroad's built-in affiliate system, you can model what percentage of sales come through affiliates and what commission rate you pay, so there are no surprises when payouts arrive.</p>
+        <h3>Understanding Gumroad Fees</h3>
+        <p>Gumroad's flat 10% fee is all-inclusive — it covers payment processing, hosting, delivery, and the platform itself. There are no monthly subscriptions, listing fees, or hidden charges. This simplicity makes it easy to calculate your margins, unlike platforms with stacked fee structures.</p>
+        <p>For context, selling a $29 digital product nets you $26.10 after Gumroad's cut. At 20 sales per month, that is $522 in net revenue. Increasing your price to $39 would net $702 per month at the same volume — a 34% increase in revenue from a $10 price bump.</p>
+        <h3>Growing Gumroad Revenue</h3>
+        <p>Your email list is the single most important growth lever on Gumroad. Unlike marketplace platforms where you benefit from built-in traffic, Gumroad requires you to bring your own audience. Focus on building an email list through free lead magnets, then launch products to that list. A healthy email list converts at 1-3% per launch, meaning 1,000 subscribers could generate 10-30 sales each time you release something new.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

@@ -6,7 +6,7 @@
 
 ## What's Live
 
-**23 calculators** across **5 categories**, **65 routes** (44 indexable + 23 embeds + 1 SSR API endpoint) — note: this is an estimate, not counted manually
+**25 calculators** across **5 categories**, **69 routes** (46 indexable + 25 embeds + 1 SSR API endpoint)
 
 ### Freelance (4) — Cyan
 | Calculator | Slug |
@@ -16,7 +16,7 @@
 | W2 vs 1099 Comparison | `/freelance/w2-vs-1099-calculator` |
 | Project Rate Calculator | `/freelance/project-rate-calculator` |
 
-### Creator (7) — Magenta
+### Creator (9) — Magenta
 | Calculator | Slug |
 |-----------|------|
 | YouTube AdSense Revenue | `/creator/youtube-adsense-calculator` |
@@ -26,6 +26,8 @@
 | Ko-fi Earnings | `/creator/kofi-calculator` |
 | Etsy Fee Calculator | `/creator/etsy-fee-calculator` |
 | Substack Revenue | `/creator/substack-calculator` |
+| TikTok Earnings | `/creator/tiktok-calculator` |
+| Gumroad Revenue | `/creator/gumroad-calculator` |
 
 ### Gig Economy (7) — Emerald
 | Calculator | Slug |
@@ -158,6 +160,14 @@
 - [x] Homepage: updated counts to 23 calculators, 7 gig economy
 - [x] Cross-links: DoorDash→Amazon Flex, Airbnb→Turo, Instacart→Amazon Flex
 
+### Phase 5c — Creator Expansion
+- [x] TikTok Earnings — Creator Fund RPM, brand deals, LIVE gifts, DonutChart (multi-stream), growth projection (advanced)
+- [x] Gumroad Revenue — flat 10% fee, memberships, affiliates, refunds, email list potential, DonutChart (products+memberships)
+- [x] Embed routes: both calculators added
+- [x] Creator index: 9 calculators, Gumroad removed from Coming Soon
+- [x] Homepage: updated counts to 25 calculators, 9 creator
+- [x] Cross-links: YouTube→TikTok, Patreon→TikTok, Etsy→Gumroad
+
 ## What's NOT Done
 
 - No analytics (decision: Umami self-hosted)
@@ -167,7 +177,7 @@
 - Affiliate URLs are placeholders (`#`)
 - AdSense publisher ID not set (pending approval)
 - Placeholder PDF needs real content
-- Only 4 of 20 calculators have custom OG images (SVG)
+- Only 4 of 25 calculators have custom OG images (SVG)
 - SVG OG images may not render on all social platforms (PNG preferred)
 
 ## Known Pre-existing TS Warnings

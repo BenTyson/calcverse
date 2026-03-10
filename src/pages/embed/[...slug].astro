@@ -23,6 +23,8 @@ import { SubscriptionAuditCalc } from '@components/calculators/SubscriptionAudit
 import { AmazonFlexCalc } from '@components/calculators/AmazonFlexCalc';
 import { TaskRabbitCalc } from '@components/calculators/TaskRabbitCalc';
 import { TuroProfitCalc } from '@components/calculators/TuroProfitCalc';
+import { TikTokCalc } from '@components/calculators/TikTokCalc';
+import { GumroadCalc } from '@components/calculators/GumroadCalc';
 
 export function getStaticPaths() {
   return [
@@ -37,6 +39,8 @@ export function getStaticPaths() {
     { params: { slug: 'creator/substack-calculator' } },
     { params: { slug: 'creator/kofi-calculator' } },
     { params: { slug: 'creator/podcast-calculator' } },
+    { params: { slug: 'creator/tiktok-calculator' } },
+    { params: { slug: 'creator/gumroad-calculator' } },
     { params: { slug: 'gig-economy/doordash-calculator' } },
     { params: { slug: 'gig-economy/uber-lyft-calculator' } },
     { params: { slug: 'gig-economy/instacart-calculator' } },
@@ -98,6 +102,14 @@ const calculators: Record<string, { title: string; component: string }> = {
   'creator/podcast-calculator': {
     title: 'Podcast Sponsorship Calculator',
     component: 'podcast',
+  },
+  'creator/tiktok-calculator': {
+    title: 'TikTok Earnings Calculator',
+    component: 'tiktok',
+  },
+  'creator/gumroad-calculator': {
+    title: 'Gumroad Revenue Calculator',
+    component: 'gumroad',
   },
   'gig-economy/doordash-calculator': {
     title: 'DoorDash Earnings Calculator',
@@ -170,6 +182,8 @@ if (!calculator) {
     {calculator.component === 'substack' && <SubstackCalc client:load />}
     {calculator.component === 'kofi' && <KofiCalc client:load />}
     {calculator.component === 'podcast' && <PodcastSponsorshipCalc client:load />}
+    {calculator.component === 'tiktok' && <TikTokCalc client:load />}
+    {calculator.component === 'gumroad' && <GumroadCalc client:load />}
     {calculator.component === 'doordash' && <DoorDashCalc client:load />}
     {calculator.component === 'uberlyft' && <UberLyftCalc client:load />}
     {calculator.component === 'instacart' && <InstacartCalc client:load />}

@@ -1,0 +1,90 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { TikTokCalc } from '@components/calculators/TikTokCalc';
+
+const faqs = [
+  {
+    question: 'How much does TikTok pay per 1,000 views?',
+    answer:
+      'TikTok\'s Creator Fund typically pays $0.02-$0.05 per 1,000 qualified views, though rates can range from $0.01-$0.10 depending on your region, audience demographics, and content type. This is significantly lower than YouTube\'s RPM, which is why most TikTok creators diversify with brand deals and LIVE gifts.',
+  },
+  {
+    question: 'How do I qualify for the TikTok Creator Fund?',
+    answer:
+      'To join the TikTok Creator Fund (now called the Creativity Program), you need at least 10,000 followers, 100,000 video views in the last 30 days, and you must be 18 or older. The Creativity Program requires videos over 1 minute and offers higher RPMs than the original Creator Fund.',
+  },
+  {
+    question: 'How much do TikTok brand deals pay?',
+    answer:
+      'Brand deal rates vary widely based on follower count and engagement. Creators with 10K-100K followers typically charge $100-$500 per post, 100K-500K followers charge $500-$2,000, and 500K+ followers can charge $2,000-$10,000+. Engagement rate matters more than follower count.',
+  },
+  {
+    question: 'How do TikTok LIVE gifts work?',
+    answer:
+      'Viewers purchase virtual coins and send gifts during LIVE streams. TikTok converts gifts to diamonds, which creators can cash out. TikTok takes approximately 50% of the gift value. To go LIVE, you need at least 1,000 followers.',
+  },
+  {
+    question: 'Is TikTok or YouTube better for making money?',
+    answer:
+      'YouTube pays significantly more per view through AdSense (typically $2-$10+ RPM vs TikTok\'s $0.02-$0.05). However, TikTok makes it easier to go viral and grow quickly. Many creators use TikTok to build an audience, then funnel viewers to YouTube, courses, or products for better monetization.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'YouTube AdSense Calculator',
+    description: 'Estimate YouTube ad revenue by niche and views',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Patreon Earnings Calculator',
+    description: 'Calculate Patreon take-home after fees',
+    href: '/creator/patreon-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Ko-fi Earnings Calculator',
+    description: 'Calculate Ko-fi income from donations and memberships',
+    href: '/creator/kofi-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="TikTok Earnings Calculator - Estimate Creator Fund Revenue"
+  description="Calculate potential TikTok earnings from the Creator Fund, brand deals, and LIVE gifts. Free TikTok money calculator for creators."
+  calculatorName="TikTok Earnings Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="tiktok-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <TikTokCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the TikTok Earnings Calculator</h2>
+        <p>This calculator estimates your potential TikTok income across three revenue streams: the Creator Fund, brand sponsorships, and LIVE gift revenue. Enter your average views per video and posting frequency to see what the Creator Fund alone could generate, then switch to Advanced mode to model your full earning potential.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your average views per video, how many videos you post per week, and your RPM (revenue per 1,000 views). The calculator multiplies these to estimate monthly Creator Fund earnings. Most creators earn between $0.02 and $0.05 per 1,000 views, though rates vary by region and content type.</p>
+        <h3>Advanced Mode</h3>
+        <p>Advanced mode adds brand deal income, LIVE streaming gifts, engagement rate tracking, and monthly growth projections. Brand deals are typically the largest income source for TikTok creators — a creator with 100K followers and strong engagement can charge $500-$2,000 per sponsored post, far exceeding what the Creator Fund pays.</p>
+        <h3>Understanding TikTok Monetization</h3>
+        <p>Unlike YouTube where ad revenue is the primary income source, TikTok's Creator Fund pays relatively little per view. The real money on TikTok comes from brand deals, which are driven by engagement rate rather than raw follower count. A creator with 50K highly engaged followers can often command higher brand deal rates than one with 500K passive followers.</p>
+        <p>LIVE streaming adds another revenue layer. Viewers send virtual gifts that convert to real earnings, though TikTok takes approximately 50% of the gift value. Consistent LIVE streaming also builds deeper audience connections that increase your value to brands.</p>
+        <h3>Growing Your TikTok Income</h3>
+        <p>Post consistently during peak hours (typically 7-9 AM and 7-11 PM in your target timezone). Focus on a specific niche to attract brand deals in that category. Use TikTok to drive traffic to higher-monetization platforms like YouTube, your email list, or digital product stores. The creators who earn the most treat TikTok as a top-of-funnel audience builder, not their sole income source.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

@@ -11,7 +11,9 @@
 | 3. Content System | DONE | Blog infrastructure, 8 articles, calculator content, about page |
 | 4. Monetization | DONE | Email capture, ad placements, affiliates, AdSense prep |
 | 5a. Personal Finance | DONE | FIRE, Emergency Fund, Rent vs Buy, Subscription Audit |
-| 5b-5e. More Calculators | NEXT | Gig (3), Creator (2), OG images, homepage updates |
+| 5b. Gig Economy Expansion | DONE | Amazon Flex, TaskRabbit, Turo Profit |
+| 5c. Creator Expansion | DONE | TikTok Earnings, Gumroad Revenue |
+| 5d-5e. Polish | NEXT | OG images, remaining homepage updates |
 | 6. Polish & Scale | ONGOING | Analytics optimization, Mediavine, backlinks |
 
 ## Phase 0: Manual/External Steps (User Action)
@@ -54,14 +56,14 @@ Ad slots, email capture (Resend), affiliate cards on 4 calculators, AdSense prep
 ### 5a. Personal Finance (4 new) — DONE
 FIRE, Emergency Fund, Rent vs Buy, Subscription Audit. Category index page, nav, homepage, embeds all updated. 20 calculators across 5 categories.
 
-### 5b. Gig Economy (3 new)
-TaskRabbit Earnings, Amazon Flex, Turo Profit
+### 5b. Gig Economy (3 new) — DONE
+Amazon Flex, TaskRabbit, Turo Profit. 23 calculators across 5 categories.
 
-### 5c. Creator (2 new)
-TikTok Creator Fund, Gumroad Revenue
+### 5c. Creator (2 new) — DONE
+TikTok Earnings, Gumroad Revenue. 25 calculators, 9 in Creator category.
 
 ### 5d. OG Images
-Generate SVG OG images for all calculators (currently only 4 of 20 have them).
+Generate SVG OG images for all calculators (currently only 4 of 25 have them).
 
 ### 5e. Homepage Updates
 Update homepage calculator counts, cross-linking between new calculators.
@@ -87,7 +89,7 @@ Phase 2a-2c (DONE)
 Phase 3 (DONE)
   ├── Phase 4 (monetization) — DONE
   └── Phase 5a (personal finance) — DONE
-       └── Phase 5b-5e (more calcs) — NEXT
+       └── Phase 5b (DONE) → 5c (DONE) → 5d-5e — NEXT
 Phase 6 (ongoing)
 ```
 
