@@ -1,0 +1,81 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { SubscriptionAuditCalc } from '@components/calculators/SubscriptionAuditCalc';
+
+const faqs = [
+  {
+    question: 'How often should I audit my subscriptions?',
+    answer:
+      'Review your subscriptions at least once per quarter. Set a calendar reminder to go through your bank and credit card statements. Most people accumulate 1-2 subscriptions they forget about every few months, which adds up to hundreds of dollars per year.',
+  },
+  {
+    question: 'What counts as essential vs nice-to-have?',
+    answer:
+      'Essential subscriptions are ones you use daily and would significantly impact your work or life without (cloud storage with important files, professional tools you need for income). Nice-to-have are things you enjoy but could live without (streaming services, premium app features). Unnecessary are things you rarely or never use.',
+  },
+  {
+    question: 'How much does the average person spend on subscriptions?',
+    answer:
+      'Studies show the average American spends $200-300/month on subscriptions, which is $2,400-3,600/year. Most people underestimate their total by 2-3x. The biggest categories are streaming, software, fitness, meal kits, and cloud storage.',
+  },
+  {
+    question: 'What should I do with the money I save?',
+    answer:
+      'Redirect saved subscription money toward your highest-priority financial goal: building an emergency fund, paying off high-interest debt, increasing retirement contributions, or saving for a specific goal. Even $50/month saved adds up to $600/year or $3,000 over five years with modest investment returns.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Emergency Fund Calculator',
+    description: 'Put your subscription savings toward a safety net',
+    href: '/personal-finance/emergency-fund-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'FIRE Calculator',
+    description: 'See how cutting subscriptions accelerates FIRE',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Factor subscription costs into your rate',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Redirect savings toward your financial goal',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Subscription Audit Calculator - Find Hidden Costs | CalcFalcon"
+  description="Track and categorize all your subscriptions. Find unnecessary spending and see how much you could save by cutting non-essential recurring charges."
+  calculatorName="Subscription Audit Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="subscription-audit-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <SubscriptionAuditCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Subscription Audit Calculator</h2>
+        <p>This calculator helps you track every recurring subscription, categorize your spending, and identify savings opportunities. It's a practical tool for taking control of the small charges that add up to big annual costs.</p>
+        <h3>Quick Mode</h3>
+        <p>Add your subscriptions with their name, cost, and billing frequency (monthly or annual). The calculator totals everything and shows your monthly and annual spend. All subscriptions are treated as "nice-to-have" in quick mode for a simple overview.</p>
+        <h3>Advanced Mode</h3>
+        <p>Categorize each subscription as essential, nice-to-have, or unnecessary. The calculator breaks down spending by category and shows how much you could save by cutting non-essentials. The donut chart gives you a visual of where your money goes.</p>
+        <h3>Getting Started</h3>
+        <p>We've pre-loaded common subscriptions to get you started. Edit, add, or remove subscriptions to match your actual recurring charges. Check your bank statements and credit card bills to make sure you haven't missed anything — most people forget 2-3 active subscriptions.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

@@ -6,7 +6,7 @@
 
 ## What's Live
 
-**16 calculators** across **4 categories**, **50 routes** (34 indexable + 16 embeds + 1 SSR API endpoint)
+**20 calculators** across **5 categories**, **59 routes** (38 indexable + 20 embeds + 1 SSR API endpoint)
 
 ### Freelance (4) — Cyan
 | Calculator | Slug |
@@ -40,9 +40,17 @@
 |-----------|------|
 | Side Hustle Time to Goal | `/side-hustle/time-to-goal-calculator` |
 
+### Personal Finance (4) — Amber
+| Calculator | Slug |
+|-----------|------|
+| FIRE Calculator | `/personal-finance/fire-calculator` |
+| Emergency Fund | `/personal-finance/emergency-fund-calculator` |
+| Rent vs Buy | `/personal-finance/rent-vs-buy-calculator` |
+| Subscription Audit | `/personal-finance/subscription-audit-calculator` |
+
 ## Other Pages
 - Homepage (`/`)
-- 4 category index pages (with intro paragraphs + FAQ structured data)
+- 5 category index pages (with intro paragraphs + FAQ structured data)
 - Blog index (`/blog`) + 8 pillar articles
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
@@ -127,6 +135,17 @@
 - [x] Privacy page updated with email, advertising, and affiliate sections
 - [x] `docs/ben.md` — manual tasks tracker
 
+### Phase 5a — Personal Finance Category
+- [x] FIRE Calculator — ProjectionChart with goal line, Coast FIRE (advanced), on-track indicator
+- [x] Emergency Fund — BarComparisonChart, income stability multiplier, dependents/partner income (advanced)
+- [x] Rent vs Buy — ProjectionChart with two lines (rent vs buy net cost), break-even year
+- [x] Subscription Audit — DonutChart, dynamic add/remove rows, priority categorization (advanced), Lucide Plus/X icons
+- [x] `personal-finance/index.astro` category page with FAQs
+- [x] Header nav updated with Personal Finance link
+- [x] Homepage: removed "Coming Soon", added count: 4, updated counters to 20
+- [x] Embed routes: all 4 calculators added
+- [x] CalculatorLayout: `personal-finance` category color mapping added
+
 ## What's NOT Done
 
 - No analytics (decision: Umami self-hosted)
@@ -136,8 +155,7 @@
 - Affiliate URLs are placeholders (`#`)
 - AdSense publisher ID not set (pending approval)
 - Placeholder PDF needs real content
-- Personal Finance category shows "Coming Soon"
-- Only 4 of 16 calculators have custom OG images (SVG)
+- Only 4 of 20 calculators have custom OG images (SVG)
 - SVG OG images may not render on all social platforms (PNG preferred)
 
 ## Known Pre-existing TS Warnings

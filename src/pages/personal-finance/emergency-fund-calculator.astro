@@ -1,0 +1,79 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { EmergencyFundCalc } from '@components/calculators/EmergencyFundCalc';
+
+const faqs = [
+  {
+    question: 'How much should I save in an emergency fund?',
+    answer:
+      'The standard recommendation is 3-6 months of expenses, but the right amount depends on your income stability, dependents, and whether a partner contributes. Freelancers and gig workers should aim for 6-9 months. Our calculator adjusts the recommendation based on your specific situation.',
+  },
+  {
+    question: 'Where should I keep my emergency fund?',
+    answer:
+      'A high-yield savings account is the best place for an emergency fund. It should be easily accessible (no penalty for withdrawals) but separate from your daily checking account to reduce temptation. Avoid investing emergency funds in stocks or crypto — volatility could mean your fund loses value right when you need it.',
+  },
+  {
+    question: 'What counts as an emergency?',
+    answer:
+      'True emergencies include job loss, medical emergencies, urgent home or car repairs, and unexpected essential expenses. Sales, vacations, and planned purchases are not emergencies. Having clear criteria helps you avoid dipping into the fund for non-emergencies.',
+  },
+  {
+    question: 'Should I pay off debt or build an emergency fund first?',
+    answer:
+      'Start with a small emergency fund ($1,000-2,000) to avoid going deeper into debt for unexpected expenses. Then focus on high-interest debt (credit cards). Once high-interest debt is paid off, build your full emergency fund before aggressively paying down lower-interest debt like student loans.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'FIRE Calculator',
+    description: 'Plan your path to financial independence',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Subscription Audit',
+    description: 'Free up money for your emergency fund',
+    href: '/personal-finance/subscription-audit-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Make sure you\'re charging enough to save',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Don\'t let a tax bill drain your emergency fund',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Emergency Fund Calculator - How Much Do You Need? | CalcFalcon"
+  description="Calculate your ideal emergency fund size based on expenses, income stability, and dependents. Track your progress and plan your savings timeline."
+  calculatorName="Emergency Fund Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="emergency-fund-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <EmergencyFundCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Emergency Fund Calculator</h2>
+        <p>This calculator helps you determine the right emergency fund size for your situation and creates a plan to get there. It goes beyond the generic "3-6 months" advice by factoring in your specific risk profile.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your monthly expenses, how much you've already saved, and what you can save each month. The calculator uses moderate assumptions to give you a target and timeline.</p>
+        <h3>Advanced Mode</h3>
+        <p>Customize your income stability level — from stable W2 employment to freelance work. Add dependents and partner income status. The calculator adjusts the recommended number of months based on these risk factors: freelancers need more runway, dual-income households need less.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

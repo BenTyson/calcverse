@@ -16,6 +16,10 @@ import { ProjectRateCalc } from '@components/calculators/ProjectRateCalc';
 import { KofiCalc } from '@components/calculators/KofiCalc';
 import { PodcastSponsorshipCalc } from '@components/calculators/PodcastSponsorshipCalc';
 import { InstacartCalc } from '@components/calculators/InstacartCalc';
+import { FireCalc } from '@components/calculators/FireCalc';
+import { EmergencyFundCalc } from '@components/calculators/EmergencyFundCalc';
+import { RentVsBuyCalc } from '@components/calculators/RentVsBuyCalc';
+import { SubscriptionAuditCalc } from '@components/calculators/SubscriptionAuditCalc';
 
 export function getStaticPaths() {
   return [
@@ -35,6 +39,10 @@ export function getStaticPaths() {
     { params: { slug: 'gig-economy/instacart-calculator' } },
     { params: { slug: 'gig-economy/airbnb-calculator' } },
     { params: { slug: 'side-hustle/time-to-goal-calculator' } },
+    { params: { slug: 'personal-finance/fire-calculator' } },
+    { params: { slug: 'personal-finance/emergency-fund-calculator' } },
+    { params: { slug: 'personal-finance/rent-vs-buy-calculator' } },
+    { params: { slug: 'personal-finance/subscription-audit-calculator' } },
   ];
 }
 
@@ -105,6 +113,22 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Side Hustle Time to Goal Calculator',
     component: 'sidehustle',
   },
+  'personal-finance/fire-calculator': {
+    title: 'FIRE Calculator',
+    component: 'fire',
+  },
+  'personal-finance/emergency-fund-calculator': {
+    title: 'Emergency Fund Calculator',
+    component: 'emergencyfund',
+  },
+  'personal-finance/rent-vs-buy-calculator': {
+    title: 'Rent vs Buy Calculator',
+    component: 'rentvsbuy',
+  },
+  'personal-finance/subscription-audit-calculator': {
+    title: 'Subscription Audit Calculator',
+    component: 'subscriptionaudit',
+  },
 };
 
 const calculator = calculators[slug as string];
@@ -133,5 +157,9 @@ if (!calculator) {
     {calculator.component === 'instacart' && <InstacartCalc client:load />}
     {calculator.component === 'airbnb' && <AirbnbProfitCalc client:load />}
     {calculator.component === 'sidehustle' && <SideHustleGoalCalc client:load />}
+    {calculator.component === 'fire' && <FireCalc client:load />}
+    {calculator.component === 'emergencyfund' && <EmergencyFundCalc client:load />}
+    {calculator.component === 'rentvsbuy' && <RentVsBuyCalc client:load />}
+    {calculator.component === 'subscriptionaudit' && <SubscriptionAuditCalc client:load />}
   </div>
 </EmbedLayout>

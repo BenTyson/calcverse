@@ -1,0 +1,81 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { RentVsBuyCalc } from '@components/calculators/RentVsBuyCalc';
+
+const faqs = [
+  {
+    question: 'How does the calculator determine which is better?',
+    answer:
+      'The calculator compares the total net cost of renting vs buying over your chosen time period. For buying, it accounts for mortgage payments, property tax, insurance, and maintenance, but credits you with equity buildup and home appreciation. For renting, it accounts for rent increases and credits you with investment returns on the money you would have spent on a down payment and the monthly difference.',
+  },
+  {
+    question: 'What is the break-even point?',
+    answer:
+      'The break-even point is the year when the cumulative net cost of buying drops below renting. Before this point, renting is cheaper. After it, buying pulls ahead as you build equity and benefit from appreciation while rent keeps rising. Many markets have a break-even around 5-7 years.',
+  },
+  {
+    question: 'Should I put 20% down?',
+    answer:
+      'A 20% down payment avoids Private Mortgage Insurance (PMI), which typically costs 0.5-1% of the loan amount annually. However, putting less down lets you invest the difference. Our calculator helps you see the trade-off. If you can earn more investing than PMI costs, a smaller down payment may make sense.',
+  },
+  {
+    question: 'What costs does the calculator not include?',
+    answer:
+      'This calculator doesn\'t account for closing costs (typically 2-5% of home price), PMI for down payments under 20%, HOA fees, moving costs, renovation expenses, or the tax benefits of mortgage interest deduction. It also doesn\'t capture the non-financial value of homeownership like stability and customization freedom.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'FIRE Calculator',
+    description: 'Housing is your biggest expense — see how it affects FIRE',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Emergency Fund Calculator',
+    description: 'Build your safety net before buying a home',
+    href: '/personal-finance/emergency-fund-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'W2 vs 1099 Calculator',
+    description: 'Compare income scenarios to see what you can afford',
+    href: '/freelance/w2-vs-1099-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Save for your down payment faster',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Rent vs Buy Calculator - Compare the True Cost | CalcFalcon"
+  description="Compare the real cost of renting vs buying a home. Accounts for mortgage, taxes, appreciation, and opportunity cost of your down payment."
+  calculatorName="Rent vs Buy Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="rent-vs-buy-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <RentVsBuyCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Rent vs Buy Calculator</h2>
+        <p>This calculator compares the true financial cost of renting vs buying a home over your chosen time period. It goes beyond just comparing monthly payments to include equity, appreciation, and investment returns.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter the home price, down payment, mortgage rate, your current rent, and how long you plan to stay. The calculator uses standard assumptions for property tax, insurance, maintenance, and investment returns to give you a clear comparison.</p>
+        <h3>Advanced Mode</h3>
+        <p>Fine-tune every variable: loan term, annual rent increases, property tax rate, insurance costs, maintenance budget, expected home appreciation, and the investment return you'd earn if you invested instead of buying. This mode gives you the most accurate comparison for your local market.</p>
+        <h3>Understanding the Chart</h3>
+        <p>The projection chart shows cumulative net cost over time. The rent line includes rent payments minus investment returns. The buy line includes all ownership costs minus equity built. Where the lines cross is your break-even point — buying becomes cheaper after that year.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

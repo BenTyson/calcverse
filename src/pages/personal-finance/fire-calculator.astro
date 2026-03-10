@@ -1,0 +1,81 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { FireCalc } from '@components/calculators/FireCalc';
+
+const faqs = [
+  {
+    question: 'What is the FIRE number?',
+    answer:
+      'Your FIRE number is the total amount of money you need invested to live off withdrawals indefinitely. It\'s calculated by dividing your annual expenses by your withdrawal rate (typically 4%). For example, if you spend $40,000/year, your FIRE number is $1,000,000.',
+  },
+  {
+    question: 'What is the 4% rule?',
+    answer:
+      'The 4% rule is a retirement guideline stating you can withdraw 4% of your portfolio in the first year of retirement, then adjust for inflation each year, with a very high probability of not running out of money over 30 years. It\'s based on the Trinity Study. Some FIRE practitioners use 3-3.5% for added safety.',
+  },
+  {
+    question: 'What is Coast FIRE?',
+    answer:
+      'Coast FIRE is the point where your current investments, if left to grow without additional contributions, will reach your FIRE number by your target retirement age. Once you hit Coast FIRE, you only need to earn enough to cover current expenses — no more saving required.',
+  },
+  {
+    question: 'How important is the savings rate for FIRE?',
+    answer:
+      'The savings rate is the single most important factor in reaching FIRE. At a 10% savings rate, it takes roughly 51 years to retire. At 50%, it takes about 17 years. At 70%, just 8.5 years. Increasing your savings rate both reduces your expenses (lowering your FIRE number) and increases contributions.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Emergency Fund Calculator',
+    description: 'Build your safety net before pursuing FIRE',
+    href: '/personal-finance/emergency-fund-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Rent vs Buy Calculator',
+    description: 'Compare housing costs — a major factor in your FIRE journey',
+    href: '/personal-finance/rent-vs-buy-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Calculate how long to reach your financial goal',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Subscription Audit',
+    description: 'Cut unnecessary spending to boost your savings rate',
+    href: '/personal-finance/subscription-audit-calculator',
+    category: 'Personal Finance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="FIRE Calculator - Financial Independence, Retire Early | CalcFalcon"
+  description="Calculate your FIRE number, years to financial independence, and monthly savings needed. Free FIRE calculator with projection charts and Coast FIRE analysis."
+  calculatorName="FIRE Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="fire-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <FireCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the FIRE Calculator</h2>
+        <p>This calculator helps you plan your path to Financial Independence, Retire Early (FIRE). It calculates the total portfolio you need, estimates how long it will take to get there, and shows a year-by-year projection of your savings growth.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your current age, target retirement age, current savings, annual income, and savings rate. The calculator uses standard assumptions — 7% investment return, 3% inflation, and a 4% withdrawal rate — to project your path to FIRE.</p>
+        <h3>Advanced Mode</h3>
+        <p>Customize the expected investment return, inflation rate, and withdrawal rate. You'll also see your Coast FIRE age — the point where you can stop saving and your existing investments will grow to your FIRE number by retirement.</p>
+        <h3>Key Concepts</h3>
+        <p>Your FIRE number is your annual expenses divided by your withdrawal rate. The real return (nominal return minus inflation) determines how fast your portfolio grows in today's dollars. A higher savings rate is the most powerful lever — it simultaneously reduces your expenses and increases your contributions.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

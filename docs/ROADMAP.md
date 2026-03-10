@@ -10,7 +10,8 @@
 | 2c. Result Enhancements | DONE | CopyResultsButton, count-up animation, Tooltip in all 16 calcs |
 | 3. Content System | DONE | Blog infrastructure, 8 articles, calculator content, about page |
 | 4. Monetization | DONE | Email capture, ad placements, affiliates, AdSense prep |
-| 5. Calculator Expansion | NEXT | Personal Finance (4), Gig (3), Creator (2) → 25+ total |
+| 5a. Personal Finance | DONE | FIRE, Emergency Fund, Rent vs Buy, Subscription Audit |
+| 5b-5e. More Calculators | NEXT | Gig (3), Creator (2), OG images, homepage updates |
 | 6. Polish & Scale | ONGOING | Analytics optimization, Mediavine, backlinks |
 
 ## Phase 0: Manual/External Steps (User Action)
@@ -50,16 +51,8 @@ Ad slots, email capture (Resend), affiliate cards on 4 calculators, AdSense prep
 
 ## Phase 5: Calculator Expansion to 25+
 
-### 5a. Personal Finance (4 new)
-
-| Calculator | Files |
-|-----------|-------|
-| FIRE Calculator | `fire.ts`, `FireCalc.tsx`, `personal-finance/fire-calculator.astro` |
-| Emergency Fund | `emergency-fund.ts`, `EmergencyFundCalc.tsx`, `emergency-fund-calculator.astro` |
-| Rent vs Buy | `rent-vs-buy.ts`, `RentVsBuyCalc.tsx`, `rent-vs-buy-calculator.astro` |
-| Subscription Audit | `subscription-audit.ts`, `SubscriptionAuditCalc.tsx`, `subscription-audit-calculator.astro` |
-
-Also: create `personal-finance/index.astro`, remove `comingSoon: true` from homepage, update nav.
+### 5a. Personal Finance (4 new) — DONE
+FIRE, Emergency Fund, Rent vs Buy, Subscription Audit. Category index page, nav, homepage, embeds all updated. 20 calculators across 5 categories.
 
 ### 5b. Gig Economy (3 new)
 TaskRabbit Earnings, Amazon Flex, Turo Profit
@@ -68,7 +61,10 @@ TaskRabbit Earnings, Amazon Flex, Turo Profit
 TikTok Creator Fund, Gumroad Revenue
 
 ### 5d. OG Images
-Generate SVG OG images for all calculators (currently only 4 of 16 have them).
+Generate SVG OG images for all calculators (currently only 4 of 20 have them).
+
+### 5e. Homepage Updates
+Update homepage calculator counts, cross-linking between new calculators.
 
 ---
 
@@ -90,7 +86,8 @@ Phase 1 (DONE)
 Phase 2a-2c (DONE)
 Phase 3 (DONE)
   ├── Phase 4 (monetization) — DONE
-  └── Phase 5 (new calcs) — NEXT
+  └── Phase 5a (personal finance) — DONE
+       └── Phase 5b-5e (more calcs) — NEXT
 Phase 6 (ongoing)
 ```
 
