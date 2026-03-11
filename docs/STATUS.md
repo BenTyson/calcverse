@@ -1,6 +1,6 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-10
+**Last Updated:** 2026-03-11
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
@@ -168,6 +168,12 @@
 - [x] Homepage: updated counts to 25 calculators, 9 creator
 - [x] Cross-links: YouTube→TikTok, Patreon→TikTok, Etsy→Gumroad
 
+### Phase 5d-5e — OG Images & Homepage Polish
+- [x] Custom SVG OG images for all 25 calculators with platform icons (Simple Icons) and category-colored backgrounds
+- [x] Updated default.svg counts (25 calculators across 5 categories)
+- [x] `ogImage` prop wired into all 25 calculator `.astro` pages
+- [x] Homepage featured calculators refreshed for 5-category representation (Freelance, Creator x2, Gig, Finance x2)
+
 ## What's NOT Done
 
 - No analytics (decision: Umami self-hosted)
@@ -177,8 +183,7 @@
 - Affiliate URLs are placeholders (`#`)
 - AdSense publisher ID not set (pending approval)
 - Placeholder PDF needs real content
-- Only 4 of 25 calculators have custom OG images (SVG)
-- SVG OG images may not render on all social platforms (PNG preferred)
+- SVG OG images may not render on all social platforms (PNG preferred for maximum compatibility)
 
 ## Known Pre-existing TS Warnings
 

@@ -13,8 +13,8 @@
 | 5a. Personal Finance | DONE | FIRE, Emergency Fund, Rent vs Buy, Subscription Audit |
 | 5b. Gig Economy Expansion | DONE | Amazon Flex, TaskRabbit, Turo Profit |
 | 5c. Creator Expansion | DONE | TikTok Earnings, Gumroad Revenue |
-| 5d-5e. Polish | NEXT | OG images, remaining homepage updates |
-| 6. Polish & Scale | ONGOING | Analytics optimization, Mediavine, backlinks |
+| 5d-5e. OG Images & Homepage | DONE | OG images for all 25 calculators, homepage featured refresh |
+| 6. Polish & Scale | NEXT | Self-host fonts, analytics, Mediavine, backlinks |
 
 ## Phase 0: Manual/External Steps (User Action)
 
@@ -62,11 +62,8 @@ Amazon Flex, TaskRabbit, Turo Profit. 23 calculators across 5 categories.
 ### 5c. Creator (2 new) — DONE
 TikTok Earnings, Gumroad Revenue. 25 calculators, 9 in Creator category.
 
-### 5d. OG Images
-Generate SVG OG images for all calculators (currently only 4 of 25 have them).
-
-### 5e. Homepage Updates
-Update homepage calculator counts, cross-linking between new calculators.
+### 5d-5e. OG Images & Homepage — DONE
+Custom SVG OG images for all 25 calculators (platform icons via Simple Icons, category-colored backgrounds). Homepage featured section refreshed with 5-category representation. All calculator pages wired with `ogImage` prop.
 
 ---
 
@@ -89,8 +86,8 @@ Phase 2a-2c (DONE)
 Phase 3 (DONE)
   ├── Phase 4 (monetization) — DONE
   └── Phase 5a (personal finance) — DONE
-       └── Phase 5b (DONE) → 5c (DONE) → 5d-5e — NEXT
-Phase 6 (ongoing)
+       └── Phase 5b (DONE) → 5c (DONE) → 5d-5e (DONE)
+Phase 6 — NEXT
 ```
 
 ## Verification After Each Phase

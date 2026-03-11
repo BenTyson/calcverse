@@ -1,0 +1,18 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#059669"/>
+  <rect width="1200" height="4" y="0" fill="url(#brand)"/>
+  <g transform="translate(550, 120) scale(4.17)">
+    <path fill="white" d="M20 8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6h6v2H9V6zm11 14H4V10h16v10zm-7-7h-2v3H8v2h3v3h2v-3h3v-2h-3v-3z"/>
+  </g>
+  <text x="600" y="310" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Amazon Flex Earnings</text>
+  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Calculator</text>
+  <text x="600" y="440" font-family="system-ui, sans-serif" font-size="28" fill="#d1fae5" text-anchor="middle">Calculate your Amazon Flex delivery income</text>
+  <text x="600" y="550" font-family="system-ui, sans-serif" font-size="24" fill="#6ee7b7" text-anchor="middle">calcfalcon.com</text>
+</svg>

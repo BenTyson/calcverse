@@ -9,10 +9,10 @@
   </defs>
   <rect width="1200" height="4" fill="url(#topBar)"/>
   <g transform="translate(550, 120) scale(4.17)">
-    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z" fill="white"/>
+    <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 0h-4V4h4v2z" fill="white"/>
   </g>
-  <text x="600" y="310" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Freelancer Hourly Rate</text>
+  <text x="600" y="310" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Project Rate</text>
   <text x="600" y="370" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Calculator</text>
-  <text x="600" y="440" font-family="system-ui, sans-serif" font-size="28" fill="#cffafe" text-anchor="middle">Calculate your ideal rate based on income goals</text>
+  <text x="600" y="440" font-family="system-ui, sans-serif" font-size="28" fill="#cffafe" text-anchor="middle">Calculate your ideal project-based pricing</text>
   <text x="600" y="550" font-family="system-ui, sans-serif" font-size="24" fill="#a5f3fc" text-anchor="middle">calcfalcon.com</text>
 </svg>

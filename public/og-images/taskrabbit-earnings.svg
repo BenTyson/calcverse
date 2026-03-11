@@ -1,0 +1,18 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#059669"/>
+  <rect width="1200" height="4" y="0" fill="url(#brand)"/>
+  <g transform="translate(550, 120) scale(4.17)">
+    <path fill="white" d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+  </g>
+  <text x="600" y="310" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">TaskRabbit Earnings</text>
+  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Calculator</text>
+  <text x="600" y="440" font-family="system-ui, sans-serif" font-size="28" fill="#d1fae5" text-anchor="middle">Calculate your TaskRabbit task income</text>
+  <text x="600" y="550" font-family="system-ui, sans-serif" font-size="24" fill="#6ee7b7" text-anchor="middle">calcfalcon.com</text>
+</svg>
