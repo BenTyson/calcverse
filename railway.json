@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "npx serve dist -l 3000",
+    "startCommand": "HOST=0.0.0.0 PORT=3000 node dist/server/entry.mjs",
     "healthcheckPath": "/",
     "healthcheckTimeout": 100
   }
