@@ -24,13 +24,26 @@ const calculators = [
     description: 'Calculate how long your side hustle will take to reach your financial goal',
     href: '/side-hustle/time-to-goal-calculator',
   },
-];
-
-const upcomingCalculators = [
-  'Gig Economy Earnings Calculator',
-  'Side Income Tax Estimator',
-  'Multiple Income Stream Planner',
-  'Side Hustle vs Full-Time Comparison',
+  {
+    name: 'Reselling Profit Calculator',
+    description: 'Calculate your reselling profit after platform fees, shipping, and costs on eBay, Poshmark, Mercari, and more',
+    href: '/side-hustle/reselling-profit-calculator',
+  },
+  {
+    name: 'Freelance Writing Rate Calculator',
+    description: 'Calculate your per-word and per-article rate based on time, experience, and desired income',
+    href: '/side-hustle/freelance-writing-rate-calculator',
+  },
+  {
+    name: 'Tutoring Income Calculator',
+    description: 'Calculate your tutoring earnings after platform fees, prep time, and expenses',
+    href: '/side-hustle/tutoring-income-calculator',
+  },
+  {
+    name: 'Dropshipping Margin Calculator',
+    description: 'Analyze your true dropshipping profit after supplier costs, ads, fees, returns, and refunds',
+    href: '/side-hustle/dropshipping-margin-calculator',
+  },
 ];
 ---
 
@@ -64,7 +77,7 @@ const upcomingCalculators = [
         Building a side hustle is a path to financial freedom, but it requires planning. Whether you're saving for a specific goal or building toward full-time self-employment, knowing your numbers is essential to staying on track and making smart decisions.
       </p>
       <p class="text-neutral-700 leading-relaxed">
-        These calculators help you set realistic timelines, understand the tax implications of extra income, and map out the financial journey from side project to serious revenue stream.
+        These calculators help you set realistic timelines, calculate rates and margins, understand the tax implications of extra income, and map out the financial journey from side project to serious revenue stream.
       </p>
     </div>
   </section>
@@ -90,24 +103,6 @@ const upcomingCalculators = [
             </span>
           </a>
         ))}
-      </div>
-
-      <!-- Coming Soon -->
-      <div class="mt-12 card-elevated p-6">
-        <h3 class="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-sidehustle-500 animate-pulse"></span>
-          More Side Hustle Calculators Coming Soon
-        </h3>
-        <ul class="text-neutral-600 space-y-2">
-          {upcomingCalculators.map((calc) => (
-            <li class="flex items-center gap-3">
-              <svg class="w-4 h-4 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              {calc}
-            </li>
-          ))}
-        </ul>
       </div>
 
       <!-- FAQs -->

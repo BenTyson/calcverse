@@ -1,0 +1,84 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { DropshippingMarginCalc } from '@components/calculators/DropshippingMarginCalc';
+
+const faqs = [
+  {
+    question: 'What is a good profit margin for dropshipping?',
+    answer:
+      'Successful dropshippers typically target 15-30% profit margins per order. Products under $50 often need 20%+ margins to be worthwhile, while higher-priced items can work at 15%. Always factor in returns, refunds, and advertising costs — they can cut margins significantly.',
+  },
+  {
+    question: 'How much does it cost to start dropshipping?',
+    answer:
+      'Startup costs are relatively low: Shopify plan ($39-79/month), domain ($12/year), and initial ad budget ($200-500). The main ongoing cost is advertising, which typically runs $5-15 per sale depending on your niche and targeting effectiveness.',
+  },
+  {
+    question: 'What is ROAS and why does it matter?',
+    answer:
+      'ROAS (Return on Ad Spend) measures revenue generated per dollar spent on ads. A 3x ROAS means every $1 in ads generates $3 in revenue. Most profitable dropshippers aim for 3-5x ROAS. Below 2x, ad costs likely exceed margins.',
+  },
+  {
+    question: 'How do returns and refunds affect dropshipping profit?',
+    answer:
+      'Returns and refunds are often overlooked but can significantly impact margins. A 5% return rate and 3% refund rate on a $40 product costs $3.20 per order on average. Build these into your pricing — industry average return rates for e-commerce are 15-20% for clothing and 5-10% for other products.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate your true Etsy seller profit after all fees',
+    href: '/creator/etsy-fee-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Reselling Profit Calculator',
+    description: 'Calculate reselling profit on eBay, Poshmark, and more',
+    href: '/side-hustle/reselling-profit-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate quarterly self-employment taxes',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  ogImage="/og-images/dropshipping-margin.svg"
+  title="Dropshipping Margin Calculator - True Profit Analysis"
+  description="Calculate your true dropshipping profit after supplier costs, ads, platform fees, returns, and refunds. Analyze per-order and monthly profitability."
+  calculatorName="Dropshipping Margin Calculator"
+  category="Side Hustle"
+  categorySlug="side-hustle"
+  slug="dropshipping-margin-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <DropshippingMarginCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Dropshipping Margin Calculator</h2>
+        <p>Dropshipping margins are thinner than most people expect. This calculator accounts for every cost that eats into your profit — supplier pricing, advertising, platform fees, payment processing, returns, and refunds — so you can see your true per-order and monthly profitability before committing to a product.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your selling price, supplier cost, ad spend per sale, and monthly order volume. The calculator applies default Shopify fees (2.9% payment processing), a 5% return rate, 3% refund rate, and $79/month in fixed costs. This gives you a fast read on whether a product is worth testing.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to customize your platform (Shopify, WooCommerce, or Amazon), adjust fee percentages, set your actual return and refund rates, and enter your real monthly fixed costs. Amazon sellers should note the 15% referral fee, which significantly changes the margin picture compared to self-hosted platforms.</p>
+        <h3>Understanding Your Numbers</h3>
+        <p>Focus on three key metrics: profit margin (aim for 15-30%), break-even orders (how many sales you need to cover fixed costs), and ROAS (target 3x or higher). If your profit margin is below 15%, a single return can eliminate all profit from multiple orders. If your ROAS is below 2x, advertising costs are likely unsustainable.</p>
+        <h3>Pricing Strategy</h3>
+        <p>Work backward from a target margin. If your supplier charges $12 and you want a 25% margin after all costs, your minimum selling price needs to account for ads, fees, and returns on top of the supplier cost. Use this calculator to test different price points and find the sweet spot between competitiveness and profitability.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

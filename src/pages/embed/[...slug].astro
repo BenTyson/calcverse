@@ -25,6 +25,10 @@ import { TaskRabbitCalc } from '@components/calculators/TaskRabbitCalc';
 import { TuroProfitCalc } from '@components/calculators/TuroProfitCalc';
 import { TikTokCalc } from '@components/calculators/TikTokCalc';
 import { GumroadCalc } from '@components/calculators/GumroadCalc';
+import { ResellingProfitCalc } from '@components/calculators/ResellingProfitCalc';
+import { FreelanceWritingRateCalc } from '@components/calculators/FreelanceWritingRateCalc';
+import { TutoringIncomeCalc } from '@components/calculators/TutoringIncomeCalc';
+import { DropshippingMarginCalc } from '@components/calculators/DropshippingMarginCalc';
 
 export function getStaticPaths() {
   return [
@@ -49,6 +53,10 @@ export function getStaticPaths() {
     { params: { slug: 'gig-economy/taskrabbit-calculator' } },
     { params: { slug: 'gig-economy/turo-calculator' } },
     { params: { slug: 'side-hustle/time-to-goal-calculator' } },
+    { params: { slug: 'side-hustle/reselling-profit-calculator' } },
+    { params: { slug: 'side-hustle/freelance-writing-rate-calculator' } },
+    { params: { slug: 'side-hustle/tutoring-income-calculator' } },
+    { params: { slug: 'side-hustle/dropshipping-margin-calculator' } },
     { params: { slug: 'personal-finance/fire-calculator' } },
     { params: { slug: 'personal-finance/emergency-fund-calculator' } },
     { params: { slug: 'personal-finance/rent-vs-buy-calculator' } },
@@ -143,6 +151,22 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Side Hustle Time to Goal Calculator',
     component: 'sidehustle',
   },
+  'side-hustle/reselling-profit-calculator': {
+    title: 'Reselling Profit Calculator',
+    component: 'resellingprofit',
+  },
+  'side-hustle/freelance-writing-rate-calculator': {
+    title: 'Freelance Writing Rate Calculator',
+    component: 'freelancewriting',
+  },
+  'side-hustle/tutoring-income-calculator': {
+    title: 'Tutoring Income Calculator',
+    component: 'tutoringincome',
+  },
+  'side-hustle/dropshipping-margin-calculator': {
+    title: 'Dropshipping Margin Calculator',
+    component: 'dropshippingmargin',
+  },
   'personal-finance/fire-calculator': {
     title: 'FIRE Calculator',
     component: 'fire',
@@ -192,6 +216,10 @@ if (!calculator) {
     {calculator.component === 'taskrabbit' && <TaskRabbitCalc client:load />}
     {calculator.component === 'turo' && <TuroProfitCalc client:load />}
     {calculator.component === 'sidehustle' && <SideHustleGoalCalc client:load />}
+    {calculator.component === 'resellingprofit' && <ResellingProfitCalc client:load />}
+    {calculator.component === 'freelancewriting' && <FreelanceWritingRateCalc client:load />}
+    {calculator.component === 'tutoringincome' && <TutoringIncomeCalc client:load />}
+    {calculator.component === 'dropshippingmargin' && <DropshippingMarginCalc client:load />}
     {calculator.component === 'fire' && <FireCalc client:load />}
     {calculator.component === 'emergencyfund' && <EmergencyFundCalc client:load />}
     {calculator.component === 'rentvsbuy' && <RentVsBuyCalc client:load />}

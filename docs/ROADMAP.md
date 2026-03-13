@@ -14,6 +14,7 @@
 | 5b. Gig Economy Expansion | DONE | Amazon Flex, TaskRabbit, Turo Profit |
 | 5c. Creator Expansion | DONE | TikTok Earnings, Gumroad Revenue |
 | 5d-5e. OG Images & Homepage | DONE | OG images for all 25 calculators, homepage featured refresh |
+| 7. Side Hustle Buildout | DONE | Reselling Profit, Freelance Writing Rate, Tutoring Income, Dropshipping Margin |
 | 6. Polish & Scale | NEXT | Self-host fonts, analytics, Mediavine, backlinks |
 
 ## Phase 0: Manual/External Steps (User Action)
@@ -69,7 +70,7 @@ Custom SVG OG images for all 25 calculators (platform icons via Simple Icons, ca
 
 ## Phase 6: Polish & Scale
 
-- Self-host Inter font (WOFF2 in `public/fonts/`)
+- ~~Self-host Inter font (WOFF2 in `public/fonts/`)~~ DONE
 - Monitor analytics, optimize top-performing pages
 - Apply for Mediavine at 50K sessions/month
 - Backlink building: Product Hunt, Reddit, HARO

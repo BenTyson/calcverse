@@ -1,0 +1,84 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { ResellingProfitCalc } from '@components/calculators/ResellingProfitCalc';
+
+const faqs = [
+  {
+    question: 'What percentage do reselling platforms take?',
+    answer:
+      'eBay takes about 13.25%, Poshmark takes 20%, Mercari takes 10% plus 2.9% payment processing, and Facebook Marketplace takes 5% for shipped items (local pickup is free). These fees are deducted from your selling price before payout.',
+  },
+  {
+    question: 'How do I calculate profit on reselling?',
+    answer:
+      'Subtract all costs from your selling price: purchase price, platform fees, payment processing, shipping costs, and packaging materials. Divide by selling price for profit margin, or divide by purchase cost for ROI.',
+  },
+  {
+    question: 'What is a good profit margin for reselling?',
+    answer:
+      'Most successful resellers target 30-50% profit margins. Below 20%, small price drops or returns can eliminate your profit. Luxury and vintage items can achieve 50-80% margins, while commodity items may only hit 10-20%.',
+  },
+  {
+    question: 'Should I track time spent sourcing items?',
+    answer:
+      'Yes. If you spend 2 hours sourcing a $10 profit item, your effective rate is $5/hour. Switch to Advanced mode to factor in sourcing time and set a minimum hourly rate to ensure your time is well spent.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Plan your path to financial goals',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate Etsy seller fees and true profit',
+    href: '/creator/etsy-fee-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Quarterly Tax Calculator',
+    description: 'Estimate quarterly self-employment taxes',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Subscription Audit',
+    description: 'Find and cut unnecessary subscriptions',
+    href: '/personal-finance/subscription-audit-calculator',
+    category: 'Personal Finance',
+  },
+];
+---
+
+<CalculatorLayout
+  ogImage="/og-images/reselling-profit.svg"
+  title="Reselling Profit Calculator - eBay, Poshmark & More"
+  description="Calculate your reselling profit after platform fees, shipping, and costs. Compare eBay, Poshmark, Mercari, and Facebook Marketplace."
+  calculatorName="Reselling Profit Calculator"
+  category="Side Hustle"
+  categorySlug="side-hustle"
+  slug="reselling-profit-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <ResellingProfitCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Reselling Profit Calculator</h2>
+        <p>Reselling can be profitable, but only if you know your true margins after every fee and cost. This calculator breaks down platform fees, shipping, and materials so you can see exactly what you keep on each sale.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your purchase price, selling price, and choose your platform. The calculator automatically applies the correct platform fee percentage and shows your net profit, margin, and ROI. Select from eBay, Poshmark, Mercari, or Facebook Marketplace to see how fees differ across platforms.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to override platform fees, add payment processing costs, and account for packaging materials. You can also enter your sourcing time and desired hourly rate to see whether a flip is worth your time — not just your money.</p>
+        <h3>Pricing Strategy for Resellers</h3>
+        <p>A common mistake is pricing based on what you paid without accounting for all costs. On a $40 sale through eBay, you lose $5.30 to platform fees before shipping and materials. If you paid $15 for the item, spent $8 on shipping, and $2 on materials, your actual profit is $9.70 — a 24% margin. Knowing this upfront helps you decide whether an item is worth listing or if you need to price higher.</p>
+        <h3>Comparing Platforms</h3>
+        <p>Each platform has different fee structures. Poshmark takes 20% but handles shipping labels. eBay takes 13.25% with no processing fee baked in. Mercari charges 10% plus 2.9% processing. Facebook Marketplace is cheapest at 5% for shipped items and free for local sales. Use the platform dropdown to instantly compare your profit across each option.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

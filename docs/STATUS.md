@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-11
+**Last Updated:** 2026-03-13
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**25 calculators** across **5 categories**, **69 routes** (46 indexable + 25 embeds + 1 SSR API endpoint)
+**29 calculators** across **5 categories**, **77 routes** (50 indexable + 29 embeds + 1 SSR API endpoint)
 
 ### Freelance (4) — Cyan
 | Calculator | Slug |
@@ -40,10 +40,14 @@
 | TaskRabbit Earnings | `/gig-economy/taskrabbit-calculator` |
 | Turo Profit | `/gig-economy/turo-calculator` |
 
-### Side Hustle (1) — Purple
+### Side Hustle (5) — Purple
 | Calculator | Slug |
 |-----------|------|
 | Side Hustle Time to Goal | `/side-hustle/time-to-goal-calculator` |
+| Reselling Profit | `/side-hustle/reselling-profit-calculator` |
+| Freelance Writing Rate | `/side-hustle/freelance-writing-rate-calculator` |
+| Tutoring Income | `/side-hustle/tutoring-income-calculator` |
+| Dropshipping Margin | `/side-hustle/dropshipping-margin-calculator` |
 
 ### Personal Finance (4) — Amber
 | Calculator | Slug |
@@ -173,6 +177,16 @@
 - [x] Updated default.svg counts (25 calculators across 5 categories)
 - [x] `ogImage` prop wired into all 25 calculator `.astro` pages
 - [x] Homepage featured calculators refreshed for 5-category representation (Freelance, Creator x2, Gig, Finance x2)
+
+### Phase 7 — Side Hustle Buildout
+- [x] Reselling Profit — per-item fee breakdown, DonutChart, platform presets (eBay/Poshmark/Mercari/FB Marketplace)
+- [x] Freelance Writing Rate — per-word and per-article rate, time breakdown, experience levels
+- [x] Tutoring Income — weekly scope, platform presets (Independent/Wyzant/Varsity Tutors/Tutor.com), prep time
+- [x] Dropshipping Margin — per-order + monthly projection, DonutChart, returns/refunds, ROAS, break-even
+- [x] Embed routes: all 4 calculators added
+- [x] Side Hustle index: 5 calculators, removed Coming Soon section
+- [x] Homepage: updated counts to 29 calculators, 5 side hustle
+- [x] Cross-links: Time to Goal→Reselling+Tutoring, Etsy→Reselling, Hourly Rate→Writing Rate
 
 ## What's NOT Done
 

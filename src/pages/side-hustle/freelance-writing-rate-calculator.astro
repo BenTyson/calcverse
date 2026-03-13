@@ -1,0 +1,80 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { FreelanceWritingRateCalc } from '@components/calculators/FreelanceWritingRateCalc';
+
+const faqs = [
+  {
+    question: 'What is a good per-word rate for freelance writing?',
+    answer:
+      'Beginner writers typically charge $0.05-$0.15 per word. Intermediate writers earn $0.15-$0.40 per word. Expert writers with niche expertise command $0.25-$1.00+ per word. Specialized fields like medical, legal, and technical writing pay the highest rates.',
+  },
+  {
+    question: 'Should I charge per word or per article?',
+    answer:
+      'Per-article rates are generally better because they account for research, revisions, and complexity. A 1,500-word technical article requiring 8 hours of work should pay more than a 1,500-word listicle taking 3 hours. Use per-word rates as a benchmark, not a billing method.',
+  },
+  {
+    question: 'How do I raise my freelance writing rates?',
+    answer:
+      'Build a portfolio of published clips, specialize in a profitable niche (SaaS, finance, health), deliver consistently, and ask for testimonials. Most writers can raise rates 10-25% annually. When a client pushes back, find new clients at your target rate rather than discounting.',
+  },
+  {
+    question: 'How many articles can a freelance writer produce per month?',
+    answer:
+      'Full-time writers typically produce 15-25 articles per month depending on length and complexity. Side hustlers writing 10-15 hours per week can manage 4-8 articles. Quality always matters more than quantity for building a sustainable writing business.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Freelancer Hourly Rate',
+    description: 'Calculate your ideal freelance rate',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Project Rate',
+    description: 'Price your freelance projects accurately',
+    href: '/freelance/project-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Side Hustle Goal',
+    description: 'Plan your path to financial freedom',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate quarterly taxes on your freelance income',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Freelance Writing Rate Calculator - Per-Word & Per-Article"
+  description="Calculate your freelance writing rate per word and per article. Factor in research, revisions, and experience level to find your ideal rate."
+  calculatorName="Freelance Writing Rate Calculator"
+  category="Side Hustle"
+  categorySlug="side-hustle"
+  slug="freelance-writing-rate-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  ogImage="/og-images/freelance-writing-rate.svg"
+>
+  <FreelanceWritingRateCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Freelance Writing Rate Calculator</h2>
+        <p>Enter your target word count, estimated writing time, and desired hourly rate. The calculator computes your per-word rate, per-article rate, and projected monthly income based on your actual time investment. This gives you a data-driven starting point for pricing your writing services instead of guessing or accepting whatever clients offer.</p>
+        <p>Switch to <strong>Advanced mode</strong> to factor in research time, revision rounds, and administrative overhead. Most writers underestimate how much time goes into non-writing tasks like client communication, invoicing, and pitching. Adding even 10% admin time can significantly change your effective hourly rate, so it is important to price these hours into your article rate.</p>
+        <p>Use the experience level selector as a reference point. Beginner writers building their portfolio might start at lower rates to land initial clients, while expert writers with proven results in profitable niches should price accordingly. Compare your calculated per-word rate against industry benchmarks to ensure you are not leaving money on the table.</p>
+        <p>Remember that your per-article rate should cover all the time you spend, not just the hours typing. A 1,500-word article that requires 2 hours of research, 4 hours of writing, and 1 hour of revisions represents 7+ hours of work. Price the total effort, not just the word count, and you will build a sustainable freelance writing business.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>
