@@ -63,6 +63,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
       <meta name="google-adsense-account" content={MONETIZATION.adsense.publisherId} />
     )}
     <slot name="head" />
+    <script src="https://cdn.usefathom.com/script.js" data-site="BRHGFMPN" defer></script>
   </head>
   <body class="min-h-screen bg-neutral-50 flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-neutral-900 focus:text-white focus:rounded-lg focus:font-medium">
