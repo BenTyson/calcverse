@@ -29,6 +29,10 @@ import { ResellingProfitCalc } from '@components/calculators/ResellingProfitCalc
 import { FreelanceWritingRateCalc } from '@components/calculators/FreelanceWritingRateCalc';
 import { TutoringIncomeCalc } from '@components/calculators/TutoringIncomeCalc';
 import { DropshippingMarginCalc } from '@components/calculators/DropshippingMarginCalc';
+import { FreelanceRetirementCalc } from '@components/calculators/FreelanceRetirementCalc';
+import { MeetingCostCalc } from '@components/calculators/MeetingCostCalc';
+import { FreelanceVacationCalc } from '@components/calculators/FreelanceVacationCalc';
+import { ValueBasedPricingCalc } from '@components/calculators/ValueBasedPricingCalc';
 
 export function getStaticPaths() {
   return [
@@ -36,6 +40,10 @@ export function getStaticPaths() {
     { params: { slug: 'freelance/quarterly-tax-calculator' } },
     { params: { slug: 'freelance/w2-vs-1099-calculator' } },
     { params: { slug: 'freelance/project-rate-calculator' } },
+    { params: { slug: 'freelance/freelance-retirement-calculator' } },
+    { params: { slug: 'freelance/meeting-cost-calculator' } },
+    { params: { slug: 'freelance/freelance-vacation-calculator' } },
+    { params: { slug: 'freelance/value-based-pricing-calculator' } },
     { params: { slug: 'creator/youtube-adsense-calculator' } },
     { params: { slug: 'creator/twitch-calculator' } },
     { params: { slug: 'creator/patreon-calculator' } },
@@ -82,6 +90,22 @@ const calculators: Record<string, { title: string; component: string }> = {
   'freelance/project-rate-calculator': {
     title: 'Project Rate Calculator',
     component: 'projectrate',
+  },
+  'freelance/freelance-retirement-calculator': {
+    title: 'Freelance Retirement Calculator',
+    component: 'freelanceretirement',
+  },
+  'freelance/meeting-cost-calculator': {
+    title: 'Meeting Cost Calculator',
+    component: 'meetingcost',
+  },
+  'freelance/freelance-vacation-calculator': {
+    title: 'Freelance Vacation Fund Calculator',
+    component: 'freelancevacation',
+  },
+  'freelance/value-based-pricing-calculator': {
+    title: 'Value-Based Pricing Calculator',
+    component: 'valuebasedpricing',
   },
   'creator/youtube-adsense-calculator': {
     title: 'YouTube AdSense Calculator',
@@ -199,6 +223,10 @@ if (!calculator) {
     {calculator.component === 'quarterlytax' && <QuarterlyTaxCalc client:load />}
     {calculator.component === 'w2vs1099' && <W2vs1099Calc client:load />}
     {calculator.component === 'projectrate' && <ProjectRateCalc client:load />}
+    {calculator.component === 'freelanceretirement' && <FreelanceRetirementCalc client:load />}
+    {calculator.component === 'meetingcost' && <MeetingCostCalc client:load />}
+    {calculator.component === 'freelancevacation' && <FreelanceVacationCalc client:load />}
+    {calculator.component === 'valuebasedpricing' && <ValueBasedPricingCalc client:load />}
     {calculator.component === 'youtube' && <YouTubeAdSenseCalc client:load />}
     {calculator.component === 'twitch' && <TwitchRevenueCalc client:load />}
     {calculator.component === 'patreon' && <PatreonCalc client:load />}

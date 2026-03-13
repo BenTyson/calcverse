@@ -6,15 +6,19 @@
 
 ## What's Live
 
-**29 calculators** across **5 categories**, **77 routes** (50 indexable + 29 embeds + 1 SSR API endpoint)
+**33 calculators** across **5 categories**, **91 routes** (58 indexable + 33 embeds + 1 SSR API endpoint)
 
-### Freelance (4) — Cyan
+### Freelance (8) — Cyan
 | Calculator | Slug |
 |-----------|------|
 | Freelancer Hourly Rate | `/freelance/hourly-rate-calculator` |
 | Quarterly Tax Estimator | `/freelance/quarterly-tax-calculator` |
 | W2 vs 1099 Comparison | `/freelance/w2-vs-1099-calculator` |
 | Project Rate Calculator | `/freelance/project-rate-calculator` |
+| Freelance Retirement | `/freelance/freelance-retirement-calculator` |
+| Meeting Cost | `/freelance/meeting-cost-calculator` |
+| Freelance Vacation Fund | `/freelance/freelance-vacation-calculator` |
+| Value-Based Pricing | `/freelance/value-based-pricing-calculator` |
 
 ### Creator (9) — Magenta
 | Calculator | Slug |
@@ -187,6 +191,16 @@
 - [x] Side Hustle index: 5 calculators, removed Coming Soon section
 - [x] Homepage: updated counts to 29 calculators, 5 side hustle
 - [x] Cross-links: Time to Goal→Reselling+Tutoring, Etsy→Reselling, Hourly Rate→Writing Rate
+
+### Phase 8 — Freelance Business Essentials
+- [x] Freelance Retirement — Solo 401(k) vs SEP-IRA vs IRA comparison, BarComparisonChart (account type max contributions)
+- [x] Meeting Cost — True cost of meetings with prep/follow-up/recovery time, DonutChart (time breakdown)
+- [x] Freelance Vacation Fund — Savings needed for unpaid time off, DonutChart (cost breakdown)
+- [x] Value-Based Pricing — Price by client ROI vs hourly, BarComparisonChart (value vs hourly comparison)
+- [x] Embed routes: all 4 calculators added
+- [x] Freelance index: 8 calculators, removed Coming Soon section
+- [x] Homepage: updated counts to 33 calculators, 8 freelance
+- [x] Cross-links: Hourly Rate→Value-Based, W2vs1099→Retirement, FIRE→Retirement, Project Rate→Meeting Cost
 
 ## What's NOT Done
 

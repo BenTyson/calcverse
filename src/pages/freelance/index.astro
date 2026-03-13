@@ -39,11 +39,26 @@ const calculators = [
     description: 'Convert your hourly rate to project-based pricing with buffers and tiers',
     href: '/freelance/project-rate-calculator',
   },
-];
-
-const upcomingCalculators = [
-  'Freelance Retirement Planner',
-  'Invoice Generator',
+  {
+    name: 'Freelance Retirement Calculator',
+    description: 'Compare Solo 401(k), SEP-IRA, Traditional and Roth IRA options for the self-employed',
+    href: '/freelance/freelance-retirement-calculator',
+  },
+  {
+    name: 'Meeting Cost Calculator',
+    description: 'Calculate the true cost of meetings including prep, follow-up, and context switching',
+    href: '/freelance/meeting-cost-calculator',
+  },
+  {
+    name: 'Freelance Vacation Fund Calculator',
+    description: 'How much to save for unpaid time off including lost income and catch-up time',
+    href: '/freelance/freelance-vacation-calculator',
+  },
+  {
+    name: 'Value-Based Pricing Calculator',
+    description: 'Price projects by client ROI rather than hours worked',
+    href: '/freelance/value-based-pricing-calculator',
+  },
 ];
 ---
 
@@ -106,24 +121,6 @@ const upcomingCalculators = [
             </span>
           </a>
         ))}
-      </div>
-
-      <!-- Coming Soon -->
-      <div class="mt-12 card-elevated p-6">
-        <h3 class="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-freelance-500 animate-pulse"></span>
-          More Freelance Calculators Coming Soon
-        </h3>
-        <ul class="text-neutral-600 space-y-2">
-          {upcomingCalculators.map((calc) => (
-            <li class="flex items-center gap-3">
-              <svg class="w-4 h-4 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              {calc}
-            </li>
-          ))}
-        </ul>
       </div>
 
       <!-- FAQs -->

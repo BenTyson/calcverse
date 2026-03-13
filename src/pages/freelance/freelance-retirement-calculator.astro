@@ -1,0 +1,83 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { FreelanceRetirementCalc } from '@components/calculators/FreelanceRetirementCalc';
+
+const faqs = [
+  {
+    question: 'What is the best retirement account for freelancers?',
+    answer:
+      'For most self-employed workers, a Solo 401(k) offers the highest contribution limits — up to $69,000 per year including employer contributions. SEP-IRAs are simpler to set up but cap at 25% of net earnings. Traditional and Roth IRAs have much lower limits ($7,000/$8,000) but can be used alongside other plans.',
+  },
+  {
+    question: 'How much can I contribute to a Solo 401(k)?',
+    answer:
+      'In 2024, you can contribute up to $23,500 as the employee plus up to 25% of your net self-employment income as the employer. The combined total cannot exceed $69,000. If you\'re 50 or older, you can add a $7,500 catch-up contribution.',
+  },
+  {
+    question: 'Can I have both a SEP-IRA and a Solo 401(k)?',
+    answer:
+      'Technically yes, but employer contributions to both plans share the same annual limit. Most freelancers choose one or the other. A Solo 401(k) is generally better if you want higher contribution limits, while a SEP-IRA is simpler to administer.',
+  },
+  {
+    question: 'Are freelance retirement contributions tax-deductible?',
+    answer:
+      'Contributions to Solo 401(k)s, SEP-IRAs, and Traditional IRAs are tax-deductible, reducing your taxable income for the year. Roth IRA contributions are made with after-tax dollars but grow tax-free and are not taxed on withdrawal in retirement.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Calculate quarterly estimated tax payments',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'W2 vs 1099 Calculator',
+    description: 'Compare employee vs contractor take-home pay',
+    href: '/freelance/w2-vs-1099-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'FIRE Calculator',
+    description: 'Plan your path to financial independence',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Freelancer Hourly Rate Calculator',
+    description: 'Calculate your ideal hourly rate',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Freelance Retirement Calculator - Solo 401(k) vs SEP-IRA"
+  description="Compare Solo 401(k), SEP-IRA, Traditional and Roth IRA contribution limits for self-employed workers. See tax savings and projected retirement balance."
+  calculatorName="Freelance Retirement Planner"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="freelance-retirement-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <FreelanceRetirementCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Freelance Retirement Calculator</h2>
+        <p>Unlike W2 employees who often get a 401(k) match from their employer, freelancers are entirely responsible for funding their own retirement. The good news is that self-employed workers have access to powerful retirement accounts with high contribution limits — if you know how to use them.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your annual self-employment income, how much you plan to contribute each year, and your current retirement savings. The calculator defaults to a Solo 401(k) and shows your projected balance at retirement, annual tax savings, and the maximum you're allowed to contribute. This gives you a fast picture of where you'll end up if you start saving now.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to compare account types (Solo 401(k), SEP-IRA, Traditional IRA, Roth IRA), adjust your age and retirement timeline, set your expected return rate, and enter your tax bracket for accurate tax savings calculations. The bar chart compares maximum contribution limits across all four account types so you can choose the best fit.</p>
+        <h3>Which Account Type?</h3>
+        <p>For most freelancers earning over $50,000, a Solo 401(k) is the strongest option because it allows both employee and employer contributions. SEP-IRAs are simpler to set up and a good choice if you want to maximize employer-style contributions without the paperwork. Traditional and Roth IRAs have much lower limits but can supplement your primary retirement account.</p>
+        <h3>Start Early</h3>
+        <p>Compound growth is the most powerful factor in retirement savings. Contributing $10,000 per year for 30 years at 7% growth results in over $1 million — but only about $300,000 of that is your actual contributions. The other $700,000 is investment growth. Starting even five years earlier can add hundreds of thousands to your final balance.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

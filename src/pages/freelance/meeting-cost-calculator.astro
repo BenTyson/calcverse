@@ -1,0 +1,83 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { MeetingCostCalc } from '@components/calculators/MeetingCostCalc';
+
+const faqs = [
+  {
+    question: 'How much do meetings really cost?',
+    answer:
+      'The true cost of a meeting goes beyond just the time spent in the room. When you factor in preparation, follow-up action items, and the 15-25 minutes of context switching needed to refocus, a 1-hour meeting can cost 1.5-2 hours of productive time per attendee.',
+  },
+  {
+    question: 'What is the opportunity cost of meetings?',
+    answer:
+      'For freelancers who bill hourly, every hour in a non-billable meeting is an hour of lost revenue. At $100/hour with 5 meetings per week, that\'s over $26,000 per year in time that could have been spent on billable work.',
+  },
+  {
+    question: 'How many meetings per week is too many?',
+    answer:
+      'Research suggests that the average knowledge worker spends 31 hours per month in meetings. Many productivity experts recommend keeping meetings to under 20% of your work week — for a 40-hour week, that means 8 hours or fewer.',
+  },
+  {
+    question: 'How can freelancers reduce meeting costs?',
+    answer:
+      'Set "no meeting" days to protect focus time. Default to 25-minute meetings instead of 30. Require an agenda before scheduling. Use async communication (Loom, email) when possible. Batch meetings on the same day to minimize context switching.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Freelancer Hourly Rate Calculator',
+    description: 'Calculate your ideal hourly rate based on income goals',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Project Rate Calculator',
+    description: 'Convert your hourly rate to project-based pricing',
+    href: '/freelance/project-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Value-Based Pricing Calculator',
+    description: 'Price projects by client ROI rather than hours',
+    href: '/freelance/value-based-pricing-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Calculate how long to reach your financial goal',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Meeting Cost Calculator - See the True Cost of Meetings"
+  description="Calculate the true cost of meetings including prep time, follow-up, and context switching. See your annual meeting spend and opportunity cost."
+  calculatorName="Meeting Cost Calculator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="meeting-cost-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <MeetingCostCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Meeting Cost Calculator</h2>
+        <p>Meetings are one of the biggest hidden costs in freelance and knowledge work. This calculator helps you put a dollar figure on meeting time so you can make informed decisions about which meetings are worth attending and which should be an email.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your hourly rate (or salary equivalent), the average meeting length, and how many meetings you have per week. The calculator instantly shows your annual meeting cost, cost per meeting, and what percentage of your work week is consumed by meetings. Most freelancers are surprised by the total.</p>
+        <h3>Advanced Mode</h3>
+        <p>Switch to Advanced to factor in the hidden costs: prep time before meetings, follow-up tasks after, context switching recovery, and the cost of other attendees' time. You can also adjust working weeks per year. These additions typically increase the true meeting cost by 40-60% beyond the meeting time alone.</p>
+        <h3>The Real Number</h3>
+        <p>Pay attention to the annual meeting cost and percentage of your work week. If meetings consume more than 20% of your time, you're likely losing significant billable revenue. For freelancers billing $100/hour, five 1-hour meetings per week costs over $26,000 per year in direct time — and much more when you include prep and recovery.</p>
+        <h3>Cutting Meeting Costs</h3>
+        <p>The most effective strategies are structural: designate meeting-free days, shorten default meeting lengths from 60 to 25 minutes, require written agendas before any meeting gets scheduled, and use asynchronous tools like Loom for updates that don't need real-time discussion. Batching all meetings onto one or two days per week also reduces context switching costs dramatically.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

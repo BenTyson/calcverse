@@ -15,7 +15,8 @@
 | 5c. Creator Expansion | DONE | TikTok Earnings, Gumroad Revenue |
 | 5d-5e. OG Images & Homepage | DONE | OG images for all 25 calculators, homepage featured refresh |
 | 7. Side Hustle Buildout | DONE | Reselling Profit, Freelance Writing Rate, Tutoring Income, Dropshipping Margin |
-| 6. Polish & Scale | NEXT | Self-host fonts, analytics, Mediavine, backlinks |
+| 8. Freelance Business | DONE | Freelance Retirement, Meeting Cost, Freelance Vacation, Value-Based Pricing |
+| 6. Polish & Scale | NEXT | Analytics, Mediavine, backlinks |
 
 ## Phase 0: Manual/External Steps (User Action)
 
@@ -68,6 +69,12 @@ Custom SVG OG images for all 25 calculators (platform icons via Simple Icons, ca
 
 ---
 
+## Phase 8: Freelance Business Essentials — DONE
+
+Freelance Retirement (Solo 401k/SEP-IRA/IRA comparison, BarComparisonChart), Meeting Cost (time/cost analysis, DonutChart), Freelance Vacation Fund (savings planner, DonutChart), Value-Based Pricing (ROI-based pricing, BarComparisonChart). 33 calculators, 8 in Freelance category.
+
+---
+
 ## Phase 6: Polish & Scale
 
 - ~~Self-host Inter font (WOFF2 in `public/fonts/`)~~ DONE
@@ -88,6 +95,8 @@ Phase 3 (DONE)
   ├── Phase 4 (monetization) — DONE
   └── Phase 5a (personal finance) — DONE
        └── Phase 5b (DONE) → 5c (DONE) → 5d-5e (DONE)
+Phase 7 (Side Hustle Buildout) — DONE
+Phase 8 (Freelance Business) — DONE
 Phase 6 — NEXT
 ```
 
