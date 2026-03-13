@@ -16,6 +16,7 @@
 | 5d-5e. OG Images & Homepage | DONE | OG images for all 25 calculators, homepage featured refresh |
 | 7. Side Hustle Buildout | DONE | Reselling Profit, Freelance Writing Rate, Tutoring Income, Dropshipping Margin |
 | 8. Freelance Business | DONE | Freelance Retirement, Meeting Cost, Freelance Vacation, Value-Based Pricing |
+| 9. Creator Deepening | DONE | Sponsorship Rate, Print-on-Demand, Online Course, Newsletter Revenue |
 | 6. Polish & Scale | NEXT | Analytics, Mediavine, backlinks |
 
 ## Phase 0: Manual/External Steps (User Action)
@@ -75,6 +76,12 @@ Freelance Retirement (Solo 401k/SEP-IRA/IRA comparison, BarComparisonChart), Mee
 
 ---
 
+## Phase 9: Creator Economy Deepening — DONE
+
+Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand Profit (Printful/Printify/MBA, DonutChart), Online Course Revenue (Teachable/Udemy/Skillshare/self-hosted, DonutChart), Newsletter Revenue (Substack/Beehiiv/ConvertKit, subscriptions + sponsorships, DonutChart). 37 calculators, 13 in Creator category.
+
+---
+
 ## Phase 6: Polish & Scale
 
 - ~~Self-host Inter font (WOFF2 in `public/fonts/`)~~ DONE
@@ -97,6 +104,7 @@ Phase 3 (DONE)
        └── Phase 5b (DONE) → 5c (DONE) → 5d-5e (DONE)
 Phase 7 (Side Hustle Buildout) — DONE
 Phase 8 (Freelance Business) — DONE
+Phase 9 (Creator Deepening) — DONE
 Phase 6 — NEXT
 ```
 

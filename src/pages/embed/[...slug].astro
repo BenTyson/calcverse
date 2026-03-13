@@ -33,6 +33,10 @@ import { FreelanceRetirementCalc } from '@components/calculators/FreelanceRetire
 import { MeetingCostCalc } from '@components/calculators/MeetingCostCalc';
 import { FreelanceVacationCalc } from '@components/calculators/FreelanceVacationCalc';
 import { ValueBasedPricingCalc } from '@components/calculators/ValueBasedPricingCalc';
+import { SponsorshipRateCalc } from '@components/calculators/SponsorshipRateCalc';
+import { PrintOnDemandCalc } from '@components/calculators/PrintOnDemandCalc';
+import { OnlineCourseCalc } from '@components/calculators/OnlineCourseCalc';
+import { NewsletterCalc } from '@components/calculators/NewsletterCalc';
 
 export function getStaticPaths() {
   return [
@@ -53,6 +57,10 @@ export function getStaticPaths() {
     { params: { slug: 'creator/podcast-calculator' } },
     { params: { slug: 'creator/tiktok-calculator' } },
     { params: { slug: 'creator/gumroad-calculator' } },
+    { params: { slug: 'creator/sponsorship-rate-calculator' } },
+    { params: { slug: 'creator/print-on-demand-profit-calculator' } },
+    { params: { slug: 'creator/online-course-revenue-calculator' } },
+    { params: { slug: 'creator/newsletter-revenue-calculator' } },
     { params: { slug: 'gig-economy/doordash-calculator' } },
     { params: { slug: 'gig-economy/uber-lyft-calculator' } },
     { params: { slug: 'gig-economy/instacart-calculator' } },
@@ -142,6 +150,22 @@ const calculators: Record<string, { title: string; component: string }> = {
   'creator/gumroad-calculator': {
     title: 'Gumroad Revenue Calculator',
     component: 'gumroad',
+  },
+  'creator/sponsorship-rate-calculator': {
+    title: 'Sponsorship Rate Calculator',
+    component: 'sponsorshiprate',
+  },
+  'creator/print-on-demand-profit-calculator': {
+    title: 'Print-on-Demand Profit Calculator',
+    component: 'printondemand',
+  },
+  'creator/online-course-revenue-calculator': {
+    title: 'Online Course Revenue Calculator',
+    component: 'onlinecourse',
+  },
+  'creator/newsletter-revenue-calculator': {
+    title: 'Newsletter Revenue Calculator',
+    component: 'newsletter',
   },
   'gig-economy/doordash-calculator': {
     title: 'DoorDash Earnings Calculator',
@@ -236,6 +260,10 @@ if (!calculator) {
     {calculator.component === 'podcast' && <PodcastSponsorshipCalc client:load />}
     {calculator.component === 'tiktok' && <TikTokCalc client:load />}
     {calculator.component === 'gumroad' && <GumroadCalc client:load />}
+    {calculator.component === 'sponsorshiprate' && <SponsorshipRateCalc client:load />}
+    {calculator.component === 'printondemand' && <PrintOnDemandCalc client:load />}
+    {calculator.component === 'onlinecourse' && <OnlineCourseCalc client:load />}
+    {calculator.component === 'newsletter' && <NewsletterCalc client:load />}
     {calculator.component === 'doordash' && <DoorDashCalc client:load />}
     {calculator.component === 'uberlyft' && <UberLyftCalc client:load />}
     {calculator.component === 'instacart' && <InstacartCalc client:load />}

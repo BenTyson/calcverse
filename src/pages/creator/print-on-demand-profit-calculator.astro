@@ -1,0 +1,88 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { PrintOnDemandCalc } from '@components/calculators/PrintOnDemandCalc';
+
+const faqs = [
+  {
+    question: 'How much profit can you make with print-on-demand?',
+    answer:
+      'Typical POD profit margins range from 20-40% depending on product type, platform, and whether you sell through a marketplace. A $29 t-shirt on Printful might net $10-12 profit selling direct, or $7-9 after Etsy fees. Volume is key — 50+ monthly sales is where POD becomes meaningful income.',
+  },
+  {
+    question: 'Which print-on-demand platform is cheapest?',
+    answer:
+      'Printify generally has the lowest base costs because they aggregate multiple print providers. Printful costs more but offers better quality, branding options (custom labels, inserts), and more reliable fulfillment. Merch by Amazon has zero upfront costs but takes a large cut (67.5%).',
+  },
+  {
+    question: 'Should I sell POD on Etsy or my own store?',
+    answer:
+      'Etsy gives you marketplace traffic but charges 6.5% transaction + 3% processing + listing fees. Your own Shopify/WooCommerce store has no marketplace fees but requires driving your own traffic. Many sellers start on Etsy for visibility, then transition to their own store as they build an audience.',
+  },
+  {
+    question: 'What are the best-selling print-on-demand products?',
+    answer:
+      'T-shirts are the highest volume POD product, followed by hoodies, mugs, and phone cases. Stickers have the lowest production cost and highest margin percentage. Posters work well for niche art. Choose products that match your audience — a fitness brand sells more hoodies than mugs.',
+  },
+  {
+    question: 'How does Merch by Amazon compare to Printful?',
+    answer:
+      'Merch by Amazon gives you access to Amazon marketplace traffic with zero upfront costs, but you earn only 32.5% royalty and have limited customization. Printful gives you full control over pricing, branding, and marketplace choice, but you handle marketing. MBA is best for passive income; Printful is best for building a brand.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Etsy Fee Calculator',
+    description: 'Calculate true profit per item after Etsy fees',
+    href: '/creator/etsy-fee-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Gumroad Revenue Calculator',
+    description: 'Calculate digital product revenue after fees',
+    href: '/creator/gumroad-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Dropshipping Margin Calculator',
+    description: 'Calculate dropshipping profits and break-even',
+    href: '/side-hustle/dropshipping-margin-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Reselling Profit Calculator',
+    description: 'Calculate buy-sell margins and ROI',
+    href: '/side-hustle/reselling-profit-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  ogImage="/og-images/print-on-demand-profit.svg"
+  title="Print-on-Demand Profit Calculator - POD Margins & Revenue"
+  description="Calculate your print-on-demand profit per unit and monthly revenue. Compare Printful, Printify, and Merch by Amazon costs. Free POD calculator."
+  calculatorName="Print-on-Demand Profit Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="print-on-demand-profit-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <PrintOnDemandCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Print-on-Demand Profit Calculator</h2>
+        <p>Select your POD platform and product type, set your selling price, and enter expected monthly sales to see your per-unit profit and monthly revenue. The calculator automatically pulls in base production costs for each platform and product combination.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your platform, product type, selling price, and monthly sales volume. The calculator shows your profit per unit, monthly net profit, and profit margin. Use this to quickly compare profitability across different platforms and products.</p>
+        <h3>Advanced Mode</h3>
+        <p>Advanced mode adds marketplace fees (Etsy, Amazon), shipping charges, advertising costs, design expenses, and return rates. If you sell through Etsy, the calculator stacks Etsy's fees on top of POD production costs so you can see the full cost picture. Model different scenarios by adjusting your marketplace and ad budget to find the most profitable setup.</p>
+        <h3>Choosing the Right Platform</h3>
+        <p>Printify offers the lowest base costs by connecting you to multiple print providers. Printful costs more but provides superior quality control, custom branding, and faster shipping. Merch by Amazon eliminates upfront costs entirely but limits your margin to a 32.5% royalty. Consider your priorities: lowest cost (Printify), best brand experience (Printful), or zero risk (MBA).</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

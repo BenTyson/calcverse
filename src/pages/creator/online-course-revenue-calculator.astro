@@ -1,0 +1,88 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { OnlineCourseCalc } from '@components/calculators/OnlineCourseCalc';
+
+const faqs = [
+  {
+    question: 'How much can you make selling online courses?',
+    answer:
+      'Revenue varies widely. A $197 course selling 15 units per month on Teachable generates about $2,650 net monthly after fees. Top course creators earn six figures by combining evergreen sales, launch cohorts, and memberships. The key is audience size and email list quality.',
+  },
+  {
+    question: 'Which course platform takes the lowest fees?',
+    answer:
+      'Self-hosted (your own website + Stripe) keeps the most — just 2.9% payment processing. Teachable charges 5% + Stripe on their free plan. Udemy takes the most at 63% of organic sales, but provides marketplace traffic. ConvertKit Commerce and Gumroad are middle-ground options.',
+  },
+  {
+    question: 'Udemy vs Teachable — which is better?',
+    answer:
+      'Udemy gives you marketplace discovery but takes 63% of organic sales and limits pricing. Teachable charges 5% + Stripe and gives you full pricing control. Choose Udemy if you need traffic. Choose Teachable (or self-hosted) if you have your own audience.',
+  },
+  {
+    question: 'What is a good online course completion rate?',
+    answer:
+      'The industry average is about 30%. Courses with active communities, accountability structures, and shorter modules see 50-70% completion. Higher completion rates drive better reviews, referrals, and repeat customers. It does not directly affect revenue but impacts long-term growth.',
+  },
+  {
+    question: 'How do course launches work?',
+    answer:
+      'A launch is a time-limited enrollment period, often with bonuses or cohort-based learning. Launch prices are typically 2-3x evergreen prices ($497+ vs $197). Launches create urgency and community. The calculator amortizes launch revenue over 12 months to show realistic monthly income.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Gumroad Revenue Calculator',
+    description: 'Calculate digital product revenue after fees',
+    href: '/creator/gumroad-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Substack Revenue Calculator',
+    description: 'Calculate subscription newsletter revenue',
+    href: '/creator/substack-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Newsletter Revenue Calculator',
+    description: 'Calculate multi-platform newsletter income',
+    href: '/creator/newsletter-revenue-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Sponsorship Rate Calculator',
+    description: 'Calculate what to charge for brand deals',
+    href: '/creator/sponsorship-rate-calculator',
+    category: 'Creator',
+  },
+];
+---
+
+<CalculatorLayout
+  ogImage="/og-images/online-course-revenue.svg"
+  title="Online Course Revenue Calculator - Estimate Course Earnings"
+  description="Calculate your online course revenue after platform fees. Compare Teachable, Udemy, Skillshare, and self-hosted options. Free course revenue calculator."
+  calculatorName="Online Course Revenue Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="online-course-revenue-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <OnlineCourseCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Online Course Revenue Calculator</h2>
+        <p>Enter your course price, expected monthly sales, and platform to see your net revenue after all fees. The calculator models each platform's unique fee structure so you can compare options side by side.</p>
+        <h3>Quick Mode</h3>
+        <p>Set your course price, monthly sales volume, and platform. The calculator shows monthly net revenue, annual projection, and revenue per student. Try different platforms to see which one maximizes your take-home — the difference between Udemy (63% cut) and self-hosted (2.9% Stripe) is dramatic.</p>
+        <h3>Advanced Mode</h3>
+        <p>Advanced mode adds subscription membership revenue, launch cohort modeling (amortized over 12 months), refund rates, completion rate benchmarks, and ad spend. If you sell on Udemy, you can adjust the organic vs. instructor-brought sales split — organic traffic costs 63% but instructor-brought traffic only costs 3%.</p>
+        <h3>Maximizing Course Revenue</h3>
+        <p>The highest-earning course creators combine three revenue streams: evergreen course sales (passive), subscription memberships (recurring), and periodic launches (cohort-based). Start with one stream, build your audience, then layer on additional streams. Moving from Udemy to self-hosted once you have an email list of 5,000+ subscribers is often the single biggest revenue unlock.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

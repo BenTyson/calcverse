@@ -1,0 +1,88 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { NewsletterCalc } from '@components/calculators/NewsletterCalc';
+
+const faqs = [
+  {
+    question: 'How much money can a newsletter make?',
+    answer:
+      'A newsletter with 5,000 subscribers at 5% paid conversion and $10/month generates about $200-250/month after fees. At 50,000 subscribers, the same metrics yield $2,000-2,500/month in subscription revenue alone. Adding sponsorships at $30 CPM can double that. Top newsletters with 100K+ subscribers earn six figures annually.',
+  },
+  {
+    question: 'Substack vs Beehiiv vs ConvertKit — which is cheapest?',
+    answer:
+      'Beehiiv (Scale plan) charges 0% platform fee — just Stripe processing (2.9%). ConvertKit charges 3.5% + Stripe. Substack takes the most at 10% + Stripe. However, Substack offers built-in discovery through recommendations. Choose based on features, not just fees.',
+  },
+  {
+    question: 'How much do newsletter sponsorships pay?',
+    answer:
+      'Newsletter sponsorship rates are typically $20-50 CPM (cost per 1,000 opens). A newsletter with 10,000 subscribers and 40% open rate gets 4,000 opens per issue. At $30 CPM, that is $120 per sponsored issue. Finance and B2B newsletters command $50-100 CPM.',
+  },
+  {
+    question: 'What is a good paid subscriber conversion rate?',
+    answer:
+      'For newsletters, 5-10% free-to-paid conversion is considered good. Substack averages around 5-7%. Newsletters with highly specialized, actionable content (financial advice, industry analysis) can achieve 10-15%. General interest newsletters typically convert at 2-5%.',
+  },
+  {
+    question: 'How does newsletter churn affect revenue?',
+    answer:
+      'Monthly churn of 3-5% is typical for paid newsletter subscriptions. At 5% monthly churn, you lose half your paid subscribers in about 14 months if you stop growing. Annual plans reduce churn significantly because subscribers commit upfront. The calculator projects subscriber counts factoring in both growth and churn.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Substack Revenue Calculator',
+    description: 'Calculate Substack-specific subscription revenue',
+    href: '/creator/substack-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Sponsorship Rate Calculator',
+    description: 'Calculate what to charge for brand deals',
+    href: '/creator/sponsorship-rate-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Podcast Sponsorship Calculator',
+    description: 'Calculate podcast ad revenue from downloads',
+    href: '/creator/podcast-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Online Course Revenue Calculator',
+    description: 'Estimate course revenue across platforms',
+    href: '/creator/online-course-revenue-calculator',
+    category: 'Creator',
+  },
+];
+---
+
+<CalculatorLayout
+  ogImage="/og-images/newsletter-revenue.svg"
+  title="Newsletter Revenue Calculator - Subscription & Sponsorship Income"
+  description="Calculate your newsletter revenue from paid subscriptions and sponsorships. Compare Substack, Beehiiv, and ConvertKit fees. Free newsletter revenue calculator."
+  calculatorName="Newsletter Revenue Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="newsletter-revenue-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <NewsletterCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Newsletter Revenue Calculator</h2>
+        <p>Enter your subscriber count, platform, paid conversion rate, and monthly price to estimate your newsletter revenue. Unlike the Substack calculator (which focuses on Substack-specific features), this calculator compares multiple platforms and adds sponsorship revenue modeling.</p>
+        <h3>Quick Mode</h3>
+        <p>Set your total subscribers, platform, paid subscriber percentage, and monthly price. The calculator shows net monthly revenue after platform and payment processing fees, annual recurring revenue, and revenue per subscriber. Try different platforms to see which fee structure benefits you most at your current scale.</p>
+        <h3>Advanced Mode</h3>
+        <p>Advanced mode adds sponsorship revenue (CPM-based), subscriber growth and churn projections, annual plan modeling, open rates, and issue frequency. Sponsorship revenue is calculated based on your open rate, CPM rate, and what percentage of your issues carry a paid sponsor. Growth projections show where your paid subscriber base will be in 6 and 12 months.</p>
+        <h3>Subscriptions vs Sponsorships</h3>
+        <p>Paid subscriptions provide predictable recurring revenue. Sponsorships scale with your total list size (not just paid). At smaller scales (under 10K subscribers), subscriptions usually dominate. As you grow, sponsorships become increasingly lucrative because they monetize your entire list, not just the 5% who pay. The most successful newsletters combine both revenue streams.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

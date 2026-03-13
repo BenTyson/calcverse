@@ -6,7 +6,7 @@
 
 ## What's Live
 
-**33 calculators** across **5 categories**, **91 routes** (58 indexable + 33 embeds + 1 SSR API endpoint)
+**37 calculators** across **5 categories**, **99 routes** (62 indexable + 37 embeds + 1 SSR API endpoint)
 
 ### Freelance (8) — Cyan
 | Calculator | Slug |
@@ -20,7 +20,7 @@
 | Freelance Vacation Fund | `/freelance/freelance-vacation-calculator` |
 | Value-Based Pricing | `/freelance/value-based-pricing-calculator` |
 
-### Creator (9) — Magenta
+### Creator (13) — Magenta
 | Calculator | Slug |
 |-----------|------|
 | YouTube AdSense Revenue | `/creator/youtube-adsense-calculator` |
@@ -32,6 +32,10 @@
 | Substack Revenue | `/creator/substack-calculator` |
 | TikTok Earnings | `/creator/tiktok-calculator` |
 | Gumroad Revenue | `/creator/gumroad-calculator` |
+| Sponsorship Rate | `/creator/sponsorship-rate-calculator` |
+| Print-on-Demand Profit | `/creator/print-on-demand-profit-calculator` |
+| Online Course Revenue | `/creator/online-course-revenue-calculator` |
+| Newsletter Revenue | `/creator/newsletter-revenue-calculator` |
 
 ### Gig Economy (7) — Emerald
 | Calculator | Slug |
@@ -201,6 +205,16 @@
 - [x] Freelance index: 8 calculators, removed Coming Soon section
 - [x] Homepage: updated counts to 33 calculators, 8 freelance
 - [x] Cross-links: Hourly Rate→Value-Based, W2vs1099→Retirement, FIRE→Retirement, Project Rate→Meeting Cost
+
+### Phase 9 — Creator Economy Deepening
+- [x] Sponsorship Rate — CPE/CPM-based rate estimation, niche/deliverable/exclusivity/usage/rush multipliers, BarComparisonChart (market range)
+- [x] Print-on-Demand Profit — Printful/Printify/Merch by Amazon cost modeling, marketplace fees, DonutChart (cost breakdown)
+- [x] Online Course Revenue — Teachable/Udemy/Skillshare/self-hosted fee modeling, multi-stream revenue, DonutChart (revenue sources)
+- [x] Newsletter Revenue — Substack/Beehiiv/ConvertKit fees, subscription + sponsorship revenue, DonutChart, growth projections
+- [x] Embed routes: all 4 calculators added
+- [x] Creator index: 13 calculators, removed Coming Soon section
+- [x] Homepage: updated counts to 37 calculators, 13 creator
+- [x] OG images: all 4 new calculators with creator magenta backgrounds
 
 ## What's NOT Done
 

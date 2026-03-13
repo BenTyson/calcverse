@@ -1,0 +1,89 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { SponsorshipRateCalc } from '@components/calculators/SponsorshipRateCalc';
+
+const faqs = [
+  {
+    question: 'How much should I charge for a sponsored post?',
+    answer:
+      'Rates depend on your platform, audience size, engagement rate, and niche. A common baseline is $10-20 per 1,000 followers on Instagram, but creators with high engagement in premium niches (finance, tech) can charge 2-3x that. Always factor in deliverable type, exclusivity, and usage rights.',
+  },
+  {
+    question: 'What are usage rights in sponsorships?',
+    answer:
+      'Usage rights determine how a brand can reuse your content beyond the original post. Organic reposting (sharing to their feed) adds 15%. Paid ads usage (running your content as a paid ad) adds 50%. Perpetual/unlimited usage doubles the rate. These are separate from the content creation fee.',
+  },
+  {
+    question: 'Should I charge for exclusivity?',
+    answer:
+      'Yes — always. Exclusivity means you cannot work with competing brands for a set period, which costs you potential income. Category exclusivity (no competitors) typically adds 25%. Full exclusivity (no other sponsorships) adds 75%. The longer the exclusivity period, the more you should charge.',
+  },
+  {
+    question: 'How does engagement rate affect sponsorship rates?',
+    answer:
+      'Engagement rate matters more than follower count. A creator with 10,000 followers and 8% engagement is more valuable than one with 100,000 followers and 0.5% engagement. Brands pay for action, not impressions. Higher engagement = higher CPE (cost per engagement) = higher rates.',
+  },
+  {
+    question: 'What is CPM vs CPE in sponsorships?',
+    answer:
+      'CPM (cost per mille) is the rate per 1,000 impressions — used for podcasts, newsletters, and blogs. CPE (cost per engagement) is the rate per like, comment, or share — used for social platforms like Instagram and TikTok. CPE-based pricing rewards creators with engaged audiences.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'YouTube AdSense Calculator',
+    description: 'Estimate YouTube ad revenue from views and CPM',
+    href: '/creator/youtube-adsense-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Podcast Sponsorship Calculator',
+    description: 'Calculate podcast ad revenue from downloads and CPM',
+    href: '/creator/podcast-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'TikTok Earnings Calculator',
+    description: 'Estimate TikTok income from Creator Fund and brand deals',
+    href: '/creator/tiktok-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Newsletter Revenue Calculator',
+    description: 'Calculate newsletter income from subscriptions and sponsors',
+    href: '/creator/newsletter-revenue-calculator',
+    category: 'Creator',
+  },
+];
+---
+
+<CalculatorLayout
+  ogImage="/og-images/sponsorship-rate.svg"
+  title="Sponsorship Rate Calculator - Know What to Charge for Brand Deals"
+  description="Calculate your sponsorship rate based on followers, engagement, niche, and deliverable type. Free calculator for influencers and content creators."
+  calculatorName="Sponsorship Rate Calculator"
+  category="Creator"
+  categorySlug="creator"
+  slug="sponsorship-rate-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <SponsorshipRateCalc client:visible />
+
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Sponsorship Rate Calculator</h2>
+        <p>Enter your platform, follower count, and engagement rate to get a suggested sponsorship rate. The calculator uses industry CPE (cost per engagement) benchmarks to estimate what brands should pay for access to your audience.</p>
+        <h3>Quick Mode</h3>
+        <p>Set your platform, audience size, and engagement rate to get an instant rate estimate with a market range (low to high). Use this to quickly benchmark your rates against industry standards before entering a negotiation.</p>
+        <h3>Advanced Mode</h3>
+        <p>Advanced mode adds niche premiums (finance pays 1.5x, gaming 0.8x), deliverable type multipliers (dedicated videos pay 3x a story), exclusivity premiums, usage rights fees, bulk discounts for multi-post packages, and rush fees for tight turnarounds. These modifiers stack multiplicatively, so a finance niche creator doing a dedicated video with paid ads usage rights could charge 9x the base rate.</p>
+        <h3>Understanding Your Rate</h3>
+        <p>Your sponsorship rate is driven primarily by engagement, not follower count. A creator with 10,000 highly engaged followers in the finance niche can command higher rates than a lifestyle creator with 100,000 passive followers. The calculator accounts for this by using cost-per-engagement rather than cost-per-follower.</p>
+        <p>The market range shows where your rate falls relative to the industry. If you consistently land deals at the high end, your engagement quality or niche expertise may warrant an even higher rate. If brands push back, you may need to improve engagement before raising prices.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>
