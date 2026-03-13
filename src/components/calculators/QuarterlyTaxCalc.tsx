@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
@@ -17,7 +16,7 @@ import {
   type QuarterlyTaxInputs,
 } from '../../lib/calculators/quarterly-tax';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const FILING_STATUS_OPTIONS = [
   { value: 'single', label: 'Single' },
@@ -27,32 +26,9 @@ const FILING_STATUS_OPTIONS = [
 ];
 
 export function QuarterlyTaxCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<QuarterlyTaxInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
-
-  // Apply quick mode defaults when switching modes
-  useEffect(() => {
-    if (mode === 'quick') {
-      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
-    }
-  }, [mode]);
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState(DEFAULT_INPUTS, QUICK_MODE_DEFAULTS);
 
   const results = calculateQuarterlyTax(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof QuarterlyTaxInputs>(
-    key: K,
-    value: QuarterlyTaxInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Quarterly Tax Calculator (CalcFalcon)\n` +

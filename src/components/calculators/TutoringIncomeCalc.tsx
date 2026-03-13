@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -17,19 +17,13 @@ import {
   type TutoringIncomeInputs,
 } from '../../lib/calculators/tutoring-income';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function TutoringIncomeCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<TutoringIncomeInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, setInputs, updateInput, isAdvanced } =
+    useCalculatorState<TutoringIncomeInputs>(DEFAULT_INPUTS);
 
   const results = calculateTutoringIncome(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
 
   useEffect(() => {
     const preset = PLATFORM_PRESETS[inputs.platform];
@@ -37,15 +31,6 @@ export function TutoringIncomeCalc() {
       setInputs((prev) => ({ ...prev, platformFeePercent: preset.platformFee }));
     }
   }, [inputs.platform]);
-
-  const updateInput = <K extends keyof TutoringIncomeInputs>(
-    key: K,
-    value: TutoringIncomeInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Tutoring Income Calculator (CalcFalcon)\n` +

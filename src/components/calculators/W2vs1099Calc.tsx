@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
@@ -17,7 +16,7 @@ import {
   type W2vs1099Inputs,
 } from '../../lib/calculators/w2-vs-1099';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const FILING_STATUS_OPTIONS = [
   { value: 'single', label: 'Single' },
@@ -27,31 +26,9 @@ const FILING_STATUS_OPTIONS = [
 ];
 
 export function W2vs1099Calc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<W2vs1099Inputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
-
-  useEffect(() => {
-    if (mode === 'quick') {
-      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
-    }
-  }, [mode]);
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState(DEFAULT_INPUTS, QUICK_MODE_DEFAULTS);
 
   const results = calculateW2vs1099(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof W2vs1099Inputs>(
-    key: K,
-    value: W2vs1099Inputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
   const w2Better = results.difference < 0;
 
   const getResultsText = () =>

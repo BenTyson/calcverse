@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { NumberInput } from '../ui/inputs/NumberInput';
@@ -16,28 +15,13 @@ import {
   type FireInputs,
 } from '../../lib/calculators/fire';
 import { formatCurrency, formatNumber } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function FireCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<FireInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } =
+    useCalculatorState<FireInputs>(DEFAULT_INPUTS);
 
   const results = calculateFire(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof FireInputs>(
-    key: K,
-    value: FireInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `FIRE Calculator (CalcFalcon)\n` +

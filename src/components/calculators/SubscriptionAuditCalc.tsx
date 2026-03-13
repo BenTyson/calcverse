@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { ModeToggle } from '../ui/inputs/ModeToggle';
 import { ResultCard } from '../ui/results/ResultCard';
@@ -16,22 +15,14 @@ import {
   type SubCategory,
 } from '../../lib/calculators/subscription-audit';
 import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 import { Plus, X } from 'lucide-react';
 
 export function SubscriptionAuditCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<SubscriptionAuditInputs>(() =>
-    getInitialState({ subscriptions: DEFAULT_SUBSCRIPTIONS })
-  );
+  const { mode, setMode, inputs, setInputs, isAdvanced } =
+    useCalculatorState<SubscriptionAuditInputs>({ subscriptions: DEFAULT_SUBSCRIPTIONS });
 
   const results = calculateSubscriptionAudit(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const isAdvanced = mode === 'advanced';
 
   const updateSubscription = (id: string, updates: Partial<Subscription>) => {
     setInputs((prev) => ({

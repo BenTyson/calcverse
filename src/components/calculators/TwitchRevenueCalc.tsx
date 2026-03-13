@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -15,19 +14,13 @@ import {
   type TwitchRevenueInputs,
 } from '../../lib/calculators/twitch-revenue';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function TwitchRevenueCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<TwitchRevenueInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState<TwitchRevenueInputs>(
+    DEFAULT_INPUTS,
+    QUICK_MODE_DEFAULTS
   );
-
-  useEffect(() => {
-    if (mode === 'quick') {
-      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
-    }
-  }, [mode]);
 
   // In quick mode, distribute subs automatically
   const effectiveInputs = mode === 'quick'
@@ -39,19 +32,6 @@ export function TwitchRevenueCalc() {
     : inputs;
 
   const results = calculateTwitchRevenue(effectiveInputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof TwitchRevenueInputs>(
-    key: K,
-    value: TwitchRevenueInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Twitch Revenue Calculator (CalcFalcon)\n` +

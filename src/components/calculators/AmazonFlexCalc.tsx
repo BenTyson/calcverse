@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -13,28 +12,13 @@ import {
   type AmazonFlexInputs,
 } from '../../lib/calculators/amazon-flex';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function AmazonFlexCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<AmazonFlexInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } =
+    useCalculatorState<AmazonFlexInputs>(DEFAULT_INPUTS);
 
   const results = calculateAmazonFlex(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof AmazonFlexInputs>(
-    key: K,
-    value: AmazonFlexInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Amazon Flex Calculator (CalcFalcon)\n` +

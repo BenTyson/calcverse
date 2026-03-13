@@ -6,7 +6,7 @@
 calcfalcon/
 ├── src/
 │   ├── components/
-│   │   ├── calculators/          # React calculator components (16)
+│   │   ├── calculators/          # React calculator components (33)
 │   │   ├── ui/
 │   │   │   ├── ErrorBoundary.tsx # Error boundary wrapper
 │   │   │   ├── Tooltip.tsx      # Accessible hover/focus tooltip
@@ -48,15 +48,17 @@ calcfalcon/
 │   │   ├── CalculatorLayout.astro # Calculator pages (breadcrumbs, share, FAQs)
 │   │   └── EmbedLayout.astro     # Embed pages (minimal, noindex)
 │   ├── hooks/
+│   │   ├── useCalculatorState.ts # Shared mode/inputs/URL state hook (all 33 calcs)
 │   │   └── useCountUp.ts         # rAF count-up animation hook
 │   ├── lib/
-│   │   ├── calculators/          # Pure calculation logic (16 files)
+│   │   ├── calculators/          # Pure calculation logic (33 files)
 │   │   ├── config/
 │   │   │   └── monetization.ts   # Affiliate URLs, AdSense publisher ID
 │   │   ├── utils/
 │   │   │   ├── formatters.ts     # formatCurrency, formatNumber, formatPercent, etc.
 │   │   │   ├── url-state.ts      # getInitialState, updateUrlState, getInitialMode
-│   │   │   └── chart-colors.ts   # getCategoryColors(), ChartCategory type
+│   │   │   ├── chart-colors.ts   # getCategoryColors(), ChartCategory type
+│   │   │   └── category-styles.ts # CATEGORY_GRADIENTS, CATEGORY_GLOWS, CATEGORY_COLORS
 │   │   └── seo/
 │   │       └── schema.ts         # Schema.org generators
 │   ├── pages/
@@ -70,12 +72,13 @@ calcfalcon/
 │   │   │   └── [slug].astro      # Article pages (from Content Collections)
 │   │   ├── api/
 │   │   │   └── subscribe.ts      # SSR endpoint (prerender = false)
-│   │   ├── freelance/            # 1 index + 4 calculators
-│   │   ├── creator/              # 1 index + 7 calculators
-│   │   ├── gig-economy/          # 1 index + 4 calculators
-│   │   ├── side-hustle/          # 1 index + 1 calculator
+│   │   ├── freelance/            # 1 index + 8 calculators
+│   │   ├── creator/              # 1 index + 9 calculators
+│   │   ├── gig-economy/          # 1 index + 7 calculators
+│   │   ├── side-hustle/          # 1 index + 5 calculators
+│   │   ├── personal-finance/     # 1 index + 4 calculators
 │   │   └── embed/
-│   │       └── [...slug].astro   # All 16 embed routes
+│   │       └── [...slug].astro   # All 33 embed routes
 │   └── styles/
 │       └── global.css            # Tailwind config + design system
 ├── public/
@@ -95,11 +98,11 @@ calcfalcon/
 Logic (pure TS)          →  UI (React)               →  Page (Astro)
 src/lib/calculators/         src/components/calculators/   src/pages/[cat]/[slug].astro
 
-- Input/output types     →  - useState + useEffect    →  - CalculatorLayout wrapper
+- Input/output types     →  - useCalculatorState hook →  - CalculatorLayout wrapper
 - DEFAULT_INPUTS         →  - ErrorBoundary wrapper   →  - FAQs array
 - calculate*() function  →  - Shared input components →  - relatedCalculators array
-- No React, no DOM       →  - URL state sync          →  - client:visible directive
-                         →  - ModeToggle (Quick/Adv)  →  - SEO props
+- No React, no DOM       →  - ModeToggle (Quick/Adv)  →  - client:visible directive
+                         →                             →  - SEO props
 ```
 
 ## URL State
@@ -202,4 +205,4 @@ Note: Start command changed from `npx serve` to node server entry for SSR suppor
 
 ## Build Output
 
-49 prerendered HTML pages + 1 SSR endpoint in `dist/`. Auto-generated sitemap at `/sitemap-index.xml` (34 indexable, 16 embeds excluded).
+84 prerendered HTML pages + 1 SSR endpoint in `dist/`. Auto-generated sitemap at `/sitemap-index.xml` (embeds excluded).

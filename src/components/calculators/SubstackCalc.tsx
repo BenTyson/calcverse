@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -14,28 +13,12 @@ import {
   type SubstackInputs,
 } from '../../lib/calculators/substack-revenue';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function SubstackCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<SubstackInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState<SubstackInputs>(DEFAULT_INPUTS);
 
   const results = calculateSubstackRevenue(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof SubstackInputs>(
-    key: K,
-    value: SubstackInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Substack Revenue Calculator (CalcFalcon)\n` +

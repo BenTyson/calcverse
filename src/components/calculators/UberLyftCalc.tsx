@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -14,7 +13,7 @@ import {
   type UberLyftInputs,
 } from '../../lib/calculators/uber-lyft-earnings';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const platformOptions = [
   { value: 'uber', label: 'Uber' },
@@ -23,25 +22,10 @@ const platformOptions = [
 ];
 
 export function UberLyftCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<UberLyftInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } =
+    useCalculatorState<UberLyftInputs>(DEFAULT_INPUTS);
 
   const results = calculateUberLyftEarnings(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof UberLyftInputs>(
-    key: K,
-    value: UberLyftInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Uber/Lyft Earnings Calculator (CalcFalcon)\n` +

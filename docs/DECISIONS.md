@@ -26,6 +26,8 @@ These are settled. Changing them requires explicit user approval.
 | Build | Static (SSG) + SSR endpoint | Static pages + `/api/subscribe` SSR via `@astrojs/node` |
 | Hydration | `client:visible` on pages, `client:load` on embeds | Performance — don't hydrate until scrolled into view |
 | Error handling | React ErrorBoundary in every calculator | Prevents blank pages on crash |
+| Calculator state | `useCalculatorState` hook (all 33 calcs) | Eliminates ~6 lines of boilerplate per calculator |
+| Embed rendering | Explicit if-else chain per component | Astro can't trace `client:load` through dynamic map lookups |
 
 ## Brand
 
@@ -34,7 +36,7 @@ These are settled. Changing them requires explicit user approval.
 | Name | CalcFalcon |
 | Primary color | Electric Cyan (#06b6d4) — `primary-*` classes |
 | CSS convention | Category-specific classes (`freelance-*`, `creator-*`, etc.) |
-| Font | Inter (Google Fonts with display=swap) |
+| Font | Inter (self-hosted WOFF2 in `public/fonts/`) |
 | Never use | `brand-*` CSS classes (they don't exist in the design system) |
 
 ## URL Structure
@@ -71,5 +73,4 @@ These are settled. Changing them requires explicit user approval.
 ## What's Still Open
 
 - Blog content voice (casual vs professional)
-- Whether to self-host Inter font
 - Social media presence

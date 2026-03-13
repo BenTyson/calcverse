@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { NumberInput } from '../ui/inputs/NumberInput';
@@ -16,34 +15,12 @@ import {
   type MeetingCostInputs,
 } from '../../lib/calculators/meeting-cost';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function MeetingCostCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<MeetingCostInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
-
-  useEffect(() => {
-    if (mode === 'quick') {
-      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
-    }
-  }, [mode]);
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState(DEFAULT_INPUTS, QUICK_MODE_DEFAULTS);
 
   const results = calculateMeetingCost(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof MeetingCostInputs>(
-    key: K,
-    value: MeetingCostInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Meeting Cost Calculator (CalcFalcon)\n` +

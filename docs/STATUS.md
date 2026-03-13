@@ -216,7 +216,6 @@
 ## Known Pre-existing TS Warnings
 
 These are non-blocking (build passes) but exist in the codebase:
-- `getInitialState` returns `Record<string, unknown>` — doesn't match specific input types
 - Some calculators pass `suffix` prop to `SliderInput` which doesn't exist in the type
 - Some calculators use `highlighted` prop instead of `highlight` on `ResultCard`/`ResultBreakdown`
 - `formatCompactNumber` imported but unused in YouTubeAdSenseCalc

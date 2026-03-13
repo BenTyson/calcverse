@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -17,28 +16,13 @@ import {
   type FreelanceWritingRateInputs,
 } from '../../lib/calculators/freelance-writing-rate';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function FreelanceWritingRateCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<FreelanceWritingRateInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } =
+    useCalculatorState<FreelanceWritingRateInputs>(DEFAULT_INPUTS);
 
   const results = calculateFreelanceWritingRate(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof FreelanceWritingRateInputs>(
-    key: K,
-    value: FreelanceWritingRateInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Freelance Writing Rate Calculator (CalcFalcon)\n` +

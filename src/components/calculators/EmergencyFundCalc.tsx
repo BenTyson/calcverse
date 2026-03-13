@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { NumberInput } from '../ui/inputs/NumberInput';
@@ -17,7 +16,7 @@ import {
   type IncomeStability,
 } from '../../lib/calculators/emergency-fund';
 import { formatCurrency, formatDuration } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const STABILITY_OPTIONS = [
   { value: 'stable', label: 'Stable (W2 employment)' },
@@ -27,25 +26,10 @@ const STABILITY_OPTIONS = [
 ];
 
 export function EmergencyFundCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<EmergencyFundInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } =
+    useCalculatorState<EmergencyFundInputs>(DEFAULT_INPUTS);
 
   const results = calculateEmergencyFund(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof EmergencyFundInputs>(
-    key: K,
-    value: EmergencyFundInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Emergency Fund Calculator (CalcFalcon)\n` +

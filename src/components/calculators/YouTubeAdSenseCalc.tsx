@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
@@ -17,7 +16,7 @@ import {
   type YouTubeAdSenseInputs,
 } from '../../lib/calculators/youtube-adsense';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const nicheOptions = Object.entries(NICHE_CPMS).map(([value, data]) => ({
   value,
@@ -30,22 +29,9 @@ const locationOptions = Object.entries(LOCATION_MULTIPLIERS).map(([value, data])
 }));
 
 export function YouTubeAdSenseCalc() {
-  const [inputs, setInputs] = useState<YouTubeAdSenseInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { inputs, updateInput } = useCalculatorState<YouTubeAdSenseInputs>(DEFAULT_INPUTS);
 
   const results = calculateYouTubeRevenue(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs);
-  }, [inputs]);
-
-  const updateInput = <K extends keyof YouTubeAdSenseInputs>(
-    key: K,
-    value: YouTubeAdSenseInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
 
   const formatRange = (low: number, high: number) =>
     `${formatCurrency(Math.round(low))} - ${formatCurrency(Math.round(high))}`;

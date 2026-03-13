@@ -1,3 +1,5 @@
+import { CATEGORY_COLORS, type CategoryKey } from '../../../lib/utils/category-styles';
+
 interface BreakdownItem {
   label: React.ReactNode;
   value: string;
@@ -7,7 +9,7 @@ interface BreakdownItem {
 interface ResultBreakdownProps {
   title?: string;
   items: BreakdownItem[];
-  category?: 'freelance' | 'creator' | 'gig' | 'sidehustle' | 'finance';
+  category?: CategoryKey;
 }
 
 export function ResultBreakdown({
@@ -15,35 +17,7 @@ export function ResultBreakdown({
   items,
   category = 'freelance',
 }: ResultBreakdownProps) {
-  const categoryColors = {
-    freelance: {
-      bg: 'bg-freelance-50',
-      text: 'text-freelance-700',
-      border: 'border-freelance-100',
-    },
-    creator: {
-      bg: 'bg-creator-50',
-      text: 'text-creator-700',
-      border: 'border-creator-100',
-    },
-    gig: {
-      bg: 'bg-gig-50',
-      text: 'text-gig-700',
-      border: 'border-gig-100',
-    },
-    sidehustle: {
-      bg: 'bg-sidehustle-50',
-      text: 'text-sidehustle-700',
-      border: 'border-sidehustle-100',
-    },
-    finance: {
-      bg: 'bg-finance-50',
-      text: 'text-finance-700',
-      border: 'border-finance-100',
-    },
-  };
-
-  const colors = categoryColors[category];
+  const colors = CATEGORY_COLORS[category];
 
   return (
     <div className="bg-white rounded-2xl border border-neutral-100 overflow-hidden shadow-sm">

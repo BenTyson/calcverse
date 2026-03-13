@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { NumberInput } from '../ui/inputs/NumberInput';
@@ -19,19 +19,13 @@ import {
   type DropshippingMarginInputs,
 } from '../../lib/calculators/dropshipping-margin';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function DropshippingMarginCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<DropshippingMarginInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, setInputs, updateInput, isAdvanced } =
+    useCalculatorState<DropshippingMarginInputs>(DEFAULT_INPUTS);
 
   const results = calculateDropshippingMargin(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
 
   useEffect(() => {
     const preset = PLATFORM_PRESETS[inputs.platform];
@@ -43,15 +37,6 @@ export function DropshippingMarginCalc() {
       }));
     }
   }, [inputs.platform]);
-
-  const updateInput = <K extends keyof DropshippingMarginInputs>(
-    key: K,
-    value: DropshippingMarginInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Dropshipping Margin Calculator (CalcFalcon)\n` +

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { NumberInput } from '../ui/inputs/NumberInput';
@@ -17,7 +16,7 @@ import {
   type RentVsBuyInputs,
 } from '../../lib/calculators/rent-vs-buy';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const LOAN_TERM_OPTIONS = [
   { value: '15', label: '15 years' },
@@ -26,25 +25,10 @@ const LOAN_TERM_OPTIONS = [
 ];
 
 export function RentVsBuyCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<RentVsBuyInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } =
+    useCalculatorState<RentVsBuyInputs>(DEFAULT_INPUTS);
 
   const results = calculateRentVsBuy(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof RentVsBuyInputs>(
-    key: K,
-    value: RentVsBuyInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
   const buyBetter = results.totalCostBuy < results.totalCostRent;
 
   const getResultsText = () =>

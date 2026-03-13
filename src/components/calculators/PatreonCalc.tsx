@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -15,7 +14,7 @@ import {
   type PatreonInputs,
 } from '../../lib/calculators/patreon-earnings';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const feeTierOptions = [
   { value: 'lite', label: 'Lite (5%)' },
@@ -24,25 +23,9 @@ const feeTierOptions = [
 ];
 
 export function PatreonCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<PatreonInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState<PatreonInputs>(DEFAULT_INPUTS);
 
   const results = calculatePatreonEarnings(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof PatreonInputs>(
-    key: K,
-    value: PatreonInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Patreon Earnings Calculator (CalcFalcon)\n` +

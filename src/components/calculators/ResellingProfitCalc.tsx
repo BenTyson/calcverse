@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { SliderInput } from '../ui/inputs/SliderInput';
@@ -19,19 +19,13 @@ import {
   type ResellingProfitInputs,
 } from '../../lib/calculators/reselling-profit';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function ResellingProfitCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<ResellingProfitInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { mode, setMode, inputs, setInputs, updateInput, isAdvanced } =
+    useCalculatorState<ResellingProfitInputs>(DEFAULT_INPUTS);
 
   const results = calculateResellingProfit(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
 
   useEffect(() => {
     const preset = PLATFORM_PRESETS[inputs.platform];
@@ -43,15 +37,6 @@ export function ResellingProfitCalc() {
       }));
     }
   }, [inputs.platform]);
-
-  const updateInput = <K extends keyof ResellingProfitInputs>(
-    key: K,
-    value: ResellingProfitInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const platformLabel = PLATFORMS.find((p) => p.value === inputs.platform)?.label ?? inputs.platform;
 

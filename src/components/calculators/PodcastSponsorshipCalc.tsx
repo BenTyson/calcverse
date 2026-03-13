@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -16,34 +15,15 @@ import {
   type PodcastSponsorshipInputs,
 } from '../../lib/calculators/podcast-sponsorship';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function PodcastSponsorshipCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<PodcastSponsorshipInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState<PodcastSponsorshipInputs>(
+    DEFAULT_INPUTS,
+    QUICK_MODE_DEFAULTS
   );
 
-  useEffect(() => {
-    if (mode === 'quick') {
-      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
-    }
-  }, [mode]);
-
   const results = calculatePodcastSponsorship(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof PodcastSponsorshipInputs>(
-    key: K,
-    value: PodcastSponsorshipInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Podcast Sponsorship Calculator (CalcFalcon)\n` +

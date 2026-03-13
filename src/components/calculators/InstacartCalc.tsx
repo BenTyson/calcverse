@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -14,19 +13,11 @@ import {
   type InstacartEarningsInputs,
 } from '../../lib/calculators/instacart-earnings';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function InstacartCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<InstacartEarningsInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
-
-  useEffect(() => {
-    if (mode === 'quick') {
-      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
-    }
-  }, [mode]);
+  const { mode, setMode, inputs, updateInput, isAdvanced } =
+    useCalculatorState<InstacartEarningsInputs>(DEFAULT_INPUTS, QUICK_MODE_DEFAULTS);
 
   // In quick mode, split batch pay into base + tip
   const effectiveInputs = mode === 'quick'
@@ -38,19 +29,6 @@ export function InstacartCalc() {
     : inputs;
 
   const results = calculateInstacartEarnings(effectiveInputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof InstacartEarningsInputs>(
-    key: K,
-    value: InstacartEarningsInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `Instacart Earnings Calculator (CalcFalcon)\n` +

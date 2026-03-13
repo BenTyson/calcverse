@@ -29,7 +29,7 @@ Every calculator has 3 files:
 **Shared results:** `ResultCard`, `ResultBreakdown`, `CopyResultsButton` (in `src/components/ui/results/`)
 **Shared charts:** `DonutChart`, `BarComparisonChart`, `ProjectionChart`, `ChartCard` (in `src/components/ui/charts/`)
 **Shared UI:** `Tooltip` (in `src/components/ui/Tooltip.tsx`)
-**Hooks:** `useCountUp` (in `src/hooks/useCountUp.ts`)
+**Hooks:** `useCalculatorState` (in `src/hooks/useCalculatorState.ts`), `useCountUp` (in `src/hooks/useCountUp.ts`)
 **URL state:** Base64-encoded in `?s=` param, mode in `?mode=` param
 **Embeds:** `/embed/[category]/[slug]` — uses `client:load` (not `client:visible`), minimal layout, noindex
 
@@ -49,6 +49,8 @@ Every calculator has 3 files:
 | Formatters | `src/lib/utils/formatters.ts` |
 | Error boundary | `src/components/ui/ErrorBoundary.tsx` |
 | Chart colors | `src/lib/utils/chart-colors.ts` |
+| Category styles | `src/lib/utils/category-styles.ts` |
+| Calculator state hook | `src/hooks/useCalculatorState.ts` |
 | Embed routes | `src/pages/embed/[...slug].astro` |
 | Monetization config | `src/lib/config/monetization.ts` |
 | Email API endpoint | `src/pages/api/subscribe.ts` (SSR, `prerender = false`) |

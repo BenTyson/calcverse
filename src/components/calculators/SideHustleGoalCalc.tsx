@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
 import { NumberInput } from '../ui/inputs/NumberInput';
@@ -14,25 +13,12 @@ import {
   type SideHustleGoalInputs,
 } from '../../lib/calculators/side-hustle-goal';
 import { formatCurrency, formatDuration, formatNumber } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function SideHustleGoalCalc() {
-  const [inputs, setInputs] = useState<SideHustleGoalInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
-  );
+  const { inputs, updateInput } = useCalculatorState<SideHustleGoalInputs>(DEFAULT_INPUTS);
 
   const results = calculateSideHustleGoal(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs);
-  }, [inputs]);
-
-  const updateInput = <K extends keyof SideHustleGoalInputs>(
-    key: K,
-    value: SideHustleGoalInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
 
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('en-US', {

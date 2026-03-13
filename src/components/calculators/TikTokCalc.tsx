@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { NumberInput } from '../ui/inputs/NumberInput';
 import { CurrencyInput } from '../ui/inputs/CurrencyInput';
@@ -17,34 +16,15 @@ import {
   type TikTokEarningsInputs,
 } from '../../lib/calculators/tiktok-earnings';
 import { formatCurrency } from '../../lib/utils/formatters';
-import { getInitialState, updateUrlState, getInitialMode } from '../../lib/utils/url-state';
+import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function TikTokCalc() {
-  const [mode, setMode] = useState<'quick' | 'advanced'>(() => getInitialMode());
-  const [inputs, setInputs] = useState<TikTokEarningsInputs>(() =>
-    getInitialState(DEFAULT_INPUTS)
+  const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState<TikTokEarningsInputs>(
+    DEFAULT_INPUTS,
+    QUICK_MODE_DEFAULTS
   );
 
-  useEffect(() => {
-    if (mode === 'quick') {
-      setInputs((prev) => ({ ...prev, ...QUICK_MODE_DEFAULTS }));
-    }
-  }, [mode]);
-
   const results = calculateTikTokEarnings(inputs);
-
-  useEffect(() => {
-    updateUrlState(inputs, mode);
-  }, [inputs, mode]);
-
-  const updateInput = <K extends keyof TikTokEarningsInputs>(
-    key: K,
-    value: TikTokEarningsInputs[K]
-  ) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const isAdvanced = mode === 'advanced';
 
   const getResultsText = () =>
     `TikTok Earnings Calculator (CalcFalcon)\n` +
