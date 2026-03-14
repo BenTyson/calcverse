@@ -1,7 +1,7 @@
 ---
 title: "Quarterly Estimated Taxes for Freelancers: The Complete Guide"
 description: "How to calculate, file, and pay quarterly estimated taxes as a freelancer — deadlines, safe harbor rules, and avoiding underpayment penalties."
-publishedDate: 2026-03-08
+publishedDate: 2026-01-22
 category: freelance
 calculatorSlug: /freelance/quarterly-tax-calculator
 ---

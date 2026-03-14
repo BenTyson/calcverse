@@ -1,7 +1,7 @@
 ---
 title: "W2 vs 1099: The Real Tax Difference (With Numbers)"
 description: "Comparing W2 employee and 1099 contractor taxes side by side — self-employment tax, deductions, quarterly payments, and actual take-home pay."
-publishedDate: 2026-03-08
+publishedDate: 2026-01-29
 category: freelance
 calculatorSlug: /freelance/w2-vs-1099-calculator
 ---

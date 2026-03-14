@@ -168,7 +168,16 @@ Make 4 edits:
 
 Note: Embeds use `client:load`, NOT `client:visible`.
 
-## Step 6: Update Category Index
+## Step 6: Register in Central Calculator Config
+
+**File:** `src/lib/config/calculators.ts`
+
+- Add entry to the `CALCULATORS` array under the correct category group:
+  `{ name: '...', description: '...', href: '/[category-slug]/[page-slug]', category: '[Display Name]', categoryKey: '[key]' }`
+- If this is a popular/flagship calculator, add `featured: true`
+- The homepage directory and counts auto-update from this registry
+
+## Step 7: Update Category Index + Homepage Counts
 
 **File:** `src/pages/[category-slug]/index.astro`
 
@@ -176,11 +185,8 @@ Note: Embeds use `client:load`, NOT `client:visible`.
 - If there's an `upcomingCalculators` array, remove this calculator from it
 - If `upcomingCalculators` becomes empty, remove the entire "Coming Soon" section
 
-## Step 7: Update Homepage Counts
-
 **File:** `src/pages/index.astro`
 
-- Update the category `count` in the `categories` array
 - Update "X free calculators" in the hero badge
 - Update "X free calculators" in the CTA section
 
