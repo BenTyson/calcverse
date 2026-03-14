@@ -18,8 +18,8 @@
 | 8. Freelance Business | DONE | Freelance Retirement, Meeting Cost, Freelance Vacation, Value-Based Pricing |
 | 9. Creator Deepening | DONE | Sponsorship Rate, Print-on-Demand, Online Course, Newsletter Revenue |
 | 6. Polish & Scale | NEXT | Analytics, Mediavine, backlinks |
-| B1. Blog: High-Volume Deep-Dives | TODO | 6 posts covering TikTok, Uber/Lyft, FIRE, Airbnb, Patreon, Rent vs Buy |
-| B2. Blog: Hub Posts & Strategy | TODO | 5 hub posts linking multiple calculators |
+| B1. Blog: High-Volume Deep-Dives | DONE | 6 posts: TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy |
+| B2. Blog: Hub Posts & Strategy | NEXT | 5 hub posts linking multiple calculators |
 | B3. Blog: Creator Deep-Dives | TODO | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
 | B4. Blog: Side Hustle & Gig Niche | TODO | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
 | B5. Blog: Remaining & Linking | TODO | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
@@ -99,22 +99,13 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 ## Blog Content Roadmap
 
-8 of 37 calculators have companion blog posts. 29 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
+14 of 37 calculators have companion blog posts. 23 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
 
-**Current coverage (8 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub).
+**Current coverage (14 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy.
 
-### Phase B1: High-Volume Deep-Dives (6 posts)
+### Phase B1: High-Volume Deep-Dives (6 posts) — DONE
 
-Highest search volume uncovered topics first.
-
-| Post Title | Category | Calculator(s) | Angle |
-|-----------|----------|---------------|-------|
-| How Much Do TikTok Creators Actually Make? (2026 Data) | creator | tiktok-calculator | Creator Fund RPM, brand deals, LIVE gifts, earnings tiers |
-| Uber and Lyft Driver Earnings: What You Really Take Home | gig-economy | uber-lyft-calculator | Gross vs net, gas/depreciation, market variance |
-| FIRE Calculator: How to Know When You Can Retire Early | finance | fire-calculator | 4% rule, Coast vs Lean FIRE, projections by income |
-| Airbnb Hosting Profit: What Hosts Actually Earn After Fees | gig-economy | airbnb-calculator | Fee breakdown, occupancy benchmarks, ROI by property type |
-| Patreon Fees and Earnings: A Creator's Guide | creator | patreon-calculator | Fee tiers, payment processing, tier pricing strategy |
-| Rent vs Buy in 2026: How to Actually Run the Numbers | finance | rent-vs-buy-calculator | Break-even timeline, opportunity cost, when renting wins |
+6 single-calc deep-dives covering highest search volume uncovered topics. Backlinks added to 6 existing posts.
 
 ### Phase B2: Hub Posts & Strategy Guides (5 posts)
 
@@ -166,7 +157,7 @@ Last calculators covered. Hub/strategy angles make them substantive.
 
 | Phase | Posts | New Calcs Covered | Cumulative |
 |-------|-------|-------------------|------------|
-| B1: High-Volume Deep-Dives | 6 | 6 | 6/29 |
+| B1: High-Volume Deep-Dives | 6 | 6 | 6/29 (DONE) |
 | B2: Hub Posts & Strategy | 5 | 8 | 14/29 |
 | B3: Creator Deep-Dives | 5 | 6 | 20/29 |
 | B4: Side Hustle & Gig Niche | 4 | 5 | 25/29 |
@@ -201,7 +192,7 @@ Phase 7 (Side Hustle Buildout) — DONE
 Phase 8 (Freelance Business) — DONE
 Phase 9 (Creator Deepening) — DONE
 Phase 6 — NEXT
-Blog B1 → B2 → B3 → B4 → B5 (can run in parallel with Phase 6)
+Blog B1 (DONE) → B2 → B3 → B4 → B5 (can run in parallel with Phase 6)
 ```
 
 ## Verification After Each Phase

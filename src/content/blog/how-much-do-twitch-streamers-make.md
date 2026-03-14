@@ -1,7 +1,7 @@
 ---
 title: "How Much Do Twitch Streamers Make? Revenue Breakdown by Tier"
 description: "Twitch earnings from subs, bits, ads, and sponsorships — what small, mid-tier, and top streamers actually make, with realistic expectations."
-publishedDate: 2026-03-08
+publishedDate: 2026-02-27
 category: creator
 calculatorSlug: /creator/twitch-calculator
 ---
@@ -104,7 +104,7 @@ The streamers who grow fastest almost always leverage other platforms. A TikTok 
 
 Twitch remains the dominant live streaming platform for gaming content, but alternatives have gained ground. YouTube Live offers better discoverability through its recommendation algorithm and doesn't have the same pre-roll ad problem. Kick has attracted some creators with more favorable revenue splits, though its long-term viability and audience size remain questions. Facebook Gaming has largely retreated from the space.
 
-For many creators, a multi-platform approach works best: stream live on Twitch (or YouTube) while posting edited content on YouTube, shorts on TikTok, and clips across social media. This diversifies both your audience growth channels and your income streams.
+For many creators, a multi-platform approach works best: stream live on Twitch (or YouTube) while posting edited content on YouTube, shorts on TikTok, and clips across social media. This diversifies both your audience growth channels and your income streams. If you are considering TikTok as part of that mix, our breakdown of [TikTok creator earnings](/blog/tiktok-creator-earnings) covers what creators actually make from the Creator Fund, brand deals, and LIVE gifts. And if you are already building a community, [Patreon's fee structure and earnings math](/blog/patreon-fees-and-earnings) is worth understanding before you launch a membership tier.
 
 ## Estimating Your Potential Twitch Earnings
 

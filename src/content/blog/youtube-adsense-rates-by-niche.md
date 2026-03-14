@@ -1,7 +1,7 @@
 ---
 title: "YouTube AdSense CPM Rates by Niche (2026 Data)"
 description: "Real CPM and RPM ranges across 15+ YouTube niches — from finance ($15-40) to gaming ($2-5) — plus how to estimate your actual ad revenue."
-publishedDate: 2026-03-08
+publishedDate: 2026-02-05
 category: creator
 calculatorSlug: /creator/youtube-adsense-calculator
 ---
@@ -127,6 +127,8 @@ Plug your niche, view count, and audience geography into the [YouTube AdSense ca
 ## Beyond AdSense: Why Diversification Matters
 
 The most successful YouTube creators treat AdSense as their baseline, not their ceiling. Across niches, the revenue stack typically looks like this: AdSense provides 20-40% of total income, sponsorships and brand deals provide 30-50%, and the remainder comes from merchandise, courses, memberships, affiliate marketing, or Patreon.
+
+If you are exploring short-form content alongside YouTube, our [TikTok creator earnings breakdown](/blog/tiktok-creator-earnings) covers what the Creator Fund, brand deals, and LIVE gifts actually pay — and why the per-view economics are so different from YouTube's ad model.
 
 This diversification is not just about maximizing income. It is about stability. AdSense revenue fluctuates with advertiser spending, algorithm changes, and seasonal patterns. A channel that depends entirely on AdSense is one algorithm update away from a 30% pay cut. A channel with four revenue streams can absorb a downturn in any one of them.
 

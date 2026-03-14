@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-13
+**Last Updated:** 2026-03-14
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**37 calculators** across **5 categories**, **99 routes** (62 indexable + 37 embeds + 1 SSR API endpoint)
+**37 calculators** across **5 categories**, **105 routes** (68 indexable + 37 embeds + 1 SSR API endpoint)
 
 ### Freelance (8) — Cyan
 | Calculator | Slug |
@@ -68,7 +68,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 8 pillar articles
+- Blog index (`/blog`) + 14 articles (8 pillar + 6 Phase B1)
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -133,6 +133,15 @@
 - [x] Footer: Blog + About links added
 - [x] About page (`/about`)
 - [x] 8 pillar articles: freelance rate, W2 vs 1099, YouTube CPM, DoorDash earnings, Twitch revenue, Etsy fees, quarterly taxes, side hustle taxes
+
+### Phase B1 — Blog: High-Volume Deep-Dives (6 posts)
+- [x] TikTok Creator Earnings — Creator Fund RPM, brand deals, LIVE gifts, earnings tiers
+- [x] Uber/Lyft Driver Earnings — Gross vs net, gas/depreciation/IRS mileage, market variance
+- [x] Patreon Fees and Earnings — Fee tiers, payment processing, churn math, tier strategy
+- [x] Airbnb Hosting Profit — Fee breakdown, occupancy benchmarks, break-even, tax implications
+- [x] FIRE Calculator Guide — 4% rule, Coast/Lean/Fat FIRE, savings rate, freelancer strategies
+- [x] Rent vs Buy 2026 — Break-even timeline, opportunity cost, when renting wins
+- [x] Backlinks added to 6 existing posts (Twitch, DoorDash, Side Hustle Taxes, YouTube, Etsy, Freelance Rate)
 - [x] "How to Use" content sections in all 16 calculator pages (`<Fragment slot="content">`)
 - [x] `relatedCalculators` expanded to 3-4 cross-category links in all 16 calculators
 - [x] 4 category index pages enhanced with intro paragraphs + FAQ sections + FAQ structured data

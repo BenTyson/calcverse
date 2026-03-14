@@ -1,7 +1,7 @@
 ---
 title: "Etsy Fees Explained: Every Fee Sellers Pay in 2026"
 description: "A complete breakdown of Etsy's listing fees, transaction fees, payment processing, advertising costs, and how to calculate your real profit margin."
-publishedDate: 2026-03-08
+publishedDate: 2026-02-13
 category: creator
 calculatorSlug: /creator/etsy-fee-calculator
 ---
@@ -132,5 +132,7 @@ Invest in organic Etsy SEO. Every sale you generate through organic Etsy search 
 ## Know Your Numbers
 
 The difference between an Etsy shop that thrives and one that slowly bleeds money usually comes down to whether the seller truly understands their unit economics. Etsy's fee structure isn't inherently unreasonable — the platform provides massive built-in traffic, buyer trust, and infrastructure that would cost significant time and money to build independently. But the fees are substantial enough that you can't afford to ignore them in your pricing.
+
+If you sell digital content or memberships alongside physical products, platform fees work differently. Our [Patreon fees and earnings guide](/blog/patreon-fees-and-earnings) breaks down how payment processing and platform cuts stack up for subscription-based creator income — the $0.30 per-transaction flat fee is just as impactful there as Etsy's $0.25 processing fee is here.
 
 Run your actual product prices through our [Etsy Fee Calculator](/creator/etsy-fee-calculator) to see exactly what Etsy takes from each sale. Understanding your real margin is the foundation of every other business decision — from what products to create, to how to price them, to whether Etsy is the right platform for your business at all.

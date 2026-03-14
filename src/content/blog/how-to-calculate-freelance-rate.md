@@ -1,7 +1,7 @@
 ---
 title: "How to Calculate Your Freelance Rate (Without Selling Yourself Short)"
 description: "A step-by-step guide to setting freelance rates that cover taxes, expenses, and profit — not just your old salary divided by hours."
-publishedDate: 2026-03-08
+publishedDate: 2026-01-15
 category: freelance
 calculatorSlug: /freelance/hourly-rate-calculator
 ---
@@ -40,7 +40,7 @@ Freelancers get zero paid days off. Every day you take for vacation, illness, or
 
 If your employer offered a 401(k) match — the national average is around 4.5% of salary — that was free money added to your compensation. As a freelancer, you can open a Solo 401(k) or SEP IRA, and the contribution limits are generous. But every dollar going into retirement comes from your revenue.
 
-At $80,000 of equivalent salary, a 4.5% employer match was worth $3,600 per year. You need to replace that.
+At $80,000 of equivalent salary, a 4.5% employer match was worth $3,600 per year. You need to replace that. If you are thinking about long-term retirement planning as a freelancer, our [FIRE calculator guide](/blog/fire-calculator-guide) covers how to calculate your FIRE number and why self-employment tax changes the savings rate math significantly.
 
 ## Billable Hours: The Number Everyone Gets Wrong
 

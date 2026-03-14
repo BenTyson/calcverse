@@ -1,7 +1,7 @@
 ---
 title: "How Much Do DoorDash Drivers Actually Make? (2026 Breakdown)"
 description: "Real DoorDash earnings data after expenses — base pay, tips, peak pay, hidden costs, and what top dashers actually take home per hour."
-publishedDate: 2026-03-08
+publishedDate: 2026-02-20
 category: gig-economy
 calculatorSlug: /gig-economy/doordash-calculator
 ---
@@ -108,7 +108,7 @@ Earnings per hour during lunch (11am-1pm) and dinner (5pm-9pm) rushes can be 50%
 
 ### Multi-App Strategy
 
-Many full-time gig drivers run DoorDash alongside Uber Eats, Grubhub, or Instacart. This lets them cherry-pick the best-paying orders across platforms and reduces dead time between deliveries. The logistics are more complex, but drivers who master multi-apping report 20% to 40% higher hourly earnings.
+Many full-time gig drivers run DoorDash alongside Uber Eats, Grubhub, or Instacart. This lets them cherry-pick the best-paying orders across platforms and reduces dead time between deliveries. The logistics are more complex, but drivers who master multi-apping report 20% to 40% higher hourly earnings. If you're considering rideshare as part of that mix, our [Uber and Lyft driver earnings breakdown](/blog/uber-lyft-driver-earnings) covers the same gross-vs-net math for rideshare drivers.
 
 ### Market Knowledge
 

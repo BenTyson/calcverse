@@ -1,7 +1,7 @@
 ---
 title: "Side Hustle Taxes: What You Owe and How to Pay Less"
 description: "A practical guide to side hustle taxes — when you owe self-employment tax, what you can deduct, and how to avoid surprises at tax time."
-publishedDate: 2026-03-08
+publishedDate: 2026-03-06
 category: side-hustle
 calculatorSlugs:
   - /freelance/quarterly-tax-calculator
@@ -41,7 +41,7 @@ The key rule is that expenses must be "ordinary and necessary" for your business
 
 Vehicle expenses are your largest deduction. You have two methods: the standard mileage rate or actual expenses. For 2025, the standard mileage rate is 70 cents per mile. If you drove 12,000 miles for deliveries, that is an $8,400 deduction — which can wipe out a significant chunk of your delivery income.
 
-Beyond mileage, delivery drivers can deduct their phone bill (the business-use percentage), insulated delivery bags, phone mounts and chargers used while driving, parking fees and tolls incurred during deliveries, and any platform fees that are not already deducted from your earnings.
+Beyond mileage, delivery drivers can deduct their phone bill (the business-use percentage), insulated delivery bags, phone mounts and chargers used while driving, parking fees and tolls incurred during deliveries, and any platform fees that are not already deducted from your earnings. For a full breakdown of what rideshare drivers actually take home after these costs, see our [Uber and Lyft driver earnings analysis](/blog/uber-lyft-driver-earnings).
 
 ### Freelancers and Consultants
 
@@ -51,7 +51,7 @@ Marketing costs including website hosting, domain registration, business cards, 
 
 ### Online Sellers (Etsy, eBay, Poshmark)
 
-Cost of goods sold is the big one. The materials, supplies, or inventory you purchase to sell are deducted from your revenue before calculating profit. Shipping supplies — boxes, tape, labels, poly mailers — are deductible. Platform fees (Etsy listing fees, transaction fees, payment processing fees) are deductible. If you rent a storage unit for inventory, that is deductible. Photography equipment or props used for product listings qualify as business expenses.
+Cost of goods sold is the big one. The materials, supplies, or inventory you purchase to sell are deducted from your revenue before calculating profit. Shipping supplies — boxes, tape, labels, poly mailers — are deductible. Platform fees (Etsy listing fees, transaction fees, payment processing fees) are deductible. If you rent a storage unit for inventory, that is deductible. Photography equipment or props used for product listings qualify as business expenses. Airbnb hosts have their own set of deductible expenses — our [Airbnb hosting profit guide](/blog/airbnb-hosting-profit) covers the full cost stack including the tax differences between Schedule C and Schedule E filing.
 
 ### Content Creators (YouTube, TikTok, Podcasting)
 
