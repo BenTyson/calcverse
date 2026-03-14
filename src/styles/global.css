@@ -195,6 +195,13 @@ body {
   background-clip: text;
 }
 
+.text-gradient-finance {
+  background: linear-gradient(135deg, var(--color-finance-400), var(--color-finance-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .heading-xl {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 800;

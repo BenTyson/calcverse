@@ -131,6 +131,10 @@ From `src/content.config.ts`:
 | ogImage | string | no | Custom OG image path |
 | draft | boolean | no | Defaults to false |
 
+## Mid-Article CTA
+
+Posts with a `calculatorSlug` in frontmatter automatically get a dark, premium-styled CTA injected mid-article (at the halfway h2). No per-post config needed — `BlogLayout.astro` handles it. It only appears on posts with 3+ h2 headings.
+
 ## Quality Checklist
 
 Before considering the post complete:

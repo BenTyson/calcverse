@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import SchemaOrg from '@components/seo/SchemaOrg.astro';
 import AdSlot from '@components/monetization/AdSlot.astro';
 import { EmailCapture } from '@components/monetization/EmailCapture';
+import MidArticleCTA from '@components/blog/MidArticleCTA.astro';
 import type { ArticleSEO, BreadcrumbItem } from '@lib/seo/schema';
 
 interface Props {
@@ -129,9 +130,32 @@ const calculatorNames: Record<string, string> = {
       </header>
 
       <!-- Article Content -->
-      <div class="prose prose-neutral prose-lg max-w-none">
+      <div class="prose prose-neutral prose-lg max-w-none" id="blog-prose">
         <slot />
       </div>
+
+      {calculatorSlug && (
+        <div id="mid-article-cta" class="hidden">
+          <MidArticleCTA
+            calculatorName={calculatorNames[calculatorSlug] || 'Calculator'}
+            calculatorSlug={calculatorSlug}
+            category={category}
+          />
+        </div>
+      )}
+
+      <script>
+        const prose = document.getElementById('blog-prose');
+        const cta = document.getElementById('mid-article-cta');
+        if (prose && cta) {
+          const headings = prose.querySelectorAll('h2');
+          if (headings.length >= 3) {
+            const mid = headings[Math.floor(headings.length / 2)];
+            mid.parentNode?.insertBefore(cta, mid);
+            cta.classList.remove('hidden');
+          }
+        }
+      </script>
 
       <!-- Ad: Blog Content -->
       <div class="mt-10">
@@ -158,7 +182,9 @@ const calculatorNames: Record<string, string> = {
       )}
 
       <!-- Email Capture -->
-      <EmailCapture variant="inline" client:visible />
+      <div class={calculatorSlug ? 'mt-8' : 'mt-12'}>
+        <EmailCapture variant="inline" client:visible />
+      </div>
     </article>
   </div>
 </BaseLayout>
