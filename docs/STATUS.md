@@ -1,14 +1,14 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-15 (Phase B5 complete)
+**Last Updated:** 2026-03-15 (Phase 10a complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**37 calculators** across **5 categories**, **117 routes** (79 indexable + 37 embeds + 1 SSR API endpoint)
+**39 calculators** across **5 categories**, **122 routes** (82 indexable + 39 embeds + 1 SSR API endpoint)
 
-### Freelance (8) — Cyan
+### Freelance (9) — Cyan
 | Calculator | Slug |
 |-----------|------|
 | Freelancer Hourly Rate | `/freelance/hourly-rate-calculator` |
@@ -19,6 +19,7 @@
 | Meeting Cost | `/freelance/meeting-cost-calculator` |
 | Freelance Vacation Fund | `/freelance/freelance-vacation-calculator` |
 | Value-Based Pricing | `/freelance/value-based-pricing-calculator` |
+| Self-Employment Tax | `/freelance/self-employment-tax-calculator` |
 
 ### Creator (13) — Magenta
 | Calculator | Slug |
@@ -48,7 +49,7 @@
 | TaskRabbit Earnings | `/gig-economy/taskrabbit-calculator` |
 | Turo Profit | `/gig-economy/turo-calculator` |
 
-### Side Hustle (5) — Purple
+### Side Hustle (6) — Purple
 | Calculator | Slug |
 |-----------|------|
 | Side Hustle Time to Goal | `/side-hustle/time-to-goal-calculator` |
@@ -56,6 +57,7 @@
 | Freelance Writing Rate | `/side-hustle/freelance-writing-rate-calculator` |
 | Tutoring Income | `/side-hustle/tutoring-income-calculator` |
 | Dropshipping Margin | `/side-hustle/dropshipping-margin-calculator` |
+| Profit Margin | `/side-hustle/profit-margin-calculator` |
 
 ### Personal Finance (4) — Amber
 | Calculator | Slug |
@@ -68,7 +70,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 32 articles (8 pillar + 6 Phase B1 + 5 Phase B2 + 5 Phase B3 + 4 Phase B4 + 4 Phase B5)
+- Blog index (`/blog`) + 32 articles
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -257,6 +259,14 @@
 - [x] Backlinks added to 8 existing posts (Writing Rates, Side Hustle Taxes, Pricing Strategies, Freelance Rate, Emergency Fund, FIRE Guide, Digital Products, Etsy Fees)
 - [x] All 37 calculators now have companion blog coverage (32 posts total)
 
+### Phase 10a — Tax & Business Finance (first half)
+- [x] Shared tax bracket module: `src/lib/calculators/shared/tax-brackets.ts` (FilingStatus, TAX_BRACKETS, STANDARD_DEDUCTIONS, FICA_RATES, calculateFederalTax, calculateSelfEmploymentTax, getMarginalBracket)
+- [x] Refactored `quarterly-tax.ts` and `w2-vs-1099.ts` to use shared module
+- [x] Self-Employment Tax Calculator (Freelance) — SS + Medicare + Additional Medicare, QBI deduction, BarComparisonChart, Schedule SE summary
+- [x] Profit Margin Calculator (Side Hustle) — Gross/operating/net margin, DonutChart (cost breakdown), per-unit profit, break-even revenue
+- [x] Embed routes, category indexes, config, homepage counts updated
+- [x] OG images for both calculators
+
 ## What's NOT Done
 
 - No custom domain configured (DNS + Railway — manual step)
@@ -267,7 +277,8 @@
 - Placeholder PDF needs real content
 - SVG OG images may not render on all social platforms (PNG preferred for maximum compatibility)
 - Phase 6 (Polish & Scale) — analytics, Mediavine, backlinks
-- Phases 10-13 — 14 new calculators planned (see `docs/ROADMAP.md`)
+- Phase 10b — Capital Gains Tax + Debt Payoff (2 remaining Phase 10 calculators)
+- Phases 11-13 — 12 new calculators planned (see `docs/ROADMAP.md`)
 - Phases B6-B9 — 16 new blog posts planned to pair with calculator phases
 
 ## Known Pre-existing TS Warnings

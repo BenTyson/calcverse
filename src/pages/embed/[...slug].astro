@@ -37,6 +37,8 @@ import { SponsorshipRateCalc } from '@components/calculators/SponsorshipRateCalc
 import { PrintOnDemandCalc } from '@components/calculators/PrintOnDemandCalc';
 import { OnlineCourseCalc } from '@components/calculators/OnlineCourseCalc';
 import { NewsletterCalc } from '@components/calculators/NewsletterCalc';
+import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTaxCalc';
+import { ProfitMarginCalc } from '@components/calculators/ProfitMarginCalc';
 
 export function getStaticPaths() {
   return [
@@ -48,6 +50,7 @@ export function getStaticPaths() {
     { params: { slug: 'freelance/meeting-cost-calculator' } },
     { params: { slug: 'freelance/freelance-vacation-calculator' } },
     { params: { slug: 'freelance/value-based-pricing-calculator' } },
+    { params: { slug: 'freelance/self-employment-tax-calculator' } },
     { params: { slug: 'creator/youtube-adsense-calculator' } },
     { params: { slug: 'creator/twitch-calculator' } },
     { params: { slug: 'creator/patreon-calculator' } },
@@ -73,6 +76,7 @@ export function getStaticPaths() {
     { params: { slug: 'side-hustle/freelance-writing-rate-calculator' } },
     { params: { slug: 'side-hustle/tutoring-income-calculator' } },
     { params: { slug: 'side-hustle/dropshipping-margin-calculator' } },
+    { params: { slug: 'side-hustle/profit-margin-calculator' } },
     { params: { slug: 'personal-finance/fire-calculator' } },
     { params: { slug: 'personal-finance/emergency-fund-calculator' } },
     { params: { slug: 'personal-finance/rent-vs-buy-calculator' } },
@@ -114,6 +118,10 @@ const calculators: Record<string, { title: string; component: string }> = {
   'freelance/value-based-pricing-calculator': {
     title: 'Value-Based Pricing Calculator',
     component: 'valuebasedpricing',
+  },
+  'freelance/self-employment-tax-calculator': {
+    title: 'Self-Employment Tax Calculator',
+    component: 'selfemploymenttax',
   },
   'creator/youtube-adsense-calculator': {
     title: 'YouTube AdSense Calculator',
@@ -215,6 +223,10 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Dropshipping Margin Calculator',
     component: 'dropshippingmargin',
   },
+  'side-hustle/profit-margin-calculator': {
+    title: 'Profit Margin Calculator',
+    component: 'profitmargin',
+  },
   'personal-finance/fire-calculator': {
     title: 'FIRE Calculator',
     component: 'fire',
@@ -251,6 +263,7 @@ if (!calculator) {
     {calculator.component === 'meetingcost' && <MeetingCostCalc client:load />}
     {calculator.component === 'freelancevacation' && <FreelanceVacationCalc client:load />}
     {calculator.component === 'valuebasedpricing' && <ValueBasedPricingCalc client:load />}
+    {calculator.component === 'selfemploymenttax' && <SelfEmploymentTaxCalc client:load />}
     {calculator.component === 'youtube' && <YouTubeAdSenseCalc client:load />}
     {calculator.component === 'twitch' && <TwitchRevenueCalc client:load />}
     {calculator.component === 'patreon' && <PatreonCalc client:load />}
@@ -276,6 +289,7 @@ if (!calculator) {
     {calculator.component === 'freelancewriting' && <FreelanceWritingRateCalc client:load />}
     {calculator.component === 'tutoringincome' && <TutoringIncomeCalc client:load />}
     {calculator.component === 'dropshippingmargin' && <DropshippingMarginCalc client:load />}
+    {calculator.component === 'profitmargin' && <ProfitMarginCalc client:load />}
     {calculator.component === 'fire' && <FireCalc client:load />}
     {calculator.component === 'emergencyfund' && <EmergencyFundCalc client:load />}
     {calculator.component === 'rentvsbuy' && <RentVsBuyCalc client:load />}

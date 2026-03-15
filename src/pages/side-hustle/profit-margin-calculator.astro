@@ -1,0 +1,94 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { ProfitMarginCalc } from '@components/calculators/ProfitMarginCalc';
+
+const faqs = [
+  {
+    question: 'What is a good profit margin?',
+    answer:
+      'It depends on the industry. Retail and e-commerce typically see 5-20% net margins, service businesses 15-40%, and software/digital products 50-80%. For side hustles, aim for at least 20% net margin to make the effort worthwhile after accounting for your time.',
+  },
+  {
+    question: 'What is the difference between gross, operating, and net margin?',
+    answer:
+      'Gross margin is revenue minus COGS (direct costs). Operating margin subtracts operating expenses like rent and software. Net margin is the bottom line after all expenses and taxes. Each level reveals different business health — you can have a strong gross margin but a weak net margin if overhead is too high.',
+  },
+  {
+    question: 'How do I improve my profit margin?',
+    answer:
+      'Three levers: increase prices (test small increases, often customers accept 5-10% hikes), reduce COGS (negotiate with suppliers, buy in bulk, find alternatives), or cut operating expenses (audit subscriptions, renegotiate leases, automate manual tasks).',
+  },
+  {
+    question: 'What is COGS (Cost of Goods Sold)?',
+    answer:
+      'COGS includes all direct costs to produce or acquire your product: raw materials, manufacturing, wholesale price, packaging, and direct labor. It does not include overhead like rent, marketing, or administrative costs — those fall under operating expenses.',
+  },
+  {
+    question: 'Should I use gross margin or net margin?',
+    answer:
+      'Use gross margin to evaluate product-level profitability and pricing decisions. Use net margin to understand overall business health after all costs. If your gross margin is healthy but net margin is low, the problem is overhead, not pricing.',
+  },
+  {
+    question: 'What is break-even revenue?',
+    answer:
+      'Break-even revenue is the minimum sales needed to cover all your costs. Below this number you are losing money. This calculator estimates it based on your current cost structure and margin percentages.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Reselling Profit Calculator',
+    description: 'Calculate reselling profit after platform fees and shipping',
+    href: '/side-hustle/reselling-profit-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Dropshipping Margin Calculator',
+    description: 'Analyze true dropshipping profit after all costs',
+    href: '/side-hustle/dropshipping-margin-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Print-on-Demand Profit Calculator',
+    description: 'Calculate POD per-unit and monthly revenue',
+    href: '/creator/print-on-demand-profit-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Side Hustle Time to Goal',
+    description: 'Calculate how long to reach your financial goal',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Profit Margin Calculator - Gross, Operating & Net Margins"
+  description="Calculate your profit margins at every level: gross, operating, and net. Analyze cost breakdowns, per-unit profit, and break-even revenue for your business."
+  calculatorName="Profit Margin Calculator"
+  category="Side Hustle"
+  categorySlug="side-hustle"
+  slug="profit-margin-calculator"
+  ogImage="/og-images/profit-margin.svg"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+>
+  <ProfitMarginCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Understanding Profit Margins</h2>
+        <p>Profit margin is the percentage of revenue that remains as profit after costs. It is the single most important metric for evaluating whether a business or product is financially sustainable. This calculator breaks your margins down at three levels so you can see exactly where money is going.</p>
+        <h3>Gross Margin</h3>
+        <p>Gross margin measures profitability at the product level. It is your revenue minus the direct cost of goods sold (COGS), divided by revenue. A 60% gross margin means you keep $0.60 of every dollar after covering the cost of the product itself. This is where pricing decisions have the biggest impact.</p>
+        <h3>Operating Margin</h3>
+        <p>Operating margin accounts for the overhead of running your business: rent, software, salaries, utilities, and other operating expenses. If your gross margin is 60% but operating margin drops to 15%, your overhead is eating most of your product-level profit.</p>
+        <h3>Net Margin</h3>
+        <p>Net margin is the bottom line — what you actually keep after everything, including taxes and miscellaneous expenses. This is the number that determines whether your business is truly profitable or just busy.</p>
+        <h3>Healthy Margins by Business Type</h3>
+        <p>Benchmarks vary widely by industry. E-commerce and retail typically see 5-20% net margins. Service businesses and consulting often achieve 15-40%. Digital products and software can reach 50-80% because COGS is minimal. Compare your margins to similar businesses in your space, not to unrelated industries.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

@@ -5,8 +5,9 @@
 | Phase | Status | Focus |
 |-------|--------|-------|
 | 0. Manual/External Steps | IN PROGRESS | DNS, analytics, email, AdSense |
-| 6. Polish & Scale | NEXT | Analytics, Mediavine, backlinks |
-| 10. Tax & Business Finance | PLANNED | SE Tax, Profit Margin, Capital Gains, Debt Payoff (~33K/mo) |
+| 6. Polish & Scale | PLANNED | Analytics, Mediavine, backlinks |
+| 10a. Tax & Business Finance (SE Tax, Profit Margin) | DONE | Shared tax brackets, SE Tax, Profit Margin |
+| 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | NEXT | Capital Gains Tax, Debt Payoff (~15K/mo) |
 | 11. Financial Planning | PLANNED | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
 | 12. Creator & Digital Business | PLANNED | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
 | 13. Business Operations | PLANNED | Late Payment, Cost Per Lead, Stock Options, 1099 Tax (~12K/mo) |
@@ -15,7 +16,7 @@
 | B8. Blog: Creator & Digital | PLANNED | 4 posts paired with Phase 12 |
 | B9. Blog: Business Operations | PLANNED | 4 posts paired with Phase 13 |
 
-> Completed phases (1-5, 7-9, B1-B5) archived in `docs/archive/ROADMAP-v1.md`
+> Completed phases (1-5, 7-9, B1-B5, 10a) archived in `docs/archive/ROADMAP-v1.md`
 
 ---
 
@@ -39,22 +40,22 @@
 
 ---
 
-## Phase 10: Tax & Business Finance (~33K/mo combined search volume)
+## Phase 10a: Tax & Business Finance — DONE
+
+- [x] Shared tax brackets: `src/lib/calculators/shared/tax-brackets.ts`
+- [x] Self-Employment Tax Calculator (Freelance, 8K/mo)
+- [x] Profit Margin Calculator (Side Hustle, 10K/mo)
+
+## Phase 10b: Tax & Business Finance — Remaining (~15K/mo)
 
 | Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
 |-----------|----------|---------------|----------|-------------------|
-| Self-Employment Tax | Freelance | "self-employment tax calculator" | 8K/mo | TurboTax, QuickBooks |
-| Profit Margin | Side Hustle | "profit margin calculator" | 10K/mo | Wave, Bench |
 | Capital Gains Tax | Personal Finance | "capital gains tax calculator" | 5K/mo | Fidelity, CoinTracker |
 | Debt Payoff | Personal Finance | "debt payoff calculator" | 10K/mo | SoFi, LendingClub |
 
 **Implementation notes:**
-- SE Tax: Annual Schedule SE focus (distinct from Quarterly Tax's payment scheduling). SS + Medicare + Additional Medicare Tax breakdown. BarComparisonChart.
-- Profit Margin: Gross/operating/net margin from revenue + costs. DonutChart (cost breakdown). Complements Reselling, Dropshipping, POD.
-- Capital Gains: Short-term vs long-term on stocks/crypto/real estate. BarComparisonChart (ST vs LT comparison).
+- Capital Gains: Short-term vs long-term on stocks/crypto/real estate. BarComparisonChart (ST vs LT comparison). Reuses `shared/tax-brackets.ts`.
 - Debt Payoff: Snowball vs avalanche with dynamic debt list (reuse Subscription Audit pattern). ProjectionChart (balance over time).
-
-**Pre-work:** Extract tax bracket logic from `src/lib/calculators/quarterly-tax.ts` into `src/lib/calculators/shared/tax-brackets.ts`. SE Tax, 1099 Tax, and Capital Gains Tax all reuse it.
 
 ---
 
@@ -111,14 +112,14 @@
 
 ## Category Distribution After All Phases
 
-| Category | Current | Added | Final |
-|----------|---------|-------|-------|
-| Freelance | 8 | +4 | 12 |
+| Category | Current | Remaining | Final |
+|----------|---------|-----------|-------|
+| Freelance | 9 | +3 | 12 |
 | Creator | 13 | +3 | 16 |
 | Gig Economy | 7 | +0 | 7 |
-| Side Hustle | 5 | +2 | 7 |
+| Side Hustle | 6 | +1 | 7 |
 | Personal Finance | 4 | +5 | 9 |
-| **Total** | **37** | **+14** | **51** |
+| **Total** | **39** | **+12** | **51** |
 
 ---
 
@@ -163,7 +164,7 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 
 ## Reusable Patterns for New Phases
 
-- **Shared tax library:** Extract tax bracket logic into `src/lib/calculators/shared/tax-brackets.ts` before Phase 10
+- **Shared tax library:** `src/lib/calculators/shared/tax-brackets.ts` — FilingStatus, brackets, deductions, FICA rates, calculateFederalTax, calculateSelfEmploymentTax, getMarginalBracket
 - **Dynamic list (add/remove rows):** Debt Payoff, Net Worth, Crypto Tax — reuse pattern from `subscription-audit.ts`
 - **All existing shared components:** NumberInput, CurrencyInput, SliderInput, DropdownInput, ModeToggle, ResultCard, ResultBreakdown, CopyResultsButton, charts, Tooltip, useCalculatorState, ErrorBoundary
 
@@ -181,8 +182,8 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 
 ```
 Phase 0 (manual, ongoing)
-Phase 6 (polish) — NEXT
-Phase 10 (tax/biz finance) → B6 (blog)
+Phase 10b (capital gains + debt payoff) — NEXT → B6 (blog)
+Phase 6 (polish)
 Phase 11 (financial planning) → B7 (blog)
 Phase 12 (creator/digital) → B8 (blog)
 Phase 13 (biz operations) → B9 (blog)

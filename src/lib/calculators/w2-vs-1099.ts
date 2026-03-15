@@ -1,10 +1,9 @@
-// W2 vs 1099 Comparison Calculator
-// Compare take-home pay between W2 employment and 1099 contractor work
+import { STANDARD_DEDUCTIONS, calculateFederalTax, FICA_RATES, type FilingStatus } from './shared/tax-brackets';
 
 export interface W2vs1099Inputs {
   // Quick mode
   annualSalary: number; // W2 salary OR 1099 contract rate (annualized)
-  filingStatus: 'single' | 'married_joint' | 'married_separate' | 'head_household';
+  filingStatus: FilingStatus;
 
   // Advanced mode
   employerBenefitsValue: number; // Health insurance, 401k match, etc.
@@ -40,74 +39,6 @@ export interface W2vs1099Results {
   recommendation: string;
 }
 
-// 2024 Federal Tax Brackets (simplified - single)
-const TAX_BRACKETS = {
-  single: [
-    { min: 0, max: 11600, rate: 0.10 },
-    { min: 11600, max: 47150, rate: 0.12 },
-    { min: 47150, max: 100525, rate: 0.22 },
-    { min: 100525, max: 191950, rate: 0.24 },
-    { min: 191950, max: 243725, rate: 0.32 },
-    { min: 243725, max: 609350, rate: 0.35 },
-    { min: 609350, max: Infinity, rate: 0.37 },
-  ],
-  married_joint: [
-    { min: 0, max: 23200, rate: 0.10 },
-    { min: 23200, max: 94300, rate: 0.12 },
-    { min: 94300, max: 201050, rate: 0.22 },
-    { min: 201050, max: 383900, rate: 0.24 },
-    { min: 383900, max: 487450, rate: 0.32 },
-    { min: 487450, max: 731200, rate: 0.35 },
-    { min: 731200, max: Infinity, rate: 0.37 },
-  ],
-  married_separate: [
-    { min: 0, max: 11600, rate: 0.10 },
-    { min: 11600, max: 47150, rate: 0.12 },
-    { min: 47150, max: 100525, rate: 0.22 },
-    { min: 100525, max: 191950, rate: 0.24 },
-    { min: 191950, max: 243725, rate: 0.32 },
-    { min: 243725, max: 365600, rate: 0.35 },
-    { min: 365600, max: Infinity, rate: 0.37 },
-  ],
-  head_household: [
-    { min: 0, max: 16550, rate: 0.10 },
-    { min: 16550, max: 63100, rate: 0.12 },
-    { min: 63100, max: 100500, rate: 0.22 },
-    { min: 100500, max: 191950, rate: 0.24 },
-    { min: 191950, max: 243700, rate: 0.32 },
-    { min: 243700, max: 609350, rate: 0.35 },
-    { min: 609350, max: Infinity, rate: 0.37 },
-  ],
-};
-
-const STANDARD_DEDUCTIONS = {
-  single: 14600,
-  married_joint: 29200,
-  married_separate: 14600,
-  head_household: 21900,
-};
-
-// FICA rates
-const SOCIAL_SECURITY_RATE = 0.062; // Employee portion
-const MEDICARE_RATE = 0.0145; // Employee portion
-const SELF_EMPLOYMENT_TAX_RATE = 0.153; // Full 15.3%
-const SOCIAL_SECURITY_WAGE_BASE = 168600; // 2024
-
-function calculateFederalTax(taxableIncome: number, filingStatus: W2vs1099Inputs['filingStatus']): number {
-  const brackets = TAX_BRACKETS[filingStatus];
-  let tax = 0;
-  let remainingIncome = Math.max(0, taxableIncome);
-
-  for (const bracket of brackets) {
-    if (remainingIncome <= 0) break;
-    const taxableInBracket = Math.min(remainingIncome, bracket.max - bracket.min);
-    tax += taxableInBracket * bracket.rate;
-    remainingIncome -= taxableInBracket;
-  }
-
-  return tax;
-}
-
 export function calculateW2vs1099(inputs: W2vs1099Inputs): W2vs1099Results {
   const standardDeduction = STANDARD_DEDUCTIONS[inputs.filingStatus];
 
@@ -118,8 +49,8 @@ export function calculateW2vs1099(inputs: W2vs1099Inputs): W2vs1099Results {
   const w2TaxableIncome = Math.max(0, w2Gross - inputs.retirementContribution - standardDeduction);
 
   // Social Security & Medicare (employee portion only)
-  const w2SocialSecurity = Math.min(w2Gross, SOCIAL_SECURITY_WAGE_BASE) * SOCIAL_SECURITY_RATE;
-  const w2Medicare = w2Gross * MEDICARE_RATE;
+  const w2SocialSecurity = Math.min(w2Gross, FICA_RATES.SOCIAL_SECURITY_WAGE_BASE) * FICA_RATES.SOCIAL_SECURITY_RATE;
+  const w2Medicare = w2Gross * FICA_RATES.MEDICARE_RATE;
   const w2FICA = w2SocialSecurity + w2Medicare;
 
   // Federal and state income tax
@@ -138,7 +69,7 @@ export function calculateW2vs1099(inputs: W2vs1099Inputs): W2vs1099Results {
 
   // Self-employment tax (on 92.35% of net SE income)
   const seIncomeSubjectToTax = netSelfEmploymentIncome * 0.9235;
-  const selfEmploymentTax = Math.min(seIncomeSubjectToTax, SOCIAL_SECURITY_WAGE_BASE) * 0.124 +
+  const selfEmploymentTax = Math.min(seIncomeSubjectToTax, FICA_RATES.SOCIAL_SECURITY_WAGE_BASE) * 0.124 +
     seIncomeSubjectToTax * 0.029; // SS (12.4%) + Medicare (2.9%)
 
   // Deductible portion of SE tax

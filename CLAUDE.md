@@ -5,7 +5,7 @@ SEO-driven calculator site for freelancers, creators, and gig workers. Generates
 **Domain:** calcfalcon.com
 **Stack:** Astro 5 (SSG + SSR hybrid) + React 19 + Tailwind CSS 4
 **Hosting:** Railway (auto-deploy from main)
-**Live:** 37 calculators, 116 pages (79 indexable + 37 embeds), 6 sections (5 calculator categories + blog)
+**Live:** 39 calculators, 122 pages (83 indexable + 39 embeds), 6 sections (5 calculator categories + blog)
 
 ## Commands
 
@@ -50,6 +50,7 @@ Every calculator has 3 files:
 | Error boundary | `src/components/ui/ErrorBoundary.tsx` |
 | Chart colors | `src/lib/utils/chart-colors.ts` |
 | Category styles | `src/lib/utils/category-styles.ts` |
+| Shared tax brackets | `src/lib/calculators/shared/tax-brackets.ts` |
 | Calculator state hook | `src/hooks/useCalculatorState.ts` |
 | Embed routes | `src/pages/embed/[...slug].astro` |
 | Monetization config | `src/lib/config/monetization.ts` |

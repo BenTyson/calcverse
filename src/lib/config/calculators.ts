@@ -25,7 +25,7 @@ export const CATEGORIES: CategoryEntry[] = [
 ];
 
 export const CALCULATORS: CalculatorEntry[] = [
-  // Freelance (8)
+  // Freelance (9)
   { name: 'Freelancer Hourly Rate Calculator', description: 'Calculate your ideal hourly rate based on income goals, taxes, and expenses', href: '/freelance/hourly-rate-calculator', category: 'Freelance', categoryKey: 'freelance', featured: true },
   { name: 'Quarterly Tax Estimator', description: 'Estimate your quarterly estimated tax payments including self-employment tax', href: '/freelance/quarterly-tax-calculator', category: 'Freelance', categoryKey: 'freelance' },
   { name: 'W2 vs 1099 Comparison', description: 'Compare take-home pay between W2 employment and 1099 contractor work', href: '/freelance/w2-vs-1099-calculator', category: 'Freelance', categoryKey: 'freelance' },
@@ -34,6 +34,7 @@ export const CALCULATORS: CalculatorEntry[] = [
   { name: 'Meeting Cost Calculator', description: 'Calculate the true cost of meetings including prep, follow-up, and context switching', href: '/freelance/meeting-cost-calculator', category: 'Freelance', categoryKey: 'freelance' },
   { name: 'Freelance Vacation Fund Calculator', description: 'How much to save for unpaid time off including lost income and catch-up time', href: '/freelance/freelance-vacation-calculator', category: 'Freelance', categoryKey: 'freelance' },
   { name: 'Value-Based Pricing Calculator', description: 'Price projects by client ROI rather than hours worked', href: '/freelance/value-based-pricing-calculator', category: 'Freelance', categoryKey: 'freelance' },
+  { name: 'Self-Employment Tax Calculator', description: 'Calculate Social Security, Medicare, and Additional Medicare taxes on self-employment income', href: '/freelance/self-employment-tax-calculator', category: 'Freelance', categoryKey: 'freelance' },
 
   // Creator (13)
   { name: 'YouTube AdSense Revenue Calculator', description: 'Estimate your YouTube earnings based on views, niche, and audience location', href: '/creator/youtube-adsense-calculator', category: 'Creator', categoryKey: 'creator', featured: true },
@@ -59,12 +60,13 @@ export const CALCULATORS: CalculatorEntry[] = [
   { name: 'TaskRabbit Earnings Calculator', description: 'Calculate your real TaskRabbit earnings after service fees and expenses', href: '/gig-economy/taskrabbit-calculator', category: 'Gig Economy', categoryKey: 'gig' },
   { name: 'Turo Profit Calculator', description: 'Calculate your Turo car rental profit after host fees and expenses', href: '/gig-economy/turo-calculator', category: 'Gig Economy', categoryKey: 'gig' },
 
-  // Side Hustle (5)
+  // Side Hustle (6)
   { name: 'Side Hustle Time to Goal Calculator', description: 'Calculate how long your side hustle will take to reach your financial goal', href: '/side-hustle/time-to-goal-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Reselling Profit Calculator', description: 'Calculate your reselling profit after platform fees, shipping, and costs on eBay, Poshmark, Mercari, and more', href: '/side-hustle/reselling-profit-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Freelance Writing Rate Calculator', description: 'Calculate your per-word and per-article rate based on time, experience, and desired income', href: '/side-hustle/freelance-writing-rate-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Tutoring Income Calculator', description: 'Calculate your tutoring earnings after platform fees, prep time, and expenses', href: '/side-hustle/tutoring-income-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Dropshipping Margin Calculator', description: 'Analyze your true dropshipping profit after supplier costs, ads, fees, returns, and refunds', href: '/side-hustle/dropshipping-margin-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
+  { name: 'Profit Margin Calculator', description: 'Calculate gross, operating, and net profit margins with cost breakdown analysis', href: '/side-hustle/profit-margin-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
 
   // Personal Finance (4)
   { name: 'FIRE Calculator', description: 'Calculate your Financial Independence number and how long until you can retire early', href: '/personal-finance/fire-calculator', category: 'Personal Finance', categoryKey: 'finance', featured: true },

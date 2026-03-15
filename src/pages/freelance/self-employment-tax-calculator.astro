@@ -1,0 +1,102 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTaxCalc';
+import { MONETIZATION } from '@lib/config/monetization';
+
+const faqs = [
+  {
+    question: 'What is self-employment tax?',
+    answer:
+      'Self-employment tax covers Social Security (12.4%) and Medicare (2.9%) for people who work for themselves. As both the employer and employee, you pay the full 15.3% on 92.35% of your net self-employment income. The 92.35% adjustment accounts for the employer-equivalent portion of the tax.',
+  },
+  {
+    question: 'How is self-employment tax different from income tax?',
+    answer:
+      'Self-employment tax is separate from federal income tax. SE tax funds Social Security and Medicare, while income tax goes to general government revenue. You pay both on your self-employment earnings. The good news: you can deduct half of your SE tax when calculating your adjusted gross income.',
+  },
+  {
+    question: 'What is the Additional Medicare Tax?',
+    answer:
+      'If your self-employment income exceeds $200,000 (single) or $250,000 (married filing jointly), you owe an additional 0.9% Medicare tax on the amount above the threshold. This is on top of the standard 2.9% Medicare tax.',
+  },
+  {
+    question: 'What is the QBI deduction?',
+    answer:
+      'The Qualified Business Income (QBI) deduction under Section 199A lets eligible self-employed individuals deduct up to 20% of their qualified business income. Most sole proprietors and single-member LLCs qualify if their taxable income is below $191,950 (single) or $383,900 (married filing jointly) for 2024.',
+  },
+  {
+    question: 'What is Schedule SE?',
+    answer:
+      'Schedule SE is the IRS form used to calculate self-employment tax. It computes your Social Security and Medicare tax based on your net earnings from self-employment. You file it along with your Form 1040 and can deduct 50% of the calculated SE tax from your gross income.',
+  },
+  {
+    question: 'Can I reduce my self-employment tax?',
+    answer:
+      'You can reduce the income subject to SE tax by deducting legitimate business expenses (home office, equipment, supplies, mileage, insurance). Forming an S-corporation may also help, as you only pay SE tax on your reasonable salary, not distributions. Consult a tax professional for your specific situation.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Calculate your quarterly estimated tax payments',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'W2 vs 1099 Calculator',
+    description: 'Compare employee vs contractor take-home pay',
+    href: '/freelance/w2-vs-1099-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Freelancer Hourly Rate Calculator',
+    description: 'Calculate your ideal hourly rate based on income goals',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Freelance Retirement Calculator',
+    description: 'Compare retirement account options for the self-employed',
+    href: '/freelance/freelance-retirement-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Self-Employment Tax Calculator - Calculate SE Tax for Freelancers"
+  description="Calculate your self-employment tax including Social Security, Medicare, and Additional Medicare Tax. See your full Schedule SE breakdown with QBI deduction."
+  calculatorName="Self-Employment Tax Calculator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="self-employment-tax-calculator"
+  ogImage="/og-images/self-employment-tax.svg"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  affiliateProduct={{
+    product: MONETIZATION.affiliates.quickbooks.label,
+    description: 'Track expenses, maximize deductions, and estimate self-employment taxes automatically.',
+    url: MONETIZATION.affiliates.quickbooks.url,
+    category: 'freelance',
+    badge: 'Recommended',
+  }}
+>
+  <SelfEmploymentTaxCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Self-Employment Tax Works</h2>
+        <p>If you work for yourself as a freelancer, consultant, or sole proprietor, you are responsible for paying self-employment tax. This covers Social Security and Medicare — the same taxes that W-2 employees split with their employer. The difference is that you pay both halves.</p>
+        <h3>The 92.35% Rule</h3>
+        <p>The IRS only taxes 92.35% of your net self-employment income. This adjustment mirrors the fact that employers pay half of FICA taxes and that portion is not taxed. So on $100,000 of net SE income, only $92,350 is subject to SE tax.</p>
+        <h3>Social Security vs Medicare</h3>
+        <p>The 15.3% SE tax rate breaks down into two parts: 12.4% for Social Security (capped at $168,600 in wages for 2024) and 2.9% for Medicare (no cap). If your income exceeds $200,000 (single) or $250,000 (married filing jointly), you also owe an additional 0.9% Medicare tax on the excess.</p>
+        <h3>The 50% Deduction</h3>
+        <p>You can deduct half of your self-employment tax when calculating your adjusted gross income. This deduction reduces your income tax but does not reduce your SE tax itself. It goes on line 15 of Schedule 1 (Form 1040).</p>
+        <h3>Schedule SE</h3>
+        <p>Schedule SE is the IRS form that calculates your self-employment tax. The short version (Section A) works for most self-employed individuals with net earnings under $168,600. If your income is higher or you have church employee income, you will need the long version (Section B).</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>
