@@ -6,7 +6,7 @@
 
 ## What's Live
 
-**37 calculators** across **5 categories**, **105 routes** (68 indexable + 37 embeds + 1 SSR API endpoint)
+**37 calculators** across **5 categories**, **110 routes** (73 indexable + 37 embeds + 1 SSR API endpoint)
 
 ### Freelance (8) — Cyan
 | Calculator | Slug |
@@ -68,7 +68,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 14 articles (8 pillar + 6 Phase B1)
+- Blog index (`/blog`) + 19 articles (8 pillar + 6 Phase B1 + 5 Phase B2)
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -224,6 +224,15 @@
 - [x] Creator index: 13 calculators, removed Coming Soon section
 - [x] Homepage: updated counts to 37 calculators, 13 creator
 - [x] OG images: all 4 new calculators with creator magenta backgrounds
+
+### Phase B2 — Blog: Hub Posts & Strategy Guides (5 posts)
+- [x] Freelance Pricing Strategies — hourly vs project vs value-based, links to project-rate + value-based-pricing calculators
+- [x] Best Platforms for Selling Digital Products — Gumroad vs POD vs courses, links to gumroad + print-on-demand + online-course calculators
+- [x] Gig Delivery Apps Compared — DoorDash vs Instacart vs Amazon Flex, links to instacart + amazon-flex calculators
+- [x] Freelance Retirement Planning — Solo 401(k), SEP-IRA, IRA comparison, links to freelance-retirement calculator
+- [x] Emergency Fund on Irregular Income — stability multipliers, savings strategies, links to emergency-fund calculator
+- [x] All 5 posts use `calculatorSlugs` (array) frontmatter
+- [x] Internal links to related existing blog posts in each article
 
 ## What's NOT Done
 

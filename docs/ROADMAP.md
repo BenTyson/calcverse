@@ -19,8 +19,8 @@
 | 9. Creator Deepening | DONE | Sponsorship Rate, Print-on-Demand, Online Course, Newsletter Revenue |
 | 6. Polish & Scale | NEXT | Analytics, Mediavine, backlinks |
 | B1. Blog: High-Volume Deep-Dives | DONE | 6 posts: TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy |
-| B2. Blog: Hub Posts & Strategy | NEXT | 5 hub posts linking multiple calculators |
-| B3. Blog: Creator Deep-Dives | TODO | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
+| B2. Blog: Hub Posts & Strategy | DONE | 5 hub posts linking multiple calculators |
+| B3. Blog: Creator Deep-Dives | NEXT | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
 | B4. Blog: Side Hustle & Gig Niche | TODO | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
 | B5. Blog: Remaining & Linking | TODO | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
 
@@ -99,25 +99,17 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 ## Blog Content Roadmap
 
-14 of 37 calculators have companion blog posts. 23 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
+19 of 37 calculators have companion blog posts. 18 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
 
-**Current coverage (14 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy.
+**Current coverage (19 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy, Freelance Pricing (hub), Digital Products (hub), Gig Delivery Apps (hub), Freelance Retirement, Emergency Fund.
 
 ### Phase B1: High-Volume Deep-Dives (6 posts) — DONE
 
 6 single-calc deep-dives covering highest search volume uncovered topics. Backlinks added to 6 existing posts.
 
-### Phase B2: Hub Posts & Strategy Guides (5 posts)
+### Phase B2: Hub Posts & Strategy Guides (5 posts) — DONE
 
-Cluster content linking multiple calculators. Better SEO than thin single-calc posts.
-
-| Post Title | Category | Calculator(s) | Angle |
-|-----------|----------|---------------|-------|
-| How to Price Freelance Projects: Hourly, Project, and Value-Based | freelance | project-rate-calculator, value-based-pricing-calculator | Three pricing models compared, when each works |
-| Best Platforms for Selling Digital Products in 2026 | creator | gumroad-calculator, print-on-demand-profit-calculator, online-course-revenue-calculator | Fee comparison, audience types, which to pick |
-| Gig Delivery Apps Compared: DoorDash vs Instacart vs Amazon Flex | gig-economy | instacart-calculator, amazon-flex-calculator | Earnings/hr after expenses, multi-apping strategy |
-| Freelance Retirement Planning: Solo 401(k), SEP-IRA, and Your Options | freelance | freelance-retirement-calculator | Account comparison, max contributions, tax advantages |
-| How to Build an Emergency Fund When Your Income Is Irregular | finance | emergency-fund-calculator | Variable income challenges, stability multiplier approach |
+5 hub posts linking multiple calculators: Freelance Pricing Strategies, Best Platforms for Digital Products, Gig Delivery Apps Compared, Freelance Retirement Planning, Emergency Fund on Irregular Income.
 
 ### Phase B3: Creator Economy Deep-Dives (5 posts)
 
@@ -158,7 +150,7 @@ Last calculators covered. Hub/strategy angles make them substantive.
 | Phase | Posts | New Calcs Covered | Cumulative |
 |-------|-------|-------------------|------------|
 | B1: High-Volume Deep-Dives | 6 | 6 | 6/29 (DONE) |
-| B2: Hub Posts & Strategy | 5 | 8 | 14/29 |
+| B2: Hub Posts & Strategy | 5 | 8 | 14/29 (DONE) |
 | B3: Creator Deep-Dives | 5 | 6 | 20/29 |
 | B4: Side Hustle & Gig Niche | 4 | 5 | 25/29 |
 | B5: Remaining & Linking | 4 | 6 | 29/29 |
@@ -192,7 +184,7 @@ Phase 7 (Side Hustle Buildout) — DONE
 Phase 8 (Freelance Business) — DONE
 Phase 9 (Creator Deepening) — DONE
 Phase 6 — NEXT
-Blog B1 (DONE) → B2 → B3 → B4 → B5 (can run in parallel with Phase 6)
+Blog B1 (DONE) → B2 (DONE) → B3 → B4 → B5 (can run in parallel with Phase 6)
 ```
 
 ## Verification After Each Phase
