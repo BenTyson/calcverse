@@ -6,7 +6,7 @@
 
 ## What's Live
 
-**37 calculators** across **5 categories**, **118 routes** (81 indexable + 37 embeds + 1 SSR API endpoint)
+**37 calculators** across **5 categories**, **117 routes** (79 indexable + 37 embeds + 1 SSR API endpoint)
 
 ### Freelance (8) — Cyan
 | Calculator | Slug |

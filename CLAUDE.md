@@ -5,7 +5,7 @@ SEO-driven calculator site for freelancers, creators, and gig workers. Generates
 **Domain:** calcfalcon.com
 **Stack:** Astro 5 (SSG + SSR hybrid) + React 19 + Tailwind CSS 4
 **Hosting:** Railway (auto-deploy from main)
-**Live:** 37 calculators, 110 pages, 6 sections (5 calculator categories + blog)
+**Live:** 37 calculators, 116 pages (79 indexable + 37 embeds), 6 sections (5 calculator categories + blog)
 
 ## Commands
 
@@ -63,7 +63,7 @@ Every calculator has 3 files:
 
 - **Primary:** Electric Cyan (#06b6d4) — use `primary-*` classes
 - **Categories:** Freelance=`freelance-*` (Cyan), Creator=`creator-*` (Magenta), Gig=`gig-*` (Emerald), SideHustle=`sidehustle-*` (Purple), Finance=`finance-*` (Amber)
-- **Font:** Inter (Google Fonts)
+- **Font:** Inter (self-hosted WOFF2)
 - **Cards:** `card-elevated`, `card-elevated-lg`
 - **Gradients:** `text-gradient`, `bg-gradient-[category]`
 - **NEVER** use `brand-*` classes — they don't exist. Use `primary-*` instead.
