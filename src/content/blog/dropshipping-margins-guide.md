@@ -1,7 +1,7 @@
 ---
 title: "How to Start a Dropshipping Business: Real Margins"
 description: "Dropshipping profit margins after platform fees, ad spend, returns, and refunds. Real numbers on Shopify, WooCommerce, and Amazon with break-even analysis."
-publishedDate: 2026-05-26
+publishedDate: 2026-02-22
 category: side-hustle
 calculatorSlug: /side-hustle/dropshipping-margin-calculator
 ---

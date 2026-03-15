@@ -22,7 +22,7 @@
 | B2. Blog: Hub Posts & Strategy | DONE | 5 hub posts linking multiple calculators |
 | B3. Blog: Creator Deep-Dives | DONE | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
 | B4. Blog: Side Hustle & Gig Niche | DONE | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
-| B5. Blog: Remaining & Linking | NEXT | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
+| B5. Blog: Remaining & Linking | DONE | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
 
 ## Phase 0: Manual/External Steps (User Action)
 
@@ -99,9 +99,7 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 ## Blog Content Roadmap
 
-29 of 37 calculators have companion blog posts. 8 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
-
-**Current coverage (28 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy, Freelance Pricing (hub), Digital Products (hub), Gig Delivery Apps (hub), Freelance Retirement, Emergency Fund, Substack/Beehiiv/ConvertKit (hub), Podcast Sponsorships, Ko-fi/Patreon/BMAC, Sponsorship Rate Guide, Online Course Earnings, Reselling Profit, TaskRabbit vs Turo (hub), Freelance Writing Rates, Dropshipping Margins.
+All 37 calculators have companion blog posts (32 posts total — some hub posts cover multiple calculators). Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
 
 ### Phase B1: High-Volume Deep-Dives (6 posts) — DONE
 
@@ -119,16 +117,9 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 4 side hustle and gig niche posts: Reselling Profit (eBay/Poshmark/Mercari fee comparison), TaskRabbit vs Turo (active vs passive gig models), Freelance Writing Rates 2026 (per-word/article/hour benchmarks), Dropshipping Margins (real unit economics). Backlinks added to 7 existing posts.
 
-### Phase B5: Remaining Niche & Internal Linking (4 posts)
+### Phase B5: Remaining Niche & Internal Linking (4 posts) — DONE
 
-Last calculators covered. Hub/strategy angles make them substantive.
-
-| Post Title | Category | Calculator(s) | Angle |
-|-----------|----------|---------------|-------|
-| How to Start a Tutoring Side Hustle (And What You Can Earn) | side-hustle | tutoring-income-calculator | Platform comparison, rates by subject |
-| The True Cost of Meetings (And Why Freelancers Should Track Them) | freelance | meeting-cost-calculator, freelance-vacation-calculator | Opportunity cost + vacation fund as flip side |
-| Subscription Audit: How to Find and Cut Forgotten Subscriptions | finance | subscription-audit-calculator | Priority framework, annual savings potential |
-| Print-on-Demand in 2026: Printful vs Printify vs Merch by Amazon | creator | print-on-demand-profit-calculator | Per-unit cost modeling, when POD vs inventory |
+4 final posts covering remaining calculators: Tutoring Side Hustle, True Cost of Meetings (hub: meeting-cost + vacation), Subscription Audit, Print-on-Demand 2026. Backlinks added to 8 existing posts. All 37 calculators now have blog coverage.
 
 ### Blog Roadmap Summary
 
@@ -138,8 +129,8 @@ Last calculators covered. Hub/strategy angles make them substantive.
 | B2: Hub Posts & Strategy | 5 | 8 | 14/29 (DONE) |
 | B3: Creator Deep-Dives | 5 | 6 | 20/29 (DONE) |
 | B4: Side Hustle & Gig Niche | 4 | 5 | 25/29 (DONE) |
-| B5: Remaining & Linking | 4 | 6 | 29/29 |
-| **Total** | **24** | **29** | **All covered** |
+| B5: Remaining & Linking | 4 | 6 | 29/29 (DONE) |
+| **Total** | **24** | **29** | **All covered (DONE)** |
 
 Post types: 7 hub/cluster posts (2-3 calcs each), 17 single-calc deep-dives.
 
@@ -169,7 +160,7 @@ Phase 7 (Side Hustle Buildout) — DONE
 Phase 8 (Freelance Business) — DONE
 Phase 9 (Creator Deepening) — DONE
 Phase 6 — NEXT
-Blog B1 (DONE) → B2 (DONE) → B3 (DONE) → B4 (DONE) → B5 (can run in parallel with Phase 6)
+Blog B1 (DONE) → B2 (DONE) → B3 (DONE) → B4 (DONE) → B5 (DONE)
 ```
 
 ## Verification After Each Phase

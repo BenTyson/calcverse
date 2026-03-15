@@ -1,7 +1,7 @@
 ---
 title: "How Much Can You Make Selling Online Courses?"
 description: "Online course revenue by platform — Teachable's 5%, Udemy's 63% cut, Skillshare royalties, and self-hosted margins. Real earnings math for course creators."
-publishedDate: 2026-04-28
+publishedDate: 2026-02-09
 category: creator
 calculatorSlug: /creator/online-course-revenue-calculator
 ---

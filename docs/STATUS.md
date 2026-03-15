@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-15 (Phase B4 complete)
+**Last Updated:** 2026-03-15 (Phase B5 complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**37 calculators** across **5 categories**, **114 routes** (77 indexable + 37 embeds + 1 SSR API endpoint)
+**37 calculators** across **5 categories**, **118 routes** (81 indexable + 37 embeds + 1 SSR API endpoint)
 
 ### Freelance (8) — Cyan
 | Calculator | Slug |
@@ -68,7 +68,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 28 articles (8 pillar + 6 Phase B1 + 5 Phase B2 + 5 Phase B3 + 4 Phase B4)
+- Blog index (`/blog`) + 32 articles (8 pillar + 6 Phase B1 + 5 Phase B2 + 5 Phase B3 + 4 Phase B4 + 4 Phase B5)
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -248,6 +248,14 @@
 - [x] Freelance Writing Rates in 2026: Per Word, Per Article, and Per Hour — rate benchmarks, niche premiums, hidden time
 - [x] How to Start a Dropshipping Business: Real Margins — unit economics, ROAS, returns as margin killers
 - [x] Backlinks added to 7 existing posts (Etsy, Side Hustle Taxes, Gig Delivery, Airbnb, Freelance Rate, Pricing Strategies, Digital Products)
+
+### Phase B5 — Blog: Remaining Niche & Internal Linking (4 posts)
+- [x] How to Start a Tutoring Side Hustle (And What You Can Earn) — platform comparison, rates by subject, prep time
+- [x] The True Cost of Meetings (And Why Freelancers Should Track Them) — hub post: meeting cost + vacation calculator, opportunity cost
+- [x] Subscription Audit: How to Find and Cut Forgotten Subscriptions — priority framework, compound savings
+- [x] Print-on-Demand in 2026: Printful vs Printify vs Merch by Amazon — per-unit cost modeling, marketplace fees
+- [x] Backlinks added to 8 existing posts (Writing Rates, Side Hustle Taxes, Pricing Strategies, Freelance Rate, Emergency Fund, FIRE Guide, Digital Products, Etsy Fees)
+- [x] All 37 calculators now have companion blog coverage (32 posts total)
 
 ## What's NOT Done
 

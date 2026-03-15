@@ -61,7 +61,7 @@ The [print-on-demand calculator](/creator/print-on-demand-profit-calculator) mod
 
 The median POD seller earns less than $500 per month. The ones who earn $2,000 or more per month typically have 10 or more active designs, sell across multiple product types (not just t-shirts), and invest in paid advertising or have an organic traffic source. If you are considering dropshipping as an alternative to print-on-demand, our [dropshipping margins guide](/blog/dropshipping-margins-guide) breaks down the unit economics and platform fee comparison.
 
-A POD business selling 20 shirts per month at $29 each through their own store on Printful nets roughly $331 per month (after production and shipping costs). Through Etsy, that drops to about $270 per month after marketplace fees. These are real margins on real volume — not hypothetical best cases.
+A POD business selling 20 shirts per month at $29 each through their own store on Printful nets roughly $331 per month (after production and shipping costs). Through Etsy, that drops to about $270 per month after marketplace fees. These are real margins on real volume — not hypothetical best cases. For a deeper dive into POD platform economics — including Printify's multi-provider model and Merch by Amazon's tier system — our [print-on-demand guide](/blog/print-on-demand-2026) covers per-unit cost modeling across all three providers.
 
 Ad spend can make or break POD profitability. A $200 per month ad budget on 20 monthly sales means $10 in customer acquisition cost per sale. On a shirt with $16.55 in margin, that leaves $6.55 in actual profit. Returns (typically 3 to 5 percent) eat into that further.
 

@@ -1,7 +1,7 @@
 ---
 title: "How Much Do Podcasters Make From Sponsorships? (2026 Rates)"
 description: "Real podcast sponsorship CPM rates by niche and ad placement — what pre-roll, mid-roll, and post-roll ads actually pay, plus the 5K download threshold."
-publishedDate: 2026-04-07
+publishedDate: 2026-01-31
 category: creator
 calculatorSlug: /creator/podcast-calculator
 ---

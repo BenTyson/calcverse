@@ -1,7 +1,7 @@
 ---
 title: "Freelance Retirement Planning: Solo 401(k), SEP-IRA, and Your Options"
 description: "Compare Solo 401(k), SEP-IRA, Traditional IRA, and Roth IRA for freelancers. Contribution limits, tax savings, and how to choose the right retirement account."
-publishedDate: 2026-03-21
+publishedDate: 2026-01-19
 category: freelance
 calculatorSlugs:
   - /freelance/freelance-retirement-calculator

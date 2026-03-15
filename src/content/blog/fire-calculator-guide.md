@@ -24,7 +24,7 @@ The "multiply by 25" shortcut is just the inverse of the 4% withdrawal rate. If 
 
 This is the part that trips people up. Your FIRE number is based on what you spend, not what you earn. Someone making $200,000 who spends $60,000 has the same FIRE number as someone making $80,000 who spends $60,000. The difference is that the high earner can save a much larger percentage of their income and reach the target faster.
 
-This is also why cutting expenses has a double effect on your FIRE timeline. Spend $5,000 less per year and your FIRE number drops by $125,000 (that is $5,000 times 25). At the same time, you free up $5,000 more per year to invest. The math compounds in both directions.
+This is also why cutting expenses has a double effect on your FIRE timeline. Spend $5,000 less per year and your FIRE number drops by $125,000 (that is $5,000 times 25). At the same time, you free up $5,000 more per year to invest. The math compounds in both directions. One of the easiest places to find recurring savings is a [subscription audit](/blog/subscription-audit-guide) — most households are spending $50 to $150 per month on subscriptions they no longer use, and redirecting that money accelerates your FIRE timeline on both sides of the equation.
 
 ## The 4% Rule — What It Actually Means
 

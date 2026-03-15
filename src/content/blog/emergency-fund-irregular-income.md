@@ -1,7 +1,7 @@
 ---
 title: "How to Build an Emergency Fund When Your Income Is Irregular"
 description: "A practical guide to building an emergency fund on freelance or gig income. How much you need, where to keep it, and strategies for saving on variable earnings."
-publishedDate: 2026-03-24
+publishedDate: 2026-01-24
 category: finance
 calculatorSlugs:
   - /personal-finance/emergency-fund-calculator
@@ -119,4 +119,8 @@ When you draw from your emergency fund, make replenishing it a top priority. Inc
 
 The hardest part is the first month. Open a high-yield savings account (Ally, Marcus, Discover, or any competitive option), set up automatic transfers from your checking account, and start with whatever you can. If $500 per month feels like too much, start with $200. The compound effect of consistent saving — plus 4.5 to 5.0 percent HYSA interest — adds up faster than most people expect.
 
-Use the [emergency fund calculator](/personal-finance/emergency-fund-calculator) to set your target based on your actual monthly expenses, income stability, dependents, and partner income. Having a concrete number — not "I should save more" but "$21,000 by December 2028" — transforms vague financial anxiety into a trackable goal. And for freelancers in particular, the peace of mind that comes with knowing you can survive 6 to 9 months without income is worth more than the interest you would earn investing that money elsewhere.
+Use the [emergency fund calculator](/personal-finance/emergency-fund-calculator) to set your target based on your actual monthly expenses, income stability, dependents, and partner income. Having a concrete number — not "I should save more" but "$21,000 by December 2028" — transforms vague financial anxiety into a trackable goal.
+
+One quick way to accelerate your emergency fund: audit your subscriptions. Most people are spending $50 to $150 per month on subscriptions they forgot about or no longer use. Our [subscription audit guide](/blog/subscription-audit-guide) walks through a framework for finding and cutting those charges — and redirecting the savings into your emergency fund.
+
+For freelancers in particular, the peace of mind that comes with knowing you can survive 6 to 9 months without income is worth more than the interest you would earn investing that money elsewhere.

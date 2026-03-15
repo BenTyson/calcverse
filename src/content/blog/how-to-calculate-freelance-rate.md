@@ -132,6 +132,6 @@ If you are significantly underpriced, do not try to correct it in one jump. Two 
 
 Setting your freelance rate is not a one-time calculation. It is an ongoing practice that reflects your costs, your market, your skills, and the value you create. But the math has to start from reality, not from a salary divided by 2,080.
 
-Account for self-employment tax. Factor in the benefits your employer used to cover. Be honest about how many hours you can actually bill. Add your operating expenses. Include a margin for profit and risk. Then pressure-test that number against the market and your confidence level.
+Account for self-employment tax. Factor in the benefits your employer used to cover. Be honest about how many hours you can actually bill. Add your operating expenses. Include a margin for profit and risk. And do not forget to budget for time off — our [guide to meeting costs and vacation planning](/blog/freelance-meeting-cost) covers how non-billable time (meetings, prep, and vacation) should factor into your rate. Then pressure-test that number against the market and your confidence level.
 
 The [freelance hourly rate calculator](/freelance/hourly-rate-calculator) walks through each of these variables and shows you exactly what rate you need to charge. It is a better starting point than a guess — and a much better starting point than your old salary divided by hours.

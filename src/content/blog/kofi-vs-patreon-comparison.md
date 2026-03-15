@@ -1,7 +1,7 @@
 ---
 title: "Ko-fi vs Patreon vs Buy Me a Coffee: Which Pays Best?"
 description: "Fee comparison between Ko-fi (0-5%), Patreon (5-12%), and Buy Me a Coffee (5%) — plus Ko-fi Gold break-even math and which platform fits your creator type."
-publishedDate: 2026-04-14
+publishedDate: 2026-02-02
 category: creator
 calculatorSlug: /creator/kofi-calculator
 ---

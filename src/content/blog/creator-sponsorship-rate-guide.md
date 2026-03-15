@@ -1,7 +1,7 @@
 ---
 title: "How to Set Your Sponsorship Rate as a Creator"
 description: "Calculate your sponsorship rate using CPE and CPM models — niche multipliers, exclusivity premiums, usage rights, and negotiation tactics for brand deals."
-publishedDate: 2026-04-21
+publishedDate: 2026-02-07
 category: creator
 calculatorSlug: /creator/sponsorship-rate-calculator
 ---

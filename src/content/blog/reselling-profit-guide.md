@@ -1,7 +1,7 @@
 ---
 title: "Reselling for Profit: eBay, Poshmark, and Mercari Fee Breakdown"
 description: "Compare reselling fees across eBay, Poshmark, Mercari, and FB Marketplace. Real profit margins, ROI math, and what most resellers get wrong."
-publishedDate: 2026-05-05
+publishedDate: 2026-02-11
 category: side-hustle
 calculatorSlug: /side-hustle/reselling-profit-calculator
 ---
