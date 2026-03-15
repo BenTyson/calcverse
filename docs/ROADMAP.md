@@ -20,14 +20,14 @@
 | 6. Polish & Scale | NEXT | Analytics, Mediavine, backlinks |
 | B1. Blog: High-Volume Deep-Dives | DONE | 6 posts: TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy |
 | B2. Blog: Hub Posts & Strategy | DONE | 5 hub posts linking multiple calculators |
-| B3. Blog: Creator Deep-Dives | NEXT | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
-| B4. Blog: Side Hustle & Gig Niche | TODO | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
+| B3. Blog: Creator Deep-Dives | DONE | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
+| B4. Blog: Side Hustle & Gig Niche | NEXT | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
 | B5. Blog: Remaining & Linking | TODO | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
 
 ## Phase 0: Manual/External Steps (User Action)
 
 - [ ] Configure calcfalcon.com DNS → Railway
-- [ ] Sign up for Umami analytics (self-hosted)
+- [x] Sign up for Umami analytics (self-hosted) — DONE
 - [ ] Sign up for Resend (email)
 - [ ] Google Search Console — verify domain, submit sitemap
 - [ ] AdSense application (after domain + 30 pages + 1K visits)
@@ -99,9 +99,9 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 ## Blog Content Roadmap
 
-19 of 37 calculators have companion blog posts. 18 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
+25 of 37 calculators have companion blog posts. 12 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
 
-**Current coverage (19 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy, Freelance Pricing (hub), Digital Products (hub), Gig Delivery Apps (hub), Freelance Retirement, Emergency Fund.
+**Current coverage (24 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy, Freelance Pricing (hub), Digital Products (hub), Gig Delivery Apps (hub), Freelance Retirement, Emergency Fund, Substack/Beehiiv/ConvertKit (hub), Podcast Sponsorships, Ko-fi/Patreon/BMAC, Sponsorship Rate Guide, Online Course Earnings.
 
 ### Phase B1: High-Volume Deep-Dives (6 posts) — DONE
 
@@ -111,17 +111,9 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 5 hub posts linking multiple calculators: Freelance Pricing Strategies, Best Platforms for Digital Products, Gig Delivery Apps Compared, Freelance Retirement Planning, Emergency Fund on Irregular Income.
 
-### Phase B3: Creator Economy Deep-Dives (5 posts)
+### Phase B3: Creator Economy Deep-Dives (5 posts) — DONE
 
-Remaining creator platforms. Strong social sharing potential.
-
-| Post Title | Category | Calculator(s) | Angle |
-|-----------|----------|---------------|-------|
-| Substack vs Beehiiv vs ConvertKit: Newsletter Revenue Compared | creator | substack-calculator, newsletter-revenue-calculator | Platform fees head-to-head, paid newsletter economics |
-| How Much Do Podcasters Make From Sponsorships? (2026 Rates) | creator | podcast-calculator | CPM rates by niche, download thresholds |
-| Ko-fi vs Patreon vs Buy Me a Coffee: Which Pays Best? | creator | kofi-calculator | Fee comparison, one-time vs recurring models |
-| How to Set Your Sponsorship Rate as a Creator | creator | sponsorship-rate-calculator | CPE vs CPM pricing, niche multipliers, negotiation |
-| How Much Can You Make Selling Online Courses? | creator | online-course-revenue-calculator | Teachable vs Udemy vs Skillshare economics |
+5 creator deep-dives: Substack/Beehiiv/ConvertKit comparison, podcast sponsorship earnings, Ko-fi/Patreon/BMAC comparison, sponsorship rate guide, online course earnings. Cross-links added to 4 existing posts.
 
 ### Phase B4: Side Hustle & Gig Niche (4 posts)
 
@@ -151,7 +143,7 @@ Last calculators covered. Hub/strategy angles make them substantive.
 |-------|-------|-------------------|------------|
 | B1: High-Volume Deep-Dives | 6 | 6 | 6/29 (DONE) |
 | B2: Hub Posts & Strategy | 5 | 8 | 14/29 (DONE) |
-| B3: Creator Deep-Dives | 5 | 6 | 20/29 |
+| B3: Creator Deep-Dives | 5 | 6 | 20/29 (DONE) |
 | B4: Side Hustle & Gig Niche | 4 | 5 | 25/29 |
 | B5: Remaining & Linking | 4 | 6 | 29/29 |
 | **Total** | **24** | **29** | **All covered** |
@@ -184,7 +176,7 @@ Phase 7 (Side Hustle Buildout) — DONE
 Phase 8 (Freelance Business) — DONE
 Phase 9 (Creator Deepening) — DONE
 Phase 6 — NEXT
-Blog B1 (DONE) → B2 (DONE) → B3 → B4 → B5 (can run in parallel with Phase 6)
+Blog B1 (DONE) → B2 (DONE) → B3 (DONE) → B4 → B5 (can run in parallel with Phase 6)
 ```
 
 ## Verification After Each Phase

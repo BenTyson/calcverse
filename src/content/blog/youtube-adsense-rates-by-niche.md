@@ -126,7 +126,7 @@ Plug your niche, view count, and audience geography into the [YouTube AdSense ca
 
 ## Beyond AdSense: Why Diversification Matters
 
-The most successful YouTube creators treat AdSense as their baseline, not their ceiling. Across niches, the revenue stack typically looks like this: AdSense provides 20-40% of total income, sponsorships and brand deals provide 30-50%, and the remainder comes from merchandise, courses, memberships, affiliate marketing, or Patreon.
+The most successful YouTube creators treat AdSense as their baseline, not their ceiling. Across niches, the revenue stack typically looks like this: AdSense provides 20-40% of total income, sponsorships and brand deals provide 30-50%, and the remainder comes from merchandise, courses, memberships, affiliate marketing, or Patreon. For creators who also run a podcast, [sponsorship CPM rates](/blog/podcaster-sponsorship-earnings) follow a similar niche hierarchy.
 
 If you are exploring short-form content alongside YouTube, our [TikTok creator earnings breakdown](/blog/tiktok-creator-earnings) covers what the Creator Fund, brand deals, and LIVE gifts actually pay — and why the per-view economics are so different from YouTube's ad model.
 

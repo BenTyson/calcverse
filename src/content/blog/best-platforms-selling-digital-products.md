@@ -25,7 +25,7 @@ For comparison, Gumroad's competitors vary. Payhip charges 5 percent on its free
 
 ### What actually drives Gumroad revenue
 
-The creators who earn meaningful income on Gumroad (more than $1,000 per month) share two traits: they have an existing audience, and they sell multiple products. Gumroad does not drive discovery — there is no algorithm sending traffic to your product page. You bring the traffic through your newsletter, social media, or content marketing.
+The creators who earn meaningful income on Gumroad (more than $1,000 per month) share two traits: they have an existing audience, and they sell multiple products. Gumroad does not drive discovery — there is no algorithm sending traffic to your product page. You bring the traffic through your newsletter, social media, or content marketing. If you are building a newsletter as your primary distribution channel, our [newsletter platform comparison](/blog/substack-vs-beehiiv-newsletter-revenue) covers what each platform costs.
 
 A typical Gumroad seller with 1,000 email subscribers, a 2 percent conversion rate, and a $29 product earns roughly $580 per product launch. That is not life-changing money from a single product, but creators who build a catalog of 5 to 10 products and launch to a growing list can compound that into $2,000 to $5,000 per month.
 

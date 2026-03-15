@@ -1,6 +1,6 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-14
+**Last Updated:** 2026-03-14 (Phase B3 complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
@@ -68,7 +68,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 19 articles (8 pillar + 6 Phase B1 + 5 Phase B2)
+- Blog index (`/blog`) + 24 articles (8 pillar + 6 Phase B1 + 5 Phase B2 + 5 Phase B3)
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -234,9 +234,16 @@
 - [x] All 5 posts use `calculatorSlugs` (array) frontmatter
 - [x] Internal links to related existing blog posts in each article
 
+### Phase B3 — Blog: Creator Economy Deep-Dives (5 posts)
+- [x] Substack vs Beehiiv vs ConvertKit: Newsletter Revenue Compared — platform fee head-to-head, paid newsletter economics
+- [x] How Much Do Podcasters Make From Sponsorships? (2026 Rates) — CPM rates by niche, download thresholds
+- [x] Ko-fi vs Patreon vs Buy Me a Coffee: Which Pays Best? — fee comparison, one-time vs recurring models
+- [x] How to Set Your Sponsorship Rate as a Creator — CPE vs CPM pricing, niche multipliers, negotiation
+- [x] How Much Can You Make Selling Online Courses? — Teachable vs Udemy vs Skillshare economics
+- [x] Internal cross-links added to 4 existing posts (Patreon, YouTube AdSense, TikTok, Digital Products)
+
 ## What's NOT Done
 
-- No analytics (decision: Umami self-hosted)
 - No custom domain configured (DNS + Railway — manual step)
 - No Google Search Console submission
 - Resend API key not configured (manual: see `docs/ben.md`)
