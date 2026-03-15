@@ -138,7 +138,7 @@ For a broader overview of how self-employment and side hustle income gets taxed,
 
 ## Is Airbnb Hosting Actually Worth It?
 
-The honest answer depends on three variables: your property costs, your local market, and your tolerance for the operational work involved.
+The honest answer depends on three variables: your property costs, your local market, and your tolerance for the operational work involved. If you are comparing Airbnb with other asset-based gig income, our [TaskRabbit vs Turo guide](/blog/taskrabbit-vs-turo-side-hustles) explores how car rental economics compare to property rental.
 
 ### When It Works Well
 

@@ -24,7 +24,7 @@ There are also friction costs that do not show up on the invoice. Tracking time 
 
 Hourly pricing works best when the scope is genuinely open-ended — ongoing advisory work, bug fixes on an existing codebase, or consulting where you are not sure how deep the rabbit hole goes. It also works early in your career when you are still building a portfolio and do not yet have the leverage to command project or value-based fees.
 
-If you are trying to determine your hourly baseline, our guide on [how to calculate your freelance rate](/blog/how-to-calculate-freelance-rate) walks through the math of covering your expenses, taxes, and profit margin.
+If you are trying to determine your hourly baseline, our guide on [how to calculate your freelance rate](/blog/how-to-calculate-freelance-rate) walks through the math of covering your expenses, taxes, and profit margin. For writers entering the market, our [freelance writing rates guide](/blog/freelance-writing-rates-2026) provides rate benchmarks and niche premium data for 2026.
 
 ### Setting the right hourly rate
 

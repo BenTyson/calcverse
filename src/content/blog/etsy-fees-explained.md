@@ -97,7 +97,7 @@ To know if your Etsy shop is actually making money, you need to account for ever
 
 Start with your sale price. Subtract Etsy's mandatory fees (listing + transaction + payment processing), which typically total 10% to 13% of your sale price. Then subtract Offsite Ads fees if applicable (another 12% to 15% on affected orders — and roughly 10% to 20% of your total orders may come through Offsite Ads). Subtract your actual costs of goods sold: materials, packaging, and labor. Then subtract shipping costs (either your actual postage or the shipping you built into your price). Finally, set aside money for income taxes.
 
-For most Etsy sellers, total platform fees consume 12% to 25%+ of revenue, depending on Offsite Ads exposure. Materials and labor typically account for another 30% to 50%. Shipping runs 10% to 20%. That leaves a net profit margin of roughly 15% to 35% for well-run shops — and much less for sellers who haven't optimized their pricing.
+For most Etsy sellers, total platform fees consume 12% to 25%+ of revenue, depending on Offsite Ads exposure. Materials and labor typically account for another 30% to 50%. Shipping runs 10% to 20%. That leaves a net profit margin of roughly 15% to 35% for well-run shops — and much less for sellers who haven't optimized their pricing. If you're reselling secondhand or sourced items alongside handmade goods, our [reselling profit guide](/blog/reselling-profit-guide) compares margins across eBay, Poshmark, Mercari, and Facebook Marketplace.
 
 Our [Etsy Fee Calculator](/creator/etsy-fee-calculator) breaks down exactly what Etsy takes from each sale based on your item price, shipping cost, and advertising status. It's the fastest way to see your true margin.
 

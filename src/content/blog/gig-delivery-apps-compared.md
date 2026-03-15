@@ -136,6 +136,6 @@ You want predictable, guaranteed pay per shift. You have a vehicle with large ca
 
 ### Try all three
 
-The best strategy for most drivers is to try each platform for two weeks and compare your actual numbers. Hypothetical comparisons only go so far — your market, vehicle, schedule, and skills all affect which app pays best for you personally.
+The best strategy for most drivers is to try each platform for two weeks and compare your actual numbers. Hypothetical comparisons only go so far — your market, vehicle, schedule, and skills all affect which app pays best for you personally. If you are considering gig opportunities beyond delivery, our [TaskRabbit vs Turo comparison](/blog/taskrabbit-vs-turo-side-hustles) covers service-based and car rental side hustles.
 
 Plug your actual experience into the [Instacart calculator](/gig-economy/instacart-calculator) and [Amazon Flex calculator](/gig-economy/amazon-flex-calculator) to see your true net earnings after expenses. The difference between gross and net is where most drivers miscalculate what they are actually making.

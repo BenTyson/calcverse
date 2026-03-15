@@ -12,7 +12,7 @@ Most new freelancers calculate their rate the same way: take their old salary, d
 
 The problem is not the arithmetic. The problem is what the formula leaves out. As a W2 employee, your employer covered half your FICA taxes, chipped in for health insurance, funded your retirement match, paid you for holidays and vacation days, and absorbed overhead costs you never saw on a line item. When you go freelance, every one of those costs shifts to you. The $38.46 rate that felt like a lateral move is actually a steep pay cut.
 
-This guide walks through the real math behind setting a freelance rate that keeps you whole — and then some. If you want to skip ahead and run the numbers for your own situation, the [freelance hourly rate calculator](/freelance/hourly-rate-calculator) does the heavy lifting.
+This guide walks through the real math behind setting a freelance rate that keeps you whole — and then some. If you want to skip ahead and run the numbers for your own situation, the [freelance hourly rate calculator](/freelance/hourly-rate-calculator) does the heavy lifting. For writers specifically, our [freelance writing rates guide](/blog/freelance-writing-rates-2026) covers per-word, per-article, and per-hour benchmarks for 2026.
 
 ## The True Cost of Being Your Own Employer
 

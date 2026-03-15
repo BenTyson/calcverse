@@ -21,8 +21,8 @@
 | B1. Blog: High-Volume Deep-Dives | DONE | 6 posts: TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy |
 | B2. Blog: Hub Posts & Strategy | DONE | 5 hub posts linking multiple calculators |
 | B3. Blog: Creator Deep-Dives | DONE | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
-| B4. Blog: Side Hustle & Gig Niche | NEXT | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
-| B5. Blog: Remaining & Linking | TODO | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
+| B4. Blog: Side Hustle & Gig Niche | DONE | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
+| B5. Blog: Remaining & Linking | NEXT | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
 
 ## Phase 0: Manual/External Steps (User Action)
 
@@ -99,9 +99,9 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 ## Blog Content Roadmap
 
-25 of 37 calculators have companion blog posts. 12 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
+29 of 37 calculators have companion blog posts. 8 remain uncovered. Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
 
-**Current coverage (24 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy, Freelance Pricing (hub), Digital Products (hub), Gig Delivery Apps (hub), Freelance Retirement, Emergency Fund, Substack/Beehiiv/ConvertKit (hub), Podcast Sponsorships, Ko-fi/Patreon/BMAC, Sponsorship Rate Guide, Online Course Earnings.
+**Current coverage (28 posts):** Freelance Hourly Rate, Quarterly Tax, W2 vs 1099, YouTube AdSense, Etsy Fees, Twitch, DoorDash, Side Hustle Taxes (hub), TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy, Freelance Pricing (hub), Digital Products (hub), Gig Delivery Apps (hub), Freelance Retirement, Emergency Fund, Substack/Beehiiv/ConvertKit (hub), Podcast Sponsorships, Ko-fi/Patreon/BMAC, Sponsorship Rate Guide, Online Course Earnings, Reselling Profit, TaskRabbit vs Turo (hub), Freelance Writing Rates, Dropshipping Margins.
 
 ### Phase B1: High-Volume Deep-Dives (6 posts) — DONE
 
@@ -115,16 +115,9 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 5 creator deep-dives: Substack/Beehiiv/ConvertKit comparison, podcast sponsorship earnings, Ko-fi/Patreon/BMAC comparison, sponsorship rate guide, online course earnings. Cross-links added to 4 existing posts.
 
-### Phase B4: Side Hustle & Gig Niche (4 posts)
+### Phase B4: Side Hustle & Gig Niche (4 posts) — DONE
 
-Lower individual volume but underserved niches with less competition.
-
-| Post Title | Category | Calculator(s) | Angle |
-|-----------|----------|---------------|-------|
-| Reselling for Profit: eBay, Poshmark, and Mercari Fee Breakdown | side-hustle | reselling-profit-calculator | Platform fee comparison, realistic margins |
-| TaskRabbit vs Turo: Service and Rental Side Hustles Compared | gig-economy | taskrabbit-calculator, turo-calculator | Active vs passive gig models, startup costs |
-| Freelance Writing Rates in 2026: Per Word, Per Article, and Per Hour | side-hustle | freelance-writing-rate-calculator | Rate benchmarks by experience, niche premiums |
-| How to Start a Dropshipping Business: Real Margins | side-hustle | dropshipping-margin-calculator | Realistic margin breakdown, why most fail |
+4 side hustle and gig niche posts: Reselling Profit (eBay/Poshmark/Mercari fee comparison), TaskRabbit vs Turo (active vs passive gig models), Freelance Writing Rates 2026 (per-word/article/hour benchmarks), Dropshipping Margins (real unit economics). Backlinks added to 7 existing posts.
 
 ### Phase B5: Remaining Niche & Internal Linking (4 posts)
 
@@ -144,7 +137,7 @@ Last calculators covered. Hub/strategy angles make them substantive.
 | B1: High-Volume Deep-Dives | 6 | 6 | 6/29 (DONE) |
 | B2: Hub Posts & Strategy | 5 | 8 | 14/29 (DONE) |
 | B3: Creator Deep-Dives | 5 | 6 | 20/29 (DONE) |
-| B4: Side Hustle & Gig Niche | 4 | 5 | 25/29 |
+| B4: Side Hustle & Gig Niche | 4 | 5 | 25/29 (DONE) |
 | B5: Remaining & Linking | 4 | 6 | 29/29 |
 | **Total** | **24** | **29** | **All covered** |
 
@@ -176,7 +169,7 @@ Phase 7 (Side Hustle Buildout) — DONE
 Phase 8 (Freelance Business) — DONE
 Phase 9 (Creator Deepening) — DONE
 Phase 6 — NEXT
-Blog B1 (DONE) → B2 (DONE) → B3 (DONE) → B4 → B5 (can run in parallel with Phase 6)
+Blog B1 (DONE) → B2 (DONE) → B3 (DONE) → B4 (DONE) → B5 (can run in parallel with Phase 6)
 ```
 
 ## Verification After Each Phase

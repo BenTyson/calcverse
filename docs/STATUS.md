@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-14 (Phase B3 complete)
+**Last Updated:** 2026-03-15 (Phase B4 complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**37 calculators** across **5 categories**, **110 routes** (73 indexable + 37 embeds + 1 SSR API endpoint)
+**37 calculators** across **5 categories**, **114 routes** (77 indexable + 37 embeds + 1 SSR API endpoint)
 
 ### Freelance (8) — Cyan
 | Calculator | Slug |
@@ -68,7 +68,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 24 articles (8 pillar + 6 Phase B1 + 5 Phase B2 + 5 Phase B3)
+- Blog index (`/blog`) + 28 articles (8 pillar + 6 Phase B1 + 5 Phase B2 + 5 Phase B3 + 4 Phase B4)
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -241,6 +241,13 @@
 - [x] How to Set Your Sponsorship Rate as a Creator — CPE vs CPM pricing, niche multipliers, negotiation
 - [x] How Much Can You Make Selling Online Courses? — Teachable vs Udemy vs Skillshare economics
 - [x] Internal cross-links added to 4 existing posts (Patreon, YouTube AdSense, TikTok, Digital Products)
+
+### Phase B4 — Blog: Side Hustle & Gig Niche (4 posts)
+- [x] Reselling for Profit: eBay, Poshmark, and Mercari Fee Breakdown — platform fee walkthrough, $40 sale comparison
+- [x] TaskRabbit vs Turo: Service and Rental Side Hustles Compared — active vs passive, startup costs, scaling
+- [x] Freelance Writing Rates in 2026: Per Word, Per Article, and Per Hour — rate benchmarks, niche premiums, hidden time
+- [x] How to Start a Dropshipping Business: Real Margins — unit economics, ROAS, returns as margin killers
+- [x] Backlinks added to 7 existing posts (Etsy, Side Hustle Taxes, Gig Delivery, Airbnb, Freelance Rate, Pricing Strategies, Digital Products)
 
 ## What's NOT Done
 

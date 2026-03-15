@@ -51,7 +51,7 @@ Marketing costs including website hosting, domain registration, business cards, 
 
 ### Online Sellers (Etsy, eBay, Poshmark)
 
-Cost of goods sold is the big one. The materials, supplies, or inventory you purchase to sell are deducted from your revenue before calculating profit. Shipping supplies — boxes, tape, labels, poly mailers — are deductible. Platform fees (Etsy listing fees, transaction fees, payment processing fees) are deductible. If you rent a storage unit for inventory, that is deductible. Photography equipment or props used for product listings qualify as business expenses. Airbnb hosts have their own set of deductible expenses — our [Airbnb hosting profit guide](/blog/airbnb-hosting-profit) covers the full cost stack including the tax differences between Schedule C and Schedule E filing.
+Cost of goods sold is the big one. The materials, supplies, or inventory you purchase to sell are deducted from your revenue before calculating profit. Shipping supplies — boxes, tape, labels, poly mailers — are deductible. Platform fees (Etsy listing fees, transaction fees, payment processing fees) are deductible. If you rent a storage unit for inventory, that is deductible. Photography equipment or props used for product listings qualify as business expenses. For resellers focused on arbitrage and flipping, our [reselling profit guide](/blog/reselling-profit-guide) details the margin math across major platforms. Airbnb hosts have their own set of deductible expenses — our [Airbnb hosting profit guide](/blog/airbnb-hosting-profit) covers the full cost stack including the tax differences between Schedule C and Schedule E filing.
 
 ### Content Creators (YouTube, TikTok, Podcasting)
 
@@ -131,7 +131,7 @@ A good CPA for a side hustler typically costs $300 to $600 for annual tax prepar
 
 ## Building Toward Your Goals
 
-Taxes are a cost of doing business, but they are a manageable cost once you understand the rules. The combination of legitimate deductions, smart quarterly payment strategies, and proper record keeping can meaningfully reduce what you owe.
+Taxes are a cost of doing business, but they are a manageable cost once you understand the rules. The combination of legitimate deductions, smart quarterly payment strategies, and proper record keeping can meaningfully reduce what you owe. If your side hustle involves dropshipping, our [dropshipping margins guide](/blog/dropshipping-margins-guide) breaks down the real unit economics and tax-deductible expenses across Shopify, WooCommerce, and Amazon.
 
 If you are running a side hustle with a specific financial target in mind — paying off debt, building an emergency fund, saving for a down payment — the [side hustle goal calculator](/side-hustle/time-to-goal-calculator) can help you figure out how long it will take based on your current earnings pace. And as your side hustle grows, revisit your tax strategy each quarter. What worked at $10,000 a year in side income may need adjusting at $30,000.
 
