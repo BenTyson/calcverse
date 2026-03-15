@@ -4,25 +4,20 @@
 
 | Phase | Status | Focus |
 |-------|--------|-------|
-| 1. Tech Debt & Rebrand | DONE | Rebrand, domain, a11y, ErrorBoundary, hydration |
-| 2a. Chart Components | DONE | Recharts, DonutChart, BarComparisonChart, ProjectionChart, ChartCard |
-| 2b. Chart Integration | DONE | Charts in 7 calculators (Freelancer, Etsy, Ko-fi, Quarterly, W2v1099, YouTube, SideHustle) |
-| 2c. Result Enhancements | DONE | CopyResultsButton, count-up animation, Tooltip in all 16 calcs |
-| 3. Content System | DONE | Blog infrastructure, 8 articles, calculator content, about page |
-| 4. Monetization | DONE | Email capture, ad placements, affiliates, AdSense prep |
-| 5a. Personal Finance | DONE | FIRE, Emergency Fund, Rent vs Buy, Subscription Audit |
-| 5b. Gig Economy Expansion | DONE | Amazon Flex, TaskRabbit, Turo Profit |
-| 5c. Creator Expansion | DONE | TikTok Earnings, Gumroad Revenue |
-| 5d-5e. OG Images & Homepage | DONE | OG images for all 25 calculators, homepage featured refresh |
-| 7. Side Hustle Buildout | DONE | Reselling Profit, Freelance Writing Rate, Tutoring Income, Dropshipping Margin |
-| 8. Freelance Business | DONE | Freelance Retirement, Meeting Cost, Freelance Vacation, Value-Based Pricing |
-| 9. Creator Deepening | DONE | Sponsorship Rate, Print-on-Demand, Online Course, Newsletter Revenue |
+| 0. Manual/External Steps | IN PROGRESS | DNS, analytics, email, AdSense |
 | 6. Polish & Scale | NEXT | Analytics, Mediavine, backlinks |
-| B1. Blog: High-Volume Deep-Dives | DONE | 6 posts: TikTok, Uber/Lyft, Patreon, Airbnb, FIRE, Rent vs Buy |
-| B2. Blog: Hub Posts & Strategy | DONE | 5 hub posts linking multiple calculators |
-| B3. Blog: Creator Deep-Dives | DONE | 5 posts covering Substack, Podcast, Ko-fi, Sponsorship, Online Course |
-| B4. Blog: Side Hustle & Gig Niche | DONE | 4 posts covering Reselling, TaskRabbit/Turo, Writing Rates, Dropshipping |
-| B5. Blog: Remaining & Linking | DONE | 4 posts covering Tutoring, Meeting Cost, Subscription Audit, Print-on-Demand |
+| 10. Tax & Business Finance | PLANNED | SE Tax, Profit Margin, Capital Gains, Debt Payoff (~33K/mo) |
+| 11. Financial Planning | PLANNED | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
+| 12. Creator & Digital Business | PLANNED | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
+| 13. Business Operations | PLANNED | Late Payment, Cost Per Lead, Stock Options, 1099 Tax (~12K/mo) |
+| B6. Blog: Tax & Business | PLANNED | 4 posts paired with Phase 10 |
+| B7. Blog: Financial Planning | PLANNED | 4 posts paired with Phase 11 |
+| B8. Blog: Creator & Digital | PLANNED | 4 posts paired with Phase 12 |
+| B9. Blog: Business Operations | PLANNED | 4 posts paired with Phase 13 |
+
+> Completed phases (1-5, 7-9, B1-B5) archived in `docs/archive/ROADMAP-v1.md`
+
+---
 
 ## Phase 0: Manual/External Steps (User Action)
 
@@ -31,59 +26,6 @@
 - [ ] Sign up for Resend (email)
 - [ ] Google Search Console — verify domain, submit sitemap
 - [ ] AdSense application (after domain + 30 pages + 1K visits)
-
----
-
-## Phase 2: Data Visualization
-
-### 2a. Chart Components — DONE
-Recharts installed. 4 chart components + color utility created in `src/components/ui/charts/`.
-
-### 2b. Chart Integration — DONE
-Charts integrated into 7 calculators: FreelancerRate (donut), Etsy (donut), Ko-fi (donut, replaced old stacked bar), QuarterlyTax (stacked bar), W2vs1099 (side-by-side bar), YouTube (side-by-side bar), SideHustleGoal (projection + goal line).
-
-### 2c. Result Enhancements — DONE
-CopyResultsButton (lucide-react icons), useCountUp hook (rAF, prefers-reduced-motion), Tooltip component. Integrated into all 16 calculators. ResultCard supports `numericValue`/`formatFn` for opt-in animation. ResultBreakdown label accepts `React.ReactNode` for tooltips.
-
----
-
-## Phase 3: Content System & SEO Depth — DONE
-
-Blog infrastructure, 8 pillar articles, about page, calculator content enhancements, category page FAQs. 34 indexable pages (50 total with embeds).
-
----
-
-## Phase 4: Monetization Infrastructure — DONE
-
-Ad slots, email capture (Resend), affiliate cards on 4 calculators, AdSense prep, privacy page updated. Manual setup tasks tracked in `docs/ben.md`.
-
----
-
-## Phase 5: Calculator Expansion to 25+
-
-### 5a. Personal Finance (4 new) — DONE
-FIRE, Emergency Fund, Rent vs Buy, Subscription Audit. Category index page, nav, homepage, embeds all updated. 20 calculators across 5 categories.
-
-### 5b. Gig Economy (3 new) — DONE
-Amazon Flex, TaskRabbit, Turo Profit. 23 calculators across 5 categories.
-
-### 5c. Creator (2 new) — DONE
-TikTok Earnings, Gumroad Revenue. 25 calculators, 9 in Creator category.
-
-### 5d-5e. OG Images & Homepage — DONE
-Custom SVG OG images for all 25 calculators (platform icons via Simple Icons, category-colored backgrounds). Homepage featured section refreshed with 5-category representation. All calculator pages wired with `ogImage` prop.
-
----
-
-## Phase 8: Freelance Business Essentials — DONE
-
-Freelance Retirement (Solo 401k/SEP-IRA/IRA comparison, BarComparisonChart), Meeting Cost (time/cost analysis, DonutChart), Freelance Vacation Fund (savings planner, DonutChart), Value-Based Pricing (ROI-based pricing, BarComparisonChart). 33 calculators, 8 in Freelance category.
-
----
-
-## Phase 9: Creator Economy Deepening — DONE
-
-Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand Profit (Printful/Printify/MBA, DonutChart), Online Course Revenue (Teachable/Udemy/Skillshare/self-hosted, DonutChart), Newsletter Revenue (Substack/Beehiiv/ConvertKit, subscriptions + sponsorships, DonutChart). 37 calculators, 13 in Creator category.
 
 ---
 
@@ -97,70 +39,153 @@ Sponsorship Rate (CPE/CPM rate calculator, BarComparisonChart), Print-on-Demand 
 
 ---
 
+## Phase 10: Tax & Business Finance (~33K/mo combined search volume)
+
+| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
+|-----------|----------|---------------|----------|-------------------|
+| Self-Employment Tax | Freelance | "self-employment tax calculator" | 8K/mo | TurboTax, QuickBooks |
+| Profit Margin | Side Hustle | "profit margin calculator" | 10K/mo | Wave, Bench |
+| Capital Gains Tax | Personal Finance | "capital gains tax calculator" | 5K/mo | Fidelity, CoinTracker |
+| Debt Payoff | Personal Finance | "debt payoff calculator" | 10K/mo | SoFi, LendingClub |
+
+**Implementation notes:**
+- SE Tax: Annual Schedule SE focus (distinct from Quarterly Tax's payment scheduling). SS + Medicare + Additional Medicare Tax breakdown. BarComparisonChart.
+- Profit Margin: Gross/operating/net margin from revenue + costs. DonutChart (cost breakdown). Complements Reselling, Dropshipping, POD.
+- Capital Gains: Short-term vs long-term on stocks/crypto/real estate. BarComparisonChart (ST vs LT comparison).
+- Debt Payoff: Snowball vs avalanche with dynamic debt list (reuse Subscription Audit pattern). ProjectionChart (balance over time).
+
+**Pre-work:** Extract tax bracket logic from `src/lib/calculators/quarterly-tax.ts` into `src/lib/calculators/shared/tax-brackets.ts`. SE Tax, 1099 Tax, and Capital Gains Tax all reuse it.
+
+---
+
+## Phase 11: Financial Planning (~16K/mo combined)
+
+| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
+|-----------|----------|---------------|----------|-------------------|
+| Net Worth | Personal Finance | "net worth calculator" | 5K/mo | Betterment, Empower |
+| Break-Even | Freelance | "break-even calculator" | 5K/mo | Accounting tools |
+| Consulting Fee | Freelance | "consulting rate calculator" | 3K/mo | HoneyBook, Dubsado |
+| Savings Goal | Personal Finance | "savings goal calculator" | 3K/mo | Ally, Marcus |
+
+**Implementation notes:**
+- Net Worth: Dynamic asset/liability list. DonutChart (allocation). Companion to FIRE.
+- Break-Even: Units + revenue break-even. ProjectionChart (revenue vs costs intersection).
+- Consulting Fee: Market-based rate (distinct from Hourly Rate's cost-based approach). BarComparisonChart (hourly/day/project/retainer).
+- Savings Goal: Monthly amount needed by target date. "Irregular income" angle for brand differentiation. ProjectionChart with goal line.
+
+---
+
+## Phase 12: Creator & Digital Business (~11K/mo combined)
+
+| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
+|-----------|----------|---------------|----------|-------------------|
+| Crypto Tax | Personal Finance | "crypto tax calculator" | 5K/mo | CoinLedger, Koinly ($20-50/ref) |
+| Affiliate Marketing | Creator | "affiliate marketing calculator" | 2K/mo | ShareASale, Impact |
+| Social Media ROI | Creator | "social media ROI calculator" | 2K/mo | Buffer, Later |
+| Digital Product Pricing | Creator | "how to price digital products" | 2K/mo | Gumroad, Shopify |
+
+**Implementation notes:**
+- Crypto Tax: Extends Capital Gains logic with crypto-specific events (staking, airdrops, DeFi). FIFO/LIFO. DonutChart (gains by type).
+- Affiliate Marketing: Traffic → CTR → conversion → commission pipeline. ProjectionChart (revenue scaling).
+- Social Media ROI: Time + money invested vs revenue attributed. BarComparisonChart (per-platform).
+- Digital Product Pricing: Price optimization based on costs, market, and goals. BarComparisonChart (revenue at 3 price points).
+
+---
+
+## Phase 13: Business Operations (~12K/mo combined)
+
+| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
+|-----------|----------|---------------|----------|-------------------|
+| Late Payment / Invoice | Freelance | "late payment fee calculator" | 2K/mo | FreshBooks, HoneyBook |
+| Cost Per Lead | Side Hustle | "cost per lead calculator" | 2K/mo | Google Ads, Mailchimp |
+| Stock Options | Personal Finance | "stock option calculator" | 3K/mo | Carta, Fidelity |
+| 1099 Tax | Freelance | "1099 tax calculator" | 5K/mo | TurboTax, H&R Block |
+
+**Implementation notes:**
+- Late Payment: Interest accrual on overdue invoices. ProjectionChart (growing balance).
+- Cost Per Lead: CPL, CPA, ROAS, break-even CPL from LTV. DonutChart (spend breakdown).
+- Stock Options: ISO vs NSO, AMT, vesting, exercise strategy. ProjectionChart (value over time).
+- 1099 Tax: Beginner-friendly "I got a 1099, what do I owe?" Reuses SE Tax logic. DonutChart (tax breakdown). Distinct intent from Quarterly Tax and W2vs1099.
+
+---
+
+## Category Distribution After All Phases
+
+| Category | Current | Added | Final |
+|----------|---------|-------|-------|
+| Freelance | 8 | +4 | 12 |
+| Creator | 13 | +3 | 16 |
+| Gig Economy | 7 | +0 | 7 |
+| Side Hustle | 5 | +2 | 7 |
+| Personal Finance | 4 | +5 | 9 |
+| **Total** | **37** | **+14** | **51** |
+
+---
+
 ## Blog Content Roadmap
 
-All 37 calculators have companion blog posts (32 posts total — some hub posts cover multiple calculators). Blog posts are the primary SEO driver — each targets "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
+Each blog phase pairs with a calculator phase. Posts target "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
 
-### Phase B1: High-Volume Deep-Dives (6 posts) — DONE
+### Phase B6 (pairs with Phase 10) — 4 posts
+1. "Self-Employment Tax Guide 2026" → SE Tax calculator
+2. "How to Calculate Profit Margins for Side Hustles" → Profit Margin calculator
+3. "Capital Gains Tax for Freelancers and Creators" → Capital Gains calculator
+4. "Debt Payoff Strategies on Irregular Income" → Debt Payoff calculator
 
-6 single-calc deep-dives covering highest search volume uncovered topics. Backlinks added to 6 existing posts.
+### Phase B7 (pairs with Phase 11) — 4 posts
+1. "Net Worth Tracking for Freelancers" → Net Worth calculator
+2. "Break-Even Analysis for Course Creators and Product Sellers" → Break-Even calculator
+3. "Consulting Rates by Industry in 2026" → Consulting Fee calculator
+4. "Savings Goals on Variable Income" → Savings Goal calculator
 
-### Phase B2: Hub Posts & Strategy Guides (5 posts) — DONE
+### Phase B8 (pairs with Phase 12) — 4 posts
+1. "Crypto Tax Guide for Creators and Freelancers" → Crypto Tax calculator
+2. "Affiliate Marketing Income: Realistic Expectations" → Affiliate Marketing calculator
+3. "Measuring Social Media ROI as a Creator" → Social Media ROI calculator
+4. "How to Price Digital Products in 2026" → Digital Product Pricing calculator
 
-5 hub posts linking multiple calculators: Freelance Pricing Strategies, Best Platforms for Digital Products, Gig Delivery Apps Compared, Freelance Retirement Planning, Emergency Fund on Irregular Income.
-
-### Phase B3: Creator Economy Deep-Dives (5 posts) — DONE
-
-5 creator deep-dives: Substack/Beehiiv/ConvertKit comparison, podcast sponsorship earnings, Ko-fi/Patreon/BMAC comparison, sponsorship rate guide, online course earnings. Cross-links added to 4 existing posts.
-
-### Phase B4: Side Hustle & Gig Niche (4 posts) — DONE
-
-4 side hustle and gig niche posts: Reselling Profit (eBay/Poshmark/Mercari fee comparison), TaskRabbit vs Turo (active vs passive gig models), Freelance Writing Rates 2026 (per-word/article/hour benchmarks), Dropshipping Margins (real unit economics). Backlinks added to 7 existing posts.
-
-### Phase B5: Remaining Niche & Internal Linking (4 posts) — DONE
-
-4 final posts covering remaining calculators: Tutoring Side Hustle, True Cost of Meetings (hub: meeting-cost + vacation), Subscription Audit, Print-on-Demand 2026. Backlinks added to 8 existing posts. All 37 calculators now have blog coverage.
-
-### Blog Roadmap Summary
-
-| Phase | Posts | New Calcs Covered | Cumulative |
-|-------|-------|-------------------|------------|
-| B1: High-Volume Deep-Dives | 6 | 6 | 6/29 (DONE) |
-| B2: Hub Posts & Strategy | 5 | 8 | 14/29 (DONE) |
-| B3: Creator Deep-Dives | 5 | 6 | 20/29 (DONE) |
-| B4: Side Hustle & Gig Niche | 4 | 5 | 25/29 (DONE) |
-| B5: Remaining & Linking | 4 | 6 | 29/29 (DONE) |
-| **Total** | **24** | **29** | **All covered (DONE)** |
-
-Post types: 7 hub/cluster posts (2-3 calcs each), 17 single-calc deep-dives.
+### Phase B9 (pairs with Phase 13) — 4 posts
+1. "How to Charge Late Fees as a Freelancer" → Late Payment calculator
+2. "Understanding Cost Per Lead for Small Businesses" → CPL calculator
+3. "Employee Stock Options Explained for Freelancers" → Stock Options calculator
+4. "1099 Tax Guide for Beginners" → 1099 Tax calculator
 
 ### Blog Implementation Notes
 
 - Hub posts use `calculatorSlugs` (array) frontmatter; single-calc posts use `calculatorSlug` (string)
-- File naming: kebab-case matching existing pattern (e.g., `tiktok-creator-earnings.md`)
+- File naming: kebab-case matching existing pattern
 - Category values: `freelance`, `creator`, `gig-economy`, `side-hustle`, `finance`
 - Each post: 2,000-3,000 words, links to calculator in intro, links to 1-2 related blog posts
 - Space publishedDate values ~1 week apart within each phase
-- Reference posts: `doordash-driver-earnings.md` (single-calc), `side-hustle-taxes.md` (hub)
 - Run `/create-blog-post` to create each post (full guided workflow)
+
+---
+
+## Reusable Patterns for New Phases
+
+- **Shared tax library:** Extract tax bracket logic into `src/lib/calculators/shared/tax-brackets.ts` before Phase 10
+- **Dynamic list (add/remove rows):** Debt Payoff, Net Worth, Crypto Tax — reuse pattern from `subscription-audit.ts`
+- **All existing shared components:** NumberInput, CurrencyInput, SliderInput, DropdownInput, ModeToggle, ResultCard, ResultBreakdown, CopyResultsButton, charts, Tooltip, useCalculatorState, ErrorBoundary
+
+### Per-calculator checklist (use `/add-calculator` skill)
+- Logic file, UI component, Astro page
+- Embed route added to `src/pages/embed/[...slug].astro`
+- OG image in `public/og-images/`
+- Category index page updated
+- Homepage counts updated
+- Cross-links to related calculators
 
 ---
 
 ## Execution Order
 
 ```
-Phase 0 (manual) ─── required before Phase 4
-Phase 1 (DONE)
-Phase 2a-2c (DONE)
-Phase 3 (DONE)
-  ├── Phase 4 (monetization) — DONE
-  └── Phase 5a (personal finance) — DONE
-       └── Phase 5b (DONE) → 5c (DONE) → 5d-5e (DONE)
-Phase 7 (Side Hustle Buildout) — DONE
-Phase 8 (Freelance Business) — DONE
-Phase 9 (Creator Deepening) — DONE
-Phase 6 — NEXT
-Blog B1 (DONE) → B2 (DONE) → B3 (DONE) → B4 (DONE) → B5 (DONE)
+Phase 0 (manual, ongoing)
+Phase 6 (polish) — NEXT
+Phase 10 (tax/biz finance) → B6 (blog)
+Phase 11 (financial planning) → B7 (blog)
+Phase 12 (creator/digital) → B8 (blog)
+Phase 13 (biz operations) → B9 (blog)
 ```
 
 ## Verification After Each Phase

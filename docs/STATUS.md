@@ -266,6 +266,9 @@
 - AdSense publisher ID not set (pending approval)
 - Placeholder PDF needs real content
 - SVG OG images may not render on all social platforms (PNG preferred for maximum compatibility)
+- Phase 6 (Polish & Scale) — analytics, Mediavine, backlinks
+- Phases 10-13 — 14 new calculators planned (see `docs/ROADMAP.md`)
+- Phases B6-B9 — 16 new blog posts planned to pair with calculator phases
 
 ## Known Pre-existing TS Warnings
 
