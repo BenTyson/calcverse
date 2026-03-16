@@ -30,7 +30,7 @@ As a 1099 contractor, you are technically both the employer and the employee. Yo
 
 On $100,000 of net self-employment income, you owe approximately $14,130 in SE tax. (The actual calculation applies the 15.3% rate to 92.35% of your net earnings, a small adjustment that reduces the effective rate slightly.)
 
-That is $14,130 versus $7,650. The 1099 contractor pays $6,480 more in payroll-type taxes on the same gross income. This single line item is the largest structural disadvantage of 1099 work, and it is the reason a $100,000 contract is not the same as a $100,000 salary.
+That is $14,130 versus $7,650. The 1099 contractor pays $6,480 more in payroll-type taxes on the same gross income. This single line item is the largest structural disadvantage of 1099 work, and it is the reason a $100,000 contract is not the same as a $100,000 salary. For a deeper dive into SE tax mechanics, deductions, and strategies to reduce it, see our [self-employment tax guide](/blog/self-employment-tax-guide).
 
 The partial offset: you can deduct 50% of your SE tax from your adjusted gross income. This does not reduce the SE tax itself, but it lowers your income tax. At a 22% marginal rate, that deduction saves roughly $1,554 in federal income tax. Helpful, but far from closing the gap.
 

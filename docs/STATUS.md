@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-16 (Phase 11 complete)
+**Last Updated:** 2026-03-16 (Phase B6 complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**45 calculators** across **5 categories**, **133 routes** (87 indexable + 45 embeds + 1 SSR API endpoint)
+**45 calculators** across **5 categories**, **137 routes** (91 indexable + 45 embeds + 1 SSR API endpoint)
 
 ### Freelance (11) — Cyan
 | Calculator | Slug |
@@ -76,7 +76,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 32 articles
+- Blog index (`/blog`) + 36 articles
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -288,6 +288,14 @@
 - [x] Embed routes, category indexes, config, homepage counts updated (41→45)
 - [x] OG images for all 4 calculators
 
+### Phase B6 — Blog: Tax & Business (4 posts)
+- [x] Self-Employment Tax Guide 2026 — SE tax mechanics, 92.35% multiplier, deductions, S-corp strategy
+- [x] How to Calculate Profit Margins for Side Hustles — gross/net/operating margins, benchmarks by hustle type
+- [x] Capital Gains Tax for Freelancers and Creators — bracket stacking, NIIT, loss harvesting, timing strategies
+- [x] Debt Payoff Strategies on Irregular Income — snowball vs avalanche, percentage-based payments, windfall rules
+- [x] BlogLayout.astro: added Phase 10 + Phase 11 calculator names to CTA map
+- [x] Backlinks added to 8 existing posts (quarterly-tax, w2-vs-1099, reselling, dropshipping, FIRE, side-hustle-taxes, emergency-fund, subscription-audit)
+
 ## What's NOT Done
 
 - Resend API key not configured (manual: see `docs/ben.md`)
@@ -297,7 +305,7 @@
 - SVG OG images may not render on all social platforms (PNG preferred for maximum compatibility)
 - Phase 6 (Polish, Distribution & Scale) — OG→PNG, structured data, distribution, affiliate activation, product depth
 - Phases 12-13 — 8 new calculators planned (see `docs/ROADMAP.md`)
-- Phases B6-B9 — 16 new blog posts planned to pair with calculator phases
+- Phases B7-B9 — 12 new blog posts planned to pair with calculator phases
 
 ## Known Pre-existing TS Warnings
 

@@ -17,7 +17,7 @@ The good news is that side hustle taxes are more straightforward than they seem,
 
 The number that matters most for side hustlers is $400. If your net self-employment income (revenue minus business expenses) exceeds $400 in a calendar year, you are required to file a Schedule SE and pay self-employment tax. This is separate from income tax — even if your total income is low enough that you owe zero income tax, you still owe SE tax on anything above that $400 floor.
 
-Self-employment tax is 15.3 percent and covers Social Security (12.4 percent) and Medicare (2.9 percent). When you work a W-2 job, your employer pays half of these taxes. When you are self-employed, you pay both halves. On $10,000 of net side hustle income, that is roughly $1,413 in SE tax alone, before income tax.
+Self-employment tax is 15.3 percent and covers Social Security (12.4 percent) and Medicare (2.9 percent). When you work a W-2 job, your employer pays half of these taxes. When you are self-employed, you pay both halves. On $10,000 of net side hustle income, that is roughly $1,413 in SE tax alone, before income tax. Our [self-employment tax guide](/blog/self-employment-tax-guide) covers the full mechanics and strategies to reduce what you owe.
 
 One nuance that confuses people: the $400 threshold is for self-employment tax filing requirements, not for income tax. You must report all income on your tax return regardless of amount. Even $200 from a weekend of freelance work is taxable income. The $400 line just determines whether you also owe the additional SE tax and must file Schedule SE.
 

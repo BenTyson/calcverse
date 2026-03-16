@@ -9,14 +9,14 @@
 | 10a. Tax & Business Finance (SE Tax, Profit Margin) | DONE | Shared tax brackets, SE Tax, Profit Margin |
 | 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | DONE | Capital Gains Tax, Debt Payoff (~15K/mo) |
 | 11. Financial Planning | DONE | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
-| 12. Creator & Digital Business | NEXT | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
+| 12. Creator & Digital Business | PLANNED | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
 | 13. Business Operations | PLANNED | Late Payment, Cost Per Lead, Stock Options, 1099 Tax (~12K/mo) |
-| B6. Blog: Tax & Business | PLANNED | 4 posts paired with Phase 10 |
-| B7. Blog: Financial Planning | PLANNED | 4 posts paired with Phase 11 |
+| B6. Blog: Tax & Business | DONE | 4 posts paired with Phase 10 |
+| B7. Blog: Financial Planning | NEXT | 4 posts paired with Phase 11 |
 | B8. Blog: Creator & Digital | PLANNED | 4 posts paired with Phase 12 |
 | B9. Blog: Business Operations | PLANNED | 4 posts paired with Phase 13 |
 
-> Completed phases (1-5, 7-9, B1-B5, 10a-11) archived in `docs/archive/ROADMAP-v1.md`
+> Completed phases (1-5, 7-9, B1-B6, 10a-11) archived in `docs/archive/ROADMAP-v1.md`
 
 ---
 
@@ -129,11 +129,8 @@
 
 Each blog phase pairs with a calculator phase. Posts target "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
 
-### Phase B6 (pairs with Phase 10) — 4 posts
-1. "Self-Employment Tax Guide 2026" → SE Tax calculator
-2. "How to Calculate Profit Margins for Side Hustles" → Profit Margin calculator
-3. "Capital Gains Tax for Freelancers and Creators" → Capital Gains calculator
-4. "Debt Payoff Strategies on Irregular Income" → Debt Payoff calculator
+### Phase B6 (pairs with Phase 10) — DONE
+4 posts: SE Tax Guide, Profit Margins for Side Hustles, Capital Gains Tax for Freelancers, Debt Payoff on Irregular Income. Backlinks added to 8 existing posts.
 
 ### Phase B7 (pairs with Phase 11) — 4 posts
 1. "Net Worth Tracking for Freelancers" → Net Worth calculator
@@ -184,7 +181,7 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 
 ```
 Phase 0 (manual, ongoing)
-B6 (blog: Phase 10) → B7 (blog: Phase 11) — NEXT
+B7 (blog: Phase 11) — NEXT
 Phase 6 (polish)
 Phase 12 (creator/digital) → B8 (blog)
 Phase 13 (biz operations) → B9 (blog)

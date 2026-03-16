@@ -5,7 +5,7 @@ SEO-driven calculator site for freelancers, creators, and gig workers. Generates
 **Domain:** calcfalcon.com
 **Stack:** Astro 5 (SSG + SSR hybrid) + React 19 + Tailwind CSS 4
 **Hosting:** Railway (auto-deploy from main)
-**Live:** 45 calculators, 133 pages (87 indexable + 45 embeds + 1 SSR), 6 sections (5 calculator categories + blog)
+**Live:** 45 calculators, 137 pages (91 indexable + 45 embeds + 1 SSR), 6 sections (5 calculator categories + blog)
 
 ## Commands
 

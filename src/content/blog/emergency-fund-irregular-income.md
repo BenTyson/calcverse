@@ -91,7 +91,7 @@ The perennial question: should you build an emergency fund or pay off debt first
 
 Debt payments are predictable and scheduled. A freelance income gap is not. If you aggressively pay down credit card debt but have no emergency fund, one slow month forces you to put expenses back on the credit card — erasing your progress. A small emergency fund ($3,000 to $5,000) protects your debt paydown progress from income volatility.
 
-The exception is extremely high-interest debt (above 25 percent APR). In that case, splitting your available savings 50/50 between the emergency fund and debt paydown is reasonable. But even then, do not neglect the emergency fund entirely.
+The exception is extremely high-interest debt (above 25 percent APR). In that case, splitting your available savings 50/50 between the emergency fund and debt paydown is reasonable. But even then, do not neglect the emergency fund entirely. For a detailed comparison of snowball vs avalanche methods adapted for variable income, see our [debt payoff strategies guide](/blog/debt-payoff-irregular-income).
 
 ### Emergency fund vs. retirement savings
 

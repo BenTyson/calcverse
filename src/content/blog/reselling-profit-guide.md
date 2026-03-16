@@ -134,7 +134,7 @@ If your monthly net exceeds roughly $500, start making quarterly estimated tax p
 
 The math works for people who enjoy the hunt, have good product knowledge in a specific niche, and treat it as a structured business rather than a casual hobby. At 10 to 15 hours per week including sourcing, listing, and shipping, a well-run reselling operation can generate $800 to $2,000 per month in net profit. The overhead is minimal — no storefront, no employees, flexible hours.
 
-It does not work as well for people who buy impulsively without checking comps, underestimate their time investment, or spread too thin across too many product categories. The biggest risk is not losing money on individual items — it is spending 20 hours per week on an operation that nets $10 per hour when your time could be better spent elsewhere.
+It does not work as well for people who buy impulsively without checking comps, underestimate their time investment, or spread too thin across too many product categories. The biggest risk is not losing money on individual items — it is spending 20 hours per week on an operation that nets $10 per hour when your time could be better spent elsewhere. If you want to benchmark whether your margins are healthy, our [profit margin guide for side hustles](/blog/profit-margin-side-hustles) covers gross, net, and operating margins across reselling, dropshipping, digital products, and services.
 
 ## Calculate Your Reselling Profit
 

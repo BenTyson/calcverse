@@ -48,7 +48,7 @@ This is where freelancers tend to either overcomplicate or dangerously oversimpl
 
 ### Self-Employment Tax
 
-Self-employment (SE) tax covers Social Security and Medicare — the same FICA taxes that W-2 employees split with their employer. As a freelancer, you pay both halves. The 2025 SE tax rate is 15.3 percent, broken into 12.4 percent for Social Security (on net earnings up to $168,600) and 2.9 percent for Medicare (on all net earnings, with no cap).
+Self-employment (SE) tax covers Social Security and Medicare — the same FICA taxes that W-2 employees split with their employer. As a freelancer, you pay both halves. The 2025 SE tax rate is 15.3 percent, broken into 12.4 percent for Social Security (on net earnings up to $168,600) and 2.9 percent for Medicare (on all net earnings, with no cap). Our [self-employment tax guide](/blog/self-employment-tax-guide) covers the full mechanics, deductions, and reduction strategies in detail.
 
 However, you do not pay SE tax on your gross income. The IRS first multiplies your net self-employment earnings by 92.35 percent. This adjustment approximates the "employer half" deduction that W-2 workers get. So if your Schedule C net profit is $80,000, your SE tax base is $73,880, and your SE tax is approximately $11,304.
 

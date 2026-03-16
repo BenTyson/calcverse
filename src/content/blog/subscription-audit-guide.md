@@ -72,7 +72,7 @@ Cutting $75 per month in unnecessary subscriptions saves $900 per year. That num
 
 Invested at a 7% average annual return, $75 per month becomes $12,967 in 10 years, $39,401 in 20 years, and $91,271 in 30 years. A handful of canceled subscriptions, consistently invested, can fund a meaningful portion of your retirement. This is the same compounding principle that drives [FIRE calculations](/blog/fire-calculator-guide) — small, consistent savings grow dramatically over long time horizons.
 
-Even without investing, redirecting subscription savings to an emergency fund makes an immediate difference. If you are building your financial safety net, our [emergency fund guide](/blog/emergency-fund-irregular-income) covers how much you need and how to prioritize saving when your income is irregular.
+Even without investing, redirecting subscription savings to an emergency fund makes an immediate difference. If you are building your financial safety net, our [emergency fund guide](/blog/emergency-fund-irregular-income) covers how much you need and how to prioritize saving when your income is irregular. If debt is the priority, our [debt payoff strategies guide](/blog/debt-payoff-irregular-income) covers snowball vs avalanche methods adapted for freelancers and gig workers with variable income.
 
 ## Common Subscription Traps
 

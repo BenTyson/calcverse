@@ -124,7 +124,7 @@ Between variable income, self-employment tax, and the lack of employer benefits 
 
 On the upside, freelancers have more control over their income ceiling. A salaried employee needs a promotion or a job change to earn more. A freelancer can raise rates, add clients, or [restructure their pricing model](/blog/how-to-calculate-freelance-rate) to increase revenue. That flexibility is a real asset on the path to FIRE — it just requires active management rather than passive paycheck accumulation.
 
-Setting aside money consistently also means staying on top of your [quarterly tax obligations](/blog/quarterly-tax-guide-freelancers), because a surprise tax bill can wipe out months of progress toward your savings target.
+Setting aside money consistently also means staying on top of your [quarterly tax obligations](/blog/quarterly-tax-guide-freelancers), because a surprise tax bill can wipe out months of progress toward your savings target. And when your portfolio starts generating gains, understanding [how capital gains tax works for freelancers](/blog/capital-gains-tax-freelancers) — including bracket stacking and NIIT — helps you keep more of what you have built.
 
 ## Is FIRE Realistic
 

@@ -102,7 +102,7 @@ Successful stores scale by increasing ad spend on proven products and adding com
 
 Most dropshipping businesses fail. Industry estimates range from 80% to 90% failure rates, depending on how you define failure. The ones that fail typically share these characteristics: insufficient testing budget, unrealistic margin expectations, high-return product categories, inability to achieve ROAS above 3.0, or simply underestimating the time required for ad management, customer service, and supplier coordination.
 
-The ones that succeed share different traits: disciplined financial tracking (knowing exact per-order margins, not just revenue), willingness to kill underperforming products quickly, ad creative testing as a systematic process, and choosing products with low return rates and strong perceived value relative to price.
+The ones that succeed share different traits: disciplined financial tracking (knowing exact per-order margins, not just revenue), willingness to kill underperforming products quickly, ad creative testing as a systematic process, and choosing products with low return rates and strong perceived value relative to price. For a broader look at how dropshipping margins compare to other side hustles, our [profit margin guide](/blog/profit-margin-side-hustles) benchmarks gross and net margins across reselling, digital products, and service businesses.
 
 ## Tax Considerations
 
