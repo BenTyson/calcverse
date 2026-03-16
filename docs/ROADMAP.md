@@ -4,8 +4,8 @@
 
 | Phase | Status | Focus |
 |-------|--------|-------|
-| 0. Manual/External Steps | IN PROGRESS | DNS, analytics, email, AdSense |
-| 6. Polish & Scale | PLANNED | Analytics, Mediavine, backlinks |
+| 0. Manual/External Steps | IN PROGRESS | Email, AdSense (DNS + analytics + GSC done) |
+| 6. Polish, Distribution & Scale | PLANNED | OG→PNG, structured data, distribution, affiliate activation, product depth |
 | 10a. Tax & Business Finance (SE Tax, Profit Margin) | DONE | Shared tax brackets, SE Tax, Profit Margin |
 | 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | NEXT | Capital Gains Tax, Debt Payoff (~15K/mo) |
 | 11. Financial Planning | PLANNED | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
@@ -22,21 +22,37 @@
 
 ## Phase 0: Manual/External Steps (User Action)
 
-- [ ] Configure calcfalcon.com DNS → Railway
-- [x] Sign up for Umami analytics (self-hosted) — DONE
+- [x] Configure calcfalcon.com DNS → Railway
+- [x] Sign up for Fathom analytics (site ID: BRHGFMPN)
+- [x] Google Search Console — verify domain, submit sitemap
 - [ ] Sign up for Resend (email)
-- [ ] Google Search Console — verify domain, submit sitemap
 - [ ] AdSense application (after domain + 30 pages + 1K visits)
 
 ---
 
-## Phase 6: Polish & Scale
+## Phase 6: Polish, Distribution & Scale
 
-- ~~Self-host Inter font (WOFF2 in `public/fonts/`)~~ DONE
-- Monitor analytics, optimize top-performing pages
+### SEO & Shareability
+- Convert OG images from SVG to PNG (SVGs don't render on Twitter/LinkedIn/Slack)
+- Add `SoftwareApplication` structured data to calculator pages for rich search results
+- Monitor Search Console, optimize top-performing pages
+
+### Distribution (seed initial traffic)
+- Submit to Product Hunt
+- Post to niche subreddits: r/freelance, r/sidehustle, r/smallbusiness, r/Entrepreneur
+- Submit to Indie Hackers
+- Post individual calculators to niche communities where they solve real problems
+- HARO responses for freelance/tax/gig-economy queries
+
+### Monetization Activation
+- Replace placeholder affiliate URLs in `monetization.ts` with real tracking links
 - Apply for Mediavine at 50K sessions/month
-- Backlink building: Product Hunt, Reddit, HARO
-- Consider premium features: PDF export, saved calculations
+- Apply for AdSense (after initial traffic)
+
+### Product Depth
+- PDF export of calculator results (real lead magnet)
+- Compare scenarios mode (run same calc with 2 input sets side by side)
+- PWA support (mobile home screen install)
 
 ---
 
