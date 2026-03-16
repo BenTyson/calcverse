@@ -1,0 +1,84 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { CapitalGainsTaxCalc } from '@components/calculators/CapitalGainsTaxCalc';
+
+const faqs = [
+  {
+    question: 'What is the difference between short-term and long-term capital gains?',
+    answer:
+      'Short-term capital gains apply to investments held less than one year and are taxed at your ordinary income tax rate (up to 37%). Long-term capital gains apply to investments held one year or longer and are taxed at preferential rates of 0%, 15%, or 20% depending on your taxable income and filing status.',
+  },
+  {
+    question: 'What is the Net Investment Income Tax (NIIT)?',
+    answer:
+      'The NIIT is an additional 3.8% tax on investment income (including capital gains) for high earners. It applies when your modified adjusted gross income exceeds $200,000 for single filers, $250,000 for married filing jointly, or $125,000 for married filing separately. The tax applies to the lesser of your net investment income or the amount your MAGI exceeds the threshold.',
+  },
+  {
+    question: 'How does tax-loss harvesting work?',
+    answer:
+      'Tax-loss harvesting involves selling investments at a loss to offset capital gains. Losses first offset gains dollar-for-dollar. If your losses exceed your gains, you can deduct up to $3,000 per year ($1,500 if married filing separately) against ordinary income. Remaining losses carry forward to future tax years indefinitely.',
+  },
+  {
+    question: 'How do capital gains brackets "stack" on ordinary income?',
+    answer:
+      'Long-term capital gains are taxed after your ordinary income fills up the lower brackets. For example, if you\'re single with $47,025 in taxable ordinary income, that fills the 0% capital gains bracket entirely. Your capital gains would then start in the 15% bracket. This is why higher ordinary income pushes your gains into higher capital gains tax brackets.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Self-Employment Tax Calculator',
+    description: 'Calculate SE tax on freelance and business income',
+    href: '/freelance/self-employment-tax-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'FIRE Calculator',
+    description: 'Plan your path to financial independence',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'W2 vs 1099 Calculator',
+    description: 'Compare take-home pay between employment types',
+    href: '/freelance/w2-vs-1099-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Quarterly Tax Estimator',
+    description: 'Estimate your quarterly estimated tax payments',
+    href: '/freelance/quarterly-tax-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Capital Gains Tax Calculator - Short & Long-Term Rates | CalcFalcon"
+  description="Calculate capital gains tax on investments. Compare short-term vs long-term rates, NIIT, and state taxes. Free capital gains tax calculator with bracket stacking."
+  calculatorName="Capital Gains Tax Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="capital-gains-tax-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  ogImage="/og-images/capital-gains-tax.svg"
+>
+  <CapitalGainsTaxCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Capital Gains Tax Calculator</h2>
+        <p>Enter your capital gain amount, select your holding period and filing status, and see your estimated tax instantly. The calculator handles the complex bracket stacking that determines your actual rate.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your gain amount, holding period, and filing status. The calculator assumes $75,000 ordinary income, 5% state tax rate, and no capital losses.</p>
+        <h3>Advanced Mode</h3>
+        <p>Customize your ordinary income (which affects bracket stacking), capital losses to offset gains, and your state tax rate. See how NIIT applies if your income exceeds the threshold.</p>
+        <h3>Understanding Capital Gains Brackets</h3>
+        <p>Long-term capital gains have their own bracket structure (0%, 15%, 20%), but your gains "stack" on top of ordinary income. If your ordinary taxable income already fills the 0% bracket, your gains start in the 15% bracket. This is why two people with the same gain but different incomes pay different capital gains tax rates.</p>
+        <h3>Key Concepts</h3>
+        <p>Hold investments for at least one year to qualify for long-term rates. Use tax-loss harvesting to offset gains. Be aware of NIIT if your income is above the threshold. Capital losses exceeding gains can offset up to $3,000 of ordinary income per year, with the remainder carrying forward.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

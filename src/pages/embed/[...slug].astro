@@ -39,6 +39,8 @@ import { OnlineCourseCalc } from '@components/calculators/OnlineCourseCalc';
 import { NewsletterCalc } from '@components/calculators/NewsletterCalc';
 import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTaxCalc';
 import { ProfitMarginCalc } from '@components/calculators/ProfitMarginCalc';
+import { CapitalGainsTaxCalc } from '@components/calculators/CapitalGainsTaxCalc';
+import { DebtPayoffCalc } from '@components/calculators/DebtPayoffCalc';
 
 export function getStaticPaths() {
   return [
@@ -81,6 +83,8 @@ export function getStaticPaths() {
     { params: { slug: 'personal-finance/emergency-fund-calculator' } },
     { params: { slug: 'personal-finance/rent-vs-buy-calculator' } },
     { params: { slug: 'personal-finance/subscription-audit-calculator' } },
+    { params: { slug: 'personal-finance/capital-gains-tax-calculator' } },
+    { params: { slug: 'personal-finance/debt-payoff-calculator' } },
   ];
 }
 
@@ -243,6 +247,14 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Subscription Audit Calculator',
     component: 'subscriptionaudit',
   },
+  'personal-finance/capital-gains-tax-calculator': {
+    title: 'Capital Gains Tax Calculator',
+    component: 'capitalgainstax',
+  },
+  'personal-finance/debt-payoff-calculator': {
+    title: 'Debt Payoff Calculator',
+    component: 'debtpayoff',
+  },
 };
 
 const calculator = calculators[slug as string];
@@ -294,5 +306,7 @@ if (!calculator) {
     {calculator.component === 'emergencyfund' && <EmergencyFundCalc client:load />}
     {calculator.component === 'rentvsbuy' && <RentVsBuyCalc client:load />}
     {calculator.component === 'subscriptionaudit' && <SubscriptionAuditCalc client:load />}
+    {calculator.component === 'capitalgainstax' && <CapitalGainsTaxCalc client:load />}
+    {calculator.component === 'debtpayoff' && <DebtPayoffCalc client:load />}
   </div>
 </EmbedLayout>

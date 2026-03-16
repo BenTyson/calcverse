@@ -53,6 +53,70 @@ export const STANDARD_DEDUCTIONS: Record<FilingStatus, number> = {
   head_household: 21900,
 };
 
+// 2024 Long-Term Capital Gains Tax Brackets
+export const LONG_TERM_CG_BRACKETS: Record<FilingStatus, TaxBracket[]> = {
+  single: [
+    { min: 0, max: 47025, rate: 0 },
+    { min: 47025, max: 518900, rate: 0.15 },
+    { min: 518900, max: Infinity, rate: 0.20 },
+  ],
+  married_joint: [
+    { min: 0, max: 94050, rate: 0 },
+    { min: 94050, max: 583750, rate: 0.15 },
+    { min: 583750, max: Infinity, rate: 0.20 },
+  ],
+  married_separate: [
+    { min: 0, max: 47025, rate: 0 },
+    { min: 47025, max: 291850, rate: 0.15 },
+    { min: 291850, max: Infinity, rate: 0.20 },
+  ],
+  head_household: [
+    { min: 0, max: 63000, rate: 0 },
+    { min: 63000, max: 551350, rate: 0.15 },
+    { min: 551350, max: Infinity, rate: 0.20 },
+  ],
+};
+
+export const NIIT_RATE = 0.038;
+
+export const NIIT_THRESHOLDS: Record<FilingStatus, number> = {
+  single: 200000,
+  married_joint: 250000,
+  married_separate: 125000,
+  head_household: 200000,
+};
+
+export function calculateCapitalGainsTax(
+  gainAmount: number,
+  ordinaryTaxableIncome: number,
+  filingStatus: FilingStatus
+): number {
+  const brackets = LONG_TERM_CG_BRACKETS[filingStatus];
+  let tax = 0;
+  let gainsRemaining = Math.max(0, gainAmount);
+
+  // Gains "stack" on top of ordinary income in the bracket structure
+  let incomeFloor = Math.max(0, ordinaryTaxableIncome);
+
+  for (const bracket of brackets) {
+    if (gainsRemaining <= 0) break;
+
+    // How much room is left in this bracket above ordinary income?
+    const bracketTop = bracket.max;
+    const bracketBottom = Math.max(bracket.min, incomeFloor);
+
+    if (bracketBottom >= bracketTop) continue;
+
+    const room = bracketTop - bracketBottom;
+    const taxableInBracket = Math.min(gainsRemaining, room);
+    tax += taxableInBracket * bracket.rate;
+    gainsRemaining -= taxableInBracket;
+    incomeFloor = bracketBottom + taxableInBracket;
+  }
+
+  return tax;
+}
+
 export const FICA_RATES = {
   SOCIAL_SECURITY_RATE: 0.062,
   MEDICARE_RATE: 0.0145,

@@ -68,9 +68,11 @@ export const CALCULATORS: CalculatorEntry[] = [
   { name: 'Dropshipping Margin Calculator', description: 'Analyze your true dropshipping profit after supplier costs, ads, fees, returns, and refunds', href: '/side-hustle/dropshipping-margin-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Profit Margin Calculator', description: 'Calculate gross, operating, and net profit margins with cost breakdown analysis', href: '/side-hustle/profit-margin-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
 
-  // Personal Finance (4)
+  // Personal Finance (6)
   { name: 'FIRE Calculator', description: 'Calculate your Financial Independence number and how long until you can retire early', href: '/personal-finance/fire-calculator', category: 'Personal Finance', categoryKey: 'finance', featured: true },
   { name: 'Emergency Fund Calculator', description: 'Find out how much you need saved for emergencies based on your expenses and risk factors', href: '/personal-finance/emergency-fund-calculator', category: 'Personal Finance', categoryKey: 'finance' },
   { name: 'Rent vs Buy Calculator', description: 'Compare the true cost of renting vs buying a home over time, including equity and investments', href: '/personal-finance/rent-vs-buy-calculator', category: 'Personal Finance', categoryKey: 'finance' },
   { name: 'Subscription Audit Calculator', description: 'Track all your subscriptions, categorize spending, and find savings opportunities', href: '/personal-finance/subscription-audit-calculator', category: 'Personal Finance', categoryKey: 'finance', featured: true },
+  { name: 'Capital Gains Tax Calculator', description: 'Calculate capital gains tax on investments with short-term vs long-term rate comparison and NIIT', href: '/personal-finance/capital-gains-tax-calculator', category: 'Personal Finance', categoryKey: 'finance' },
+  { name: 'Debt Payoff Calculator', description: 'Plan your debt-free date using snowball or avalanche method with extra payment projections', href: '/personal-finance/debt-payoff-calculator', category: 'Personal Finance', categoryKey: 'finance' },
 ];

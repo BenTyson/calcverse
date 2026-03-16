@@ -7,8 +7,8 @@
 | 0. Manual/External Steps | IN PROGRESS | Email, AdSense (DNS + analytics + GSC done) |
 | 6. Polish, Distribution & Scale | PLANNED | OG→PNG, structured data, distribution, affiliate activation, product depth |
 | 10a. Tax & Business Finance (SE Tax, Profit Margin) | DONE | Shared tax brackets, SE Tax, Profit Margin |
-| 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | NEXT | Capital Gains Tax, Debt Payoff (~15K/mo) |
-| 11. Financial Planning | PLANNED | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
+| 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | DONE | Capital Gains Tax, Debt Payoff (~15K/mo) |
+| 11. Financial Planning | NEXT | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
 | 12. Creator & Digital Business | PLANNED | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
 | 13. Business Operations | PLANNED | Late Payment, Cost Per Lead, Stock Options, 1099 Tax (~12K/mo) |
 | B6. Blog: Tax & Business | PLANNED | 4 posts paired with Phase 10 |
@@ -16,7 +16,7 @@
 | B8. Blog: Creator & Digital | PLANNED | 4 posts paired with Phase 12 |
 | B9. Blog: Business Operations | PLANNED | 4 posts paired with Phase 13 |
 
-> Completed phases (1-5, 7-9, B1-B5, 10a) archived in `docs/archive/ROADMAP-v1.md`
+> Completed phases (1-5, 7-9, B1-B5, 10a-10b) archived in `docs/archive/ROADMAP-v1.md`
 
 ---
 
@@ -62,16 +62,10 @@
 - [x] Self-Employment Tax Calculator (Freelance, 8K/mo)
 - [x] Profit Margin Calculator (Side Hustle, 10K/mo)
 
-## Phase 10b: Tax & Business Finance — Remaining (~15K/mo)
+## Phase 10b: Tax & Business Finance — DONE
 
-| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
-|-----------|----------|---------------|----------|-------------------|
-| Capital Gains Tax | Personal Finance | "capital gains tax calculator" | 5K/mo | Fidelity, CoinTracker |
-| Debt Payoff | Personal Finance | "debt payoff calculator" | 10K/mo | SoFi, LendingClub |
-
-**Implementation notes:**
-- Capital Gains: Short-term vs long-term on stocks/crypto/real estate. BarComparisonChart (ST vs LT comparison). Reuses `shared/tax-brackets.ts`.
-- Debt Payoff: Snowball vs avalanche with dynamic debt list (reuse Subscription Audit pattern). ProjectionChart (balance over time).
+- [x] Capital Gains Tax Calculator (Personal Finance, 5K/mo)
+- [x] Debt Payoff Calculator (Personal Finance, 10K/mo)
 
 ---
 
@@ -134,8 +128,8 @@
 | Creator | 13 | +3 | 16 |
 | Gig Economy | 7 | +0 | 7 |
 | Side Hustle | 6 | +1 | 7 |
-| Personal Finance | 4 | +5 | 9 |
-| **Total** | **39** | **+12** | **51** |
+| Personal Finance | 6 | +3 | 9 |
+| **Total** | **41** | **+10** | **51** |
 
 ---
 
@@ -180,8 +174,8 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 
 ## Reusable Patterns for New Phases
 
-- **Shared tax library:** `src/lib/calculators/shared/tax-brackets.ts` — FilingStatus, brackets, deductions, FICA rates, calculateFederalTax, calculateSelfEmploymentTax, getMarginalBracket
-- **Dynamic list (add/remove rows):** Debt Payoff, Net Worth, Crypto Tax — reuse pattern from `subscription-audit.ts`
+- **Shared tax library:** `src/lib/calculators/shared/tax-brackets.ts` — FilingStatus, brackets, deductions, FICA rates, LTCG brackets, NIIT, calculateFederalTax, calculateSelfEmploymentTax, calculateCapitalGainsTax, getMarginalBracket
+- **Dynamic list (add/remove rows):** Subscription Audit, Debt Payoff — reuse pattern from `subscription-audit.ts` (also for Net Worth, Crypto Tax)
 - **All existing shared components:** NumberInput, CurrencyInput, SliderInput, DropdownInput, ModeToggle, ResultCard, ResultBreakdown, CopyResultsButton, charts, Tooltip, useCalculatorState, ErrorBoundary
 
 ### Per-calculator checklist (use `/add-calculator` skill)
@@ -198,9 +192,8 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 
 ```
 Phase 0 (manual, ongoing)
-Phase 10b (capital gains + debt payoff) — NEXT → B6 (blog)
+Phase 11 (financial planning) — NEXT → B6 (blog: Phase 10) → B7 (blog: Phase 11)
 Phase 6 (polish)
-Phase 11 (financial planning) → B7 (blog)
 Phase 12 (creator/digital) → B8 (blog)
 Phase 13 (biz operations) → B9 (blog)
 ```

@@ -1,0 +1,82 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { DebtPayoffCalc } from '@components/calculators/DebtPayoffCalc';
+
+const faqs = [
+  {
+    question: 'What is the difference between snowball and avalanche methods?',
+    answer:
+      'The avalanche method targets the debt with the highest interest rate first, saving you the most money on interest over time. The snowball method targets the smallest balance first, giving you quicker wins that can keep you motivated. Both methods have you make minimum payments on all debts, then direct extra payments to the target debt. Mathematically, avalanche always saves more, but snowball has better psychological completion rates.',
+  },
+  {
+    question: 'How much extra should I pay toward debt each month?',
+    answer:
+      'Even $50-100 extra per month can dramatically reduce your payoff time and total interest. The key is consistency. Look at your budget for subscriptions you can cut, meals out you can reduce, or side income you can earn. Any extra payment goes directly toward principal, which reduces the interest that accrues the following month.',
+  },
+  {
+    question: 'Should I pay off debt or invest?',
+    answer:
+      'A common rule: if your debt interest rate exceeds what you could earn investing (roughly 7-10% historically for stocks), prioritize paying off the debt. Always pay off high-interest debt (credit cards at 15-25%) before investing beyond your employer match. For low-interest debt like mortgages (3-5%), investing often makes more mathematical sense.',
+  },
+  {
+    question: 'Does debt consolidation help?',
+    answer:
+      'Debt consolidation combines multiple debts into one payment, ideally at a lower interest rate. It can help if you qualify for a lower rate (balance transfer cards, personal loans) and commit to not accumulating new debt. However, consolidation alone doesn\'t reduce what you owe — it just restructures payments. The real savings come from the lower interest rate and consistent payments.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'FIRE Calculator',
+    description: 'Plan your path to financial independence after becoming debt-free',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Emergency Fund Calculator',
+    description: 'Build your safety net alongside debt payoff',
+    href: '/personal-finance/emergency-fund-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Subscription Audit Calculator',
+    description: 'Find extra money to put toward debt payments',
+    href: '/personal-finance/subscription-audit-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Self-Employment Tax Calculator',
+    description: 'Understand your tax obligations as a freelancer',
+    href: '/freelance/self-employment-tax-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Debt Payoff Calculator - Snowball vs Avalanche | CalcFalcon"
+  description="Calculate your debt-free date with snowball or avalanche method. See how extra payments save you money and time. Free debt payoff calculator with projection charts."
+  calculatorName="Debt Payoff Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="debt-payoff-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  ogImage="/og-images/debt-payoff.svg"
+>
+  <DebtPayoffCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Debt Payoff Calculator</h2>
+        <p>Add all your debts with their balances, interest rates, and minimum payments. Then enter how much extra you can pay each month to see how quickly you can become debt-free.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your debts and extra monthly payment. The calculator uses the avalanche method (highest interest rate first) by default, which saves you the most money on interest.</p>
+        <h3>Advanced Mode</h3>
+        <p>Choose between avalanche and snowball strategies, and add a one-time lump sum payment. The projection chart shows both your accelerated payoff timeline and what happens with minimum payments only.</p>
+        <h3>How the Payoff Simulation Works</h3>
+        <p>Each month, the calculator applies interest to each debt, makes all minimum payments, then directs your extra payment to the target debt (highest rate for avalanche, lowest balance for snowball). When a debt is eliminated, its minimum payment "rolls" into the extra amount, creating a snowball effect that accelerates payoff of remaining debts.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

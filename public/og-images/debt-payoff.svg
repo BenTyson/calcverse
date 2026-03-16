@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#d97706"/>
+  <defs>
+    <linearGradient id="topBar" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="4" fill="url(#topBar)"/>
+  <g transform="translate(550, 120) scale(4.17)">
+    <polyline points="4 6 8 10 12 8 16 12 20 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="4" y1="20" x2="20" y2="20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="600" y="310" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Debt Payoff</text>
+  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Calculator</text>
+  <text x="600" y="440" font-family="system-ui, sans-serif" font-size="28" fill="#fef3c7" text-anchor="middle">Snowball vs avalanche with projection charts</text>
+  <text x="600" y="550" font-family="system-ui, sans-serif" font-size="24" fill="#fde68a" text-anchor="middle">calcfalcon.com</text>
+</svg>

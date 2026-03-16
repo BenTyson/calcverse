@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-15 (Phase 10a complete)
+**Last Updated:** 2026-03-16 (Phase 10b complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**39 calculators** across **5 categories**, **122 routes** (82 indexable + 39 embeds + 1 SSR API endpoint)
+**41 calculators** across **5 categories**, **125 routes** (83 indexable + 41 embeds + 1 SSR API endpoint)
 
 ### Freelance (9) — Cyan
 | Calculator | Slug |
@@ -59,13 +59,15 @@
 | Dropshipping Margin | `/side-hustle/dropshipping-margin-calculator` |
 | Profit Margin | `/side-hustle/profit-margin-calculator` |
 
-### Personal Finance (4) — Amber
+### Personal Finance (6) — Amber
 | Calculator | Slug |
 |-----------|------|
 | FIRE Calculator | `/personal-finance/fire-calculator` |
 | Emergency Fund | `/personal-finance/emergency-fund-calculator` |
 | Rent vs Buy | `/personal-finance/rent-vs-buy-calculator` |
 | Subscription Audit | `/personal-finance/subscription-audit-calculator` |
+| Capital Gains Tax | `/personal-finance/capital-gains-tax-calculator` |
+| Debt Payoff | `/personal-finance/debt-payoff-calculator` |
 
 ## Other Pages
 - Homepage (`/`)
@@ -267,6 +269,13 @@
 - [x] Embed routes, category indexes, config, homepage counts updated
 - [x] OG images for both calculators
 
+### Phase 10b — Tax & Business Finance (second half)
+- [x] Shared tax bracket module: added `LONG_TERM_CG_BRACKETS`, `NIIT_RATE`, `NIIT_THRESHOLDS`, `calculateCapitalGainsTax()` to `shared/tax-brackets.ts`
+- [x] Capital Gains Tax Calculator (Personal Finance) — short vs long-term comparison, NIIT, bracket stacking, BarComparisonChart, capital loss offsetting
+- [x] Debt Payoff Calculator (Personal Finance) — snowball/avalanche strategies, dynamic debt list, ProjectionChart (with-extra vs minimum-only), freed-up minimum rollover
+- [x] Embed routes, category indexes, config, homepage counts updated (39→41)
+- [x] OG images for both calculators (Amber background)
+
 ## What's NOT Done
 
 - Resend API key not configured (manual: see `docs/ben.md`)
@@ -275,7 +284,6 @@
 - Placeholder PDF needs real content
 - SVG OG images may not render on all social platforms (PNG preferred for maximum compatibility)
 - Phase 6 (Polish, Distribution & Scale) — OG→PNG, structured data, distribution, affiliate activation, product depth
-- Phase 10b — Capital Gains Tax + Debt Payoff (2 remaining Phase 10 calculators)
 - Phases 11-13 — 12 new calculators planned (see `docs/ROADMAP.md`)
 - Phases B6-B9 — 16 new blog posts planned to pair with calculator phases
 
