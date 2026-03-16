@@ -1,0 +1,82 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { NetWorthCalc } from '@components/calculators/NetWorthCalc';
+
+const faqs = [
+  {
+    question: 'What is net worth and why does it matter?',
+    answer:
+      'Net worth is the total value of everything you own (assets) minus everything you owe (liabilities). It\'s the single best number for tracking your overall financial health. Unlike income, which shows how much money flows in, net worth shows how much wealth you\'ve actually built. Tracking it regularly helps you see if you\'re moving in the right direction.',
+  },
+  {
+    question: 'What counts as an asset?',
+    answer:
+      'Assets include anything of value you own: cash and savings accounts, investment accounts (401k, IRA, brokerage), real estate (your home\'s market value), vehicles, business equity, and valuable personal property. For this calculator, focus on significant assets — skip small items like furniture unless they have meaningful resale value.',
+  },
+  {
+    question: 'What is a good debt-to-asset ratio?',
+    answer:
+      'A debt-to-asset ratio below 50% is generally considered healthy — it means you own more than you owe. Below 30% is excellent. However, context matters: a 70% ratio can be normal for someone who recently bought a home with a mortgage. The key is trending downward over time as you pay off debts and build assets.',
+  },
+  {
+    question: 'How often should I calculate my net worth?',
+    answer:
+      'Monthly or quarterly is ideal. Checking too frequently can cause stress from short-term market fluctuations, while checking too rarely means you miss trends. Pick a consistent schedule — many people track on the first of each month. The trend matters more than any single number.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'FIRE Calculator',
+    description: 'Plan your path to financial independence based on your net worth and savings rate',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Emergency Fund Calculator',
+    description: 'Make sure you have enough liquid assets for emergencies',
+    href: '/personal-finance/emergency-fund-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Debt Payoff Calculator',
+    description: 'Create a plan to reduce your liabilities faster',
+    href: '/personal-finance/debt-payoff-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Savings Goal Calculator',
+    description: 'Plan monthly savings to grow your assets toward a specific target',
+    href: '/personal-finance/savings-goal-calculator',
+    category: 'Personal Finance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Net Worth Calculator - Track Assets & Liabilities | CalcFalcon"
+  description="Calculate your net worth by tracking all assets and liabilities. See asset allocation, debt-to-asset ratio, and projected growth. Free net worth calculator with charts."
+  calculatorName="Net Worth Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="net-worth-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  ogImage="/og-images/net-worth.svg"
+>
+  <NetWorthCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Net Worth Calculator</h2>
+        <p>Add all your assets and liabilities to get a clear picture of your financial position. The calculator shows your total net worth, asset allocation, and debt-to-asset ratio.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your assets with their current values and categories, plus all outstanding debts. You'll see your net worth, a donut chart of asset allocation, and breakdowns of both sides of your balance sheet.</p>
+        <h3>Advanced Mode</h3>
+        <p>Add growth rates to each asset and interest rates to liabilities for a multi-year net worth projection. Set annual contributions to investment accounts to see how your net worth could grow over time with consistent saving and compounding returns.</p>
+        <h3>Why Track Net Worth?</h3>
+        <p>Income tells you how much money comes in, but net worth tells you how much wealth you've actually built. It accounts for debt, spending habits, and investment growth in a single number. For freelancers and self-employed workers, tracking net worth is especially important since income can be irregular — the trend of your net worth over time is the truest measure of financial progress.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

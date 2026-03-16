@@ -41,6 +41,10 @@ import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTax
 import { ProfitMarginCalc } from '@components/calculators/ProfitMarginCalc';
 import { CapitalGainsTaxCalc } from '@components/calculators/CapitalGainsTaxCalc';
 import { DebtPayoffCalc } from '@components/calculators/DebtPayoffCalc';
+import { NetWorthCalc } from '@components/calculators/NetWorthCalc';
+import { BreakEvenCalc } from '@components/calculators/BreakEvenCalc';
+import { ConsultingFeeCalc } from '@components/calculators/ConsultingFeeCalc';
+import { SavingsGoalCalc } from '@components/calculators/SavingsGoalCalc';
 
 export function getStaticPaths() {
   return [
@@ -85,6 +89,10 @@ export function getStaticPaths() {
     { params: { slug: 'personal-finance/subscription-audit-calculator' } },
     { params: { slug: 'personal-finance/capital-gains-tax-calculator' } },
     { params: { slug: 'personal-finance/debt-payoff-calculator' } },
+    { params: { slug: 'personal-finance/net-worth-calculator' } },
+    { params: { slug: 'personal-finance/savings-goal-calculator' } },
+    { params: { slug: 'freelance/break-even-calculator' } },
+    { params: { slug: 'freelance/consulting-fee-calculator' } },
   ];
 }
 
@@ -255,6 +263,22 @@ const calculators: Record<string, { title: string; component: string }> = {
     title: 'Debt Payoff Calculator',
     component: 'debtpayoff',
   },
+  'personal-finance/net-worth-calculator': {
+    title: 'Net Worth Calculator',
+    component: 'networth',
+  },
+  'personal-finance/savings-goal-calculator': {
+    title: 'Savings Goal Calculator',
+    component: 'savingsgoal',
+  },
+  'freelance/break-even-calculator': {
+    title: 'Break-Even Calculator',
+    component: 'breakeven',
+  },
+  'freelance/consulting-fee-calculator': {
+    title: 'Consulting Fee Calculator',
+    component: 'consultingfee',
+  },
 };
 
 const calculator = calculators[slug as string];
@@ -308,5 +332,9 @@ if (!calculator) {
     {calculator.component === 'subscriptionaudit' && <SubscriptionAuditCalc client:load />}
     {calculator.component === 'capitalgainstax' && <CapitalGainsTaxCalc client:load />}
     {calculator.component === 'debtpayoff' && <DebtPayoffCalc client:load />}
+    {calculator.component === 'networth' && <NetWorthCalc client:load />}
+    {calculator.component === 'savingsgoal' && <SavingsGoalCalc client:load />}
+    {calculator.component === 'breakeven' && <BreakEvenCalc client:load />}
+    {calculator.component === 'consultingfee' && <ConsultingFeeCalc client:load />}
   </div>
 </EmbedLayout>

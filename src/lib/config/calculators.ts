@@ -25,7 +25,7 @@ export const CATEGORIES: CategoryEntry[] = [
 ];
 
 export const CALCULATORS: CalculatorEntry[] = [
-  // Freelance (9)
+  // Freelance (11)
   { name: 'Freelancer Hourly Rate Calculator', description: 'Calculate your ideal hourly rate based on income goals, taxes, and expenses', href: '/freelance/hourly-rate-calculator', category: 'Freelance', categoryKey: 'freelance', featured: true },
   { name: 'Quarterly Tax Estimator', description: 'Estimate your quarterly estimated tax payments including self-employment tax', href: '/freelance/quarterly-tax-calculator', category: 'Freelance', categoryKey: 'freelance' },
   { name: 'W2 vs 1099 Comparison', description: 'Compare take-home pay between W2 employment and 1099 contractor work', href: '/freelance/w2-vs-1099-calculator', category: 'Freelance', categoryKey: 'freelance' },
@@ -35,6 +35,8 @@ export const CALCULATORS: CalculatorEntry[] = [
   { name: 'Freelance Vacation Fund Calculator', description: 'How much to save for unpaid time off including lost income and catch-up time', href: '/freelance/freelance-vacation-calculator', category: 'Freelance', categoryKey: 'freelance' },
   { name: 'Value-Based Pricing Calculator', description: 'Price projects by client ROI rather than hours worked', href: '/freelance/value-based-pricing-calculator', category: 'Freelance', categoryKey: 'freelance' },
   { name: 'Self-Employment Tax Calculator', description: 'Calculate Social Security, Medicare, and Additional Medicare taxes on self-employment income', href: '/freelance/self-employment-tax-calculator', category: 'Freelance', categoryKey: 'freelance' },
+  { name: 'Break-Even Calculator', description: 'Find how many units or services you need to sell to cover all your costs', href: '/freelance/break-even-calculator', category: 'Freelance', categoryKey: 'freelance' },
+  { name: 'Consulting Fee Calculator', description: 'Calculate market-based consulting rates by experience level and industry', href: '/freelance/consulting-fee-calculator', category: 'Freelance', categoryKey: 'freelance' },
 
   // Creator (13)
   { name: 'YouTube AdSense Revenue Calculator', description: 'Estimate your YouTube earnings based on views, niche, and audience location', href: '/creator/youtube-adsense-calculator', category: 'Creator', categoryKey: 'creator', featured: true },
@@ -68,11 +70,13 @@ export const CALCULATORS: CalculatorEntry[] = [
   { name: 'Dropshipping Margin Calculator', description: 'Analyze your true dropshipping profit after supplier costs, ads, fees, returns, and refunds', href: '/side-hustle/dropshipping-margin-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Profit Margin Calculator', description: 'Calculate gross, operating, and net profit margins with cost breakdown analysis', href: '/side-hustle/profit-margin-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
 
-  // Personal Finance (6)
+  // Personal Finance (8)
   { name: 'FIRE Calculator', description: 'Calculate your Financial Independence number and how long until you can retire early', href: '/personal-finance/fire-calculator', category: 'Personal Finance', categoryKey: 'finance', featured: true },
   { name: 'Emergency Fund Calculator', description: 'Find out how much you need saved for emergencies based on your expenses and risk factors', href: '/personal-finance/emergency-fund-calculator', category: 'Personal Finance', categoryKey: 'finance' },
   { name: 'Rent vs Buy Calculator', description: 'Compare the true cost of renting vs buying a home over time, including equity and investments', href: '/personal-finance/rent-vs-buy-calculator', category: 'Personal Finance', categoryKey: 'finance' },
   { name: 'Subscription Audit Calculator', description: 'Track all your subscriptions, categorize spending, and find savings opportunities', href: '/personal-finance/subscription-audit-calculator', category: 'Personal Finance', categoryKey: 'finance', featured: true },
   { name: 'Capital Gains Tax Calculator', description: 'Calculate capital gains tax on investments with short-term vs long-term rate comparison and NIIT', href: '/personal-finance/capital-gains-tax-calculator', category: 'Personal Finance', categoryKey: 'finance' },
   { name: 'Debt Payoff Calculator', description: 'Plan your debt-free date using snowball or avalanche method with extra payment projections', href: '/personal-finance/debt-payoff-calculator', category: 'Personal Finance', categoryKey: 'finance' },
+  { name: 'Net Worth Calculator', description: 'Track all your assets and liabilities to see your complete financial picture', href: '/personal-finance/net-worth-calculator', category: 'Personal Finance', categoryKey: 'finance' },
+  { name: 'Savings Goal Calculator', description: 'Calculate monthly savings needed to reach your financial goal with interest projections', href: '/personal-finance/savings-goal-calculator', category: 'Personal Finance', categoryKey: 'finance' },
 ];

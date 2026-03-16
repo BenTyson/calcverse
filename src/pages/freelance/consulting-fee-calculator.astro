@@ -1,0 +1,82 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { ConsultingFeeCalc } from '@components/calculators/ConsultingFeeCalc';
+
+const faqs = [
+  {
+    question: 'How is a consulting fee different from a freelance hourly rate?',
+    answer:
+      'A freelance hourly rate is typically cost-based — you calculate what you need to earn to cover expenses and hit income goals. A consulting fee is market-based — it reflects what clients in your industry and experience bracket expect to pay. Consulting fees tend to be higher because they price in expertise, strategic advice, and business impact, not just time spent.',
+  },
+  {
+    question: 'Should I charge hourly, daily, or project-based?',
+    answer:
+      'It depends on the engagement. Hourly works for ongoing advisory roles with unpredictable scope. Daily rates suit on-site workshops, audits, or short engagements. Project rates are best when deliverables are clearly defined. Monthly retainers provide the most predictable income and work well for ongoing strategic relationships. Most consultants offer multiple options.',
+  },
+  {
+    question: 'What is a reasonable specialization premium?',
+    answer:
+      'Specialists with rare, in-demand skills can command 20-50% premiums over generalists. If you have deep expertise in a niche area (e.g., healthcare compliance, AI/ML strategy, M&A integration), you can justify higher rates. The premium reflects the reduced pool of qualified consultants and the higher impact of specialized knowledge.',
+  },
+  {
+    question: 'How does location factor affect consulting rates?',
+    answer:
+      'Major markets like NYC, SF, and London command 130-160% of the national average. Mid-sized cities like Austin, Denver, or Chicago are typically at 100-120%. Smaller markets may be 70-90%. With remote work, location factor is becoming less rigid — many consultants charge based on the client\'s location rather than their own.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Freelancer Hourly Rate Calculator',
+    description: 'Calculate your hourly rate based on income goals, taxes, and expenses',
+    href: '/freelance/hourly-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Value-Based Pricing Calculator',
+    description: 'Price projects by the value delivered to clients, not time spent',
+    href: '/freelance/value-based-pricing-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Project Rate Calculator',
+    description: 'Convert hourly rates to project-based pricing with scope buffers',
+    href: '/freelance/project-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Break-Even Calculator',
+    description: 'Find how many engagements you need to cover your business costs',
+    href: '/freelance/break-even-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Consulting Fee Calculator - Market-Based Rates | CalcFalcon"
+  description="Calculate consulting fees based on experience, industry, and market factors. Get hourly, daily, project, and retainer rates with comparison charts. Free consulting fee calculator."
+  calculatorName="Consulting Fee Calculator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="consulting-fee-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  ogImage="/og-images/consulting-fee.svg"
+>
+  <ConsultingFeeCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Consulting Fee Calculator</h2>
+        <p>Select your experience level and industry, then adjust location and specialization factors to see market-based rates for hourly, daily, project, and retainer engagements.</p>
+        <h3>Quick Mode</h3>
+        <p>Choose your experience level, industry, location factor, and specialization premium. Set your typical engagement parameters (hours per day, project length, retainer hours) to see all four rate formats compared side by side.</p>
+        <h3>Advanced Mode</h3>
+        <p>Fine-tune with a value multiplier for high-impact engagements, travel premium for on-site work, rush rate multiplier for urgent projects, and billable weeks per year for annual revenue projections.</p>
+        <h3>Market-Based vs Cost-Based Pricing</h3>
+        <p>This calculator uses a market-based approach — rates reflect what clients in your industry and experience bracket expect to pay. This is different from cost-based pricing (what you need to earn). Ideally, your market rate exceeds your cost-based rate. If not, you may need to build more experience or specialize further to command higher rates.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

@@ -8,15 +8,15 @@
 | 6. Polish, Distribution & Scale | PLANNED | OG→PNG, structured data, distribution, affiliate activation, product depth |
 | 10a. Tax & Business Finance (SE Tax, Profit Margin) | DONE | Shared tax brackets, SE Tax, Profit Margin |
 | 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | DONE | Capital Gains Tax, Debt Payoff (~15K/mo) |
-| 11. Financial Planning | NEXT | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
-| 12. Creator & Digital Business | PLANNED | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
+| 11. Financial Planning | DONE | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
+| 12. Creator & Digital Business | NEXT | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
 | 13. Business Operations | PLANNED | Late Payment, Cost Per Lead, Stock Options, 1099 Tax (~12K/mo) |
 | B6. Blog: Tax & Business | PLANNED | 4 posts paired with Phase 10 |
 | B7. Blog: Financial Planning | PLANNED | 4 posts paired with Phase 11 |
 | B8. Blog: Creator & Digital | PLANNED | 4 posts paired with Phase 12 |
 | B9. Blog: Business Operations | PLANNED | 4 posts paired with Phase 13 |
 
-> Completed phases (1-5, 7-9, B1-B5, 10a-10b) archived in `docs/archive/ROADMAP-v1.md`
+> Completed phases (1-5, 7-9, B1-B5, 10a-11) archived in `docs/archive/ROADMAP-v1.md`
 
 ---
 
@@ -69,20 +69,12 @@
 
 ---
 
-## Phase 11: Financial Planning (~16K/mo combined)
+## Phase 11: Financial Planning — DONE
 
-| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
-|-----------|----------|---------------|----------|-------------------|
-| Net Worth | Personal Finance | "net worth calculator" | 5K/mo | Betterment, Empower |
-| Break-Even | Freelance | "break-even calculator" | 5K/mo | Accounting tools |
-| Consulting Fee | Freelance | "consulting rate calculator" | 3K/mo | HoneyBook, Dubsado |
-| Savings Goal | Personal Finance | "savings goal calculator" | 3K/mo | Ally, Marcus |
-
-**Implementation notes:**
-- Net Worth: Dynamic asset/liability list. DonutChart (allocation). Companion to FIRE.
-- Break-Even: Units + revenue break-even. ProjectionChart (revenue vs costs intersection).
-- Consulting Fee: Market-based rate (distinct from Hourly Rate's cost-based approach). BarComparisonChart (hourly/day/project/retainer).
-- Savings Goal: Monthly amount needed by target date. "Irregular income" angle for brand differentiation. ProjectionChart with goal line.
+- [x] Net Worth Calculator (Personal Finance, 5K/mo)
+- [x] Break-Even Calculator (Freelance, 5K/mo)
+- [x] Consulting Fee Calculator (Freelance, 3K/mo)
+- [x] Savings Goal Calculator (Personal Finance, 3K/mo)
 
 ---
 
@@ -124,12 +116,12 @@
 
 | Category | Current | Remaining | Final |
 |----------|---------|-----------|-------|
-| Freelance | 9 | +3 | 12 |
+| Freelance | 11 | +1 | 12 |
 | Creator | 13 | +3 | 16 |
 | Gig Economy | 7 | +0 | 7 |
 | Side Hustle | 6 | +1 | 7 |
-| Personal Finance | 6 | +3 | 9 |
-| **Total** | **41** | **+10** | **51** |
+| Personal Finance | 8 | +1 | 9 |
+| **Total** | **45** | **+6** | **51** |
 
 ---
 
@@ -192,7 +184,7 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 
 ```
 Phase 0 (manual, ongoing)
-Phase 11 (financial planning) — NEXT → B6 (blog: Phase 10) → B7 (blog: Phase 11)
+B6 (blog: Phase 10) → B7 (blog: Phase 11) — NEXT
 Phase 6 (polish)
 Phase 12 (creator/digital) → B8 (blog)
 Phase 13 (biz operations) → B9 (blog)

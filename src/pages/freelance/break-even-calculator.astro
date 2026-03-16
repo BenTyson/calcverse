@@ -1,0 +1,82 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { BreakEvenCalc } from '@components/calculators/BreakEvenCalc';
+
+const faqs = [
+  {
+    question: 'What is a break-even point?',
+    answer:
+      'The break-even point is the number of units you need to sell (or services to deliver) where your total revenue exactly equals your total costs. Below this point you\'re losing money; above it you\'re profitable. It\'s one of the most important numbers for any business or product launch.',
+  },
+  {
+    question: 'What is contribution margin?',
+    answer:
+      'Contribution margin is the amount each unit sold contributes toward covering your fixed costs after accounting for its variable cost. It\'s calculated as price per unit minus variable cost per unit. A higher contribution margin means you need fewer sales to break even. If your contribution margin is negative, you lose money on every sale regardless of volume.',
+  },
+  {
+    question: 'How do I calculate fixed vs variable costs?',
+    answer:
+      'Fixed costs stay the same regardless of how many units you sell: rent, software subscriptions, insurance, salaries. Variable costs change with each unit: materials, packaging, shipping, payment processing fees. Some costs are mixed — identify the portion that scales with volume. When in doubt, categorize costs as fixed for a more conservative break-even estimate.',
+  },
+  {
+    question: 'How can I lower my break-even point?',
+    answer:
+      'Three ways: (1) Reduce fixed costs — negotiate rent, cut unnecessary subscriptions, or work from home. (2) Lower variable costs — find cheaper suppliers, reduce packaging, negotiate bulk discounts. (3) Raise prices — if the market supports it, even a small price increase significantly reduces break-even volume because it increases contribution margin.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'Profit Margin Calculator',
+    description: 'Analyze gross, operating, and net profit margins with cost breakdown',
+    href: '/side-hustle/profit-margin-calculator',
+    category: 'Side Hustle',
+  },
+  {
+    name: 'Project Rate Calculator',
+    description: 'Convert hourly rates to project-based pricing with buffers',
+    href: '/freelance/project-rate-calculator',
+    category: 'Freelance',
+  },
+  {
+    name: 'Online Course Revenue Calculator',
+    description: 'Estimate course revenue and find your break-even enrollment number',
+    href: '/creator/online-course-revenue-calculator',
+    category: 'Creator',
+  },
+  {
+    name: 'Consulting Fee Calculator',
+    description: 'Calculate market-based consulting rates by experience and industry',
+    href: '/freelance/consulting-fee-calculator',
+    category: 'Freelance',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Break-Even Calculator - Find Your Break-Even Point | CalcFalcon"
+  description="Calculate your break-even point with cost analysis. See how many units you need to sell to cover costs with revenue vs cost projection charts. Free break-even calculator."
+  calculatorName="Break-Even Calculator"
+  category="Freelance"
+  categorySlug="freelance"
+  slug="break-even-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  ogImage="/og-images/break-even.svg"
+>
+  <BreakEvenCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Break-Even Calculator</h2>
+        <p>Enter your fixed costs, variable cost per unit, and selling price to instantly see how many units you need to sell to break even. The projection chart shows exactly where your revenue line crosses your total cost line.</p>
+        <h3>Quick Mode</h3>
+        <p>Enter your three key numbers — fixed costs, variable cost per unit, and price per unit. You'll see your break-even point in units and revenue, plus the contribution margin that drives it.</p>
+        <h3>Advanced Mode</h3>
+        <p>Add a target profit amount and tax rate to see how many units you need for a specific profit goal. The calculator adjusts for taxes so you see the pre-tax sales volume needed to hit your after-tax target.</p>
+        <h3>Break-Even for Freelancers</h3>
+        <p>Freelancers can use break-even analysis for course launches, productized services, and physical products. Your fixed costs might include platform fees, marketing spend, and tools. Variable costs include payment processing, fulfillment, and per-customer support time.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

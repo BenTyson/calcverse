@@ -1,14 +1,14 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-16 (Phase 10b complete)
+**Last Updated:** 2026-03-16 (Phase 11 complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**41 calculators** across **5 categories**, **125 routes** (83 indexable + 41 embeds + 1 SSR API endpoint)
+**45 calculators** across **5 categories**, **133 routes** (87 indexable + 45 embeds + 1 SSR API endpoint)
 
-### Freelance (9) — Cyan
+### Freelance (11) — Cyan
 | Calculator | Slug |
 |-----------|------|
 | Freelancer Hourly Rate | `/freelance/hourly-rate-calculator` |
@@ -20,6 +20,8 @@
 | Freelance Vacation Fund | `/freelance/freelance-vacation-calculator` |
 | Value-Based Pricing | `/freelance/value-based-pricing-calculator` |
 | Self-Employment Tax | `/freelance/self-employment-tax-calculator` |
+| Break-Even | `/freelance/break-even-calculator` |
+| Consulting Fee | `/freelance/consulting-fee-calculator` |
 
 ### Creator (13) — Magenta
 | Calculator | Slug |
@@ -59,7 +61,7 @@
 | Dropshipping Margin | `/side-hustle/dropshipping-margin-calculator` |
 | Profit Margin | `/side-hustle/profit-margin-calculator` |
 
-### Personal Finance (6) — Amber
+### Personal Finance (8) — Amber
 | Calculator | Slug |
 |-----------|------|
 | FIRE Calculator | `/personal-finance/fire-calculator` |
@@ -68,6 +70,8 @@
 | Subscription Audit | `/personal-finance/subscription-audit-calculator` |
 | Capital Gains Tax | `/personal-finance/capital-gains-tax-calculator` |
 | Debt Payoff | `/personal-finance/debt-payoff-calculator` |
+| Net Worth | `/personal-finance/net-worth-calculator` |
+| Savings Goal | `/personal-finance/savings-goal-calculator` |
 
 ## Other Pages
 - Homepage (`/`)
@@ -276,6 +280,14 @@
 - [x] Embed routes, category indexes, config, homepage counts updated (39→41)
 - [x] OG images for both calculators (Amber background)
 
+### Phase 11 — Financial Planning
+- [x] Net Worth Calculator (Personal Finance) — dynamic asset/liability lists, DonutChart (asset allocation), ProjectionChart (growth projection in advanced)
+- [x] Break-Even Calculator (Freelance) — fixed/variable cost analysis, ProjectionChart (revenue vs total cost intersection), target profit with tax
+- [x] Consulting Fee Calculator (Freelance) — market-based rates by experience/industry/location, BarComparisonChart (hourly/daily/project/retainer)
+- [x] Savings Goal Calculator (Personal Finance) — monthly savings planner, ProjectionChart with goalLine, inflation adjustment, irregular income buffer
+- [x] Embed routes, category indexes, config, homepage counts updated (41→45)
+- [x] OG images for all 4 calculators
+
 ## What's NOT Done
 
 - Resend API key not configured (manual: see `docs/ben.md`)
@@ -284,7 +296,7 @@
 - Placeholder PDF needs real content
 - SVG OG images may not render on all social platforms (PNG preferred for maximum compatibility)
 - Phase 6 (Polish, Distribution & Scale) — OG→PNG, structured data, distribution, affiliate activation, product depth
-- Phases 11-13 — 12 new calculators planned (see `docs/ROADMAP.md`)
+- Phases 12-13 — 8 new calculators planned (see `docs/ROADMAP.md`)
 - Phases B6-B9 — 16 new blog posts planned to pair with calculator phases
 
 ## Known Pre-existing TS Warnings

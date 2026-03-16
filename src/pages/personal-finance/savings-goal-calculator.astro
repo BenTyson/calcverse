@@ -1,0 +1,82 @@
+---
+import CalculatorLayout from '@layouts/CalculatorLayout.astro';
+import { SavingsGoalCalc } from '@components/calculators/SavingsGoalCalc';
+
+const faqs = [
+  {
+    question: 'How much should I save each month?',
+    answer:
+      'The common guideline is 20% of your income (from the 50/30/20 rule), but the right amount depends on your specific goal, timeline, and circumstances. Use this calculator to find the exact monthly amount needed for your target. For freelancers with variable income, save more during good months to build a buffer for lean periods.',
+  },
+  {
+    question: 'What interest rate should I use?',
+    answer:
+      'It depends on where you keep your savings. High-yield savings accounts currently offer 4-5% APY. CDs might offer slightly more for locked-in terms. Index fund investments historically return 7-10% annually but with volatility. For short-term goals (under 2 years), use your HYSA rate. For longer goals, a conservative 6-7% for diversified investments is reasonable.',
+  },
+  {
+    question: 'Should I account for inflation?',
+    answer:
+      'Yes, for goals more than 2-3 years away. Inflation (historically ~3% in the US) erodes purchasing power over time. A $50,000 goal in 10 years will actually need about $67,000 in future dollars to have the same purchasing power. Use advanced mode to add inflation adjustment to your target.',
+  },
+  {
+    question: 'What is an irregular income buffer?',
+    answer:
+      'Freelancers and gig workers don\'t earn the same amount every month. An irregular income buffer (10-20% extra) accounts for lean months when you might not be able to save the full target amount. By saving more during good months, you stay on track even when income dips. This is one of the most important adjustments for self-employed savers.',
+  },
+];
+
+const relatedCalculators = [
+  {
+    name: 'FIRE Calculator',
+    description: 'Plan your path to financial independence with savings rate projections',
+    href: '/personal-finance/fire-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Emergency Fund Calculator',
+    description: 'Calculate how much you need for a financial safety net',
+    href: '/personal-finance/emergency-fund-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Net Worth Calculator',
+    description: 'Track all your assets and liabilities in one place',
+    href: '/personal-finance/net-worth-calculator',
+    category: 'Personal Finance',
+  },
+  {
+    name: 'Side Hustle Time to Goal Calculator',
+    description: 'See how side income accelerates your savings timeline',
+    href: '/side-hustle/time-to-goal-calculator',
+    category: 'Side Hustle',
+  },
+];
+---
+
+<CalculatorLayout
+  title="Savings Goal Calculator - Monthly Savings Planner | CalcFalcon"
+  description="Calculate how much to save monthly to reach your financial goal. See interest projections, inflation adjustments, and irregular income buffers. Free savings goal calculator."
+  calculatorName="Savings Goal Calculator"
+  category="Personal Finance"
+  categorySlug="personal-finance"
+  slug="savings-goal-calculator"
+  faqs={faqs}
+  relatedCalculators={relatedCalculators}
+  ogImage="/og-images/savings-goal.svg"
+>
+  <SavingsGoalCalc client:visible />
+  <Fragment slot="content">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Use the Savings Goal Calculator</h2>
+        <p>Enter your savings target, current balance, timeline, and interest rate to see exactly how much you need to save each month. The projection chart shows your savings growth toward the goal line.</p>
+        <h3>Quick Mode</h3>
+        <p>Set your target amount, current savings, monthly contribution, interest rate, and timeline. The calculator shows your required monthly savings, time to goal, total contributions, and interest earned from compounding.</p>
+        <h3>Advanced Mode</h3>
+        <p>Add inflation adjustment to ensure your target maintains purchasing power over time. The irregular income buffer adds a percentage on top of required savings — essential for freelancers whose monthly income varies. This ensures you stay on track even during lean months.</p>
+        <h3>Built for Freelancers</h3>
+        <p>Unlike generic savings calculators, this one accounts for the reality of self-employment: variable income, no employer match, and the need to be your own financial planner. The irregular income buffer feature helps you plan realistically instead of optimistically.</p>
+      </div>
+    </section>
+  </Fragment>
+</CalculatorLayout>

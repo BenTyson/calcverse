@@ -61,11 +61,18 @@ const calculators = [
     description: 'Plan your debt-free date using snowball or avalanche method with projection charts',
     href: '/personal-finance/debt-payoff-calculator',
   },
+  {
+    name: 'Net Worth Calculator',
+    description: 'Track all your assets and liabilities to see your complete financial picture',
+    href: '/personal-finance/net-worth-calculator',
+  },
+  {
+    name: 'Savings Goal Calculator',
+    description: 'Calculate monthly savings needed to reach your financial goal with interest projections',
+    href: '/personal-finance/savings-goal-calculator',
+  },
 ];
 
-const upcomingCalculators = [
-  'Net Worth Tracker',
-];
 ---
 
 <BaseLayout
@@ -124,24 +131,6 @@ const upcomingCalculators = [
             </span>
           </a>
         ))}
-      </div>
-
-      <!-- Coming Soon -->
-      <div class="mt-12 card-elevated p-6">
-        <h3 class="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-finance-500 animate-pulse"></span>
-          More Personal Finance Calculators Coming Soon
-        </h3>
-        <ul class="text-neutral-600 space-y-2">
-          {upcomingCalculators.map((calc) => (
-            <li class="flex items-center gap-3">
-              <svg class="w-4 h-4 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              {calc}
-            </li>
-          ))}
-        </ul>
       </div>
 
       <!-- FAQs -->
