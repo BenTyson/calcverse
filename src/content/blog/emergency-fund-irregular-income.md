@@ -123,4 +123,6 @@ Use the [emergency fund calculator](/personal-finance/emergency-fund-calculator)
 
 One quick way to accelerate your emergency fund: audit your subscriptions. Most people are spending $50 to $150 per month on subscriptions they forgot about or no longer use. Our [subscription audit guide](/blog/subscription-audit-guide) walks through a framework for finding and cutting those charges — and redirecting the savings into your emergency fund.
 
+For freelancers working toward bigger financial goals beyond the emergency fund — a down payment, an equipment purchase, a career transition — our guide to [savings goals on variable income](/blog/savings-goals-variable-income) covers how to structure contributions when your income changes every month.
+
 For freelancers in particular, the peace of mind that comes with knowing you can survive 6 to 9 months without income is worth more than the interest you would earn investing that money elsewhere.

@@ -1,12 +1,12 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-16 (Phase B6 complete)
+**Last Updated:** 2026-03-17 (Phase 6 partial — automatable tasks complete)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
 ## What's Live
 
-**45 calculators** across **5 categories**, **137 routes** (91 indexable + 45 embeds + 1 SSR API endpoint)
+**45 calculators** across **5 categories**, **141 routes** (95 indexable + 45 embeds + 1 SSR API endpoint)
 
 ### Freelance (11) — Cyan
 | Calculator | Slug |
@@ -76,7 +76,7 @@
 ## Other Pages
 - Homepage (`/`)
 - 5 category index pages (with intro paragraphs + FAQ structured data)
-- Blog index (`/blog`) + 36 articles
+- Blog index (`/blog`) + 40 articles
 - About page (`/about`)
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
@@ -296,16 +296,31 @@
 - [x] BlogLayout.astro: added Phase 10 + Phase 11 calculator names to CTA map
 - [x] Backlinks added to 8 existing posts (quarterly-tax, w2-vs-1099, reselling, dropshipping, FIRE, side-hustle-taxes, emergency-fund, subscription-audit)
 
+### Phase B7 — Blog: Financial Planning (4 posts)
+- [x] Net Worth Tracking for Freelancers — asset allocation, debt-to-asset ratio, projection strategies
+- [x] Break-Even Analysis for Course Creators and Product Sellers — contribution margin, fixed/variable costs, pricing lever
+- [x] Consulting Rates by Industry in 2026 — 8 industries, 5 experience tiers, location/specialization multipliers
+- [x] Savings Goals on Variable Income — percentage-based saving, irregular income buffer, competing goals
+- [x] Backlinks added to 8 existing posts (fire-calculator-guide, emergency-fund, debt-payoff, freelance-pricing, freelance-rate, profit-margin, online-course, subscription-audit)
+
+### Phase 6 (partial) — Polish & Technical SEO
+- [x] OG images converted from SVG to PNG (42 files: 41 calculators + default) via `scripts/convert-og-images.mjs`
+- [x] All 41 calculator `.astro` pages updated from `.svg` to `.png` ogImage references
+- [x] BaseLayout default OG image updated to `default.png`
+- [x] Fixed corrupt SVG header in `reselling-profit.svg` (unescaped `&`)
+- [x] Structured data: `image` property added to WebApplication schema (`schema.ts` + `CalculatorLayout.astro`)
+- [x] PWA support: `manifest.json`, service worker (`sw.js`), 192/512px PNG icons, manifest link + theme-color meta in BaseLayout
+- [x] `sharp` added as explicit dependency for OG image conversion
+
 ## What's NOT Done
 
 - Resend API key not configured (manual: see `docs/ben.md`)
 - Affiliate URLs are placeholders (`#`)
 - AdSense publisher ID not set (pending approval)
 - Placeholder PDF needs real content
-- SVG OG images may not render on all social platforms (PNG preferred for maximum compatibility)
-- Phase 6 (Polish, Distribution & Scale) — OG→PNG, structured data, distribution, affiliate activation, product depth
+- Phase 6 remaining (manual): distribution (Product Hunt, Reddit, HARO), affiliate URL activation, PDF export, compare scenarios
 - Phases 12-13 — 8 new calculators planned (see `docs/ROADMAP.md`)
-- Phases B7-B9 — 12 new blog posts planned to pair with calculator phases
+- Phases B8-B9 — 8 new blog posts planned to pair with calculator phases
 
 ## Known Pre-existing TS Warnings
 

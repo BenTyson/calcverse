@@ -158,7 +158,7 @@ Freelancers who put all extra money toward debt and neglect quarterly estimated 
 
 ### Not Cutting Subscriptions
 
-Recurring charges you have forgotten about are the easiest source of extra debt payment money. A thorough [subscription audit](/blog/subscription-audit-guide) typically finds $50 to $150 per month in cuttable subscriptions. Redirecting $100 per month toward debt adds $1,200 per year to your payoff — enough to eliminate many small balances entirely.
+Recurring charges you have forgotten about are the easiest source of extra debt payment money. A thorough [subscription audit](/blog/subscription-audit-guide) typically finds $50 to $150 per month in cuttable subscriptions. Redirecting $100 per month toward debt adds $1,200 per year to your payoff — enough to eliminate many small balances entirely. Once your high-interest debt is paid down, tracking your [net worth as a freelancer](/blog/net-worth-freelancers) helps you see the full picture of how debt reduction translates into actual wealth accumulation.
 
 ### Treating All Months the Same
 

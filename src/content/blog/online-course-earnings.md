@@ -130,4 +130,6 @@ If you are starting from zero audience, the path is longer but not impossible. M
 
 The platform you choose shapes your economics from day one. Self-hosting keeps the most revenue in your pocket but demands the most from you operationally. Teachable balances convenience with reasonable fees. Udemy trades margin for discovery. Skillshare is best treated as a marketing channel, not a primary revenue source.
 
+Before you launch, running a [break-even analysis](/blog/break-even-analysis-guide) on your course — factoring in creation time, platform fees, and marketing spend — tells you exactly how many enrollments you need before you see profit. It is the simplest way to pressure-test whether a course idea is financially viable at your target price point.
+
 Run your specific scenario through the [online course revenue calculator](/creator/online-course-revenue-calculator) — plug in your course price, expected sales volume, and preferred platform to see exactly what you would take home each month. The numbers cut through the noise better than any advice.

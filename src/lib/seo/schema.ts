@@ -3,6 +3,7 @@ export interface CalculatorSEO {
   description: string;
   url: string;
   category: string;
+  image?: string;
 }
 
 export interface FAQ {
@@ -22,6 +23,7 @@ export function generateWebApplicationSchema(calc: CalculatorSEO): object {
     name: calc.name,
     description: calc.description,
     url: calc.url,
+    ...(calc.image && { image: calc.image }),
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Any',
     browserRequirements: 'Requires JavaScript',

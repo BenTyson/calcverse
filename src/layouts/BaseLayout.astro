@@ -16,7 +16,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/og-images/default.svg',
+  ogImage = '/og-images/default.png',
   canonicalUrl,
   noIndex = false,
   ogType = 'website',
@@ -34,6 +34,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/Logo_Transparent2.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#06b6d4" />
 
     <!-- Inter Font (self-hosted) -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -71,5 +73,10 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+    </script>
   </body>
 </html>

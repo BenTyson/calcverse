@@ -5,7 +5,7 @@ SEO-driven calculator site for freelancers, creators, and gig workers. Generates
 **Domain:** calcfalcon.com
 **Stack:** Astro 5 (SSG + SSR hybrid) + React 19 + Tailwind CSS 4
 **Hosting:** Railway (auto-deploy from main)
-**Live:** 45 calculators, 137 pages (91 indexable + 45 embeds + 1 SSR), 6 sections (5 calculator categories + blog)
+**Live:** 45 calculators, 141 pages (95 indexable + 45 embeds + 1 SSR), 6 sections (5 calculator categories + blog)
 
 ## Commands
 
@@ -59,6 +59,9 @@ Every calculator has 3 files:
 | Email capture | `src/components/monetization/EmailCapture.tsx` |
 | Affiliate card | `src/components/monetization/AffiliateCard.astro` |
 | Manual tasks | `docs/ben.md` |
+| OG image converter | `scripts/convert-og-images.mjs` |
+| PWA manifest | `public/manifest.json` |
+| Service worker | `public/sw.js` |
 
 ## Design System
 

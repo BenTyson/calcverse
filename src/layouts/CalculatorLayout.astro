@@ -61,11 +61,16 @@ const breadcrumbs: BreadcrumbItem[] = [
   { name: calculatorName, url: currentUrl },
 ];
 
+const fullOgImage = ogImage
+  ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`)
+  : `${siteUrl}/og-images/default.png`;
+
 const calculatorSEO = {
   name: calculatorName,
   description,
   url: currentUrl,
   category,
+  image: fullOgImage,
 };
 
 // Category color mappings

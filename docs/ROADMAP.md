@@ -5,18 +5,18 @@
 | Phase | Status | Focus |
 |-------|--------|-------|
 | 0. Manual/External Steps | IN PROGRESS | Email, AdSense (DNS + analytics + GSC done) |
-| 6. Polish, Distribution & Scale | PLANNED | OG→PNG, structured data, distribution, affiliate activation, product depth |
+| 6. Polish, Distribution & Scale | PARTIAL | OG→PNG done, structured data done, PWA done. Manual: distribution, affiliates, PDF export |
 | 10a. Tax & Business Finance (SE Tax, Profit Margin) | DONE | Shared tax brackets, SE Tax, Profit Margin |
 | 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | DONE | Capital Gains Tax, Debt Payoff (~15K/mo) |
 | 11. Financial Planning | DONE | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
 | 12. Creator & Digital Business | PLANNED | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
 | 13. Business Operations | PLANNED | Late Payment, Cost Per Lead, Stock Options, 1099 Tax (~12K/mo) |
 | B6. Blog: Tax & Business | DONE | 4 posts paired with Phase 10 |
-| B7. Blog: Financial Planning | NEXT | 4 posts paired with Phase 11 |
+| B7. Blog: Financial Planning | DONE | 4 posts paired with Phase 11 |
 | B8. Blog: Creator & Digital | PLANNED | 4 posts paired with Phase 12 |
 | B9. Blog: Business Operations | PLANNED | 4 posts paired with Phase 13 |
 
-> Completed phases (1-5, 7-9, B1-B6, 10a-11) archived in `docs/archive/ROADMAP-v1.md`
+> Completed phases (1-5, 7-9, B1-B7, 10a-11) archived in `docs/archive/ROADMAP-v1.md`
 
 ---
 
@@ -30,29 +30,19 @@
 
 ---
 
-## Phase 6: Polish, Distribution & Scale
+## Phase 6: Polish, Distribution & Scale — PARTIAL
 
-### SEO & Shareability
-- Convert OG images from SVG to PNG (SVGs don't render on Twitter/LinkedIn/Slack)
-- Add `SoftwareApplication` structured data to calculator pages for rich search results
-- Monitor Search Console, optimize top-performing pages
+### Done (automated)
+- [x] OG images: SVG→PNG conversion (`scripts/convert-og-images.mjs`, 42 PNGs)
+- [x] Structured data: `image` in WebApplication schema
+- [x] PWA: manifest, service worker, 192/512 icons, theme-color
 
-### Distribution (seed initial traffic)
-- Submit to Product Hunt
-- Post to niche subreddits: r/freelance, r/sidehustle, r/smallbusiness, r/Entrepreneur
-- Submit to Indie Hackers
-- Post individual calculators to niche communities where they solve real problems
-- HARO responses for freelance/tax/gig-economy queries
-
-### Monetization Activation
-- Replace placeholder affiliate URLs in `monetization.ts` with real tracking links
-- Apply for Mediavine at 50K sessions/month
-- Apply for AdSense (after initial traffic)
-
-### Product Depth
-- PDF export of calculator results (real lead magnet)
-- Compare scenarios mode (run same calc with 2 input sets side by side)
-- PWA support (mobile home screen install)
+### Remaining (manual — see `docs/ben.md`)
+- [ ] Distribution: Product Hunt, Reddit (r/freelance, r/sidehustle, r/smallbusiness), Indie Hackers, HARO
+- [ ] Affiliate URLs: replace placeholders in `monetization.ts`
+- [ ] AdSense / Mediavine application
+- [ ] PDF export of calculator results
+- [ ] Compare scenarios mode
 
 ---
 
@@ -132,11 +122,8 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 ### Phase B6 (pairs with Phase 10) — DONE
 4 posts: SE Tax Guide, Profit Margins for Side Hustles, Capital Gains Tax for Freelancers, Debt Payoff on Irregular Income. Backlinks added to 8 existing posts.
 
-### Phase B7 (pairs with Phase 11) — 4 posts
-1. "Net Worth Tracking for Freelancers" → Net Worth calculator
-2. "Break-Even Analysis for Course Creators and Product Sellers" → Break-Even calculator
-3. "Consulting Rates by Industry in 2026" → Consulting Fee calculator
-4. "Savings Goals on Variable Income" → Savings Goal calculator
+### Phase B7 (pairs with Phase 11) — DONE
+4 posts: Net Worth Tracking for Freelancers, Break-Even Analysis for Course Creators, Consulting Rates by Industry 2026, Savings Goals on Variable Income. Backlinks added to 8 existing posts.
 
 ### Phase B8 (pairs with Phase 12) — 4 posts
 1. "Crypto Tax Guide for Creators and Freelancers" → Crypto Tax calculator
@@ -181,8 +168,7 @@ Each blog phase pairs with a calculator phase. Posts target "People Also Ask" an
 
 ```
 Phase 0 (manual, ongoing)
-B7 (blog: Phase 11) — NEXT
-Phase 6 (polish)
+Phase 6 (polish) — PARTIAL (manual tasks remain)
 Phase 12 (creator/digital) → B8 (blog)
 Phase 13 (biz operations) → B9 (blog)
 ```

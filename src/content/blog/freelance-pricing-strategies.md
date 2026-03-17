@@ -106,7 +106,9 @@ You are doing strategic work with measurable business impact. The client can art
 
 Many freelancers use a hybrid approach. They charge hourly for discovery and scoping, then transition to project-based or value-based pricing for the execution phase. This works well because the initial hourly phase generates the information you need to price the larger engagement accurately.
 
-Whichever pricing model you use, make sure it accounts for non-billable time — especially meetings. Our [guide to the true cost of meetings](/blog/freelance-meeting-cost) breaks down how prep, follow-up, and recovery time turn a one-hour call into two hours of lost productivity.
+Whichever pricing model you use, make sure it accounts for non-billable time — especially meetings. Our [guide to the true cost of meetings](/blog/freelance-meeting-cost) breaks down how prep, follow-up, and recovery time turn a one-hour call into two hours of lost productivity. If you are setting rates for consulting engagements specifically, our [2026 consulting rates by industry guide](/blog/consulting-rates-by-industry-2026) provides benchmark rates across technology, finance, marketing, legal, healthcare, design, and management consulting — organized by experience level.
+
+For product sellers evaluating whether to price hourly, per-project, or value-based, running a [break-even analysis](/blog/break-even-analysis-guide) before committing to a pricing model helps you understand how many units you need to sell at each price point to recoup your investment.
 
 ## Common Pricing Mistakes
 

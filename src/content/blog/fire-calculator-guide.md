@@ -134,7 +134,9 @@ But the formula requires sustained discipline over decades. Saving 25% to 50% of
 
 The most honest assessment is this: FIRE math is straightforward, but FIRE execution is hard. The calculator gives you the numbers. Whether those numbers become reality depends on behavior sustained over a very long time.
 
-For most people, the value of FIRE planning is not necessarily retiring at 40. It is building the financial resilience to have options — the option to take a lower-paying job you enjoy, to take a year off, to weather a recession without catastrophe, or to downshift to part-time work in your 50s instead of grinding to 67. Even if you never fully "retire early," the savings discipline that FIRE requires puts you in a fundamentally stronger position than the alternative.
+For most people, the value of FIRE planning is not necessarily retiring at 40. It is building the financial resilience to have options — the option to take a lower-paying job you enjoy, to take a year off, to weather a recession without catastrophe, or to downshift to part-time work in your 50s instead of grinding to 67. Even if you never fully "retire early," the savings discipline that FIRE requires puts you in a fundamentally stronger position than the alternative. Tracking your [net worth as a freelancer](/blog/net-worth-freelancers) quarterly is one of the best ways to measure whether that discipline is translating into actual wealth accumulation — and your net worth trend tells you more about your FIRE progress than any single month's savings rate.
+
+If you are working toward a specific milestone on the path to FIRE — a down payment, an equipment fund, a career transition runway — our guide to [savings goals on variable income](/blog/savings-goals-variable-income) covers how to structure contributions when your monthly income is unpredictable.
 
 ## Run Your Numbers
 

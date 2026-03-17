@@ -142,4 +142,6 @@ Temporarily accepting lower margins to build reviews, reputation, and customer b
 
 ## Calculate Your Profit Margins
 
+If you sell a product or course and want to know exactly how many units you need to move before you start making money, our [break-even analysis guide](/blog/break-even-analysis-guide) walks through the math of fixed costs, contribution margins, and profit targets — including tax-adjusted calculations for freelancers.
+
 Every side hustle has a different cost structure, and generic benchmarks only get you so far. Plug your actual revenue, costs, and expenses into our [Profit Margin Calculator](/side-hustle/profit-margin-calculator) to see your real gross, net, and operating margins. The calculator breaks down where your money goes and highlights the costs that have the biggest impact on your bottom line — so you can focus improvement efforts where they matter most.
