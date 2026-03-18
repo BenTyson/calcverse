@@ -1,127 +1,433 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import CalculatorDirectory from '@components/homepage/CalculatorDirectory.tsx';
-import { CALCULATORS } from '@lib/config/calculators';
+import FeaturedCalculators from '@components/homepage/FeaturedCalculators.astro';
+import { EmailCapture } from '@components/monetization/EmailCapture.tsx';
+import { CATEGORIES, CALCULATORS } from '@lib/config/calculators';
+import { getCollection } from 'astro:content';
+
+const blogPosts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime())
+  .slice(0, 3);
+
+const calcCounts: Record<string, number> = {};
+for (const c of CALCULATORS) {
+  calcCounts[c.categoryKey] = (calcCounts[c.categoryKey] || 0) + 1;
+}
+
+const audienceCards = [
+  {
+    key: 'freelance',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+    title: 'Freelancers',
+    copy: 'Set your hourly rate, estimate quarterly taxes, compare W2 vs 1099, and plan for retirement — all tailored to self-employed life.',
+    color: 'freelance',
+  },
+  {
+    key: 'creator',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />`,
+    title: 'Content Creators',
+    copy: 'Estimate revenue from YouTube, TikTok, Patreon, Etsy, and more. Know what your content is actually worth.',
+    color: 'creator',
+  },
+  {
+    key: 'gig',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />`,
+    title: 'Gig Workers',
+    copy: 'Track real earnings for rideshare, delivery, and rentals after gas, maintenance, and platform fees.',
+    color: 'gig',
+  },
+  {
+    key: 'sidehustle',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />`,
+    title: 'Side Hustlers',
+    copy: 'Figure out how long to reach your goal, analyze profit margins, and price your services right.',
+    color: 'sidehustle',
+  },
+  {
+    key: 'finance',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+    title: 'Personal Finance',
+    copy: 'Plan for FIRE, build your emergency fund, compare rent vs buy, and pay down debt strategically.',
+    color: 'finance',
+  },
+];
+
+const categoryHrefs: Record<string, string> = {};
+for (const cat of CATEGORIES) {
+  categoryHrefs[cat.key] = cat.href;
+}
+
+const iconBgColors: Record<string, string> = {
+  freelance: 'bg-freelance-100',
+  creator: 'bg-creator-100',
+  gig: 'bg-gig-100',
+  sidehustle: 'bg-sidehustle-100',
+  finance: 'bg-finance-100',
+};
+
+const iconStrokeColors: Record<string, string> = {
+  freelance: 'text-freelance-600',
+  creator: 'text-creator-600',
+  gig: 'text-gig-600',
+  sidehustle: 'text-sidehustle-600',
+  finance: 'text-finance-600',
+};
+
+const borderTopColors: Record<string, string> = {
+  freelance: 'border-t-freelance-500',
+  creator: 'border-t-creator-500',
+  gig: 'border-t-gig-500',
+  sidehustle: 'border-t-sidehustle-500',
+  finance: 'border-t-finance-500',
+};
+
+const linkColors: Record<string, string> = {
+  freelance: 'text-freelance-600 hover:text-freelance-700',
+  creator: 'text-creator-600 hover:text-creator-700',
+  gig: 'text-gig-600 hover:text-gig-700',
+  sidehustle: 'text-sidehustle-600 hover:text-sidehustle-700',
+  finance: 'text-finance-600 hover:text-finance-700',
+};
+
+const blogCategoryBadgeColors: Record<string, string> = {
+  freelance: 'bg-freelance-100 text-freelance-700',
+  creator: 'bg-creator-100 text-creator-700',
+  'gig-economy': 'bg-gig-100 text-gig-700',
+  'side-hustle': 'bg-sidehustle-100 text-sidehustle-700',
+  finance: 'bg-finance-100 text-finance-700',
+};
+
+const blogCategoryLabels: Record<string, string> = {
+  freelance: 'Freelance',
+  creator: 'Creator',
+  'gig-economy': 'Gig Economy',
+  'side-hustle': 'Side Hustle',
+  finance: 'Finance',
+};
 ---
 
 <BaseLayout
   title="CalcFalcon - Free Calculators for Freelancers, Creators & Side Hustlers"
   description="Free financial calculators for freelancers, content creators, and side hustlers. Calculate rates, estimate revenue, and plan your path to financial goals."
 >
-  <!-- Hero Section -->
+  <!-- 1. Hero Section -->
   <section class="relative py-16 md:py-24 overflow-hidden bg-neutral-950">
     <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(168, 85, 247, 0.2) 0%, transparent 50%);"></div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <!-- Announcement Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800/50 rounded-full border border-neutral-700 mb-8">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-          </span>
-          <span class="text-sm font-medium text-neutral-300">45 free calculators and counting</span>
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <!-- Text -->
+        <div class="flex-1 text-center lg:text-left">
+          <!-- Announcement Badge -->
+          <a href="/personal-finance/savings-goal-calculator" class="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800/50 rounded-full border border-neutral-700 mb-8 hover:bg-neutral-700/50 transition-colors no-underline">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary-400">New</span>
+            <span class="text-sm font-medium text-neutral-300">Savings Goal Calculator</span>
+            <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <h1 class="heading-xl text-white mb-6">
+            The financial toolkit<br />
+            <span class="text-gradient">for independent workers</span>
+          </h1>
+
+          <p class="text-xl text-neutral-400 max-w-xl mb-10 leading-relaxed">
+            Set your rates, estimate taxes, project revenue, and plan your finances. All free, no sign-up required.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a
+              href="#segments"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-primary-500/25"
+            >
+              Find Your Calculator
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            <a
+              href="/calculators"
+              class="inline-flex items-center justify-center px-8 py-4 border border-neutral-600 text-neutral-300 font-semibold rounded-xl hover:bg-neutral-800 hover:border-neutral-500 transition-all"
+            >
+              Browse All Calculators
+            </a>
+          </div>
         </div>
 
-        <!-- Headline -->
-        <h1 class="heading-xl text-white mb-6">
-          Know your numbers<br />
-          <span class="text-gradient">before you commit</span>
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Whether you're setting freelance rates, estimating creator revenue, or tracking gig earnings &mdash; get the real math, not guesswork.
-        </p>
-
-        <!-- CTA Button -->
-        <a
-          href="#calculators"
-          class="inline-block px-8 py-4 bg-white text-neutral-900 font-semibold rounded-xl hover:bg-neutral-100 transition-all duration-200"
-        >
-          Explore Calculators
-        </a>
+        <!-- Product Mockup (decorative) -->
+        <div class="hidden lg:block flex-shrink-0 w-80">
+          <div class="card-elevated rounded-2xl p-6 bg-white shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 rounded-lg bg-freelance-100 flex items-center justify-center">
+                <svg class="w-4 h-4 text-freelance-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              </div>
+              <span class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Recommended Rate</span>
+            </div>
+            <div class="text-4xl font-bold text-neutral-900 mb-1">$85<span class="text-lg text-neutral-400 font-normal">/hr</span></div>
+            <p class="text-sm text-neutral-500 mb-4">Based on your goals and expenses</p>
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm">
+                <span class="text-neutral-500">Annual income</span>
+                <span class="font-semibold text-neutral-900">$132,600</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-neutral-500">After taxes</span>
+                <span class="font-semibold text-gig-600">$98,400</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-neutral-500">Effective rate</span>
+                <span class="font-semibold text-neutral-900">25.8%</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Calculator Directory -->
-  <section class="py-20 bg-neutral-50" id="calculators">
+  <!-- 2. Social Proof Bar -->
+  <section class="py-8 bg-white border-b border-neutral-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="heading-lg text-neutral-900 mb-4">
-          All Calculators
-        </h2>
-        <p class="text-neutral-600 max-w-2xl mx-auto">
-          45 free tools for freelancers, creators, gig workers, and side hustlers
-        </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-neutral-900">45</div>
+            <div class="text-xs text-neutral-500">Free Calculators</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-neutral-900">5</div>
+            <div class="text-xs text-neutral-500">Categories</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-neutral-900">No Sign-Up</div>
+            <div class="text-xs text-neutral-500">Required</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-neutral-900">100%</div>
+            <div class="text-xs text-neutral-500">Private</div>
+          </div>
+        </div>
       </div>
-
-      <CalculatorDirectory calculators={CALCULATORS} client:visible />
     </div>
   </section>
 
-  <!-- Why CalcFalcon Section -->
-  <section class="py-20 bg-white">
+  <!-- 3. Audience Segment Cards -->
+  <section id="segments" class="py-20 bg-neutral-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14">
-        <h2 class="heading-lg text-neutral-900 mb-4">
-          Why CalcFalcon?
-        </h2>
+        <h2 class="heading-lg text-neutral-900 mb-4">Find Calculators for Your Work</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">
+          Pick your path. Each category has tools built specifically for how you earn.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-6">
+        {audienceCards.slice(0, 3).map((card) => (
+          <a
+            href={categoryHrefs[card.key]}
+            class:list={[
+              'card-elevated border-t-4 p-6 group hover:shadow-xl transition-all duration-200 no-underline',
+              borderTopColors[card.color],
+            ]}
+          >
+            <div class:list={['w-12 h-12 rounded-xl flex items-center justify-center mb-4', iconBgColors[card.color]]}>
+              <svg class:list={['w-6 h-6', iconStrokeColors[card.color]]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Fragment set:html={card.icon} />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">{card.title}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">{card.copy}</p>
+            <span class:list={['inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all', linkColors[card.color]]}>
+              Explore {calcCounts[card.key]} calculators
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {audienceCards.slice(3).map((card) => (
+          <a
+            href={categoryHrefs[card.key]}
+            class:list={[
+              'card-elevated border-t-4 p-6 group hover:shadow-xl transition-all duration-200 no-underline',
+              borderTopColors[card.color],
+            ]}
+          >
+            <div class:list={['w-12 h-12 rounded-xl flex items-center justify-center mb-4', iconBgColors[card.color]]}>
+              <svg class:list={['w-6 h-6', iconStrokeColors[card.color]]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Fragment set:html={card.icon} />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">{card.title}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">{card.copy}</p>
+            <span class:list={['inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all', linkColors[card.color]]}>
+              Explore {calcCounts[card.key]} calculators
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Featured Calculators -->
+  <FeaturedCalculators />
+
+  <!-- 5. Why CalcFalcon -->
+  <section class="py-20 bg-neutral-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="heading-lg text-neutral-900 mb-4">Why CalcFalcon?</h2>
         <p class="text-neutral-600 max-w-2xl mx-auto">
           No sign-ups. No spreadsheets. Just answers.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="text-center">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-primary-500/25">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card-elevated p-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-4 shadow-lg shadow-primary-500/25">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
             </svg>
           </div>
-          <h3 class="font-bold text-lg text-neutral-900">Built for Your Work</h3>
-          <p class="text-neutral-500 mt-3 leading-relaxed">Every calculator is tailored to freelancers, creators, and gig workers &mdash; not generic finance formulas.</p>
+          <h3 class="font-bold text-lg text-neutral-900 mb-2">Built for Independent Workers</h3>
+          <p class="text-neutral-500 leading-relaxed">Every calculator is tailored to freelancers, creators, and gig workers. Not generic finance formulas.</p>
         </div>
-        <div class="text-center">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sidehustle-500 to-sidehustle-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-sidehustle-500/25">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+        <div class="card-elevated p-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gig-500 to-gig-600 flex items-center justify-center mb-4 shadow-lg shadow-gig-500/25">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg text-neutral-900 mb-2">Results in 60 Seconds</h3>
+          <p class="text-neutral-500 leading-relaxed">Pick a calculator, enter your numbers, get your answer. No sign-up, no spreadsheet.</p>
+        </div>
+
+        <div class="card-elevated p-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-sidehustle-500 to-sidehustle-600 flex items-center justify-center mb-4 shadow-lg shadow-sidehustle-500/25">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
             </svg>
           </div>
-          <h3 class="font-bold text-lg text-neutral-900">Share With a Link</h3>
-          <p class="text-neutral-500 mt-3 leading-relaxed">Every calculation gets a unique URL. Share results with clients, partners, or embed on your own site.</p>
+          <h3 class="font-bold text-lg text-neutral-900 mb-2">Share With a Link</h3>
+          <p class="text-neutral-500 leading-relaxed">Every calculation gets a unique URL. Share results with clients or embed on your site.</p>
         </div>
-        <div class="text-center">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-creator-500 to-creator-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-creator-500/25">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+        <div class="card-elevated p-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-creator-500 to-creator-600 flex items-center justify-center mb-4 shadow-lg shadow-creator-500/25">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <h3 class="font-bold text-lg text-neutral-900">Nothing Leaves Your Browser</h3>
-          <p class="text-neutral-500 mt-3 leading-relaxed">Your financial data is yours. All calculations run locally &mdash; we don't store, track, or sell anything.</p>
+          <h3 class="font-bold text-lg text-neutral-900 mb-2">Nothing Leaves Your Browser</h3>
+          <p class="text-neutral-500 leading-relaxed">All calculations run locally. We don't store, track, or sell your data.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- 6. Blog / Resources Teaser -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="heading-lg text-neutral-900 mb-4">Guides and Resources</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">
+          In-depth articles to help you earn more and keep more of what you make
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {blogPosts.map((post) => (
+          <a
+            href={`/blog/${post.id}`}
+            class="card-elevated p-6 group hover:shadow-xl transition-all duration-200 no-underline"
+          >
+            <span
+              class:list={[
+                'inline-block px-2.5 py-1 rounded-full text-xs font-semibold mb-3',
+                blogCategoryBadgeColors[post.data.category],
+              ]}
+            >
+              {blogCategoryLabels[post.data.category]}
+            </span>
+            <h3 class="font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+              {post.data.title}
+            </h3>
+            <p class="text-neutral-500 text-sm leading-relaxed line-clamp-3 mb-4">
+              {post.data.description.slice(0, 120)}{post.data.description.length > 120 ? '...' : ''}
+            </p>
+            <span class="text-sm font-semibold text-primary-600 group-hover:underline">
+              Read more
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Bottom CTA -->
   <section class="py-20 bg-neutral-950">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="heading-lg text-white mb-6">
-        Stop guessing. Start calculating.
+        Ready to know your numbers?
       </h2>
       <p class="text-neutral-400 text-lg mb-10 max-w-2xl mx-auto">
-        45 free calculators built for the way you actually work. Pick one and get your answer in under a minute.
+        45 free calculators built for the way you actually work.
       </p>
-      <a
-        href="/freelance/hourly-rate-calculator"
-        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-sidehustle-500 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-primary-500/25"
-      >
-        <span>Get Started Free</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a
+          href="#segments"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-primary-500/25"
+        >
+          Find Your Calculator
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+        <a
+          href="/calculators"
+          class="inline-flex items-center justify-center px-8 py-4 border border-neutral-600 text-neutral-300 font-semibold rounded-xl hover:bg-neutral-800 hover:border-neutral-500 transition-all"
+        >
+          Browse All Calculators
+        </a>
+      </div>
+      <div class="max-w-xl mx-auto">
+        <EmailCapture variant="compact" dark={true} client:visible />
+      </div>
     </div>
   </section>
 </BaseLayout>

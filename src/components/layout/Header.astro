@@ -13,7 +13,7 @@ const categories = [
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 group">
-        <img src="/Logo_Transparent2.png" alt="CalcFalcon" class="w-16 h-16 object-contain transition-transform group-hover:scale-105" />
+        <img src="/CalcFalc_Logo_Cyan.png" alt="CalcFalcon" class="w-16 h-16 object-contain transition-transform group-hover:scale-105" />
         <span class="text-xl font-bold tracking-tight text-neutral-900">
           Calc<span class="text-gradient">Falcon</span>
         </span>
@@ -21,6 +21,12 @@ const categories = [
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center gap-1">
+        <a
+          href="/calculators"
+          class="relative px-4 py-2 text-neutral-600 hover:text-neutral-900 font-medium transition-colors rounded-lg hover:bg-neutral-100"
+        >
+          Calculators
+        </a>
         {categories.map((cat) => (
           <a
             href={cat.href}
@@ -52,6 +58,12 @@ const categories = [
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden pb-4 pt-2 space-y-1">
+      <a
+        href="/calculators"
+        class="block px-4 py-3 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 font-medium rounded-xl transition-colors"
+      >
+        Calculators
+      </a>
       {categories.map((cat) => (
         <a
           href={cat.href}

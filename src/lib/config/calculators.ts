@@ -57,13 +57,13 @@ export const CALCULATORS: CalculatorEntry[] = [
   { name: 'Uber/Lyft Driver Earnings Calculator', description: 'Calculate your true rideshare earnings after gas, maintenance, and depreciation', href: '/gig-economy/uber-lyft-calculator', category: 'Gig Economy', categoryKey: 'gig' },
   { name: 'DoorDash/Delivery Earnings Calculator', description: 'Track your delivery earnings and calculate your effective hourly rate', href: '/gig-economy/doordash-calculator', category: 'Gig Economy', categoryKey: 'gig', featured: true },
   { name: 'Instacart Shopper Calculator', description: 'Estimate your Instacart shopping earnings after gas and expenses', href: '/gig-economy/instacart-calculator', category: 'Gig Economy', categoryKey: 'gig' },
-  { name: 'Airbnb Profit Calculator', description: 'Estimate your short-term rental profit after all fees and expenses', href: '/gig-economy/airbnb-calculator', category: 'Gig Economy', categoryKey: 'gig' },
+  { name: 'Airbnb Profit Calculator', description: 'Estimate your short-term rental profit after all fees and expenses', href: '/gig-economy/airbnb-calculator', category: 'Gig Economy', categoryKey: 'gig', featured: true },
   { name: 'Amazon Flex Earnings Calculator', description: 'Calculate your true Amazon Flex earnings after gas and vehicle expenses', href: '/gig-economy/amazon-flex-calculator', category: 'Gig Economy', categoryKey: 'gig' },
   { name: 'TaskRabbit Earnings Calculator', description: 'Calculate your real TaskRabbit earnings after service fees and expenses', href: '/gig-economy/taskrabbit-calculator', category: 'Gig Economy', categoryKey: 'gig' },
   { name: 'Turo Profit Calculator', description: 'Calculate your Turo car rental profit after host fees and expenses', href: '/gig-economy/turo-calculator', category: 'Gig Economy', categoryKey: 'gig' },
 
   // Side Hustle (6)
-  { name: 'Side Hustle Time to Goal Calculator', description: 'Calculate how long your side hustle will take to reach your financial goal', href: '/side-hustle/time-to-goal-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
+  { name: 'Side Hustle Time to Goal Calculator', description: 'Calculate how long your side hustle will take to reach your financial goal', href: '/side-hustle/time-to-goal-calculator', category: 'Side Hustle', categoryKey: 'sidehustle', featured: true },
   { name: 'Reselling Profit Calculator', description: 'Calculate your reselling profit after platform fees, shipping, and costs on eBay, Poshmark, Mercari, and more', href: '/side-hustle/reselling-profit-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Freelance Writing Rate Calculator', description: 'Calculate your per-word and per-article rate based on time, experience, and desired income', href: '/side-hustle/freelance-writing-rate-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },
   { name: 'Tutoring Income Calculator', description: 'Calculate your tutoring earnings after platform fees, prep time, and expenses', href: '/side-hustle/tutoring-income-calculator', category: 'Side Hustle', categoryKey: 'sidehustle' },

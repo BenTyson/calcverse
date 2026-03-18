@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CalculatorDirectory from '@components/homepage/CalculatorDirectory.tsx';
+import { CALCULATORS } from '@lib/config/calculators';
+---
+
+<BaseLayout
+  title="All 45 Free Calculators | CalcFalcon"
+  description="Browse all 45 free calculators for freelancers, content creators, gig workers, and side hustlers. Calculate rates, estimate revenue, plan taxes, and more."
+>
+  <!-- Hero -->
+  <section class="py-16 md:py-20 bg-neutral-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="heading-xl text-white mb-4">All Calculators</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        45 free tools for freelancers, creators, gig workers, and side hustlers
+      </p>
+    </div>
+  </section>
+
+  <!-- Calculator Directory -->
+  <section class="py-20 bg-neutral-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CalculatorDirectory calculators={CALCULATORS} client:visible />
+    </div>
+  </section>
+</BaseLayout>

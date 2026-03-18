@@ -1,0 +1,73 @@
+---
+import { CALCULATORS } from '@lib/config/calculators';
+import { CATEGORY_COLORS } from '@lib/utils/category-styles';
+
+const featured = CALCULATORS.filter((c) => c.featured);
+
+const categoryBorderColors: Record<string, string> = {
+  freelance: 'border-l-freelance-500',
+  creator: 'border-l-creator-500',
+  gig: 'border-l-gig-500',
+  sidehustle: 'border-l-sidehustle-500',
+  finance: 'border-l-finance-500',
+};
+
+const categoryBadgeColors: Record<string, string> = {
+  freelance: 'bg-freelance-100 text-freelance-700',
+  creator: 'bg-creator-100 text-creator-700',
+  gig: 'bg-gig-100 text-gig-700',
+  sidehustle: 'bg-sidehustle-100 text-sidehustle-700',
+  finance: 'bg-finance-100 text-finance-700',
+};
+
+const categoryHoverGlows: Record<string, string> = {
+  freelance: 'hover:shadow-freelance-500/15',
+  creator: 'hover:shadow-creator-500/15',
+  gig: 'hover:shadow-gig-500/15',
+  sidehustle: 'hover:shadow-sidehustle-500/15',
+  finance: 'hover:shadow-finance-500/15',
+};
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="heading-lg text-neutral-900 mb-4">Most Popular Tools</h2>
+      <p class="text-neutral-600 max-w-2xl mx-auto">
+        Start with the calculators freelancers and creators use most
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {featured.map((calc) => (
+        <a
+          href={calc.href}
+          class:list={[
+            'card-elevated-lg border-l-4 p-6 group transition-all duration-200 hover:shadow-xl no-underline',
+            categoryBorderColors[calc.categoryKey],
+            categoryHoverGlows[calc.categoryKey],
+          ]}
+        >
+          <span
+            class:list={[
+              'inline-block px-2.5 py-1 rounded-full text-xs font-semibold mb-3',
+              categoryBadgeColors[calc.categoryKey],
+            ]}
+          >
+            {calc.category}
+          </span>
+          <h3 class="font-bold text-lg text-neutral-900 mb-2 group-hover:text-neutral-700 transition-colors">
+            {calc.name}
+          </h3>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-4">{calc.description}</p>
+          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 group-hover:gap-2.5 transition-all">
+            Try it free
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
