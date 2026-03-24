@@ -59,7 +59,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     {MONETIZATION.adsense.publisherId && (
       <meta name="google-adsense-account" content={MONETIZATION.adsense.publisherId} />
     )}
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3941293108914142" crossorigin="anonymous" is:inline></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3941293108914142"
+     crossorigin="anonymous"></script>
     <slot name="head" />
     {import.meta.env.PROD && (
       <script is:inline defer src="https://umami-production-3685.up.railway.app/script.js" data-website-id="789f1a13-f7d2-4a67-8888-2b5934ba4a94"></script>
