@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ContactForm from '@components/ContactForm.tsx';
 ---
 
 <BaseLayout
@@ -7,31 +8,13 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   description="Get in touch with the CalcFalcon team. Questions, feedback, or partnership inquiries welcome."
 >
   <div class="py-16">
-    <div class="max-w-3xl mx-auto px-4">
-      <h1 class="heading-lg mb-8">Contact Us</h1>
+    <div class="max-w-2xl mx-auto px-4">
+      <h1 class="heading-lg mb-4">Contact Us</h1>
+      <p class="text-neutral-400 text-lg mb-10">
+        Have a question, suggestion, or feedback? Fill out the form below and we'll get back to you.
+      </p>
 
-      <div class="prose prose-neutral prose-lg max-w-none">
-        <p>
-          Have a question, suggestion, or feedback about CalcFalcon? We'd love to hear from you.
-        </p>
-
-        <h2>General Inquiries</h2>
-        <p>
-          For questions about our calculators, feature requests, or bug reports, email us at
-          <a href="mailto:hello@calcfalcon.com" class="text-primary-600 hover:underline">hello@calcfalcon.com</a>.
-        </p>
-
-        <h2>Partnerships & Advertising</h2>
-        <p>
-          Interested in advertising on CalcFalcon or exploring a partnership? Reach out at
-          <a href="mailto:hello@calcfalcon.com" class="text-primary-600 hover:underline">hello@calcfalcon.com</a>.
-        </p>
-
-        <h2>Bug Reports</h2>
-        <p>
-          If you've found a bug or inaccuracy in one of our calculators, please let us know. Include which calculator you were using and what you expected to happen so we can fix it quickly.
-        </p>
-      </div>
+      <ContactForm client:load />
     </div>
   </div>
 </BaseLayout>
