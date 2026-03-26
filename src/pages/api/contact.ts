@@ -1,11 +1,11 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request }) => {
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  if (!apiKey) {
+  const sparrowUrl = import.meta.env.SPARROW_URL;
+  const sparrowKey = import.meta.env.SPARROW_API_KEY;
+  if (!sparrowUrl || !sparrowKey) {
     return new Response(
       JSON.stringify({ error: 'Contact form not configured' }),
       { status: 503, headers: { 'Content-Type': 'application/json' } }
@@ -45,14 +45,24 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    const resend = new Resend(apiKey);
-    await resend.emails.send({
-      from: 'CalcFalcon Contact <no-reply@calcfalcon.com>',
-      to: 'ideaswithben@gmail.com',
-      replyTo: email,
-      subject: `[CalcFalcon] ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`,
+    const res = await fetch(`${sparrowUrl}/v1/send/raw`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': sparrowKey,
+      },
+      body: JSON.stringify({
+        from: 'CalcFalcon Contact <no-reply@calcfalcon.com>',
+        to: 'ideaswithben@gmail.com',
+        subject: `[CalcFalcon] ${subject}`,
+        html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Subject:</strong> ${subject}</p><p>${message}</p>`,
+      }),
     });
+
+    if (!res.ok) {
+      const data = await res.json();
+      throw new Error(data.error || 'Send failed');
+    }
 
     return new Response(
       JSON.stringify({ success: true }),

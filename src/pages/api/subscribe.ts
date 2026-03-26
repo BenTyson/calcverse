@@ -1,11 +1,11 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request }) => {
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  if (!apiKey) {
+  const sparrowUrl = import.meta.env.SPARROW_URL;
+  const sparrowKey = import.meta.env.SPARROW_API_KEY;
+  if (!sparrowUrl || !sparrowKey) {
     return new Response(
       JSON.stringify({ error: 'Email service not configured' }),
       { status: 503, headers: { 'Content-Type': 'application/json' } }
@@ -31,11 +31,19 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    const resend = new Resend(apiKey);
-    await resend.contacts.create({
-      email,
-      audienceId: import.meta.env.RESEND_AUDIENCE_ID || '',
+    const res = await fetch(`${sparrowUrl}/v1/subscribers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': sparrowKey,
+      },
+      body: JSON.stringify({ email }),
     });
+
+    if (!res.ok) {
+      const data = await res.json();
+      throw new Error(data.error || 'Subscription failed');
+    }
 
     return new Response(
       JSON.stringify({ success: true }),
