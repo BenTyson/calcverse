@@ -66,7 +66,7 @@ export const POST: APIRoute = async ({ request }) => {
           'Content-Type': 'application/json',
           'x-api-key': sparrowKey,
         },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email, name, list: 'contacts' }),
       }).catch(() => {}),
     ]);
 
