@@ -45,22 +45,33 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    const res = await fetch(`${sparrowUrl}/v1/send/raw`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': sparrowKey,
-      },
-      body: JSON.stringify({
-        from: 'CalcFalcon Contact <no-reply@calcfalcon.com>',
-        to: 'ideaswithben@gmail.com',
-        subject: `[CalcFalcon] ${subject}`,
-        html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Subject:</strong> ${subject}</p><p>${message}</p>`,
+    // Send the contact email and log the submitter as a subscriber in parallel
+    const [sendRes] = await Promise.all([
+      fetch(`${sparrowUrl}/v1/send/raw`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': sparrowKey,
+        },
+        body: JSON.stringify({
+          from: 'CalcFalcon Contact <no-reply@calcfalcon.com>',
+          to: 'ideaswithben@gmail.com',
+          subject: `[CalcFalcon] ${subject}`,
+          html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Subject:</strong> ${subject}</p><p>${message}</p>`,
+        }),
       }),
-    });
+      fetch(`${sparrowUrl}/v1/subscribers`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': sparrowKey,
+        },
+        body: JSON.stringify({ email, name }),
+      }).catch(() => {}),
+    ]);
 
-    if (!res.ok) {
-      const data = await res.json();
+    if (!sendRes.ok) {
+      const data = await sendRes.json();
       throw new Error(data.error || 'Send failed');
     }
 
