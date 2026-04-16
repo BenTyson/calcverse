@@ -4,10 +4,12 @@ import SchemaOrg from '@components/seo/SchemaOrg.astro';
 import ShareButtons from '@components/calculator/ShareButtons.astro';
 import EmbedCodeGenerator from '@components/calculator/EmbedCodeGenerator.astro';
 import RelatedCalculators from '@components/calculator/RelatedCalculators.astro';
+import RelatedBlogCTA from '@components/calculator/RelatedBlogCTA.astro';
 import AdSlot from '@components/monetization/AdSlot.astro';
 import AffiliateCard from '@components/monetization/AffiliateCard.astro';
 import AffiliateDisclosure from '@components/monetization/AffiliateDisclosure.astro';
 import { EmailCapture } from '@components/monetization/EmailCapture';
+import { getCollection } from 'astro:content';
 import type { FAQ, BreadcrumbItem } from '@lib/seo/schema';
 
 interface RelatedCalc {
@@ -84,6 +86,21 @@ const categoryColors: Record<string, { accent: string; light: string; text: stri
 };
 
 const colors = categoryColors[categorySlug] || categoryColors.freelance;
+
+// Find blog posts that reference this calculator
+const calcPath = `/${categorySlug}/${slug}`;
+const allBlogPosts = await getCollection('blog');
+const relatedBlogPosts = allBlogPosts
+  .filter((post) => {
+    const single = post.data.calculatorSlug;
+    const multiple = post.data.calculatorSlugs;
+    return (single && single === calcPath) || (multiple && multiple.includes(calcPath));
+  })
+  .map((post) => ({
+    title: post.data.title,
+    slug: post.id,
+    description: post.data.description,
+  }));
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage}>
@@ -177,6 +194,9 @@ const colors = categoryColors[categorySlug] || categoryColors.freelance;
 
       <!-- Deep Dive Content -->
       <slot name="deep-dive" />
+
+      <!-- Related Blog Posts -->
+      <RelatedBlogCTA posts={relatedBlogPosts} categorySlug={categorySlug} />
 
       <!-- Ad: Bottom -->
       <div class="mb-10">
