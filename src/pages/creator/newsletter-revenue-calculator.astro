@@ -69,6 +69,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Newsletter Monetization: Subscriptions, Sponsorships, and Platform Economics</h2>
+        <p>Newsletters have become one of the most reliable creator income streams because they combine two powerful monetization models. Paid subscriptions generate predictable recurring revenue from your most committed readers. Sponsorships monetize your entire audience -- including free subscribers -- based on reach and engagement. The best newsletter businesses layer both streams to maximize revenue per subscriber.</p>
+        <p>The platform you choose determines how much of that revenue you keep. Substack takes 10% of paid subscription revenue plus payment processing. Beehiiv's Scale plan charges 0% platform fee. ConvertKit sits in between at 3.5%. On a $10/month subscription with 200 paid subscribers, the difference between Substack and Beehiiv is roughly $200/month -- $2,400/year -- in platform fees alone. At scale, this adds up fast.</p>
+        <h3>How Newsletter Revenue Is Calculated</h3>
+        <p>Subscription revenue follows the formula: <strong>Paid Subscribers x Monthly Price x (1 - Platform Fee - Processing Fee)</strong>. Sponsorship revenue uses a CPM model: <strong>(Total Subscribers x Open Rate / 1,000) x CPM Rate x Sponsored Issues per Month</strong>. This calculator models both streams with platform-specific fee structures and projects how your revenue changes as your list grows. In Advanced mode, it factors in subscriber churn, annual plan discounts, and growth rate to show 6-month and 12-month projections.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <NewsletterCalc client:visible />
 
   <Fragment slot="content">
@@ -82,6 +94,107 @@ const relatedCalculators = [
         <p>Advanced mode adds sponsorship revenue (CPM-based), subscriber growth and churn projections, annual plan modeling, open rates, and issue frequency. Sponsorship revenue is calculated based on your open rate, CPM rate, and what percentage of your issues carry a paid sponsor. Growth projections show where your paid subscriber base will be in 6 and 12 months.</p>
         <h3>Subscriptions vs Sponsorships</h3>
         <p>Paid subscriptions provide predictable recurring revenue. Sponsorships scale with your total list size (not just paid). At smaller scales (under 10K subscribers), subscriptions usually dominate. As you grow, sponsorships become increasingly lucrative because they monetize your entire list, not just the 5% who pay. The most successful newsletters combine both revenue streams.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Newsletter Platform Fee Comparison</h2>
+        <p>The following table compares monthly costs and take-home revenue for a newsletter with 10,000 total subscribers, 500 paid subscribers at $10/month, and weekly sponsorships at $30 CPM with a 40% open rate.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Platform Fee</th>
+              <th>Subscription Take-Home</th>
+              <th>Sponsorship Take-Home</th>
+              <th>Total Monthly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Substack</td>
+              <td>10% + Stripe</td>
+              <td>$4,355</td>
+              <td>N/A (no built-in ads)</td>
+              <td>$4,355</td>
+            </tr>
+            <tr>
+              <td>Beehiiv (Scale)</td>
+              <td>0% + Stripe</td>
+              <td>$4,855</td>
+              <td>$480</td>
+              <td>$5,335</td>
+            </tr>
+            <tr>
+              <td>ConvertKit</td>
+              <td>3.5% + Stripe</td>
+              <td>$4,680</td>
+              <td>$480</td>
+              <td>$5,160</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Beehiiv leads on raw economics: zero platform fee plus built-in ad network. Substack offers network effects through its recommendation engine but takes the largest cut and does not support native sponsorships. ConvertKit provides the most robust email automation but charges a moderate fee. The right choice depends on whether you value discovery (Substack), monetization tools (Beehiiv), or automation (ConvertKit).</p>
+
+        <h2>Newsletter Sponsorship CPM Rates by Niche</h2>
+        <p>Sponsorship rates depend heavily on your niche and audience demographics. Newsletters with a business, finance, or tech audience command the highest CPMs because advertisers value readers with high purchasing power and buying intent.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Newsletter Niche</th>
+              <th>Typical CPM Range</th>
+              <th>Example: 10K Subs, 40% Open Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Finance / Investing</td>
+              <td>$50 - $100</td>
+              <td>$200 - $400 per issue</td>
+            </tr>
+            <tr>
+              <td>B2B / SaaS</td>
+              <td>$40 - $80</td>
+              <td>$160 - $320 per issue</td>
+            </tr>
+            <tr>
+              <td>Tech / AI</td>
+              <td>$35 - $60</td>
+              <td>$140 - $240 per issue</td>
+            </tr>
+            <tr>
+              <td>Marketing / Growth</td>
+              <td>$25 - $50</td>
+              <td>$100 - $200 per issue</td>
+            </tr>
+            <tr>
+              <td>Lifestyle / Wellness</td>
+              <td>$15 - $30</td>
+              <td>$60 - $120 per issue</td>
+            </tr>
+            <tr>
+              <td>General Interest</td>
+              <td>$10 - $20</td>
+              <td>$40 - $80 per issue</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Growing From 1,000 to 25,000 Subscribers</h2>
+        <p>A marketing newsletter on Beehiiv charges $8/month for premium content and publishes twice weekly. Here is how revenue evolves at different subscriber milestones:</p>
+        <p><strong>At 1,000 subscribers:</strong> 5% paid conversion = 50 paid subscribers. Subscription revenue: $388/month (after Stripe). Too small for sponsorships. Total: ~$388/month.</p>
+        <p><strong>At 5,000 subscribers:</strong> 6% paid = 300 paid subscribers. Subscription: $2,326/month. Sponsorships begin: $30 CPM, 40% open rate, 4 sponsored issues/month = $240/month. Total: ~$2,566/month.</p>
+        <p><strong>At 10,000 subscribers:</strong> 7% paid = 700 paid subscribers. Subscription: $5,429/month. Sponsorships at $35 CPM, 8 issues/month = $1,120/month. Total: ~$6,549/month.</p>
+        <p><strong>At 25,000 subscribers:</strong> 8% paid = 2,000 paid subscribers. Subscription: $15,512/month. Sponsorships at $40 CPM, 8 issues/month = $3,200/month. Total: ~$18,712/month. At this scale, the newsletter is a full-time business generating over $224K/year.</p>
+
+        <h2>Managing Churn: The Hidden Revenue Killer</h2>
+        <p>Monthly churn of 3-5% is normal for paid newsletters, but its compounding effect is devastating. At 5% monthly churn with no new subscribers, you lose half your paid base in 14 months. Every subscriber who cancels represents lost lifetime value -- a $10/month subscriber who would have stayed 8 months is worth $80 in future revenue.</p>
+        <p><strong>Offer annual plans aggressively.</strong> Annual subscribers churn at roughly one-third the rate of monthly subscribers. Price annual plans at 10 months for the price of 12 (a 17% discount). The upfront cash flow and reduced churn more than offset the discount. Aim for 30-40% of paid subscribers on annual plans.</p>
+        <p><strong>Activate new subscribers quickly.</strong> The highest-risk churn period is the first 30 days. Subscribers who do not engage with at least 3 issues in their first month are 4x more likely to cancel. A strong onboarding sequence -- welcome email, best-of archive, and a reason to reply -- builds the habit before it has a chance to fade.</p>
+        <p><strong>Track net subscriber growth, not gross.</strong> Adding 50 paid subscribers in a month while losing 40 to churn means you only grew by 10. Focus on the net number. If churn exceeds new signups for two consecutive months, something is wrong with content quality or audience-market fit, and no amount of marketing will fix it.</p>
       </div>
     </section>
   </Fragment>

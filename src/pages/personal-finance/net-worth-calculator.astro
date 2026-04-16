@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/net-worth.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Net Worth: The One Number That Tells Your Whole Financial Story</h2>
+        <p>Your net worth is the difference between what you own and what you owe — total assets minus total liabilities. It is the single most comprehensive measure of your financial health because it captures everything: savings, investments, property, debts, and loans in one number. Income tells you how much money flows through your hands; net worth tells you how much you have actually kept.</p>
+        <p>For freelancers and independent workers, tracking net worth is particularly important because income variability can make monthly cash flow a misleading indicator. A freelancer who earns $15,000 one month and $3,000 the next might panic during the lean month, but if their net worth is steadily climbing, they are on a solid financial trajectory. Regular net worth snapshots reveal the long-term trend that monthly income numbers obscure.</p>
+        <h3>What This Calculator Tracks</h3>
+        <p>Add your assets by category — cash, investments, real estate, vehicles, and other valuables — and your liabilities by type — mortgage, student loans, credit cards, auto loans, and other debts. The calculator computes your total net worth, shows asset allocation in a donut chart, and calculates your debt-to-asset ratio. In Advanced mode, you can add growth rates and contribution amounts to project your net worth forward over multiple years.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <NetWorthCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,34 @@ const relatedCalculators = [
         <p>Add growth rates to each asset and interest rates to liabilities for a multi-year net worth projection. Set annual contributions to investment accounts to see how your net worth could grow over time with consistent saving and compounding returns.</p>
         <h3>Why Track Net Worth?</h3>
         <p>Income tells you how much money comes in, but net worth tells you how much wealth you've actually built. It accounts for debt, spending habits, and investment growth in a single number. For freelancers and self-employed workers, tracking net worth is especially important since income can be irregular — the trend of your net worth over time is the truest measure of financial progress.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Average Net Worth by Age in the United States</h2>
+        <p>The following benchmarks come from the Federal Reserve's Survey of Consumer Finances. Median is more useful than average because a few ultra-wealthy individuals skew the average significantly upward.</p>
+        <table>
+          <thead>
+            <tr><th>Age Group</th><th>Median Net Worth</th><th>Average Net Worth</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Under 35</td><td>$39,000</td><td>$183,500</td></tr>
+            <tr><td>35 - 44</td><td>$135,600</td><td>$549,600</td></tr>
+            <tr><td>45 - 54</td><td>$247,200</td><td>$975,800</td></tr>
+            <tr><td>55 - 64</td><td>$364,500</td><td>$1,566,900</td></tr>
+            <tr><td>65 - 74</td><td>$410,000</td><td>$1,794,600</td></tr>
+          </tbody>
+        </table>
+        <p>If your net worth is above the median for your age group, you are doing better than half of American households. The gap between median and average reflects the extreme wealth concentration at the top.</p>
+        <h2>The Five Components of Net Worth Growth</h2>
+        <p><strong>1. Earning more.</strong> Higher income provides more raw material for wealth building. For freelancers, this means raising rates, specializing, or adding revenue streams. Income is the engine — but only if you convert it into savings rather than lifestyle inflation.</p>
+        <p><strong>2. Spending less.</strong> Reducing expenses has the same mathematical effect as earning more, but it also lowers your FIRE number and the portfolio needed for financial independence. Every dollar not spent is a dollar that can compound.</p>
+        <p><strong>3. Investing consistently.</strong> Regular contributions to investment accounts — regardless of market conditions — take advantage of dollar-cost averaging and ensure you capture long-term market growth. Even small monthly contributions add up significantly over decades.</p>
+        <p><strong>4. Reducing debt.</strong> Every debt payment increases your net worth twice: it reduces liabilities directly and eliminates future interest charges. Prioritize high-interest debt for the biggest impact.</p>
+        <p><strong>5. Time and compounding.</strong> Given enough time, compound returns do most of the heavy lifting. A $500 monthly investment at 7 percent return grows to $122,000 in 10 years, $265,000 in 15 years, and $525,000 in 20 years. The last five years contribute more than the first ten combined.</p>
       </div>
     </section>
   </Fragment>

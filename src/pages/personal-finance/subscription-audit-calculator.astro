@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/subscription-audit.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>The Subscription Creep Problem: How Small Charges Add Up</h2>
+        <p>The average American spends between $200 and $300 per month on recurring subscriptions — and most underestimate their total by two to three times. Streaming services, software tools, gym memberships, meal kits, cloud storage, and premium apps each seem small individually, but together they can consume $2,400 to $3,600 per year. For freelancers, add professional tools like design software, project management platforms, and accounting services, and the total climbs even higher.</p>
+        <p>Subscription creep happens gradually. You sign up for a free trial and forget to cancel. A tool you needed for one project keeps billing monthly. A streaming service you watched during a specific show runs on autopilot. Without a regular audit, these charges accumulate silently on credit card statements.</p>
+        <h3>How This Calculator Helps</h3>
+        <p>Add every recurring charge to the calculator — monthly and annual subscriptions alike. The tool normalizes everything to a monthly and annual view, categorizes spending by priority (essential, nice-to-have, unnecessary), and shows exactly how much you could save by cutting non-essential services. The donut chart provides a visual breakdown that makes the proportions immediately clear.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <SubscriptionAuditCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,36 @@ const relatedCalculators = [
         <p>Categorize each subscription as essential, nice-to-have, or unnecessary. The calculator breaks down spending by category and shows how much you could save by cutting non-essentials. The donut chart gives you a visual of where your money goes.</p>
         <h3>Getting Started</h3>
         <p>We've pre-loaded common subscriptions to get you started. Edit, add, or remove subscriptions to match your actual recurring charges. Check your bank statements and credit card bills to make sure you haven't missed anything — most people forget 2-3 active subscriptions.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Common Subscription Categories and Typical Costs</h2>
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Examples</th><th>Typical Monthly Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Streaming Video</td><td>Netflix, Hulu, Disney+, HBO Max, YouTube Premium</td><td>$8 - $23 each</td></tr>
+            <tr><td>Streaming Music</td><td>Spotify, Apple Music, Tidal</td><td>$11 - $15 each</td></tr>
+            <tr><td>Cloud Storage</td><td>iCloud, Google One, Dropbox</td><td>$3 - $12 each</td></tr>
+            <tr><td>Professional Tools</td><td>Adobe CC, Figma, Canva Pro</td><td>$13 - $55 each</td></tr>
+            <tr><td>Productivity</td><td>Notion, Todoist, Grammarly</td><td>$4 - $12 each</td></tr>
+            <tr><td>Fitness</td><td>Gym membership, Peloton, fitness apps</td><td>$10 - $44 each</td></tr>
+            <tr><td>News and Media</td><td>NYT, WSJ, Substack newsletters</td><td>$5 - $17 each</td></tr>
+            <tr><td>Accounting and Finance</td><td>QuickBooks, FreshBooks, Mint Premium</td><td>$10 - $30 each</td></tr>
+          </tbody>
+        </table>
+        <h2>The Annual Impact of Subscription Savings</h2>
+        <p>Small monthly savings produce surprisingly large annual results when redirected toward financial goals. Cutting $75 per month in unnecessary subscriptions frees up $900 per year. Invested at 7 percent annual return over 10 years, that becomes approximately $12,400. Over 20 years, it grows to roughly $36,800. The subscriptions you cancel today compound into real wealth over time.</p>
+        <h2>How to Run an Effective Subscription Audit</h2>
+        <p><strong>Step 1: Find every charge.</strong> Review the last three months of credit card and bank statements. Search for recurring charges. Check your email for subscription confirmation receipts. Look at app store subscriptions on your phone (Settings &gt; Subscriptions on iOS, Google Play &gt; Subscriptions on Android). Most people discover two to four subscriptions they had forgotten about.</p>
+        <p><strong>Step 2: Categorize honestly.</strong> For each subscription, ask: did I use this in the last 30 days? Would I sign up for this today at this price? Does this directly contribute to my income or essential quality of life? Be honest — many subscriptions felt essential when you signed up but have become background noise.</p>
+        <p><strong>Step 3: Act immediately.</strong> Cancel unnecessary subscriptions today, not next month. Downgrade nice-to-have services to free tiers where possible. For annual subscriptions, set a calendar reminder before the renewal date so you can decide whether to continue. The activation energy of canceling is the biggest barrier — once you start, the rest gets easier.</p>
+        <p><strong>Step 4: Schedule the next audit.</strong> Set a quarterly calendar reminder to review subscriptions. New charges creep in faster than you expect. A regular 15-minute review prevents the slow accumulation that leads to hundreds of dollars in waste.</p>
       </div>
     </section>
   </Fragment>

@@ -70,6 +70,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/doordash-earnings.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Understanding DoorDash Driver Economics</h2>
+        <p>DoorDash is the largest food delivery platform in the United States, commanding roughly 65% of the market. For the hundreds of thousands of active Dashers, understanding the true economics of each delivery is the difference between a sustainable side hustle and working below minimum wage. The pay structure combines a variable base pay (set by DoorDash's algorithm based on distance, duration, and order desirability) with 100% of customer tips. While gross earnings look attractive at first glance, the real story emerges only after accounting for fuel, vehicle wear, insurance, and taxes.</p>
+        <p>Most new Dashers focus on gross pay per delivery, but experienced drivers know the metrics that actually matter: net earnings per active hour, cost per mile, and effective hourly rate after all expenses. A $7 delivery that takes 15 minutes looks like $28/hour gross, but if you drove 8 miles round-trip and waited 10 minutes at the restaurant, the math changes dramatically. This calculator helps you cut through the surface numbers and find your real take-home pay.</p>
+        <h3>How the Calculator Works</h3>
+        <p>The calculator models your DoorDash earnings using a per-delivery economic framework. You input your average deliveries per hour, earnings per delivery, and weekly hours. In Quick mode, it projects gross weekly and annual income. Advanced mode layers in vehicle operating costs -- fuel consumption based on your MPG and local gas prices, maintenance reserves, and per-mile depreciation -- to calculate your true net hourly rate. It also estimates your annual IRS mileage deduction, which is one of the most valuable tax benefits available to gig delivery drivers.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <DoorDashCalc client:visible />
 
   <Fragment slot="content">
@@ -80,6 +92,79 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to see your true take-home after expenses. Enter your vehicle's fuel efficiency (MPG), local gas price, and average miles per delivery. The calculator factors in gas costs, vehicle maintenance (oil changes, tires, brakes), and depreciation to reveal your real hourly rate — which is often $5-10 less than the gross number DoorDash shows you.</p>
         <p>To calculate your true hourly rate accurately, include all time spent dashing — not just active delivery time. Count time spent waiting for orders, driving to hotspots, and sitting in restaurant parking lots. Many dashers find their effective hourly rate drops 20-30% when accounting for idle time between deliveries.</p>
         <p>Use the mileage tracking estimates to prepare for tax season. As an independent contractor, you can deduct $0.67 per mile driven for DoorDash (2024 IRS rate). Track miles from when you turn on the app until you stop, including driving to busy areas. At 15-20 miles per hour of dashing, mileage deductions can significantly reduce your tax burden. Set aside 20-25% of your net earnings for quarterly estimated tax payments to avoid surprises.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>DoorDash Earnings Benchmarks by Market</h2>
+        <p>DoorDash pay varies significantly by city, time of day, and delivery type. The following benchmarks reflect typical ranges reported by active Dashers across different market tiers. Your actual results will depend on local demand, restaurant density, and your acceptance strategy.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Market Tier</th>
+              <th>Base Pay Range</th>
+              <th>Avg. Tip</th>
+              <th>Avg. per Delivery</th>
+              <th>Gross $/Hour</th>
+              <th>Net $/Hour (est.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Top metro (NYC, SF, LA)</td>
+              <td>$2.50-6.00</td>
+              <td>$5-8</td>
+              <td>$8-14</td>
+              <td>$22-30</td>
+              <td>$15-22</td>
+            </tr>
+            <tr>
+              <td>Mid-size city</td>
+              <td>$2.50-4.50</td>
+              <td>$3-6</td>
+              <td>$6-10</td>
+              <td>$17-24</td>
+              <td>$11-17</td>
+            </tr>
+            <tr>
+              <td>Suburban market</td>
+              <td>$2.50-4.00</td>
+              <td>$3-5</td>
+              <td>$5-9</td>
+              <td>$14-20</td>
+              <td>$9-14</td>
+            </tr>
+            <tr>
+              <td>Small town/rural</td>
+              <td>$2.50-3.50</td>
+              <td>$2-4</td>
+              <td>$4-7</td>
+              <td>$10-16</td>
+              <td>$6-11</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Net estimates assume 15-20 miles per active hour, 25 MPG, $3.50/gallon gas, and $0.05/mile maintenance. Your vehicle efficiency is the single largest lever on net pay -- a 35 MPG sedan nets $2-3/hour more than a 20 MPG SUV doing the same deliveries.</p>
+
+        <h2>Worked Example: Calculating True DoorDash Take-Home</h2>
+        <p>Consider a Dasher working 25 hours per week in a mid-size market. They average 2.5 deliveries per hour at $7.50 per delivery (including a $4 average tip). Here is how the math breaks down:</p>
+        <p><strong>Gross weekly:</strong> 25 hours x 2.5 deliveries x $7.50 = $468.75</p>
+        <p><strong>Miles driven:</strong> 25 hours x 16 miles/hour = 400 miles/week</p>
+        <p><strong>Gas cost:</strong> 400 miles / 28 MPG x $3.40/gallon = $48.57</p>
+        <p><strong>Maintenance reserve:</strong> 400 miles x $0.05/mile = $20.00</p>
+        <p><strong>Depreciation:</strong> 400 miles x $0.12/mile = $48.00</p>
+        <p><strong>Net weekly:</strong> $468.75 - $48.57 - $20.00 - $48.00 = $352.18</p>
+        <p><strong>True hourly rate:</strong> $352.18 / 25 hours = $14.09/hour</p>
+        <p>That is a 25% reduction from the $18.75/hour gross rate the DoorDash app would show. And this does not yet include the 15.3% self-employment tax on net earnings. After setting aside taxes, the effective rate drops to approximately $11.93/hour.</p>
+
+        <h2>Strategies to Maximize DoorDash Earnings</h2>
+        <p><strong>Cherry-pick by dollar-per-mile.</strong> Experienced Dashers evaluate orders by total payout divided by estimated miles. A $7 order going 2 miles ($3.50/mile) beats a $12 order going 8 miles ($1.50/mile) every time. Target a minimum of $2/mile in your market.</p>
+        <p><strong>Work peak hours strategically.</strong> Lunch (11am-1pm) and dinner (5pm-9pm) rushes offer 30-50% higher earnings per hour than mid-afternoon. Friday and Saturday evenings are typically the highest-earning windows. Many top earners work only 15-20 peak hours and earn as much as those working 30+ unfocused hours.</p>
+        <p><strong>Reduce vehicle costs.</strong> If you are serious about delivery gig work, a fuel-efficient vehicle pays for itself quickly. Switching from a 20 MPG vehicle to a 35 MPG vehicle saves roughly $2,000/year at 20,000 delivery miles. Hybrid and electric vehicles offer even larger savings, with some EV drivers reporting fuel-equivalent costs under $0.04/mile.</p>
+        <p><strong>Stack platforms during slow periods.</strong> Running DoorDash alongside Uber Eats or GrubHub during slower hours reduces idle time. When one app is quiet, the other may have orders. Just be careful not to accept overlapping deliveries that could delay either order and hurt your ratings.</p>
       </div>
     </section>
   </Fragment>

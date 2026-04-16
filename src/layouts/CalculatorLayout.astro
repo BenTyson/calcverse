@@ -114,6 +114,9 @@ const colors = categoryColors[categorySlug] || categoryColors.freelance;
         <p class="text-lg text-neutral-600 mt-3 leading-relaxed">{description}</p>
       </header>
 
+      <!-- Intro Content -->
+      <slot name="intro" />
+
       <!-- Calculator Card -->
       <div class="card-elevated-lg p-6 md:p-8 mb-10">
         <slot />
@@ -138,6 +141,9 @@ const colors = categoryColors[categorySlug] || categoryColors.freelance;
         <AdSlot slot="calculator-mid" format="leaderboard" />
       </div>
 
+      <!-- How to Use / Guide Content -->
+      <slot name="content" />
+
       <!-- Share & Embed -->
       <div class="grid md:grid-cols-2 gap-6 mb-10">
         <div class="card-elevated p-5">
@@ -158,29 +164,24 @@ const colors = categoryColors[categorySlug] || categoryColors.freelance;
       {faqs.length > 0 && (
         <section class="mb-10">
           <h2 class="heading-md text-neutral-900 mb-6">Frequently Asked Questions</h2>
-          <div class="space-y-3">
+          <div class="space-y-4">
             {faqs.map((faq) => (
-              <details class="card-elevated p-5 group">
-                <summary class="font-medium text-neutral-900 cursor-pointer list-none flex justify-between items-center gap-4">
-                  <span>{faq.question}</span>
-                  <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <p class="mt-4 text-neutral-600 leading-relaxed">{faq.answer}</p>
-              </details>
+              <div class="card-elevated p-5">
+                <h3 class="font-medium text-neutral-900 mb-3">{faq.question}</h3>
+                <p class="text-neutral-600 leading-relaxed">{faq.answer}</p>
+              </div>
             ))}
           </div>
         </section>
       )}
 
+      <!-- Deep Dive Content -->
+      <slot name="deep-dive" />
+
       <!-- Ad: Bottom -->
       <div class="mb-10">
         <AdSlot slot="calculator-bottom" format="rectangle" />
       </div>
-
-      <!-- Additional Content Slot -->
-      <slot name="content" />
 
       <!-- Email Capture -->
       <EmailCapture variant="inline" leadMagnet={true} client:visible />

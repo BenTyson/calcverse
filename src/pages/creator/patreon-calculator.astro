@@ -64,6 +64,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Patreon Revenue Works for Creators</h2>
+        <p>Patreon is a membership platform where fans pay creators a recurring monthly amount in exchange for exclusive content, community access, or other perks. Unlike ad-based platforms where revenue depends on algorithmic reach, Patreon income is driven by direct relationships with your audience. This makes it one of the most predictable revenue streams available to creators, but it also means growth is tied to audience loyalty rather than viral moments.</p>
+        <p>Your take-home from Patreon depends on three factors: the number of active patrons, their average pledge amount, and the fees deducted by Patreon and payment processors. Patreon offers three plan tiers — Lite at 5%, Pro at 8%, and Premium at 12% — each with different feature sets. Payment processing fees (typically 2.9% plus $0.30 per transaction) apply on top of the platform fee, meaning your total fee burden ranges from roughly 8% to 15% of gross revenue.</p>
+        <h3>The Economics of Recurring Revenue</h3>
+        <p>What makes Patreon powerful is compounding. If you add 20 new patrons per month at $5 each and maintain a 5% monthly churn rate, your revenue grows steadily over time because new patrons accumulate faster than old ones leave. After 12 months, you would have roughly 155 active patrons generating about $660 per month after fees. The key metric to watch is net patron growth: new patrons minus churned patrons. As long as this number stays positive, your revenue trends upward without requiring more content output per dollar earned.</p>
+        <p>This calculator models these dynamics so you can project realistic growth trajectories based on your current audience size, conversion assumptions, and churn behavior.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <PatreonCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -78,6 +91,44 @@ const relatedCalculators = [
         <p>The Lite plan at 5 percent is tempting for its low fee, but it lacks analytics, merch integration, and promotional tools that help you grow. Most creators benefit from the Pro plan at 8 percent, which pays for itself through better conversion and retention tools. Only consider Premium at 12 percent if you need team accounts or manage a high-volume page where dedicated support saves you significant time.</p>
         <h3>Maximizing Patron Retention</h3>
         <p>Churn is the silent revenue killer on Patreon. A healthy monthly churn rate is 3 to 7 percent. To stay in that range, deliver on your promises consistently, post patron-only content on a predictable schedule, and engage directly through comments and community posts. Creators who treat Patreon as a community rather than a tip jar see significantly lower churn. Consider offering an annual billing option, which locks in patrons and reduces payment-related churn from expired cards.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Patreon Plan Comparison</h2>
+        <p>Choosing the right Patreon plan directly affects your take-home. The table below compares what you keep at different revenue levels across all three plans, including estimated payment processing fees.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Monthly Gross</th>
+              <th>Lite (5%)</th>
+              <th>Pro (8%)</th>
+              <th>Premium (12%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>$500</td><td>$440</td><td>$425</td><td>$405</td></tr>
+            <tr><td>$1,000</td><td>$885</td><td>$855</td><td>$815</td></tr>
+            <tr><td>$2,500</td><td>$2,225</td><td>$2,150</td><td>$2,050</td></tr>
+            <tr><td>$5,000</td><td>$4,460</td><td>$4,310</td><td>$4,110</td></tr>
+            <tr><td>$10,000</td><td>$8,930</td><td>$8,630</td><td>$8,230</td></tr>
+          </tbody>
+        </table>
+        <p>At $1,000/month gross, the difference between Lite and Pro is about $30/month. Whether Pro's additional features — analytics, promo tools, merch integration, and app access — are worth $360/year depends on how actively you use them to retain and convert patrons.</p>
+
+        <h2>Worked Example: Growing from 0 to 200 Patrons</h2>
+        <p>Assume you have 10,000 social media followers and launch a Patreon with two tiers: $5/month for basic access and $15/month for premium content. A typical creator converts 1-3% of their audience to patrons. At a 2% conversion rate, you launch with 200 patrons.</p>
+        <p>If 70% choose the $5 tier (140 patrons = $700) and 30% choose the $15 tier (60 patrons = $900), your gross is $1,600/month. On the Pro plan (8%) with payment processing (~3.5%), your take-home is roughly $1,416/month or $16,992/year.</p>
+        <p>With a 5% monthly churn rate (losing 10 patrons/month) and adding 15 new patrons/month through consistent promotion, you grow by 5 net patrons per month. After 12 months, you would have approximately 260 patrons generating around $2,080 gross and $1,841 net per month.</p>
+
+        <h2>Reducing Churn: The Biggest Lever for Patreon Revenue</h2>
+        <p><strong>Deliver on your promises.</strong> The number one reason patrons cancel is unmet expectations. If you promise weekly exclusive content, deliver it every week. Inconsistency erodes trust faster than any other factor.</p>
+        <p><strong>Offer annual billing.</strong> Annual subscribers churn at roughly one-third the rate of monthly subscribers. Even a small discount (one or two months free) makes annual plans attractive. Aim for 30-40% of your base on annual billing for maximum stability.</p>
+        <p><strong>Build community, not just content.</strong> Patrons who interact with each other and with you are far less likely to leave than those who only consume content passively. Discord integration, patron-only comments, and monthly Q&A sessions create social bonds that make cancellation feel like leaving a community, not just unsubscribing.</p>
+        <p><strong>Watch for payment-related churn.</strong> A significant portion of patron losses come from expired credit cards and failed payments, not deliberate cancellations. Patreon retries failed payments automatically, but you can reduce this by reminding patrons to update their payment info before billing cycles. Some creators send a friendly heads-up message at the start of each month.</p>
       </div>
     </section>
   </Fragment>

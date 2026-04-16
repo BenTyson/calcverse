@@ -75,6 +75,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/instacart-shopper.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Instacart Shopper Earnings: A Data-Driven Approach</h2>
+        <p>Instacart connects shoppers with customers who want groceries delivered to their door. As a full-service shopper, you handle everything from selecting items in-store to delivering them -- and your earnings depend on a combination of batch pay (set by Instacart's algorithm), customer tips, and how efficiently you manage your time. Unlike food delivery apps where speed is the primary skill, Instacart rewards product knowledge, item selection accuracy, and customer communication.</p>
+        <p>The pay structure breaks down into two parts. Batch pay is the base amount Instacart offers per order, determined by order size, item count, delivery distance, and current demand. Tips are added by customers and are 100% yours, though they can be modified for up to 24 hours after delivery. In practice, tips make up 50-70% of most shoppers' total earnings, which means customer service quality directly impacts your bottom line. Shoppers who consistently receive 5-star ratings and low replacement rates see better batch offers over time.</p>
+        <h3>How This Calculator Models Shopper Income</h3>
+        <p>The calculator takes your daily batch volume, average earnings per batch, and weekly schedule to project gross income. Advanced mode factors in driving costs between stores and delivery locations -- fuel, vehicle wear, and dead time between batches -- to reveal your true net hourly rate. This matters because the time between batches (waiting for offers, driving to stores, returning to busy zones) is often 30-40% of your total active time and dramatically affects real earnings per hour.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <InstacartCalc client:visible />
 
   <Fragment slot="content">
@@ -85,6 +97,96 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to factor in the hidden costs of Instacart shopping. Enter your mileage per batch, gas price, and vehicle efficiency to calculate true driving costs. Do not forget to account for time between batches — the 15-30 minutes spent waiting for good orders, driving to stores, and returning to busy zones significantly impacts your effective hourly rate.</p>
         <p>For batch selection strategy, focus on the tip-to-item ratio. A 30-item order with a $5 tip pays less per hour than a 15-item order with a $10 tip. Use the calculator to find your minimum acceptable batch — most experienced shoppers aim for at least $1 per item or $20+ total. Avoid multi-batch (double or triple) orders unless the combined payout exceeds what you would earn doing them separately.</p>
         <p>Peak earning windows matter significantly for Instacart. Weekend mornings (8-11am) and Sunday afternoons consistently offer the best batches with higher tips. Holidays and bad weather days often bring surge-style demand. Use the calculator to compare earnings across different schedules and find the hours-per-week sweet spot where your hourly rate stays high without burnout.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Instacart Earnings Benchmarks by Batch Type</h2>
+        <p>Not all Instacart batches are created equal. The pay structure varies significantly based on order complexity, item count, delivery distance, and whether you are handling a single or multi-batch order. Understanding these differences is the key to selective batch acceptance.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Batch Type</th>
+              <th>Typical Items</th>
+              <th>Base Pay</th>
+              <th>Avg. Tip</th>
+              <th>Total Payout</th>
+              <th>Est. Time</th>
+              <th>Effective $/Hour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small single order</td>
+              <td>10-20</td>
+              <td>$7-10</td>
+              <td>$5-8</td>
+              <td>$12-18</td>
+              <td>30-45 min</td>
+              <td>$16-24</td>
+            </tr>
+            <tr>
+              <td>Medium single order</td>
+              <td>25-45</td>
+              <td>$10-15</td>
+              <td>$8-15</td>
+              <td>$18-30</td>
+              <td>45-75 min</td>
+              <td>$15-24</td>
+            </tr>
+            <tr>
+              <td>Large single order</td>
+              <td>50-80+</td>
+              <td>$14-22</td>
+              <td>$10-25</td>
+              <td>$24-47</td>
+              <td>75-120 min</td>
+              <td>$12-24</td>
+            </tr>
+            <tr>
+              <td>Double batch</td>
+              <td>30-60 combined</td>
+              <td>$12-20</td>
+              <td>$6-15</td>
+              <td>$18-35</td>
+              <td>60-100 min</td>
+              <td>$11-21</td>
+            </tr>
+            <tr>
+              <td>Triple batch</td>
+              <td>40-80 combined</td>
+              <td>$15-25</td>
+              <td>$8-18</td>
+              <td>$23-43</td>
+              <td>90-140 min</td>
+              <td>$10-18</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Single orders generally offer the best effective hourly rates because you can complete them faster relative to the payout. Multi-batch orders save Instacart money on delivery logistics, which is why the per-order payout is lower. Experienced shoppers often skip double and triple batches unless the combined tip is exceptionally strong.</p>
+
+        <h2>Worked Example: A Typical Weekend Shopping Day</h2>
+        <p>A full-service shopper works a Saturday from 8am to 2pm in a suburban market. Here is a realistic breakdown of their day:</p>
+        <p><strong>Batch 1 (8:15am):</strong> 25-item Costco order, $12 base + $15 tip = $27. Time: 55 min.</p>
+        <p><strong>Batch 2 (9:30am):</strong> 18-item Kroger order, $9 base + $8 tip = $17. Time: 40 min.</p>
+        <p><strong>Batch 3 (10:45am):</strong> 35-item Publix order, $14 base + $12 tip = $26. Time: 65 min.</p>
+        <p><strong>Batch 4 (12:15pm):</strong> 15-item ALDI order, $8 base + $10 tip = $18. Time: 35 min.</p>
+        <p><strong>Batch 5 (1:15pm):</strong> 22-item Costco order, $11 base + $9 tip = $20. Time: 50 min.</p>
+        <p><strong>Gross total:</strong> $108 (5 batches over 6 hours)</p>
+        <p><strong>Miles driven:</strong> 45 miles total (between stores and deliveries)</p>
+        <p><strong>Gas cost:</strong> 45 / 28 MPG x $3.40 = $5.46</p>
+        <p><strong>Net earnings:</strong> $102.54</p>
+        <p><strong>Effective hourly rate:</strong> $17.09/hour (including wait time between batches)</p>
+        <p>The 6-hour window includes approximately 4 hours and 5 minutes of active shopping/driving, plus nearly 2 hours of travel between stores and waiting for batches. That wait time is the biggest drag on hourly earnings.</p>
+
+        <h2>Batch Selection Strategy for Higher Earnings</h2>
+        <p><strong>Calculate tip-per-item before accepting.</strong> A quick mental filter: divide the tip by item count. Batches with $0.50+ per item are generally strong. A 20-item order with a $12 tip ($0.60/item) will almost always outperform a 50-item order with a $15 tip ($0.30/item) on an hourly basis, because the smaller order takes far less time to shop.</p>
+        <p><strong>Know your stores.</strong> Experienced shoppers develop mental maps of their regular stores and can locate items much faster than newcomers. Shopping speed is the most controllable variable in your earnings equation. A shopper who averages 45 seconds per item earns materially more per hour than one averaging 90 seconds per item, even on identical batches.</p>
+        <p><strong>Minimize driving between batches.</strong> Position yourself near clusters of popular stores rather than chasing individual high-paying batches across town. A $25 batch at a store 15 minutes away is worse than a $20 batch at a store 3 minutes away, because the travel time eats into your hourly rate and adds fuel costs.</p>
+        <p><strong>Communicate proactively on replacements.</strong> When an item is out of stock, sending a photo of alternatives with a brief message leads to better outcomes than the default auto-replacement. Customers who feel taken care of tip more on current and future orders. Strong communication is the single best investment in long-term Instacart earnings because it drives 5-star ratings, which give you access to better batches.</p>
       </div>
     </section>
   </Fragment>

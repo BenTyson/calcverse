@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/amazon-flex.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Amazon Flex Earnings: Understanding Block-Based Delivery Pay</h2>
+        <p>Amazon Flex operates differently from other gig delivery platforms. Instead of accepting individual orders, drivers claim scheduled delivery blocks -- time slots typically ranging from 3 to 5 hours. Each block has a guaranteed base pay regardless of how many packages you deliver or how quickly you finish. This structure creates a more predictable income stream than per-delivery platforms, but your real earnings still depend heavily on vehicle costs, route efficiency, and which block types you pursue.</p>
+        <p>There are three main block types, each with distinct economics. Logistics blocks involve delivering Amazon.com packages from a warehouse and pay the standard base rate with no tips. Fresh and Whole Foods blocks involve grocery delivery and include customer tips, which typically add $5-15 per block. Prime Now blocks (where available) also include tips. The block type you target significantly affects your earnings -- a $72 logistics block with no tips may net less than a $54 Fresh block with $20 in tips. Understanding these differences is essential for maximizing your time on the platform.</p>
+        <h3>How the Calculator Models Block Economics</h3>
+        <p>This calculator uses a per-block framework rather than per-delivery. You enter your blocks per week, average block pay, and miles driven per block. Advanced mode adds tip estimates for grocery blocks and subtracts vehicle operating costs -- fuel based on your MPG, maintenance, and depreciation -- to show your true per-block and per-hour net pay. It also estimates annual mileage deductions, which are especially valuable for Flex drivers who often log 150-250 miles per week.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <AmazonFlexCalc client:visible />
 
   <Fragment slot="content">
@@ -74,6 +86,96 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to factor in tips, vehicle costs, and time per block. Fresh and Whole Foods blocks include customer tips averaging $5-15, while standard logistics blocks rarely have tips. Enter your gas price, vehicle MPG, and maintenance costs to see your true per-block and hourly earnings after all expenses.</p>
         <p>The effective hourly rate is your most important number. Many Flex drivers see $18-25/hour gross but only $13-20/hour after gas and vehicle wear. Track your actual miles per block over several weeks to get an accurate picture — route complexity varies significantly between suburban logistics routes and dense urban Fresh deliveries.</p>
         <p>Use the IRS mileage deduction estimate to plan for tax season. As an independent contractor, you can deduct $0.67 per business mile (2024 rate). At 200 miles per week, that's nearly $7,000/year in deductions. Keep a mileage log from when you start driving to the warehouse until your last delivery — apps like Stride or Everlance automate this.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Amazon Flex Block Pay Comparison</h2>
+        <p>Block pay on Amazon Flex varies by type, duration, and demand level. The following table breaks down typical earnings across the main block categories so you can target the most profitable opportunities in your market.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Block Type</th>
+              <th>Duration</th>
+              <th>Base Pay</th>
+              <th>Avg. Tips</th>
+              <th>Total per Block</th>
+              <th>Avg. Miles</th>
+              <th>Net $/Hour (est.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Logistics (packages)</td>
+              <td>3-5 hours</td>
+              <td>$54-108</td>
+              <td>$0</td>
+              <td>$54-108</td>
+              <td>60-120</td>
+              <td>$13-18</td>
+            </tr>
+            <tr>
+              <td>Amazon Fresh</td>
+              <td>2-4 hours</td>
+              <td>$36-72</td>
+              <td>$10-25</td>
+              <td>$46-97</td>
+              <td>25-60</td>
+              <td>$16-24</td>
+            </tr>
+            <tr>
+              <td>Whole Foods</td>
+              <td>2-4 hours</td>
+              <td>$30-60</td>
+              <td>$12-30</td>
+              <td>$42-90</td>
+              <td>20-50</td>
+              <td>$16-25</td>
+            </tr>
+            <tr>
+              <td>Surge logistics</td>
+              <td>3-5 hours</td>
+              <td>$80-150+</td>
+              <td>$0</td>
+              <td>$80-150+</td>
+              <td>60-120</td>
+              <td>$18-28</td>
+            </tr>
+            <tr>
+              <td>Surge Fresh/WF</td>
+              <td>2-4 hours</td>
+              <td>$50-100</td>
+              <td>$10-25</td>
+              <td>$60-125</td>
+              <td>25-60</td>
+              <td>$22-32</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Net estimates subtract fuel ($0.12/mile at 28 MPG, $3.40/gal) and maintenance ($0.05/mile). Fresh and Whole Foods blocks typically offer the best net hourly rates thanks to shorter routes and customer tips. Surge blocks appear during holidays, bad weather, and periods of high order volume -- they can pay 50-100% more than base rates.</p>
+
+        <h2>Worked Example: Weekly Earnings for a Part-Time Flex Driver</h2>
+        <p>A driver works 5 blocks per week -- 3 logistics blocks and 2 Fresh blocks -- using a sedan that gets 30 MPG:</p>
+        <p><strong>3 logistics blocks:</strong> 3 x $72 average = $216 (avg. 4-hour blocks, 80 miles each)</p>
+        <p><strong>2 Fresh blocks:</strong> 2 x $52 base + $15 tips = $134 (avg. 3-hour blocks, 35 miles each)</p>
+        <p><strong>Gross weekly:</strong> $350</p>
+        <p><strong>Total miles:</strong> (3 x 80) + (2 x 35) = 310 miles</p>
+        <p><strong>Gas cost:</strong> 310 / 30 MPG x $3.40 = $35.13</p>
+        <p><strong>Maintenance:</strong> 310 x $0.05 = $15.50</p>
+        <p><strong>Depreciation:</strong> 310 x $0.10 = $31.00</p>
+        <p><strong>Net weekly:</strong> $350 - $81.63 = $268.37</p>
+        <p><strong>Total hours:</strong> (3 x 4) + (2 x 3) = 18 hours</p>
+        <p><strong>Net hourly rate:</strong> $268.37 / 18 = $14.91</p>
+        <p>Note this does not include drive time to and from the warehouse or pickup location. Adding 20 minutes of commute per block (about 3 additional hours per week) drops the effective rate to $12.78/hour. This is why choosing a warehouse or pickup location close to your home matters significantly.</p>
+
+        <h2>Maximizing Amazon Flex Profitability</h2>
+        <p><strong>Prioritize Fresh and Whole Foods blocks.</strong> The tip income on grocery delivery blocks consistently makes them more profitable per hour than standard logistics, even when the base pay is lower. A $45 Fresh block with $18 in tips ($63 total over 3 hours) beats a $72 logistics block that takes 4.5 hours and covers twice the miles.</p>
+        <p><strong>Watch for surge pricing patterns.</strong> Amazon increases block pay when they need drivers -- typically during holidays (Thanksgiving through New Year is peak), weekends, and bad weather days. Some drivers exclusively work surge blocks, waiting for rates to climb to $25-35/hour base before accepting. This strategy earns less total volume but a higher per-hour rate.</p>
+        <p><strong>Finish blocks early.</strong> Unlike per-delivery apps, Flex pays the full block rate regardless of how long your deliveries actually take. If you complete a 4-hour block in 3 hours, your effective hourly rate increases by 33%. Efficient route planning and familiarity with your delivery zone help you finish faster. Some logistics routes in suburban areas can be completed 30-60 minutes under the scheduled time.</p>
+        <p><strong>Track actual miles religiously.</strong> The IRS mileage deduction ($0.67/mile in 2024) is your most valuable tax benefit. At 310 miles per week over 48 working weeks, that is $9,979 in annual deductions -- enough to offset a significant portion of your gross income for tax purposes. Use an automatic mileage tracking app and log miles from when you leave home for a block until you return. Commute to the warehouse counts as business mileage when it is your first stop of the day.</p>
       </div>
     </section>
   </Fragment>

@@ -69,6 +69,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How TikTok Creator Earnings Work</h2>
+        <p>TikTok monetization operates differently from most creator platforms. Instead of a straightforward ad revenue share, TikTok pays creators through the Creativity Program (formerly the Creator Fund), a pool-based system where your payment per view fluctuates based on total fund size, number of eligible creators, and video performance metrics. This means your per-view rate is not fixed and can vary significantly from month to month.</p>
+        <p>The Creativity Program typically pays between $0.02 and $0.05 per 1,000 qualified views — dramatically lower than YouTube's RPM of $2 to $10 or more. However, TikTok's algorithm makes it far easier to achieve viral reach. A single well-performing video can generate millions of views regardless of your follower count, which is nearly impossible on most other platforms. This combination of low per-view pay but high reach potential shapes how successful TikTok creators approach monetization.</p>
+        <h3>Beyond the Creator Fund: Where the Real Money Is</h3>
+        <p>For most TikTok creators earning meaningful income, the Creator Fund represents a small fraction of total revenue. Brand sponsorships are the dominant income source, with rates driven primarily by engagement rate rather than follower count. A creator with 50,000 followers and 8% engagement can often command higher brand deal rates than one with 500,000 followers and 1% engagement. LIVE gifts add a third revenue stream, where viewers purchase virtual gifts that TikTok converts to diamonds redeemable for cash — though TikTok takes roughly 50% of the value.</p>
+        <p>This calculator models all three revenue streams so you can see the full picture of your TikTok earning potential, not just the Creator Fund payout that gets the most attention.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <TikTokCalc client:visible />
 
   <Fragment slot="content">
@@ -85,6 +98,47 @@ const relatedCalculators = [
         <p>LIVE streaming adds another revenue layer. Viewers send virtual gifts that convert to real earnings, though TikTok takes approximately 50% of the gift value. Consistent LIVE streaming also builds deeper audience connections that increase your value to brands.</p>
         <h3>Growing Your TikTok Income</h3>
         <p>Post consistently during peak hours (typically 7-9 AM and 7-11 PM in your target timezone). Focus on a specific niche to attract brand deals in that category. Use TikTok to drive traffic to higher-monetization platforms like YouTube, your email list, or digital product stores. The creators who earn the most treat TikTok as a top-of-funnel audience builder, not their sole income source.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>TikTok Earnings by Follower Count</h2>
+        <p>The table below shows typical monthly earnings across all revenue streams at different follower levels. Brand deal rates assume an above-average engagement rate (5%+) and 1-2 deals per month. Creator Fund assumes consistent posting of 5+ videos per week.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Follower Range</th>
+              <th>Creator Fund (monthly)</th>
+              <th>Brand Deal Rate (per post)</th>
+              <th>LIVE Gifts (monthly)</th>
+              <th>Estimated Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>10K - 50K</td><td>$10 - $50</td><td>$100 - $500</td><td>$20 - $100</td><td>$150 - $700</td></tr>
+            <tr><td>50K - 100K</td><td>$50 - $200</td><td>$500 - $1,500</td><td>$50 - $300</td><td>$600 - $2,000</td></tr>
+            <tr><td>100K - 500K</td><td>$200 - $800</td><td>$1,500 - $5,000</td><td>$100 - $800</td><td>$1,800 - $6,600</td></tr>
+            <tr><td>500K - 1M</td><td>$500 - $2,000</td><td>$3,000 - $10,000</td><td>$300 - $2,000</td><td>$3,800 - $14,000</td></tr>
+            <tr><td>1M+</td><td>$1,000 - $5,000</td><td>$5,000 - $25,000+</td><td>$500 - $5,000</td><td>$6,500 - $35,000+</td></tr>
+          </tbody>
+        </table>
+        <p>Notice that the Creator Fund represents a small fraction of total income at every level. Brand deals dominate earnings for creators above 50K followers. This is why engagement rate — not just follower count — is the most important metric for TikTok monetization.</p>
+
+        <h2>Worked Example: Monetizing a 75K-Follower TikTok Account</h2>
+        <p>You have 75,000 followers with a 6% engagement rate in the fitness niche. You post 5 videos per week, averaging 30,000 views each (600,000 monthly views). Here is what your revenue breakdown might look like:</p>
+        <p>Creator Fund: At $0.04 per 1,000 views, 600,000 monthly views yields $24/month. This is the baseline — low but reliable.</p>
+        <p>Brand deals: With 75K followers and 6% engagement in fitness (a high-demand brand deal category), you could charge $800-$1,200 per sponsored post. At 2 deals per month, that is $1,600-$2,400.</p>
+        <p>LIVE streaming: Streaming twice per week for 1-2 hours with 100-300 concurrent viewers, you might average $30-$80 per session in gifts. At 8 sessions per month, that is $240-$640.</p>
+        <p>Estimated monthly total: $1,864-$3,064. The Creator Fund contributes less than 2% of that total, which is why experienced creators focus their optimization efforts on brand relationships and LIVE engagement.</p>
+
+        <h2>Growing Your TikTok Revenue</h2>
+        <p><strong>Optimize for engagement rate, not follower count.</strong> Brands increasingly evaluate creators on engagement rate (likes + comments + shares divided by views). A 6-8% engagement rate commands premium brand deal pricing. Remove underperforming content that drags down your average, and study which video formats drive the most comments — comments are weighted most heavily by brand deal platforms.</p>
+        <p><strong>Build a media kit.</strong> Professional creators who close $1,000+ brand deals present a media kit with demographics, engagement metrics, past collaborations, and pricing tiers. This positions you as a business rather than a hobbyist and justifies higher rates. Include screenshots from your analytics showing audience age, gender, and location breakdowns.</p>
+        <p><strong>Diversify beyond TikTok.</strong> The most financially stable TikTok creators use the platform as a top-of-funnel audience builder that feeds higher-monetization channels. Drive viewers to YouTube (higher ad revenue), an email list (direct relationship), or a digital product store. A creator with 75K TikTok followers and 5,000 email subscribers can often generate more product revenue from the email list than from TikTok directly.</p>
+        <p><strong>Stream consistently on LIVE.</strong> LIVE streaming builds deeper audience relationships and unlocks gift revenue that is unavailable from regular posts. Establish a consistent LIVE schedule so followers know when to show up. Peak gift revenue typically occurs in the first 30-45 minutes of a stream when viewership is concentrated.</p>
       </div>
     </section>
   </Fragment>

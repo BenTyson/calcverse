@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/tutoring-income.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Much Can You Earn Tutoring?</h2>
+        <p>Private tutoring is one of the highest-paying side hustles available, with hourly rates that far exceed most gig economy work. A tutor with expertise in a high-demand subject like SAT prep, calculus, or computer science can earn $50 to $150 per hour -- but the headline rate does not tell the full story. Platform fees, prep time, travel costs, materials, and cancellations all reduce your effective earnings.</p>
+        <p>The tutoring market has also shifted significantly in recent years. Online tutoring has expanded the addressable market beyond your local area, but it has also increased competition and made platform fees a bigger factor. Whether you tutor through Wyzant, Varsity Tutors, or independently, understanding your true hourly economics is the difference between a highly profitable side hustle and one that barely beats minimum wage once all time is accounted for.</p>
+        <h3>How This Calculator Works</h3>
+        <p>Enter your hourly rate, weekly tutoring hours, and number of students. Select your platform (or independent) to apply the correct fee structure. The calculator computes your weekly and monthly income after fees, then factors in cancellation rates to show realistic earnings. In Advanced mode, add prep time per session, travel costs, and materials expenses to see your true effective hourly rate -- the number that matters most when deciding whether to raise prices, switch platforms, or scale your tutoring business.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <TutoringIncomeCalc client:visible />
 
   <Fragment slot="content">
@@ -74,6 +86,97 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to fine-tune your projections. Adjust the platform fee percentage, set your prep time per tutoring hour, and add travel and materials costs. The cancellation rate accounts for no-shows and last-minute cancellations that reduce your actual earnings. Most tutors experience a 5-10% cancellation rate without a strict cancellation policy.</p>
         <p>Pay attention to the effective hourly rate, which factors in your unpaid prep time. If you spend 15 minutes preparing for every hour of tutoring, your effective rate drops by about 20%. This metric helps you decide whether to raise rates or streamline your preparation process. Consider creating reusable lesson plans and worksheets to reduce per-session prep over time.</p>
         <p>For tax planning, remember that tutoring income is self-employment income. Set aside 25-30% for federal and state taxes, including the 15.3% self-employment tax. If you earn more than $400 annually from tutoring, you must file a Schedule SE. Platform tutors receive a 1099 if they earn over $600, but all tutoring income is taxable regardless of whether you receive a form.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Tutoring Rate Benchmarks by Subject and Level</h2>
+        <p>Hourly rates in tutoring depend primarily on subject matter, student level, and whether you tutor online or in person. Specialized subjects and test prep command the highest premiums, while general homework help sits at the lower end. The table below reflects typical ranges in the current market.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Subject / Service</th>
+              <th>Online Rate</th>
+              <th>In-Person Rate</th>
+              <th>Demand</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>General homework help (K-8)</td>
+              <td>$20-$35</td>
+              <td>$25-$45</td>
+              <td>Moderate</td>
+              <td>High volume, lower per-hour</td>
+            </tr>
+            <tr>
+              <td>High school math (algebra, precalc)</td>
+              <td>$30-$55</td>
+              <td>$40-$70</td>
+              <td>High</td>
+              <td>Consistent year-round demand</td>
+            </tr>
+            <tr>
+              <td>Calculus / AP math</td>
+              <td>$45-$80</td>
+              <td>$55-$100</td>
+              <td>High</td>
+              <td>Premium for AP exam prep</td>
+            </tr>
+            <tr>
+              <td>Physics / chemistry</td>
+              <td>$40-$75</td>
+              <td>$50-$90</td>
+              <td>Moderate-High</td>
+              <td>College-level pays more</td>
+            </tr>
+            <tr>
+              <td>SAT / ACT test prep</td>
+              <td>$50-$100</td>
+              <td>$60-$150</td>
+              <td>Very High (seasonal)</td>
+              <td>Peak: Sept-Nov, Feb-May</td>
+            </tr>
+            <tr>
+              <td>Computer science / coding</td>
+              <td>$50-$100</td>
+              <td>$60-$120</td>
+              <td>High (growing)</td>
+              <td>AP CS and college intro courses</td>
+            </tr>
+            <tr>
+              <td>ESL / language tutoring</td>
+              <td>$25-$50</td>
+              <td>$30-$60</td>
+              <td>High</td>
+              <td>Large global online market</td>
+            </tr>
+            <tr>
+              <td>College-level courses</td>
+              <td>$45-$90</td>
+              <td>$55-$110</td>
+              <td>Moderate</td>
+              <td>Exam periods drive demand</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Building a $3,000/Month Tutoring Business</h2>
+        <p>Suppose you want to earn $3,000 per month from tutoring as a side hustle. You specialize in SAT prep and charge $75/hour online through Wyzant (25% fee). Here is how to build to that target:</p>
+        <p>After Wyzant's 25% cut, you keep $56.25 per session hour. To net $3,000/month, you need 53.3 billable hours, or roughly 13.3 hours per week. Factor in 15 minutes of prep per session and a 7% cancellation rate, and your actual time commitment is about 16.2 hours per week with approximately 49.6 paid hours delivered.</p>
+        <p>Now consider the platform-vs-independent tradeoff. If you transition half your students to independent sessions (no platform fee), those 7 hours per week at $75/hour earn you $525/week compared to $393.75 through Wyzant. Over a full month, going half-independent bumps your monthly income from $3,000 to roughly $3,525 for the same hours -- or lets you work fewer hours for the same pay.</p>
+        <p>The practical approach: use Wyzant or another platform to build your initial student base and collect reviews. After 3-6 months, offer your regular students a 10% discount to work with you directly. You both save money -- they pay $67.50 instead of $75 (the platform adds service fees on top), and you keep $67.50 instead of $56.25. That is a 20% raise with no additional work.</p>
+
+        <h2>Maximizing Your Effective Hourly Rate</h2>
+        <p>The gap between your advertised hourly rate and your effective hourly rate is where most tutors lose money without realizing it. Three factors drive this gap:</p>
+        <p><strong>Prep time.</strong> If you spend 20 minutes preparing for every hour-long session, your effective rate drops by 25%. The solution is building reusable materials. Create a library of worksheets, practice problems, and lesson outlines organized by topic. After 3-4 months of tutoring the same subjects, your per-session prep should drop to 5 minutes or less for returning students.</p>
+        <p><strong>Cancellations and no-shows.</strong> Without a firm cancellation policy, expect 8-15% of sessions to be canceled with less than 24 hours notice, leaving gaps in your schedule that are nearly impossible to fill. Implement a 24-hour cancellation policy and charge 50% for late cancellations. Most students will respect the boundary, and those who do not are the ones most likely to be chronic cancelers.</p>
+        <p><strong>Travel time.</strong> In-person tutoring rates are typically $10-$20/hour higher than online to compensate for travel, but many tutors underestimate the true cost. A 25-minute drive each way adds nearly an hour of unpaid time to each session. If you offer in-person tutoring, cluster students geographically or set a minimum session length of 90 minutes to make the travel worthwhile. Alternatively, move to 100% online sessions and reinvest the travel time into additional paid hours.</p>
+        <p>Track these metrics monthly: total hours worked (including prep and travel), total hours paid, and total income. Divide income by total hours worked to see your true effective rate. If it falls below 70% of your advertised rate, there is a structural inefficiency that needs addressing.</p>
       </div>
     </section>
   </Fragment>

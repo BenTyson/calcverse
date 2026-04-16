@@ -63,6 +63,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Value-Based Pricing: Charge What Your Work Is Worth, Not What It Costs</h2>
+        <p>Hourly billing has a built-in ceiling: you can only work so many hours. Value-based pricing removes that constraint by tying your fee to the outcome you deliver rather than the time you invest. If a website redesign increases a client's conversion rate and generates $200,000 in additional annual revenue, charging $25,000 for that project (12.5 percent of the value) is far more profitable than billing 100 hours at $150.</p>
+        <p>The shift from hourly to value-based pricing requires a mindset change. You stop selling time and start selling results. Clients pay for the transformation — more revenue, lower costs, saved time — not for the hours it took you to create it. This approach works best when the value of your work is measurable and significantly exceeds the cost of your time.</p>
+        <h3>How This Calculator Quantifies Value Pricing</h3>
+        <p>Enter the total value your work will create for the client, choose a value-share percentage (typically 10 to 25 percent), and estimate the project hours. The calculator shows your value-based price, effective hourly rate, and a direct comparison against traditional hourly billing so you can see the premium. Advanced mode adds confidence levels that adjust the price based on how certain you are about the outcome, revision rounds, and scope buffer for a complete project model.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <ValueBasedPricingCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -77,6 +89,24 @@ const relatedCalculators = [
         <p>The most important insight is the premium over hourly billing. If your value-based price is significantly higher than your hourly rate multiplied by hours, you've found a project where value pricing benefits you. If it's lower, hourly billing may be the better choice for that particular project.</p>
         <h3>Having the Value Conversation</h3>
         <p>The key to value-based pricing is the discovery phase. Before quoting a price, ask clients about their expected ROI, current pain points, and what success looks like. Frame your price as a percentage of their expected return — "I'm asking for 15% of the value I'll create" is a much stronger pitch than "I charge $150/hour." Start with lower value-share percentages as you build case studies, then increase as you can point to proven results.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Value-Based Pricing in Action: A Worked Example</h2>
+        <p>A freelance conversion rate optimization specialist is hired to improve an e-commerce site's checkout flow. The client's store generates $1.2 million in annual revenue with a 2.1 percent conversion rate. Based on past projects, the specialist is confident she can lift the conversion rate to 2.8 percent — a 33 percent improvement that would generate roughly $400,000 in additional annual revenue.</p>
+        <p>Under hourly billing at $150 per hour, the 60-hour project would cost $9,000. Under value-based pricing at 10 percent of the projected value increase, the project fee is $40,000. The client still gets a 10x return on investment, and the specialist earns 4.4 times more than she would have billing hourly. Both sides win because the pricing is anchored to outcomes, not effort.</p>
+        <h2>When Value-Based Pricing Works Best</h2>
+        <p><strong>Measurable outcomes.</strong> Projects where the value can be quantified in dollars — increased revenue, reduced costs, saved time, higher conversion rates — are ideal candidates. If you cannot attach a number to the outcome, value-based pricing is difficult to justify.</p>
+        <p><strong>High client ROI.</strong> The model works best when your fee is a small fraction of the value created. A 10 to 20 percent share of a large outcome feels reasonable to clients. Charging 50 percent of the value makes the investment less attractive.</p>
+        <p><strong>Repeat or scalable work.</strong> If you can apply the same methodology across multiple clients (each paying based on their own value), your income scales without proportionally increasing your hours. A CRO specialist who improves five e-commerce sites per quarter earns far more through value pricing than hourly billing.</p>
+        <h2>Common Objections and How to Handle Them</h2>
+        <p><strong>"Just tell me your hourly rate."</strong> Redirect the conversation to outcomes. Explain that your pricing reflects the results you deliver, not the hours you work. Share case studies with specific numbers to illustrate the ROI clients can expect.</p>
+        <p><strong>"How do I know you will deliver?"</strong> Offer a performance-based component. For example, charge a smaller base fee with a success bonus tied to measurable results. This reduces client risk while preserving the value-based model.</p>
+        <p><strong>"Other freelancers charge less."</strong> Hourly freelancers and value-based consultants are not comparable. An hourly developer at $100 per hour for 80 hours costs $8,000 with no guaranteed outcome. A value-based specialist charging $30,000 with a track record of delivering $200,000 in client gains is a fundamentally different proposition. Position yourself on results, not price.</p>
       </div>
     </section>
   </Fragment>

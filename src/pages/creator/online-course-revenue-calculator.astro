@@ -69,6 +69,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Online Course Revenue: What Creators Actually Earn</h2>
+        <p>Online courses represent one of the highest-leverage income streams available to creators. Unlike trading time for money (freelancing) or relying on platform algorithms (ad revenue), a course is a digital asset that generates income every time someone enrolls. The economics are compelling: create once, sell indefinitely, with near-zero marginal cost per student. But the gap between the theoretical promise and actual earnings depends heavily on your platform choice, pricing strategy, and audience size.</p>
+        <p>The course platform landscape splits into two models. Marketplace platforms like Udemy provide built-in traffic but take a massive cut -- up to 63% of organic sales. Self-hosted platforms like Teachable charge a flat percentage (5% or less) but require you to drive all your own traffic. This fundamental tradeoff between reach and revenue share is the single biggest factor in your per-student earnings.</p>
+        <h3>How Course Revenue Is Calculated</h3>
+        <p>The formula varies by platform model. For self-hosted and Teachable-style platforms: <strong>Net Revenue = (Course Price x Monthly Sales) - Platform Fee - Payment Processing</strong>. For Udemy: <strong>Net Revenue = Course Price x Sales x (Organic Rate x 0.37 + Instructor Rate x 0.97)</strong>, where organic sales keep only 37% and instructor-promoted sales keep 97%. This calculator models each platform's specific fee structure and lets you blend revenue from evergreen sales, subscription memberships, and periodic launch cohorts to see your total projected income.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <OnlineCourseCalc client:visible />
 
   <Fragment slot="content">
@@ -82,6 +94,87 @@ const relatedCalculators = [
         <p>Advanced mode adds subscription membership revenue, launch cohort modeling (amortized over 12 months), refund rates, completion rate benchmarks, and ad spend. If you sell on Udemy, you can adjust the organic vs. instructor-brought sales split — organic traffic costs 63% but instructor-brought traffic only costs 3%.</p>
         <h3>Maximizing Course Revenue</h3>
         <p>The highest-earning course creators combine three revenue streams: evergreen course sales (passive), subscription memberships (recurring), and periodic launches (cohort-based). Start with one stream, build your audience, then layer on additional streams. Moving from Udemy to self-hosted once you have an email list of 5,000+ subscribers is often the single biggest revenue unlock.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Platform Fee Comparison for Course Creators</h2>
+        <p>Choosing the right platform can mean the difference between keeping $70 or $37 per $100 in course sales. The table below compares the effective cost of selling a $197 course across major platforms, assuming 20 sales per month.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Platform Fee</th>
+              <th>Processing Fee</th>
+              <th>Net per $197 Sale</th>
+              <th>Monthly Net (20 sales)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Self-Hosted (Stripe)</td>
+              <td>0%</td>
+              <td>2.9% + $0.30</td>
+              <td>$191.00</td>
+              <td>$3,820</td>
+            </tr>
+            <tr>
+              <td>Teachable (Free Plan)</td>
+              <td>5%</td>
+              <td>2.9% + $0.30</td>
+              <td>$181.15</td>
+              <td>$3,623</td>
+            </tr>
+            <tr>
+              <td>Teachable (Pro Plan)</td>
+              <td>0% ($119/mo)</td>
+              <td>2.9% + $0.30</td>
+              <td>$191.00</td>
+              <td>$3,701</td>
+            </tr>
+            <tr>
+              <td>Skillshare (Royalty)</td>
+              <td>Variable</td>
+              <td>N/A</td>
+              <td>~$0.05-$0.10/min watched</td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Udemy (Organic Sales)</td>
+              <td>63%</td>
+              <td>Included</td>
+              <td>$72.89</td>
+              <td>$1,458</td>
+            </tr>
+            <tr>
+              <td>Udemy (Instructor Sales)</td>
+              <td>3%</td>
+              <td>Included</td>
+              <td>$191.09</td>
+              <td>$3,822</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>The difference is stark. Self-hosted keeps $3,820/month while Udemy organic keeps just $1,458 -- a $2,362/month gap on identical sales volume. However, Udemy provides marketplace discovery that self-hosted does not, which can make up the difference if you lack an existing audience.</p>
+
+        <h2>Worked Example: Three Revenue Streams Combined</h2>
+        <p>A productivity coach sells courses on Teachable (Free plan) and wants to model their full income picture. Here is a realistic scenario:</p>
+        <p><strong>Evergreen course sales:</strong> A $197 flagship course sells 15 units/month through email marketing and blog traffic. After Teachable's 5% + Stripe fees: $2,717/month.</p>
+        <p><strong>Subscription membership:</strong> A $29/month community with templates and live Q&A sessions has 85 active members. After fees: $2,200/month. Churn is 6% monthly, but they add 10-12 new members each month from course buyers, netting slow growth.</p>
+        <p><strong>Annual launch cohort:</strong> Twice a year, they run a 6-week live cohort version of the course at $497. Each launch enrolls 40 students, generating $19,880 gross per launch. Amortized monthly: $3,313. After fees: approximately $3,050/month equivalent.</p>
+        <p>Total monthly income: approximately $7,967. The key insight: the subscription membership provides stable monthly revenue, the evergreen course generates passive income, and the launches create revenue spikes that fund growth. Each stream serves a different purpose in the business.</p>
+
+        <h2>Pricing Strategy for Online Courses</h2>
+        <p><strong>Price based on outcome value, not content length.</strong> A 2-hour course that teaches someone to land freelance clients worth $5,000/month can command $497. A 40-hour course on general photography basics might struggle at $99. Buyers pay for transformation, not hours of video.</p>
+        <p><strong>Use the 1% rule as a floor.</strong> If your course helps someone earn or save a specific amount, pricing at 1-2% of that value is almost always a safe starting point. A course that helps freelancers earn $50,000/year can reasonably charge $500-1,000.</p>
+        <p><strong>Offer tiered pricing.</strong> A self-paced course at $197, a course-plus-community at $297, and a course-plus-coaching at $997 lets buyers self-select based on their budget and commitment level. Most revenue typically comes from the middle tier.</p>
+        <p><strong>Launch at a premium, then create an evergreen funnel.</strong> Launches with cohort-based accountability and live access justify 2-3x the evergreen price. After the launch, the self-paced version runs on autopilot at a lower price point. This captures both high-intent and passive buyers.</p>
+
+        <h2>The Email List Multiplier</h2>
+        <p>Course sales correlate directly with email list size. Industry benchmarks show that a well-nurtured email list converts at 1-3% during a launch and 0.5-1% for evergreen sales. A list of 5,000 subscribers might generate 50-150 sales during a launch at $197, producing $9,850-$29,550 in gross revenue. Growing your email list by even 500 subscribers per month compounds dramatically over a year. Most successful course creators spend 50% of their marketing effort on list building, because the list is the asset that makes everything else work.</p>
       </div>
     </section>
   </Fragment>

@@ -70,6 +70,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Why Your Freelance Rate Matters More Than You Think</h2>
+        <p>Setting your freelance hourly rate is one of the highest-impact financial decisions you will make as an independent worker. Charge too little and you will burn out chasing volume to pay bills. Charge too much without the positioning to support it and you will struggle to land clients. The sweet spot lies in a rate grounded in real numbers, not guesswork or what a friend of a friend charges.</p>
+        <p>Most freelancers undercharge because they anchor to their last salary, ignore the cost of self-employment tax, or forget that not every working hour is billable. A $50-per-hour employee who goes freelance often needs to charge $75 to $95 per hour just to maintain the same standard of living once you factor in health insurance, retirement contributions, and unpaid time off.</p>
+        <h3>The Formula Behind This Calculator</h3>
+        <p>The core calculation works backwards from your financial goals. It starts with your desired annual take-home income, adds your effective tax burden (federal income tax, state tax, and the 15.3% self-employment tax), layers in monthly business expenses multiplied across the year, applies a profit margin for business growth, and divides the total by your realistic annual billable hours. The result is the minimum hourly rate that sustains your business and personal finances.</p>
+        <p>Annual billable hours are often lower than people expect. A freelancer working 48 weeks per year at 30 billable hours per week has 1,440 billable hours — not 2,080 like a full-time employee. That difference alone can account for a $20 to $30 gap between what you think you should charge and what the math says you need.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <FreelancerRateCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -84,6 +97,36 @@ const relatedCalculators = [
         <p>Be realistic about billable hours. Most freelancers can bill 25 to 35 hours per week — the remainder goes to admin, marketing, invoicing, and professional development. New freelancers often overestimate this number, which leads to undercharging.</p>
         <p>Start from your desired take-home pay, not from what competitors charge. Your expenses, tax situation, and lifestyle are unique. Include every recurring cost: software subscriptions, equipment, insurance, coworking fees, and professional development. Forgetting even one large expense like health insurance can throw off your rate by $10 or more per hour.</p>
         <p>Finally, revisit your rate at least twice a year. As your skills grow and expenses change, your rate should reflect the current value you deliver to clients.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Freelance Rate Benchmarks by Industry</h2>
+        <p>Rates vary dramatically by field, experience, and geography. The table below shows approximate ranges for mid-career freelancers in the United States. Use these as a sanity check against the rate this calculator produces for your specific situation.</p>
+        <table>
+          <thead>
+            <tr><th>Industry</th><th>Beginner</th><th>Mid-Career</th><th>Expert</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Web Development</td><td>$50 - $75</td><td>$100 - $150</td><td>$175 - $300</td></tr>
+            <tr><td>Graphic Design</td><td>$35 - $60</td><td>$75 - $125</td><td>$150 - $250</td></tr>
+            <tr><td>Copywriting</td><td>$40 - $65</td><td>$80 - $130</td><td>$150 - $250</td></tr>
+            <tr><td>Marketing Consulting</td><td>$60 - $90</td><td>$120 - $200</td><td>$225 - $400</td></tr>
+            <tr><td>Video Production</td><td>$45 - $70</td><td>$90 - $150</td><td>$175 - $350</td></tr>
+            <tr><td>Accounting / Bookkeeping</td><td>$35 - $55</td><td>$70 - $120</td><td>$130 - $200</td></tr>
+          </tbody>
+        </table>
+        <h2>Common Rate-Setting Mistakes</h2>
+        <p><strong>1. Anchoring to your old salary.</strong> A $70,000 salary works out to roughly $33 per hour, but that employee also receives health insurance, retirement matching, paid leave, and half of their payroll taxes covered. Going freelance at $33 per hour means a significant pay cut in real terms.</p>
+        <p><strong>2. Ignoring non-billable time.</strong> Admin tasks, invoicing, marketing, professional development, and client communication eat 30 to 40 percent of your work week. If you assume 40 billable hours per week but actually bill 28, your effective rate drops by 30 percent.</p>
+        <p><strong>3. Forgetting self-employment tax.</strong> The 15.3 percent SE tax on top of income tax is the single biggest surprise for new freelancers. On $100,000 in net income, that is an extra $14,130 you would not have paid as a W-2 employee.</p>
+        <p><strong>4. Racing to the bottom.</strong> Competing on price attracts clients who value cost over quality. These clients tend to request more revisions, pay late, and churn quickly. Positioning yourself as a specialist and charging accordingly leads to better clients and more sustainable revenue.</p>
+        <p><strong>5. Never raising your rate.</strong> If your skills and deliverables have improved but your rate has not changed in two years, you are leaving money on the table. Review your rate every six months and raise it for new clients as your portfolio and testimonials grow.</p>
+        <h2>When to Raise Your Rate</h2>
+        <p>Consider increasing your rate when you are consistently booked more than 80 percent of your available capacity, when clients accept your quotes without negotiation, when your skills or certifications have improved, or when your expenses have increased due to inflation or new tools. A 10 to 15 percent annual increase is reasonable for a freelancer who is actively improving their craft and client results.</p>
       </div>
     </section>
   </Fragment>

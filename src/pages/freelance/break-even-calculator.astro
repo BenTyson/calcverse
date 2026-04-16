@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/break-even.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Break-Even Analysis: Know Your Numbers Before You Launch</h2>
+        <p>Every product launch, service package, or business venture has a break-even point — the exact volume of sales where total revenue equals total costs. Below that number you are losing money. Above it you are profitable. Understanding this threshold before you invest time and money can save you from pursuing ideas that look good on paper but fail in practice.</p>
+        <p>Break-even analysis is especially important for freelancers and side hustlers launching productized services, online courses, physical goods, or subscription offerings. It answers the fundamental question: how many units do I need to sell to justify this venture?</p>
+        <h3>The Break-Even Formula</h3>
+        <p>The core formula is straightforward: Break-Even Units equals Fixed Costs divided by Contribution Margin, where Contribution Margin is the Price per Unit minus the Variable Cost per Unit. Fixed costs are expenses that stay constant regardless of volume — rent, software, insurance, salaries. Variable costs scale with each unit — materials, shipping, payment processing fees. The contribution margin represents how much each sale contributes toward covering your fixed costs. A higher contribution margin means fewer sales to break even.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <BreakEvenCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,23 @@ const relatedCalculators = [
         <p>Add a target profit amount and tax rate to see how many units you need for a specific profit goal. The calculator adjusts for taxes so you see the pre-tax sales volume needed to hit your after-tax target.</p>
         <h3>Break-Even for Freelancers</h3>
         <p>Freelancers can use break-even analysis for course launches, productized services, and physical products. Your fixed costs might include platform fees, marketing spend, and tools. Variable costs include payment processing, fulfillment, and per-customer support time.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Break-Even Example: Launching an Online Course</h2>
+        <p>A freelance marketing consultant wants to launch an online course priced at $297. Her fixed costs include a Teachable subscription ($99 per month, or $1,188 annually), video equipment purchased for $800, and a $2,000 marketing budget for the launch. Total fixed costs: $3,988.</p>
+        <p>Variable costs per student include Teachable's per-transaction fee ($1 plus 5 percent of the price, roughly $15.85 per sale), payment processing at 2.9 percent ($8.61), and estimated customer support time worth $5. Total variable cost per unit: $29.46. The contribution margin is $297 minus $29.46, or $267.54 per sale.</p>
+        <p>Break-even point: $3,988 divided by $267.54 equals 14.9 — she needs to sell 15 courses to break even. Every sale beyond 15 contributes $267.54 directly to profit. If she sells 50 courses in the first year, her profit is approximately $9,389 after covering all fixed and variable costs.</p>
+        <h2>Three Levers to Lower Your Break-Even Point</h2>
+        <p><strong>1. Raise your price.</strong> This is often the most effective lever because it increases contribution margin without adding cost. If the course creator above raises her price from $297 to $347, her contribution margin jumps from $267.54 to approximately $315. Break-even drops from 15 sales to 13 — a 13 percent improvement from a $50 price increase.</p>
+        <p><strong>2. Reduce fixed costs.</strong> Cut the marketing budget from $2,000 to $1,000 and break-even drops to 12 sales. But be careful: reducing marketing spend may also reduce the number of sales, so this lever has a natural floor.</p>
+        <p><strong>3. Lower variable costs.</strong> Negotiating better payment processing rates, choosing a platform with lower per-transaction fees, or automating customer support reduces the cost of each sale and widens your contribution margin.</p>
+        <h2>When Break-Even Analysis Tells You to Stop</h2>
+        <p>If your contribution margin is negative — the variable cost per unit exceeds the price — you lose more money on every sale. No amount of volume can fix this. You must either raise prices or lower per-unit costs before moving forward. Similarly, if break-even requires a volume that exceeds your realistic market size, the venture is not viable at its current cost structure. Break-even analysis is most valuable when it gives you a clear "no" early, saving you months of effort on a money-losing proposition.</p>
       </div>
     </section>
   </Fragment>

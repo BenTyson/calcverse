@@ -69,6 +69,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Convert Your Hourly Rate Into Project Pricing</h2>
+        <p>Project-based pricing is a fundamental shift in how freelancers earn. Instead of trading hours for dollars, you quote a fixed price for a defined deliverable. Clients get budget certainty, and you get rewarded for working efficiently rather than slowly. Over time, project pricing almost always increases your effective hourly rate because your speed improves while your price stays the same or goes up.</p>
+        <p>The challenge is setting the right project price. Quote too low and you absorb scope creep at your own expense. Quote too high and you lose the bid. The answer lies in a structured formula: estimated hours multiplied by your hourly rate, plus a scope buffer for the unexpected, adjusted for project complexity.</p>
+        <h3>How This Calculator Works</h3>
+        <p>Enter your hourly rate and estimated hours for the project. The calculator applies a scope buffer (defaulting to 15 percent), factors in a complexity multiplier for technically challenging work, and produces a recommended project price. In Advanced mode, you can generate tiered pricing packages — basic, standard, and premium — that let clients choose their service level while increasing your average deal size.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <ProjectRateCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -83,6 +95,23 @@ const relatedCalculators = [
         <p>The scope buffer is your safety net against underestimating. For well-defined projects with clear deliverables, 10 to 15 percent is usually sufficient. For projects with vague requirements or multiple stakeholders, bump it to 20 to 30 percent. If you find yourself consistently using the full buffer, your initial hour estimates may need recalibration.</p>
         <h3>Practical Tips</h3>
         <p>Track your time on every project, even when billing a flat rate. This data improves future estimates and helps you identify which project types are most profitable. Always define in your contract exactly what is included in the quoted price and what constitutes additional work billed separately. Clear scope boundaries protect both you and your client from misunderstandings down the road.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Project Pricing in Practice: A Walkthrough</h2>
+        <p>A freelance designer is asked to create a brand identity package including a logo, color palette, typography guide, and business card design. She estimates 24 hours of work at her $110 hourly rate. Here is how she builds the quote.</p>
+        <p>Base price: 24 hours multiplied by $110 equals $2,640. She adds a 20 percent scope buffer ($528) because the client has multiple stakeholders who may request revisions. The project also involves custom illustration, so she applies a 1.2x complexity multiplier. The final recommended project price is $3,802. Her effective hourly rate will be $158 if the project takes the estimated hours, or $110 if she uses the full buffer — either way she is protected.</p>
+        <h2>Three Pricing Tiers That Increase Revenue</h2>
+        <p>Tiered pricing is one of the most effective strategies for increasing average deal size. Presenting three options leverages a well-documented psychological principle: most buyers gravitate toward the middle option.</p>
+        <p><strong>Basic.</strong> Core deliverable only, no extras. Priced at your calculated project rate. Serves as the anchor that makes the other tiers look like better value.</p>
+        <p><strong>Standard.</strong> Core deliverable plus one or two additions such as extra revision rounds, source files, or a style guide. Priced 40 to 60 percent above Basic. This is the tier most clients choose.</p>
+        <p><strong>Premium.</strong> Everything in Standard plus high-value extras like rush delivery, strategy sessions, or extended support. Priced 100 to 150 percent above Basic. Even if few clients pick it, it makes Standard feel like a reasonable middle ground.</p>
+        <h2>Scope Creep: Preventing It Before It Starts</h2>
+        <p>Scope creep is the single biggest risk in project pricing. Protect yourself with three practices. First, write a detailed scope of work that lists exactly what is included and what is not. Second, specify the number of revision rounds in your contract and the cost for additional rounds. Third, use change orders for any request outside the original scope — a one-paragraph document that describes the additional work, the added cost, and the revised timeline. Clients respect clear boundaries, and change orders keep the relationship professional when requests expand beyond the original agreement.</p>
       </div>
     </section>
   </Fragment>
