@@ -70,6 +70,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/airbnb-profit.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Short-Term Rental Profitability: What Every Host Needs to Know</h2>
+        <p>The short-term rental market has transformed how property owners generate income. Airbnb hosts collectively earn billions annually, but individual profitability varies enormously based on location, property type, pricing strategy, and operational efficiency. A listing that looks profitable at surface-level math can lose money once you account for the full spectrum of expenses -- and conversely, a well-optimized operation can significantly outperform long-term rental income.</p>
+        <p>The core economics of Airbnb hosting revolve around three variables: nightly rate, occupancy rate, and operating costs per night. Your nightly rate determines revenue potential, but pushing it too high tanks occupancy. Occupancy drives volume, but higher occupancy means more turnovers, more cleaning fees, and faster wear on furnishings. Operating costs include Airbnb's host fee (typically 3%), cleaning, supplies, utilities, insurance, and maintenance reserves. The interplay between these three factors determines whether your listing is a wealth-building asset or an expensive hobby.</p>
+        <h3>How the Profit Calculator Works</h3>
+        <p>This calculator uses a monthly revenue model. You set your nightly rate and occupancy percentage to project gross revenue, then the calculator subtracts Airbnb's platform fee and all operating expenses you specify. The key output is your break-even occupancy rate -- the minimum percentage of nights you need booked just to cover costs. In Advanced mode, you can model cleaning costs per turnover, monthly supplies, utility increases from guest usage, and insurance premiums to get a precise monthly and annual profit figure.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <AirbnbProfitCalc client:visible />
 
   <Fragment slot="content">
@@ -80,6 +92,95 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to account for all operating expenses. Enter cleaning costs per turnover (typically $50-150 depending on property size), monthly supplies budget, additional utility costs from guests, and short-term rental insurance premiums. The calculator subtracts Airbnb's 3% host service fee and all expenses to show your true monthly profit.</p>
         <p>The break-even occupancy rate is one of the most important numbers in the results. This tells you the minimum occupancy percentage needed to cover all your fixed and variable costs. If your break-even is above 60%, your margins are tight and you may want to reduce expenses or increase your nightly rate. A healthy break-even occupancy is typically 35-45% — anything below that means strong profitability even in slow seasons.</p>
         <p>For accurate projections, account for seasonal variation. Beach properties might see 90% occupancy in summer but 20% in winter. Budget for a maintenance reserve of 5-10% of gross revenue to handle repairs, appliance replacements, and furniture wear. Also consider that turnover costs scale with occupancy — higher occupancy means more cleaning fees, more supplies, and faster wear on linens and furnishings.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Airbnb Operating Cost Benchmarks</h2>
+        <p>Understanding typical expense ranges helps you build realistic profit projections. The following benchmarks are based on common operating costs for short-term rental hosts across the United States. Your actual costs will vary by property size, location, and management approach.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Expense Category</th>
+              <th>Typical Range</th>
+              <th>% of Revenue</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Airbnb host fee</td>
+              <td>3% per booking</td>
+              <td>3%</td>
+              <td>Some markets use 14-16% simplified pricing</td>
+            </tr>
+            <tr>
+              <td>Cleaning (per turnover)</td>
+              <td>$50-200</td>
+              <td>8-15%</td>
+              <td>Scales with property size; 1BR ~$60, 3BR ~$150</td>
+            </tr>
+            <tr>
+              <td>Supplies (monthly)</td>
+              <td>$100-300</td>
+              <td>3-5%</td>
+              <td>Toiletries, coffee, paper goods, welcome items</td>
+            </tr>
+            <tr>
+              <td>Utilities increase</td>
+              <td>$75-250/month</td>
+              <td>3-6%</td>
+              <td>HVAC, water, electricity above your baseline</td>
+            </tr>
+            <tr>
+              <td>STR insurance</td>
+              <td>$100-350/month</td>
+              <td>3-8%</td>
+              <td>Proper short-term rental policy, not homeowners</td>
+            </tr>
+            <tr>
+              <td>Maintenance reserve</td>
+              <td>5-10% of revenue</td>
+              <td>5-10%</td>
+              <td>Appliance repairs, plumbing, paint, furniture</td>
+            </tr>
+            <tr>
+              <td>Linens/towels replacement</td>
+              <td>$50-150/month</td>
+              <td>1-3%</td>
+              <td>Higher with more turnovers</td>
+            </tr>
+            <tr>
+              <td>Landscaping/exterior</td>
+              <td>$50-200/month</td>
+              <td>1-3%</td>
+              <td>Whole-property listings only</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Total operating expenses typically consume 30-50% of gross revenue for self-managed properties. Hosts who use a property management company should add another 15-25% for management fees, pushing total costs to 45-75% of revenue.</p>
+
+        <h2>Worked Example: One-Bedroom City Apartment</h2>
+        <p>A host lists a one-bedroom apartment in a mid-size city at $120/night with an average 58% occupancy rate (about 17 nights per month):</p>
+        <p><strong>Gross monthly revenue:</strong> 17 nights x $120 = $2,040</p>
+        <p><strong>Airbnb host fee (3%):</strong> -$61.20</p>
+        <p><strong>Cleaning (10 turnovers x $65):</strong> -$650</p>
+        <p><strong>Supplies:</strong> -$120</p>
+        <p><strong>Extra utilities:</strong> -$100</p>
+        <p><strong>STR insurance:</strong> -$150</p>
+        <p><strong>Maintenance reserve (7%):</strong> -$142.80</p>
+        <p><strong>Linens/replacement:</strong> -$60</p>
+        <p><strong>Net monthly profit:</strong> $756.00</p>
+        <p>This yields a 37% profit margin, which is healthy for a self-managed urban listing. Notice that cleaning is the largest single expense -- at 10 turnovers per month, it consumes nearly a third of gross revenue. Hosts who extend their minimum stay from 1 night to 2-3 nights can cut turnover frequency by 40-60%, dramatically improving margins.</p>
+
+        <h2>Pricing Strategy: Occupancy vs. Rate Optimization</h2>
+        <p><strong>The pricing sweet spot.</strong> Most new hosts either underprice (high occupancy, low revenue) or overprice (low occupancy, high vacancy costs). The optimal strategy depends on your fixed vs. variable cost structure. If your fixed costs are high (mortgage, insurance), prioritize occupancy. If your variable costs per turnover are high, a higher nightly rate with fewer bookings may net more profit.</p>
+        <p><strong>Seasonal adjustment is mandatory.</strong> A flat nightly rate year-round leaves money on the table during peak season and creates vacancies during slow periods. Most profitable hosts adjust rates by 30-50% between high and low seasons. Beach properties might charge $200/night in summer and $110/night in winter. Ski lodges invert this pattern. Dynamic pricing tools like PriceLabs or Beyond Pricing automate these adjustments based on local demand data.</p>
+        <p><strong>Minimum stay length affects everything.</strong> A 1-night minimum maximizes occupancy but also maximizes turnovers (your most expensive per-booking cost). A 3-night minimum reduces turnovers by roughly 50%, cuts cleaning costs proportionally, and attracts guests who tend to leave better reviews. Many experienced hosts use 2-night minimums during weekdays and 3-night minimums on weekends to balance occupancy with turnover costs.</p>
+        <p><strong>Monitor your break-even obsessively.</strong> Your break-even occupancy rate is the number you cannot afford to ignore. If your break-even is 50% and your market averages 55% occupancy, you are one bad month away from losing money. Aim for a break-even below 40% to build a buffer against seasonal dips, unexpected vacancies, and maintenance surprises.</p>
       </div>
     </section>
   </Fragment>

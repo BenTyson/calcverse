@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/rent-vs-buy.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Renting vs Buying: The Financial Decision Most People Get Wrong</h2>
+        <p>The conventional wisdom that buying a home is always better than renting is one of the most persistent myths in personal finance. In reality, whether renting or buying makes more financial sense depends on local home prices, mortgage rates, how long you plan to stay, and the opportunity cost of your down payment. In many markets and time horizons, renting and investing the difference builds more wealth than homeownership.</p>
+        <p>The comparison is more complex than most people realize. Buying involves mortgage interest (which is a cost, not equity), property taxes, insurance, maintenance, and the opportunity cost of locking a large sum in a down payment. Renting involves monthly payments that rise over time but frees up capital for investment. This calculator models both scenarios across your chosen time frame so you can make the decision based on numbers, not assumptions.</p>
+        <h3>How the Comparison Works</h3>
+        <p>The calculator builds a year-by-year financial model for each scenario. On the buying side, it tracks mortgage payments (principal and interest), property tax, insurance, and maintenance while crediting equity buildup and home appreciation. On the renting side, it tracks rising rent payments while crediting investment returns on the money you would have used for a down payment and the monthly cost difference. The result shows which option leaves you with more wealth at the end of your chosen period.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <RentVsBuyCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,23 @@ const relatedCalculators = [
         <p>Fine-tune every variable: loan term, annual rent increases, property tax rate, insurance costs, maintenance budget, expected home appreciation, and the investment return you'd earn if you invested instead of buying. This mode gives you the most accurate comparison for your local market.</p>
         <h3>Understanding the Chart</h3>
         <p>The projection chart shows cumulative net cost over time. The rent line includes rent payments minus investment returns. The buy line includes all ownership costs minus equity built. Where the lines cross is your break-even point — buying becomes cheaper after that year.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Worked Example: Renting vs Buying in a Mid-Cost Market</h2>
+        <p>Consider a freelance designer in Austin, Texas comparing renting at $2,200 per month against buying a $400,000 home with 20 percent down ($80,000) at a 6.5 percent mortgage rate over 30 years. She plans to stay for seven years.</p>
+        <p><strong>Buying costs over 7 years:</strong> Monthly mortgage payment of $2,023 (principal and interest), property tax of $667 per month (2% rate), homeowners insurance of $167 per month, maintenance at $333 per month (1% of home value). Total monthly cost: $3,190. Over 7 years that is $268,000, but she builds approximately $55,000 in equity through principal payments and gains roughly $56,000 from 2 percent annual appreciation. Net cost of buying: approximately $157,000.</p>
+        <p><strong>Renting costs over 7 years:</strong> Starting rent of $2,200 increasing 3 percent annually averages $2,480 per month over 7 years, totaling approximately $208,000. Meanwhile, the $80,000 down payment invested at 7 percent grows to approximately $128,500 — a gain of $48,500. Monthly savings of $990 (the difference between rent and buying costs initially) invested similarly add approximately $45,000 in returns. Net cost of renting: approximately $114,500.</p>
+        <p>In this scenario, renting wins by roughly $42,500 over seven years. The break-even point where buying starts to win would be around year 10, when accumulated equity and appreciation overtake the investment returns from the renter's portfolio.</p>
+        <h2>Key Factors That Shift the Decision</h2>
+        <p><strong>Time horizon.</strong> The longer you stay, the more buying favors you. Below 5 years, renting almost always wins because transaction costs (closing fees, agent commissions) eat into any equity gains. Above 10 years, buying usually wins as mortgage payments build significant equity while rent keeps rising.</p>
+        <p><strong>Mortgage rates.</strong> At 3 percent rates (2020-2021), the buy calculation is dramatically more favorable. At 7 percent or higher, the interest burden makes renting and investing more competitive. Rate changes shift the break-even point by several years.</p>
+        <p><strong>Local price-to-rent ratio.</strong> Divide the home price by annual rent. A ratio below 15 favors buying. A ratio above 20 favors renting. Between 15 and 20 is where the details — your specific down payment, rates, and timeline — determine the winner.</p>
+        <p><strong>Opportunity cost of the down payment.</strong> An $80,000 down payment locked in a house cannot be invested elsewhere. If the stock market returns 8 percent while your home appreciates 3 percent, the renter's invested down payment grows faster than the buyer's home equity. This opportunity cost is the most frequently overlooked variable in the rent vs buy decision.</p>
       </div>
     </section>
   </Fragment>

@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/consulting-fee.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Consulting Fees Are Set: Market-Based Pricing for Independent Consultants</h2>
+        <p>Consulting fees differ from freelance hourly rates in a fundamental way. While freelance rates are typically cost-based — calculated from your expenses and income goals — consulting fees are market-based, reflecting what clients in your industry and experience bracket expect to pay for strategic advice and specialized expertise.</p>
+        <p>The consulting market prices expertise on a spectrum. An entry-level consultant with one to three years of experience commands a different rate than a senior consultant with a decade of specialized knowledge. Industry matters too — management consulting rates differ significantly from technology consulting or creative strategy. Geography, niche specialization, and engagement format (hourly, daily, project, or retainer) all shift the number.</p>
+        <h3>How This Calculator Determines Your Rate</h3>
+        <p>Select your experience level from five tiers ranging from junior to executive, choose your industry, and set location and specialization multipliers. The calculator cross-references these factors against market data to produce recommended rates in four formats: hourly, daily, per-project, and monthly retainer. In Advanced mode, you can add a value multiplier for high-impact engagements, a travel premium for on-site work, and a rush rate for urgent projects.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <ConsultingFeeCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,34 @@ const relatedCalculators = [
         <p>Fine-tune with a value multiplier for high-impact engagements, travel premium for on-site work, rush rate multiplier for urgent projects, and billable weeks per year for annual revenue projections.</p>
         <h3>Market-Based vs Cost-Based Pricing</h3>
         <p>This calculator uses a market-based approach — rates reflect what clients in your industry and experience bracket expect to pay. This is different from cost-based pricing (what you need to earn). Ideally, your market rate exceeds your cost-based rate. If not, you may need to build more experience or specialize further to command higher rates.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Consulting Rate Benchmarks by Experience Level</h2>
+        <p>Market rates vary significantly based on years of experience, the complexity of problems you solve, and the seniority of stakeholders you advise. The ranges below reflect independent consultants in the United States across industries.</p>
+        <table>
+          <thead>
+            <tr><th>Experience Level</th><th>Typical Years</th><th>Hourly Range</th><th>Daily Range</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Junior</td><td>1 - 3</td><td>$75 - $125</td><td>$600 - $1,000</td></tr>
+            <tr><td>Mid-Level</td><td>3 - 7</td><td>$125 - $200</td><td>$1,000 - $1,600</td></tr>
+            <tr><td>Senior</td><td>7 - 12</td><td>$200 - $350</td><td>$1,600 - $2,800</td></tr>
+            <tr><td>Principal / Expert</td><td>12 - 20</td><td>$300 - $500</td><td>$2,400 - $4,000</td></tr>
+            <tr><td>Executive / Advisory</td><td>20+</td><td>$400 - $750+</td><td>$3,200 - $6,000+</td></tr>
+          </tbody>
+        </table>
+        <h2>Choosing the Right Engagement Format</h2>
+        <p><strong>Hourly.</strong> Best for ongoing advisory roles, fractional leadership, or work with unpredictable scope. Clients pay for time used, and you bill weekly or monthly. The risk is capped hours that limit your income; the upside is flexibility and low commitment from both sides.</p>
+        <p><strong>Daily.</strong> Ideal for on-site workshops, strategy sessions, audits, or training days. Daily rates are typically 6 to 8 times the hourly rate, reflecting the full-day commitment and the implicit prep work. Clients find daily rates easier to budget than open-ended hourly billing.</p>
+        <p><strong>Project.</strong> Fixed-scope deliverables like strategic plans, market analyses, or system assessments. Project rates should include a scope buffer and a clear definition of what is included. They reward efficiency — if you complete the work in fewer hours, your effective rate increases.</p>
+        <p><strong>Monthly retainer.</strong> The most stable format. Clients pre-purchase a block of your time each month (typically 20 to 40 hours) at a slight discount to your hourly rate. Retainers provide predictable revenue, deepen client relationships, and reduce the constant cycle of selling new engagements. Offer retainers to your best clients after successful project-based work proves the relationship.</p>
+        <h2>Building Your Rate Over Time</h2>
+        <p>New consultants often start at rates below market benchmarks to build a portfolio of case studies and client references. This is a reasonable short-term strategy, but do not stay there. After three to five successful engagements, raise your rates by 15 to 25 percent for new clients. Existing clients can be transitioned with 60 to 90 days notice. As you specialize and build a reputation in a specific domain, your rates should steadily climb toward the upper range for your experience tier. The most successful independent consultants eventually command premium rates not through years of experience alone, but through deep specialization that makes them the obvious choice in a narrow field.</p>
       </div>
     </section>
   </Fragment>

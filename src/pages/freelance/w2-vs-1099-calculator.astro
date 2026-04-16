@@ -76,6 +76,18 @@ const relatedCalculators = [
     category: 'freelance',
   }}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>W-2 Employment vs 1099 Contracting: What the Numbers Really Show</h2>
+        <p>Choosing between a salaried W-2 position and a 1099 contract is one of the most consequential financial decisions for independent workers. The headline numbers are often misleading — a $120,000 contract rate does not automatically beat a $100,000 salary when you account for the full picture of taxes, benefits, and expenses.</p>
+        <p>As a W-2 employee, your employer covers half of your Social Security and Medicare taxes (7.65 percent), often provides health insurance worth $6,000 to $20,000 per year, contributes to a 401(k), and pays you for time off. As a 1099 contractor, you shoulder all of these costs yourself. This calculator quantifies exactly how much more you need to earn as a contractor to match or exceed a salaried position.</p>
+        <h3>The Math Behind the Comparison</h3>
+        <p>The calculator builds a total compensation model for each scenario. On the W-2 side, it adds your salary, employer tax contributions, health insurance value, retirement match, and paid time off. On the 1099 side, it starts with your gross contract income, subtracts the full 15.3 percent self-employment tax, federal and state income taxes, and the cost of self-funded benefits. The difference reveals your true take-home pay under each arrangement and the break-even contract rate you would need to match the W-2 offer.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <W2vs1099Calc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -91,6 +103,25 @@ const relatedCalculators = [
         <h3>When 1099 Wins</h3>
         <p>Contracting tends to win when the rate premium is 25 percent or more above the equivalent salary, when you have significant business deductions, or when you already have health coverage through a spouse or marketplace plan. It also offers flexibility, the ability to deduct a home office, and the option to work with multiple clients simultaneously.</p>
         <p>Run the numbers with your real expenses before making a decision. The right choice depends on your personal financial situation, not rules of thumb.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Real-World Comparison: $100K Salary vs $130K Contract</h2>
+        <p>Consider a software developer in Texas (no state income tax) comparing a $100,000 W-2 salary with full benefits against a $130,000 annual 1099 contract rate. Here is how the numbers break down.</p>
+        <p><strong>W-2 side:</strong> The $100,000 salary yields approximately $77,000 in take-home pay after federal tax and the employee share of FICA. The employer also provides health insurance worth $9,600 per year, a 4 percent 401(k) match ($4,000), and 15 days of paid time off worth roughly $5,770. Total compensation value is approximately $119,370.</p>
+        <p><strong>1099 side:</strong> The $130,000 contract income is hit with self-employment tax of roughly $18,390 (15.3 percent on 92.35 percent of income). Federal income tax after the SE deduction and standard deduction is approximately $16,400. The contractor self-funds health insurance at $7,200 per year and contributes $6,000 to a Solo 401(k). Subtracting these costs leaves roughly $82,010 in take-home pay — only $5,000 more than the W-2 option despite a $30,000 higher headline number.</p>
+        <p>This example illustrates why financial advisors recommend a 25 to 30 percent premium as the minimum contract rate markup over an equivalent salary.</p>
+        <h2>Hidden Costs Most People Miss</h2>
+        <p><strong>Unpaid time off.</strong> W-2 employees earn their salary while on vacation. Contractors earn nothing. Two weeks of vacation at $130,000 annual income costs $5,000 in lost revenue.</p>
+        <p><strong>Employer payroll tax share.</strong> Your W-2 employer pays 7.65 percent in FICA taxes on your behalf. As a contractor, you pay the full 15.3 percent yourself.</p>
+        <p><strong>Equipment and software.</strong> Employers typically provide a computer, software licenses, and office supplies. Contractors purchase their own, though these are tax-deductible.</p>
+        <p><strong>Job search and gap time.</strong> Contract work often involves gaps between engagements. Even one month of unbilled time per year reduces your effective annual income by 8 percent.</p>
+        <h2>When Contracting Wins Decisively</h2>
+        <p>Contracting tends to outperform W-2 employment when the rate premium exceeds 40 percent, when you have a spouse's health insurance, when you maximize retirement contributions through a Solo 401(k), when significant business deductions (home office, equipment, travel) reduce your taxable income, or when you can work with multiple clients simultaneously and maintain high utilization rates.</p>
       </div>
     </section>
   </Fragment>

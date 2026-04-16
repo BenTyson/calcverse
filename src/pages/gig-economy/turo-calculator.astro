@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/turo-profit.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Turo Car Sharing: Building a Profitable Vehicle Rental Business</h2>
+        <p>Turo is a peer-to-peer car sharing platform that lets vehicle owners rent their cars to travelers and locals. Unlike driving-based gig work where you trade hours for dollars, Turo generates income from an asset -- your vehicle earns money while you do other things. This makes it appealing as a passive income stream, but "passive" is relative. Successful Turo hosting requires active management of pricing, vehicle condition, guest communication, and the often-overlooked costs that erode profit margins.</p>
+        <p>The biggest misconception among new Turo hosts is overestimating profit by ignoring depreciation. Every mile a renter puts on your car accelerates its loss in value. A vehicle rented 15 days per month at an average of 40 miles per day accumulates 7,200 extra miles per year. Depending on the car, that represents $700-2,100 in accelerated depreciation alone -- money that comes directly out of your profit even though it never appears as a bill. Add Turo's host fee (10-35% depending on your protection plan), insurance gaps, cleaning, and maintenance, and the profit picture looks very different from gross rental income.</p>
+        <h3>How the Profit Calculator Works</h3>
+        <p>This calculator uses a monthly model matching Turo's booking patterns. You enter your daily rate, expected booked days per month, and the calculator projects gross revenue. It then subtracts Turo's host fee based on your chosen protection plan tier, plus your car payment, insurance, maintenance, cleaning, and depreciation to calculate true monthly profit. The break-even days metric tells you the minimum bookings needed just to cover costs -- anything above that threshold is actual profit in your pocket.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <TuroProfitCalc client:visible />
 
   <Fragment slot="content">
@@ -74,6 +86,99 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to account for all costs of hosting on Turo. The platform fee is the largest variable cost, ranging from 10-35% depending on your chosen protection plan. Add your car payment, insurance, maintenance, cleaning costs between rentals, and estimated depreciation to see your true monthly profit.</p>
         <p>The break-even days metric shows the minimum number of booked days needed to cover all your costs. If your break-even is above 20 days, your margins are tight — consider reducing expenses or increasing your daily rate. A healthy break-even for most hosts is 8-14 days, leaving the remaining booked days as pure profit.</p>
         <p>Don't forget depreciation — it's the most commonly overlooked cost. Extra mileage from renters accelerates your car's value loss significantly. Budget $100-300/month depending on your vehicle's age and value. Many successful Turo hosts buy reliable, in-demand vehicles specifically for the platform rather than renting their daily driver.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Turo Profitability by Vehicle Category</h2>
+        <p>Vehicle selection is the single most important factor in Turo profitability. The right car in the right market can generate strong returns, while the wrong choice leads to losses masked by depreciation you do not feel month to month. The following benchmarks compare typical performance across vehicle categories.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Vehicle Category</th>
+              <th>Daily Rate Range</th>
+              <th>Avg. Booked Days/Mo</th>
+              <th>Turo Fee (Std Plan)</th>
+              <th>Monthly Depreciation</th>
+              <th>Est. Net Profit/Mo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Economy (Civic, Corolla)</td>
+              <td>$30-50</td>
+              <td>14-20</td>
+              <td>25%</td>
+              <td>$100-150</td>
+              <td>$150-450</td>
+            </tr>
+            <tr>
+              <td>Midsize sedan (Camry, Accord)</td>
+              <td>$40-65</td>
+              <td>12-18</td>
+              <td>25%</td>
+              <td>$150-250</td>
+              <td>$150-500</td>
+            </tr>
+            <tr>
+              <td>SUV (RAV4, CRV, Explorer)</td>
+              <td>$55-90</td>
+              <td>12-18</td>
+              <td>25%</td>
+              <td>$200-350</td>
+              <td>$250-750</td>
+            </tr>
+            <tr>
+              <td>Truck (F-150, Tacoma)</td>
+              <td>$65-110</td>
+              <td>10-16</td>
+              <td>25%</td>
+              <td>$200-350</td>
+              <td>$250-800</td>
+            </tr>
+            <tr>
+              <td>Luxury (BMW 3, Mercedes C)</td>
+              <td>$80-150</td>
+              <td>8-14</td>
+              <td>25%</td>
+              <td>$350-600</td>
+              <td>$100-700</td>
+            </tr>
+            <tr>
+              <td>Specialty/exotic</td>
+              <td>$150-400+</td>
+              <td>6-12</td>
+              <td>25%</td>
+              <td>$500-1,200</td>
+              <td>$200-1,500+</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>SUVs and trucks offer the best risk-adjusted returns for most hosts. They command premium daily rates, maintain strong demand across seasons, and depreciate more slowly relative to their rental income than luxury vehicles. Economy cars have the lowest risk but also the lowest absolute profit per vehicle.</p>
+
+        <h2>Worked Example: SUV Hosting on Turo</h2>
+        <p>A host lists a 3-year-old Toyota RAV4 (purchased for $28,000, current value $22,000) at $70/day in a mid-size market. They average 15 booked days per month.</p>
+        <p><strong>Gross monthly revenue:</strong> 15 days x $70 = $1,050</p>
+        <p><strong>Turo host fee (25% standard plan):</strong> -$262.50</p>
+        <p><strong>Car payment (if financed):</strong> -$350</p>
+        <p><strong>Insurance (commercial gap coverage):</strong> -$80</p>
+        <p><strong>Cleaning between rentals (8 turnovers x $25):</strong> -$200</p>
+        <p><strong>Maintenance reserve:</strong> -$75</p>
+        <p><strong>Depreciation (renter miles):</strong> -$120</p>
+        <p><strong>Net monthly profit:</strong> -$37.50</p>
+        <p>At 15 days and $70/night with a car payment, this host is barely breaking even. But if they increase to 18 booked days (by optimizing pricing and listing quality), the math changes:</p>
+        <p><strong>Revised gross:</strong> 18 x $70 = $1,260 (extra turnovers add ~$75 in cleaning)</p>
+        <p><strong>Revised net:</strong> $1,260 - $262.50 - $350 - $80 - $275 - $75 - $140 = $77.50/month profit</p>
+        <p>And if the car is paid off (no $350 payment), the original scenario yields $312.50/month. This illustrates why many successful Turo hosts buy vehicles outright rather than financing them -- eliminating the car payment is the fastest path to strong margins.</p>
+
+        <h2>Turo Hosting Strategy and Cost Management</h2>
+        <p><strong>Protection plan choice matters enormously.</strong> Turo offers three tiers: minimum (10-15% fee, minimal coverage), standard (20-25%, moderate coverage), and premium (30-35%, comprehensive coverage). The difference between a 15% and 35% fee on $1,000/month gross is $200 -- but one uninsured incident can cost thousands. Most experienced hosts use the standard plan as a balance between cost and protection, then purchase a separate commercial auto policy to fill coverage gaps.</p>
+        <p><strong>Price dynamically by day of week.</strong> Weekend demand is typically 30-50% higher than midweek. Set Friday-Sunday rates 20-30% above your weekday rate. For markets with business travelers, weekday rates may actually command premiums -- test both approaches and review your booking patterns monthly.</p>
+        <p><strong>Minimize turnovers with multi-day pricing.</strong> Offer discounts for weekly (15-20% off) and monthly (30-40% off) rentals. A 7-day rental at $60/day ($420) with one cleaning is more profitable than three 2-day rentals at $70/day ($420) with three cleanings. Longer rentals also reduce total miles driven per dollar earned, since renters on multi-day trips often park the car for some days.</p>
+        <p><strong>Buy the right vehicle for Turo from the start.</strong> If you are purchasing a car specifically for Turo hosting, prioritize reliability over flash. A Toyota RAV4 or Honda CR-V will cost less in maintenance, depreciate slower, and stay booked more consistently than a BMW X3 at a similar price point. The best Turo vehicles combine three qualities: strong rental demand, low maintenance costs, and slow depreciation. Check Turo's marketplace in your city before buying to see what gets booked and at what rates.</p>
       </div>
     </section>
   </Fragment>

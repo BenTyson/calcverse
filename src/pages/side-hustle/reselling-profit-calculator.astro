@@ -64,6 +64,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>The Real Economics of Reselling</h2>
+        <p>Reselling -- buying products at a discount and selling them for a profit -- is one of the oldest business models in existence, and platforms like eBay, Poshmark, and Mercari have made it accessible to anyone with a smartphone. But accessibility does not guarantee profitability. The gap between a reseller who earns a solid side income and one who spends hours for minimum wage comes down to understanding the complete cost picture on every item.</p>
+        <p>Most beginners focus on the spread between purchase price and selling price, ignoring the layers of costs that eat into that spread: platform fees (which range from 5% to 20% depending on the marketplace), payment processing, shipping, packaging materials, and the time spent sourcing, photographing, listing, and shipping each item. A $30 "profit" on paper can easily shrink to $12 once all costs are accounted for.</p>
+        <h3>How This Calculator Works</h3>
+        <p>Enter your purchase price and selling price, select your platform, and the calculator applies the correct fee structure to show your true net profit, margin percentage, and ROI on the item. In Advanced mode, you can add shipping costs, packaging materials, payment processing fees, and even your sourcing time at a target hourly rate. This last feature is critical -- it tells you whether a flip is worth your time, not just your money. The goal is to make every sourcing decision with full knowledge of what you will actually keep.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <ResellingProfitCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -78,6 +90,90 @@ const relatedCalculators = [
         <p>A common mistake is pricing based on what you paid without accounting for all costs. On a $40 sale through eBay, you lose $5.30 to platform fees before shipping and materials. If you paid $15 for the item, spent $8 on shipping, and $2 on materials, your actual profit is $9.70 — a 24% margin. Knowing this upfront helps you decide whether an item is worth listing or if you need to price higher.</p>
         <h3>Comparing Platforms</h3>
         <p>Each platform has different fee structures. Poshmark takes 20% but handles shipping labels. eBay takes 13.25% with no processing fee baked in. Mercari charges 10% plus 2.9% processing. Facebook Marketplace is cheapest at 5% for shipped items and free for local sales. Use the platform dropdown to instantly compare your profit across each option.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Platform Fee Comparison for Resellers</h2>
+        <p>Choosing the right platform can mean the difference between a 35% margin and a 15% margin on the same item. Each marketplace has a different fee structure, audience, and selling experience. The table below breaks down the true cost of selling on each major platform.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Seller Fee</th>
+              <th>Payment Processing</th>
+              <th>Total Take</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>eBay</td>
+              <td>13.25% final value</td>
+              <td>Included</td>
+              <td>~13.25%</td>
+              <td>Electronics, collectibles, variety</td>
+            </tr>
+            <tr>
+              <td>Poshmark</td>
+              <td>20% (or $2.95 for items under $15)</td>
+              <td>Included</td>
+              <td>~20%</td>
+              <td>Clothing, shoes, accessories</td>
+            </tr>
+            <tr>
+              <td>Mercari</td>
+              <td>10%</td>
+              <td>2.9% + $0.50</td>
+              <td>~13.4%</td>
+              <td>General items, mid-range goods</td>
+            </tr>
+            <tr>
+              <td>Facebook Marketplace (shipped)</td>
+              <td>5%</td>
+              <td>Included</td>
+              <td>~5%</td>
+              <td>Furniture, local items, bulky goods</td>
+            </tr>
+            <tr>
+              <td>Facebook Marketplace (local)</td>
+              <td>Free</td>
+              <td>N/A (cash)</td>
+              <td>0%</td>
+              <td>Heavy items, local pickup only</td>
+            </tr>
+            <tr>
+              <td>Depop</td>
+              <td>10%</td>
+              <td>3.3% + $0.45</td>
+              <td>~13.8%</td>
+              <td>Vintage clothing, streetwear</td>
+            </tr>
+            <tr>
+              <td>Amazon (individual)</td>
+              <td>$0.99/item + 15% referral</td>
+              <td>Included</td>
+              <td>~16-17%</td>
+              <td>New products, book arbitrage</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Flipping a $60 Jacket</h2>
+        <p>You find a name-brand jacket at a thrift store for $8. Comparable listings on Poshmark show it selling for $55-$65. Here is the math on a $60 sale across two platforms:</p>
+        <p><strong>On Poshmark:</strong> Selling price: $60. Platform fee (20%): $12. Shipping label (provided by Poshmark, charged to buyer): $0. Packaging materials: $1.50. Your cost: $8. Total costs: $21.50. Net profit: $38.50. Margin: 64.2%. ROI on purchase: 481%.</p>
+        <p><strong>On eBay:</strong> Selling price: $60. Platform fee (13.25%): $7.95. Shipping (you pay, media-rate jacket ~$9): $9.00. Packaging: $1.50. Your cost: $8. Total costs: $26.45. Net profit: $33.55. Margin: 55.9%. ROI on purchase: 419%.</p>
+        <p>Poshmark nets $4.95 more on this item despite the higher fee rate because the buyer pays for shipping. But if the jacket does not sell after 30 days on Poshmark (where discoverability fades quickly), eBay's larger audience might move it faster. Many experienced resellers cross-list on multiple platforms simultaneously to maximize exposure and speed of sale.</p>
+
+        <h2>Sourcing Strategies That Maximize ROI</h2>
+        <p>The profit in reselling is made at the buy, not the sell. Overpaying for inventory is the most common mistake, and no amount of clever listing optimization can fix a bad purchase price. Here are the sourcing approaches that consistently produce the best margins:</p>
+        <p><strong>Thrift stores and estate sales</strong> offer the highest ROI because purchase prices are lowest -- often $2-$15 for items that sell for $30-$100+. The tradeoff is time: you may spend 2-3 hours sourcing to find 5-10 items worth listing. Track your time and calculate your effective hourly rate to ensure sourcing trips are worthwhile.</p>
+        <p><strong>Liquidation pallets</strong> provide volume at 10-30% of retail value, but they are a gamble. You cannot inspect every item before purchase, and damaged or unsellable goods reduce your effective margin. Start with small pallets ($100-$200) from established liquidators to learn the quality range before scaling up.</p>
+        <p><strong>Retail arbitrage</strong> -- buying clearance items from stores and reselling online -- works best with a scanning app that shows real-time sell-through rates and margins. Focus on items with a sales rank under 100,000 on Amazon and at least 30% margin after all fees. The risk is slower inventory turns on niche items that looked profitable but take months to sell.</p>
+        <p>Regardless of your sourcing method, apply a minimum profit threshold per item. If an item will not net at least $10-$15 after all costs, the time spent listing, communicating with buyers, and shipping often makes it not worth the effort. Your time has value -- price it into every sourcing decision.</p>
       </div>
     </section>
   </Fragment>

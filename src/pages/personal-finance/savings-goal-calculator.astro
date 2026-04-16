@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/savings-goal.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Setting a Savings Goal: The Math Behind Reaching Your Target</h2>
+        <p>Whether you are saving for a down payment, an emergency fund, a business investment, or a major purchase, the fundamental question is the same: how much do you need to set aside each month to reach your target by your deadline? The answer depends on your starting balance, your timeline, and the interest rate your savings earn along the way.</p>
+        <p>Compound interest works in your favor here. Money saved in a high-yield savings account or invested in a diversified portfolio earns returns that themselves earn returns. Over longer time horizons, this compounding effect becomes substantial — a meaningful portion of your final balance comes from interest earned, not money you personally deposited. The earlier you start, the more compounding does the heavy lifting.</p>
+        <h3>How This Calculator Plans Your Path</h3>
+        <p>Enter your goal amount, current savings, expected interest rate, and timeline. The calculator determines the exact monthly contribution needed and projects your savings growth month by month. The chart shows a clear visual of your progress toward the goal line. For freelancers, Advanced mode adds an irregular income buffer — an extra percentage on top of the required savings to account for months when variable income might make the full contribution difficult.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <SavingsGoalCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,34 @@ const relatedCalculators = [
         <p>Add inflation adjustment to ensure your target maintains purchasing power over time. The irregular income buffer adds a percentage on top of required savings — essential for freelancers whose monthly income varies. This ensures you stay on track even during lean months.</p>
         <h3>Built for Freelancers</h3>
         <p>Unlike generic savings calculators, this one accounts for the reality of self-employment: variable income, no employer match, and the need to be your own financial planner. The irregular income buffer feature helps you plan realistically instead of optimistically.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Compound Interest Accelerates Your Savings</h2>
+        <p>The table below shows how a $500 monthly contribution grows at different interest rates over various time horizons. The difference between a standard savings account and an invested portfolio becomes dramatic over longer periods.</p>
+        <table>
+          <thead>
+            <tr><th>Years</th><th>0% (Mattress)</th><th>2% (Savings)</th><th>5% (HYSA/CDs)</th><th>7% (Invested)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3</td><td>$18,000</td><td>$18,545</td><td>$19,375</td><td>$19,945</td></tr>
+            <tr><td>5</td><td>$30,000</td><td>$31,530</td><td>$34,035</td><td>$35,795</td></tr>
+            <tr><td>10</td><td>$60,000</td><td>$66,360</td><td>$77,640</td><td>$86,540</td></tr>
+            <tr><td>15</td><td>$90,000</td><td>$104,640</td><td>$133,280</td><td>$158,380</td></tr>
+            <tr><td>20</td><td>$120,000</td><td>$147,000</td><td>$205,520</td><td>$260,480</td></tr>
+          </tbody>
+        </table>
+        <p>At 7 percent over 20 years, more than half of the final balance ($140,480) comes from compounding returns rather than your own deposits. This is why where you keep your savings matters almost as much as how much you save.</p>
+        <h2>Choosing the Right Savings Vehicle</h2>
+        <p><strong>Short-term goals (under 2 years):</strong> High-yield savings account. Your money needs to be accessible and stable. Current HYSAs offer 4 to 5 percent with no volatility risk. Do not invest short-term savings in the stock market — a downturn right before you need the money could force you to sell at a loss.</p>
+        <p><strong>Medium-term goals (2 to 5 years):</strong> A mix of HYSA and short-term bond funds. CDs can lock in today's rates if you believe rates will fall. The key is balancing some growth potential against the risk of needing the money before markets recover from a dip.</p>
+        <p><strong>Long-term goals (5+ years):</strong> Diversified index fund portfolio. Over longer horizons, the stock market's historical 7 to 10 percent annual return significantly outpaces savings accounts. The longer your timeline, the more time markets have to recover from temporary declines.</p>
+        <h2>Saving on a Freelance Income</h2>
+        <p>Variable income makes consistent saving challenging but not impossible. The irregular income buffer in this calculator adds a percentage cushion to your required monthly savings, ensuring you stay on track even when income dips. During high-earning months, save more than the target to build a buffer for leaner months. Many freelancers find it helpful to maintain a separate operating account with two to three months of expenses as a cash flow buffer, independent of their savings goals. This prevents the common pattern of raiding long-term savings to cover short-term cash flow gaps.</p>
       </div>
     </section>
   </Fragment>

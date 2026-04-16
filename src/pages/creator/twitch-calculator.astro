@@ -69,6 +69,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Twitch Streamers Earn Money</h2>
+        <p>Twitch monetization is built on three primary revenue streams: subscriptions, bits (virtual currency), and ad revenue. Unlike platforms that rely on a single monetization model, Twitch's multi-stream approach means your total income is influenced by different audience behaviors — some viewers subscribe for emotes and loyalty, others cheer with bits for real-time interaction, and all viewers contribute to ad revenue simply by watching.</p>
+        <p>To access monetization, you first need to reach Affiliate status, which requires 50 followers, 500 total minutes broadcast in 30 days, 7 unique broadcast days, and an average of 3 concurrent viewers. Affiliates receive a standard 50/50 revenue split on subscriptions, meaning you keep roughly $2.50 from each $4.99 Tier 1 sub. Partners — streamers who meet higher thresholds and apply successfully — can negotiate improved splits of up to 70/30 and unlock additional features like more emote slots and transcoding priority.</p>
+        <h3>Understanding Subscription Tiers and Revenue Splits</h3>
+        <p>Twitch offers three subscription tiers: Tier 1 at $4.99, Tier 2 at $9.99, and Tier 3 at $24.99 per month. Your revenue per subscriber depends on both the tier and your negotiated split. At the standard 50/50 split, a Tier 1 sub yields $2.50, Tier 2 yields $5.00, and Tier 3 yields $12.50. Prime Gaming subscriptions (free for Amazon Prime members) pay the same as Tier 1. Gift subscriptions, where one viewer purchases subs for others, follow the same revenue structure and can create significant spikes in monthly income.</p>
+        <p>Bits are unique because Twitch takes their cut from the buyer, not the streamer. You receive $0.01 per bit regardless of any other fee structure. A viewer who cheers 1,000 bits gives you exactly $10.00. This makes bits one of the most transparent revenue sources on any creator platform.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <TwitchRevenueCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -84,6 +97,48 @@ const relatedCalculators = [
         <h3>Growing Your Revenue</h3>
         <p>Bits provide a reliable secondary income stream because streamers receive 100 percent of the bit value ($0.01 per bit). Encourage bit usage with on-screen alerts and bit-triggered interactions. For ad revenue, running two to three ad breaks per hour is a common balance between earning potential and viewer experience. Avoid front-loading ads, which drive away new viewers before they have a chance to engage with your content.</p>
         <p>Consistency is the most important factor in growing Twitch income. A regular streaming schedule helps build a loyal audience that subscribes and cheers with bits month after month.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Twitch Revenue Benchmarks by Streamer Size</h2>
+        <p>The table below estimates monthly income across all revenue streams at different viewer levels. These assume a standard 50/50 subscription split, consistent streaming (20+ hours/week), and typical bit and ad engagement rates.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Avg. Concurrent Viewers</th>
+              <th>Estimated Subs</th>
+              <th>Sub Revenue</th>
+              <th>Bits Revenue</th>
+              <th>Ad Revenue</th>
+              <th>Estimated Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>5 - 20</td><td>10 - 30</td><td>$25 - $75</td><td>$5 - $20</td><td>$2 - $10</td><td>$32 - $105</td></tr>
+            <tr><td>20 - 75</td><td>30 - 120</td><td>$75 - $300</td><td>$20 - $80</td><td>$10 - $50</td><td>$105 - $430</td></tr>
+            <tr><td>75 - 250</td><td>100 - 400</td><td>$250 - $1,000</td><td>$50 - $250</td><td>$40 - $200</td><td>$340 - $1,450</td></tr>
+            <tr><td>250 - 1,000</td><td>300 - 1,500</td><td>$750 - $3,750</td><td>$150 - $800</td><td>$150 - $700</td><td>$1,050 - $5,250</td></tr>
+            <tr><td>1,000 - 5,000</td><td>1,000 - 5,000</td><td>$2,500 - $12,500</td><td>$500 - $3,000</td><td>$500 - $3,000</td><td>$3,500 - $18,500</td></tr>
+          </tbody>
+        </table>
+        <p>The subscriber-to-viewer ratio varies widely by content type and community strength. Highly interactive streamers (variety, IRL, talk shows) often convert a higher percentage of viewers to subscribers than gameplay-focused streamers who attract more casual viewers.</p>
+
+        <h2>Worked Example: Affiliate Streamer with 50 Average Viewers</h2>
+        <p>You stream 5 days per week for 4 hours each session (80 hours/month) with an average of 50 concurrent viewers. As an Affiliate with a 50/50 split, here is a realistic earnings breakdown:</p>
+        <p>Subscriptions: 60 active subs (a 1.2:1 sub-to-viewer ratio, which is achievable with strong community engagement). At $2.50 per Tier 1 sub, that is $150/month. Add 3 Tier 2 subs ($5 each = $15) and 1 Tier 3 sub ($12.50). Subscription total: $177.50.</p>
+        <p>Bits: Average 500 bits per stream across all viewers. At $0.01 per bit over 20 streams, that is $100/month.</p>
+        <p>Ads: Running 2 ad breaks per stream at roughly $3.50 CPM with 50 viewers, each 60-second break earns about $0.18. Over 20 streams with 2 breaks each, ad revenue is approximately $7/month.</p>
+        <p>Monthly total: roughly $285. At this level, Twitch alone is supplemental income. The path to full-time streaming requires growing average viewers to 200+ or supplementing with sponsorships, YouTube VODs, and merchandise.</p>
+
+        <h2>Strategies for Growing Twitch Revenue</h2>
+        <p><strong>Negotiate your split at Partner.</strong> The difference between 50/50 and 70/30 on 500 subscribers is $500/month ($6,000/year). When you reach Partner status, negotiate aggressively — Twitch has historically offered 70/30 deals to streamers with strong metrics, though their policies on premium splits have varied over time.</p>
+        <p><strong>Encourage bit usage with alerts and interactions.</strong> Custom bit alerts, bit-triggered sound effects, and on-screen animations incentivize bit cheering. Some streamers set up bit goals for specific actions (playing a requested song at 500 bits, doing a challenge at 1,000 bits). These gamified interactions can double or triple bit revenue compared to passive cheering alone.</p>
+        <p><strong>Run ads strategically.</strong> Pre-roll ads play automatically for new viewers and cannot be disabled. You can reduce pre-roll frequency by running manual ad breaks — Twitch disables pre-rolls for a period after manual ads. Time your ad breaks during natural pauses (loading screens, queue times, bathroom breaks) to minimize viewer drop-off.</p>
+        <p><strong>Build a multi-platform revenue stack.</strong> Upload VODs and highlights to YouTube for additional ad revenue. Use Patreon or Ko-fi for supporters who want to contribute beyond Twitch subs. Sell merchandise through Twitch's merch integration or external stores. The most financially successful streamers at the 100-500 viewer level typically earn more from these off-platform sources than from Twitch itself.</p>
       </div>
     </section>
   </Fragment>

@@ -63,6 +63,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Retirement Planning for the Self-Employed: Your Options and Limits</h2>
+        <p>Freelancers miss out on employer-sponsored retirement plans, but they gain access to accounts with some of the highest contribution limits available to any worker. A Solo 401(k) allows up to $69,000 per year in combined contributions — more than three times the employee-only limit at most corporate plans. The challenge is understanding which account type fits your income level and knowing how to maximize your contributions.</p>
+        <p>The four main retirement vehicles for self-employed workers are the Solo 401(k), SEP-IRA, Traditional IRA, and Roth IRA. Each has different contribution limits, tax treatment, and administrative requirements. Choosing the right one — or the right combination — depends on your net self-employment income, your age, and whether you value tax savings now or tax-free withdrawals in retirement.</p>
+        <h3>How This Calculator Compares Your Options</h3>
+        <p>Enter your annual self-employment income and planned contribution amount. The calculator computes your maximum allowable contribution for each account type, estimates the tax savings based on your bracket, and projects your retirement balance using compound growth over your remaining working years. The bar chart comparison makes it easy to see which account lets you save the most given your specific income level.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <FreelanceRetirementCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -77,6 +89,35 @@ const relatedCalculators = [
         <p>For most freelancers earning over $50,000, a Solo 401(k) is the strongest option because it allows both employee and employer contributions. SEP-IRAs are simpler to set up and a good choice if you want to maximize employer-style contributions without the paperwork. Traditional and Roth IRAs have much lower limits but can supplement your primary retirement account.</p>
         <h3>Start Early</h3>
         <p>Compound growth is the most powerful factor in retirement savings. Contributing $10,000 per year for 30 years at 7% growth results in over $1 million — but only about $300,000 of that is your actual contributions. The other $700,000 is investment growth. Starting even five years earlier can add hundreds of thousands to your final balance.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Retirement Account Comparison for Self-Employed Workers</h2>
+        <table>
+          <thead>
+            <tr><th>Feature</th><th>Solo 401(k)</th><th>SEP-IRA</th><th>Traditional IRA</th><th>Roth IRA</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2024 Contribution Limit</td><td>$69,000</td><td>$69,000</td><td>$7,000</td><td>$7,000</td></tr>
+            <tr><td>Catch-Up (50+)</td><td>$7,500</td><td>None</td><td>$1,000</td><td>$1,000</td></tr>
+            <tr><td>Employee Contributions</td><td>Yes ($23,500)</td><td>No</td><td>N/A</td><td>N/A</td></tr>
+            <tr><td>Employer Contributions</td><td>Up to 25% of net SE income</td><td>Up to 25% of net SE income</td><td>N/A</td><td>N/A</td></tr>
+            <tr><td>Tax Treatment</td><td>Pre-tax (Roth option available)</td><td>Pre-tax</td><td>Pre-tax</td><td>After-tax, tax-free growth</td></tr>
+            <tr><td>Income Limits</td><td>None</td><td>None</td><td>Deduction phases out at higher incomes</td><td>$161,000 single / $240,000 married</td></tr>
+            <tr><td>Admin Complexity</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td></tr>
+          </tbody>
+        </table>
+        <h2>The Power of Compound Growth: A Worked Example</h2>
+        <p>A 30-year-old freelance designer earning $90,000 per year contributes $15,000 annually to a Solo 401(k). Assuming a 7 percent average annual return and retirement at age 65, the projections look like this: after 10 years the account holds approximately $207,000. After 20 years it reaches roughly $615,000. After 35 years at retirement, the balance is approximately $2,020,000 — of which only $525,000 is actual contributions. The remaining $1,495,000 is investment growth.</p>
+        <p>Starting just five years later, at age 35, with the same contribution and return rate, the balance at 65 drops to approximately $1,425,000 — a $595,000 difference from a five-year delay. This illustrates why starting early, even with smaller contributions, dramatically outweighs starting later with larger ones.</p>
+        <h2>Choosing the Right Account for Your Situation</h2>
+        <p><strong>Earning under $50,000:</strong> A Traditional or Roth IRA is the simplest starting point. The $7,000 annual limit is achievable, and the administrative burden is minimal. If you are in a low tax bracket now and expect higher income later, a Roth IRA's tax-free growth is especially valuable.</p>
+        <p><strong>Earning $50,000 to $100,000:</strong> A SEP-IRA lets you contribute up to 25 percent of net self-employment income with almost no paperwork. At $80,000 net income, that is up to $20,000 per year. A Solo 401(k) would also work well and offers slightly higher limits thanks to the employee contribution component.</p>
+        <p><strong>Earning above $100,000:</strong> A Solo 401(k) is nearly always the best choice. The combined employee and employer contributions allow you to shelter the maximum amount from taxes. At $150,000 net income, you could contribute up to $61,000 — far exceeding the SEP-IRA limit at the same income level.</p>
       </div>
     </section>
   </Fragment>

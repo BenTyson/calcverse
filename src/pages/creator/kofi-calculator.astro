@@ -69,6 +69,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Understanding Ko-fi: The Zero-Fee Creator Platform</h2>
+        <p>Ko-fi has carved out a distinct position in the creator economy by offering something no other major platform does: zero platform fees on shop sales and optional zero fees on donations and memberships through its Gold plan. For creators who are tired of watching 8-12% of their income disappear into platform fees on Patreon or similar services, Ko-fi represents a fundamentally different approach to monetization.</p>
+        <p>The platform supports three primary revenue streams. One-time donations (called "coffees") let supporters send tips without any ongoing commitment. Memberships provide recurring monthly income similar to Patreon tiers. And the Ko-fi Shop allows creators to sell digital downloads, commissions, and physical products with zero platform commission. Each stream has different fee implications and audience dynamics.</p>
+        <h3>How Ko-fi's Fee Structure Works</h3>
+        <p>Ko-fi's fee model has two tiers. Free accounts pay a 5% platform fee on donations and memberships, plus payment processing (approximately 2.9% + $0.30 per transaction via Stripe or PayPal). Ko-fi Gold members pay $6/month to eliminate the 5% platform fee entirely, leaving only payment processing costs. Shop sales are always commission-free regardless of plan tier.</p>
+        <p>This calculator models all three revenue streams with accurate fee calculations for both free and Gold accounts. It factors in payment processing fees, the Gold subscription cost, and variable donation patterns to show your true take-home income. The break-even analysis tells you exactly when upgrading to Gold becomes profitable based on your actual revenue mix.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <KofiCalc client:visible />
 
   <Fragment slot="content">
@@ -79,6 +92,77 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to compare free vs. Ko-fi Gold accounts side by side. Gold costs $6/month but removes the 5% platform fee entirely. The key threshold: if your combined donation and membership income exceeds roughly $120/month, Gold pays for itself. Above that level, every additional dollar saves you 5 cents in fees. You can also model shop sales in Advanced mode — Ko-fi takes 0% commission on shop transactions, making it one of the most competitive platforms for selling digital products.</p>
         <p>For accurate projections, factor in that donation income tends to be variable month-to-month, while memberships provide more predictable recurring revenue. Most creators see 2-5% of their audience convert to supporters, with average one-time donations ranging from $3-10. Membership subscribers typically stay for 3-6 months.</p>
         <p>If you are deciding between Ko-fi and other platforms, consider that Ko-fi's fee structure (5% or 0% with Gold) is significantly lower than Patreon's 8-12%. However, Patreon offers more robust membership management tools. Many creators use Ko-fi for one-time support and shop sales while running memberships on another platform.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Ko-fi vs Other Creator Platforms: Fee Comparison</h2>
+        <p>Understanding how Ko-fi stacks up against alternatives is critical for maximizing your creator income. The table below compares effective fees across platforms for a creator earning $500/month in supporter income.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Platform Fee</th>
+              <th>Processing Fee</th>
+              <th>Total on $500</th>
+              <th>Take-Home</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ko-fi (Free)</td>
+              <td>5%</td>
+              <td>~2.9% + $0.30</td>
+              <td>~$42</td>
+              <td>~$458</td>
+            </tr>
+            <tr>
+              <td>Ko-fi Gold</td>
+              <td>0% ($6/mo)</td>
+              <td>~2.9% + $0.30</td>
+              <td>~$26</td>
+              <td>~$474</td>
+            </tr>
+            <tr>
+              <td>Patreon (Pro)</td>
+              <td>8%</td>
+              <td>~2.9% + $0.30</td>
+              <td>~$58</td>
+              <td>~$442</td>
+            </tr>
+            <tr>
+              <td>Patreon (Premium)</td>
+              <td>12%</td>
+              <td>~2.9% + $0.30</td>
+              <td>~$78</td>
+              <td>~$422</td>
+            </tr>
+            <tr>
+              <td>Buy Me a Coffee</td>
+              <td>5%</td>
+              <td>~2.9% + $0.30</td>
+              <td>~$42</td>
+              <td>~$458</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Building a $1,000/Month Ko-fi Income</h2>
+        <p>Consider a digital artist who wants to reach $1,000/month on Ko-fi using all three revenue streams. Here is a realistic breakdown of how they might get there:</p>
+        <p><strong>One-time donations:</strong> With 500 followers engaging with their content, roughly 3% tip each month. Average donation is $5. That produces about 15 donations totaling $75/month.</p>
+        <p><strong>Memberships:</strong> They offer two tiers: a $3/month "Supporter" tier with early access to art, and a $8/month "Patron" tier with monthly wallpaper packs and process videos. With 40 supporters on the $3 tier ($120) and 25 on the $8 tier ($200), memberships generate $320/month.</p>
+        <p><strong>Shop sales:</strong> They sell digital art packs at $12 each and custom commission slots at $50 each. With 35 art packs ($420) and 4 commissions ($200) per month, shop revenue is $620/month. Since Ko-fi takes 0% on shop sales, this is the highest-margin stream.</p>
+        <p>Total gross: $1,015/month. On Ko-fi Gold ($6/month), fees are: $0 platform fee on shop sales, 0% platform fee on donations and memberships (Gold benefit), plus ~2.9% + $0.30 processing on each transaction. After all fees, the creator takes home approximately $940 -- a 92.6% take-home rate.</p>
+
+        <h2>Strategies to Maximize Ko-fi Earnings</h2>
+        <p><strong>Lean into shop sales.</strong> Because Ko-fi charges zero commission on shop transactions, every dollar you shift from donations to product sales improves your margin. Digital products like templates, presets, or downloadable art have zero marginal cost and pure profit after creation.</p>
+        <p><strong>Use the Gold break-even as a milestone.</strong> If your combined donations and memberships exceed $120/month, Gold pays for itself. Track this number and upgrade at the right time. Below $120, the 5% fee on a free account costs less than the $6 Gold subscription.</p>
+        <p><strong>Offer annual memberships.</strong> Ko-fi supports annual billing for memberships. Offering a 10-month-for-12 annual plan reduces churn and front-loads revenue. Supporters who pay annually are also more likely to stay long-term because they have already committed.</p>
+        <p><strong>Cross-promote streams.</strong> Use free content to drive donations, use donations to convert supporters into members, and use membership perks to drive shop sales. Each stream feeds the others when you build deliberate upgrade paths.</p>
+        <p><strong>Diversify payment methods.</strong> Ko-fi supports both Stripe and PayPal. Enabling both increases conversion because some supporters prefer PayPal (especially international fans). The processing fees are similar, but accessibility matters more than saving 0.1%.</p>
       </div>
     </section>
   </Fragment>

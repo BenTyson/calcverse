@@ -63,6 +63,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>The True Cost of Time Off When You Are Self-Employed</h2>
+        <p>Taking a vacation as a freelancer costs more than the flight and hotel. Unlike salaried employees who earn their full pay while relaxing on a beach, freelancers face a triple expense: the direct cost of travel, the lost income from days not worked, and the ongoing fixed costs — health insurance, software subscriptions, rent — that continue regardless of whether you are earning.</p>
+        <p>Add in the catch-up time most freelancers need when they return (clearing the email backlog, resuming paused projects, rebooking client calls) and a one-week vacation can cost the equivalent of eight or nine working days. This is why surveys consistently show freelancers taking fewer vacation days than their salaried counterparts — the financial sting feels more immediate.</p>
+        <h3>How This Calculator Breaks Down Your Costs</h3>
+        <p>Enter your monthly freelance income, desired vacation days per year, and daily travel budget. The calculator computes lost income, travel costs, fixed expenses during time off, and catch-up time in Advanced mode. It then divides the total annual vacation cost by 12 to give you the monthly savings target you need to fund your time off without dipping into operating cash flow.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <FreelanceVacationCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -77,6 +89,25 @@ const relatedCalculators = [
         <p>The monthly savings amount is your actionable number. Set up an automatic transfer for this amount into a dedicated vacation fund the day you get paid. Treating it like a fixed expense ensures you actually have the money when vacation time arrives, rather than dipping into your operating funds.</p>
         <h3>Planning Ahead</h3>
         <p>Build vacation time into your annual business plan and client contracts. Factor time off into your hourly rate so you're not losing money when you step away. Many successful freelancers add 10-15% to their base rate specifically to cover unpaid time off, health insurance, and retirement savings that W2 employees get as benefits.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>The Real Cost of Freelance Vacation: A Breakdown</h2>
+        <p>Consider a freelance copywriter earning $7,500 per month who wants to take 15 days off per year spread across three separate trips. Here is how the costs stack up.</p>
+        <p><strong>Lost income:</strong> 15 working days at $375 per day (based on 20 working days per month) equals $5,625 in revenue not earned.</p>
+        <p><strong>Travel expenses:</strong> At $150 per day for accommodation, meals, and transportation across 15 days, that adds $2,250.</p>
+        <p><strong>Fixed costs during time off:</strong> Health insurance ($450 per month), software subscriptions ($200 per month), and coworking membership ($250 per month) continue running. Prorated across 15 vacation days, that is approximately $450.</p>
+        <p><strong>Catch-up time:</strong> Budgeting one catch-up day per five vacation days adds three additional non-billable days worth $1,125.</p>
+        <p><strong>Total annual vacation cost: $9,450.</strong> Monthly savings needed: $788. The true cost per vacation day is $630, not the $150 in travel expenses most people calculate.</p>
+        <h2>Building Vacation Into Your Business Model</h2>
+        <p><strong>Price it into your rate.</strong> If you plan to take 15 days off, you are working 237 days instead of 252. Factor this into your annual rate calculation so you are not subsidizing time off by working harder during the rest of the year. Adding 6 to 8 percent to your hourly rate covers most vacation costs.</p>
+        <p><strong>Create a separate vacation fund.</strong> Open a high-yield savings account specifically for vacation savings. Automate a monthly transfer on the same day you pay yourself. Treating vacation savings as a fixed business expense prevents the common pattern of skipping time off because the money is not there.</p>
+        <p><strong>Front-load work before trips.</strong> In the two weeks before a vacation, increase your output to complete deliverables early and create a buffer. Notify clients 3 to 4 weeks in advance and set clear expectations about response times during your absence. This reduces the catch-up burden and protects client relationships.</p>
+        <p><strong>Consider off-peak travel.</strong> Traveling during shoulder seasons (September to November, January to March) can reduce daily travel costs by 30 to 50 percent while also avoiding the busiest client periods. Many freelancers find that mid-week departures yield lower airfare and less disruption to their work schedule.</p>
       </div>
     </section>
   </Fragment>

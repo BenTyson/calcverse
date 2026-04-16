@@ -74,6 +74,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Why Profit Margins Matter More Than Revenue</h2>
+        <p>Revenue is vanity. Profit is sanity. A business generating $10,000 per month sounds impressive until you learn it costs $9,500 to operate. Profit margin -- the percentage of each dollar you actually keep -- is the single most important metric for determining whether a business is financially sustainable or just moving money around.</p>
+        <p>This is especially critical for side hustlers and small business owners who often confuse being busy with being profitable. Margin analysis forces you to confront your real cost structure at three levels: gross margin shows whether your product pricing works, operating margin reveals whether your overhead is sustainable, and net margin tells you what you actually take home after everything including taxes.</p>
+        <h3>How This Calculator Works</h3>
+        <p>Enter your revenue and cost of goods sold (COGS) to see your gross margin. Add operating expenses to compute your operating margin. Include taxes and other costs to arrive at your net margin. The calculator also shows your per-unit profit, break-even revenue, and a visual breakdown of where every dollar goes. Use it to evaluate new products, compare business models, or diagnose why a seemingly profitable operation is not generating cash. In Advanced mode, you can model unit-based costs and adjust tax rates to match your actual situation.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <ProfitMarginCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -88,6 +100,96 @@ const relatedCalculators = [
         <p>Net margin is the bottom line — what you actually keep after everything, including taxes and miscellaneous expenses. This is the number that determines whether your business is truly profitable or just busy.</p>
         <h3>Healthy Margins by Business Type</h3>
         <p>Benchmarks vary widely by industry. E-commerce and retail typically see 5-20% net margins. Service businesses and consulting often achieve 15-40%. Digital products and software can reach 50-80% because COGS is minimal. Compare your margins to similar businesses in your space, not to unrelated industries.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Profit Margin Benchmarks by Industry</h2>
+        <p>Margins vary enormously across business types. Comparing your margins to the wrong industry leads to false confidence or unnecessary panic. Use the table below to find the benchmark range that matches your business model.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Business Type</th>
+              <th>Gross Margin</th>
+              <th>Operating Margin</th>
+              <th>Net Margin</th>
+              <th>Key Cost Driver</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>E-commerce (physical products)</td>
+              <td>40-60%</td>
+              <td>10-20%</td>
+              <td>5-15%</td>
+              <td>COGS, shipping, ads</td>
+            </tr>
+            <tr>
+              <td>Dropshipping</td>
+              <td>30-50%</td>
+              <td>8-18%</td>
+              <td>5-12%</td>
+              <td>Supplier cost, ad spend</td>
+            </tr>
+            <tr>
+              <td>Freelance services</td>
+              <td>80-95%</td>
+              <td>40-65%</td>
+              <td>25-45%</td>
+              <td>Time, software subscriptions</td>
+            </tr>
+            <tr>
+              <td>SaaS / digital products</td>
+              <td>70-90%</td>
+              <td>20-40%</td>
+              <td>15-35%</td>
+              <td>Development, hosting, support</td>
+            </tr>
+            <tr>
+              <td>Online courses / coaching</td>
+              <td>75-90%</td>
+              <td>30-50%</td>
+              <td>20-40%</td>
+              <td>Platform fees, marketing</td>
+            </tr>
+            <tr>
+              <td>Restaurants / food</td>
+              <td>55-70%</td>
+              <td>5-15%</td>
+              <td>3-9%</td>
+              <td>Ingredients, labor, rent</td>
+            </tr>
+            <tr>
+              <td>Retail (brick and mortar)</td>
+              <td>45-55%</td>
+              <td>5-12%</td>
+              <td>2-7%</td>
+              <td>Rent, inventory, staff</td>
+            </tr>
+            <tr>
+              <td>Print-on-demand</td>
+              <td>30-50%</td>
+              <td>15-30%</td>
+              <td>10-20%</td>
+              <td>Base cost, platform fees</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Diagnosing a Margin Problem</h2>
+        <p>Consider a handmade jewelry side hustle generating $4,000 per month in revenue. The numbers look like this:</p>
+        <p>Materials cost per piece: $8. Average selling price: $32. Gross margin: 75% -- healthy. Monthly operating costs: Etsy fees ($520), shipping supplies ($160), photography equipment amortized ($40), packaging ($120), marketing ($200). Total operating expenses: $1,040. Operating profit: $1,960. Operating margin: 49% -- still strong.</p>
+        <p>After self-employment tax (15.3%) and estimated income tax (12%), net take-home is roughly $1,425, a net margin of about 35.6%. This is well above the e-commerce benchmark because handmade goods carry high perceived value and low material costs.</p>
+        <p>Now imagine the same business but with $1,500/month in Facebook ad spend added to operating expenses. Operating profit drops to $460, operating margin falls to 11.5%, and net margin after taxes lands around 7.4%. The product margins are identical -- the overhead changed. This is exactly why tracking all three margin levels matters: the product is fine, but the marketing strategy is the problem.</p>
+
+        <h2>Three Levers to Improve Your Margins</h2>
+        <p><strong>Raise prices strategically.</strong> Most small businesses underprice out of fear. Test a 10% price increase on your best-selling products. If demand drops less than 10%, you come out ahead on total profit even with fewer sales. Many side hustlers find that a modest price increase has zero impact on volume because their customers are buying on perceived value, not price comparison.</p>
+        <p><strong>Reduce COGS through negotiation and sourcing.</strong> If you sell physical products, renegotiate with suppliers annually. Buying in larger quantities often unlocks 10-25% discounts. Explore alternative suppliers -- the first one you found is rarely the cheapest. For service businesses, COGS is essentially your time, so improving efficiency (templates, automation, better tools) directly increases gross margin.</p>
+        <p><strong>Audit operating expenses ruthlessly.</strong> List every monthly expense and ask whether it directly contributes to revenue. Cancel unused software subscriptions, renegotiate annual contracts, and automate manual tasks that consume paid hours. A $50/month tool that saves 3 hours of work is a clear win. A $200/month tool you use once a week probably is not.</p>
+        <p>Focus on the margin level where you see the biggest gap. If gross margin is low, the problem is pricing or COGS. If gross margin is healthy but operating margin is weak, overhead is the issue. If operating margin is fine but net margin is thin, look at your tax strategy -- are you taking all available deductions for your side hustle?</p>
       </div>
     </section>
   </Fragment>

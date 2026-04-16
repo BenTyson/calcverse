@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/fire.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>What Is FIRE and How Does It Work?</h2>
+        <p>FIRE — Financial Independence, Retire Early — is a movement built on a simple mathematical principle: if you save and invest enough money, the returns from your portfolio can cover your living expenses indefinitely, freeing you from the need to work for income. The concept is not about stopping productive work forever but about reaching a point where work becomes optional.</p>
+        <p>The math behind FIRE centers on two numbers: your annual expenses and your withdrawal rate. Your FIRE number is your annual expenses divided by the percentage you plan to withdraw each year. At the widely-used 4 percent withdrawal rate, someone spending $50,000 per year needs a portfolio of $1,250,000. Someone spending $30,000 needs $750,000. The lower your expenses, the faster you reach financial independence — and the lower the target you need to hit.</p>
+        <h3>The Savings Rate Is Everything</h3>
+        <p>What makes FIRE different from traditional retirement planning is the emphasis on savings rate over investment returns. A person saving 10 percent of their income will work for roughly 51 years before reaching financial independence. At 25 percent, it drops to about 32 years. At 50 percent, just 17 years. At 70 percent, 8.5 years. The savings rate is the dominant variable because it does double duty — it increases the money flowing into investments while simultaneously lowering the expenses your portfolio needs to cover.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <FireCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,38 @@ const relatedCalculators = [
         <p>Customize the expected investment return, inflation rate, and withdrawal rate. You'll also see your Coast FIRE age — the point where you can stop saving and your existing investments will grow to your FIRE number by retirement.</p>
         <h3>Key Concepts</h3>
         <p>Your FIRE number is your annual expenses divided by your withdrawal rate. The real return (nominal return minus inflation) determines how fast your portfolio grows in today's dollars. A higher savings rate is the most powerful lever — it simultaneously reduces your expenses and increases your contributions.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Years to FIRE by Savings Rate</h2>
+        <p>The relationship between savings rate and time to financial independence is not linear — it is exponential. Small increases in savings rate at lower levels produce dramatic reductions in the years required.</p>
+        <table>
+          <thead>
+            <tr><th>Savings Rate</th><th>Years to FIRE</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>10%</td><td>~51 years</td><td>Traditional retirement timeline</td></tr>
+            <tr><td>20%</td><td>~37 years</td><td>Start at 25, retire at 62</td></tr>
+            <tr><td>30%</td><td>~28 years</td><td>Start at 25, retire at 53</td></tr>
+            <tr><td>40%</td><td>~22 years</td><td>Start at 25, retire at 47</td></tr>
+            <tr><td>50%</td><td>~17 years</td><td>Common FIRE target</td></tr>
+            <tr><td>60%</td><td>~12.5 years</td><td>Aggressive FIRE</td></tr>
+            <tr><td>70%</td><td>~8.5 years</td><td>Lean FIRE / high income</td></tr>
+          </tbody>
+        </table>
+        <p>Assumes 5 percent real (inflation-adjusted) investment return and 4 percent withdrawal rate. Starting from zero savings.</p>
+        <h2>FIRE Variations Explained</h2>
+        <p><strong>Traditional FIRE.</strong> Accumulate 25 times your annual expenses and withdraw 4 percent per year. This is the baseline approach, typically requiring $1 million to $2.5 million depending on lifestyle.</p>
+        <p><strong>Lean FIRE.</strong> Reach financial independence with below-average annual spending, typically under $40,000 per year. Requires a smaller portfolio ($1 million or less) but demands a frugal lifestyle indefinitely. Best suited for people who genuinely prefer simple living.</p>
+        <p><strong>Fat FIRE.</strong> Financial independence with above-average spending, typically $100,000 or more per year. Requires a portfolio of $2.5 million or more. Pursued by high earners who want to maintain their current lifestyle without compromise.</p>
+        <p><strong>Coast FIRE.</strong> The point where your existing investments, left untouched, will grow to your FIRE number by your target retirement age through compound growth alone. Once you reach Coast FIRE, you only need to earn enough to cover current expenses — no more saving required. This is especially appealing for freelancers who want to reduce their workload without fully retiring.</p>
+        <p><strong>Barista FIRE.</strong> Semi-retired with enough invested to cover most expenses but supplementing with part-time or passion-project work. Named after the idea of working a low-stress job for healthcare benefits while investments grow. Many freelancers naturally transition into this model by choosing fewer clients and lower-stress projects.</p>
+        <h2>FIRE and Freelancing</h2>
+        <p>Freelancers have a unique advantage in the FIRE community: variable income with the ability to scale. During high-earning periods, aggressive saving is possible. During slower periods, expenses can be managed more flexibly than a salaried worker with fixed obligations. The challenge is consistency — building the discipline to save during feast months rather than inflating lifestyle. Many freelancers pursue Coast FIRE or Barista FIRE as intermediate milestones, gradually reducing their client load rather than targeting a hard retirement date.</p>
       </div>
     </section>
   </Fragment>

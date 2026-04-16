@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/emergency-fund.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Why an Emergency Fund Is the Foundation of Financial Stability</h2>
+        <p>An emergency fund is cash set aside specifically for unexpected expenses or income disruptions — job loss, medical emergencies, urgent repairs, or sudden drops in freelance income. Without one, a single unforeseen event can force you into high-interest debt, derail savings goals, or create financial stress that affects every area of your life.</p>
+        <p>The standard advice of three to six months of expenses is a starting point, but the right amount depends on your specific risk profile. A W-2 employee with a stable government job and a working spouse needs less runway than a solo freelancer with variable income, a mortgage, and dependents. This calculator adjusts the recommendation based on factors that actually affect how much cushion you need.</p>
+        <h3>How the Calculator Determines Your Target</h3>
+        <p>Enter your monthly expenses and the calculator recommends a target based on your income stability (stable, moderate, variable, or freelance), number of dependents, and whether you have a partner contributing income. Freelancers and gig workers automatically receive a higher recommendation because income gaps are inherent to self-employment. The calculator also shows how long it will take to reach your target based on your current savings and monthly contribution rate.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <EmergencyFundCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -74,6 +86,32 @@ const relatedCalculators = [
         <p>Enter your monthly expenses, how much you've already saved, and what you can save each month. The calculator uses moderate assumptions to give you a target and timeline.</p>
         <h3>Advanced Mode</h3>
         <p>Customize your income stability level — from stable W2 employment to freelance work. Add dependents and partner income status. The calculator adjusts the recommended number of months based on these risk factors: freelancers need more runway, dual-income households need less.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Much Emergency Fund You Need by Situation</h2>
+        <table>
+          <thead>
+            <tr><th>Situation</th><th>Recommended Months</th><th>Why</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dual income, no kids, stable jobs</td><td>3 months</td><td>Low risk, partner provides backup income</td></tr>
+            <tr><td>Single income, stable W-2 job</td><td>4 - 6 months</td><td>No income backup; standard recommendation</td></tr>
+            <tr><td>Single income with dependents</td><td>6 months</td><td>Higher expenses and greater consequences of income loss</td></tr>
+            <tr><td>Freelancer, consistent clients</td><td>6 - 8 months</td><td>Variable income; client loss can create extended gaps</td></tr>
+            <tr><td>Freelancer, project-based</td><td>8 - 9 months</td><td>Gaps between projects are common and unpredictable</td></tr>
+            <tr><td>Self-employed with employees</td><td>9 - 12 months</td><td>Responsible for payroll even during revenue dips</td></tr>
+          </tbody>
+        </table>
+        <h2>Building Your Emergency Fund: A Practical Approach</h2>
+        <p><strong>Start with $1,000.</strong> Before optimizing anything else, build a starter emergency fund of $1,000 to $2,000. This prevents small emergencies from pushing you into credit card debt while you work toward the full target. Even this small buffer covers most car repairs, minor medical bills, and appliance replacements.</p>
+        <p><strong>Automate the savings.</strong> Set up an automatic transfer from your checking account to a dedicated high-yield savings account on each payday. Treating the transfer as a fixed expense rather than a discretionary choice eliminates the temptation to skip it. For freelancers with irregular income, transfer a fixed percentage (10 to 15 percent) of each client payment instead of a fixed dollar amount.</p>
+        <p><strong>Keep it separate but accessible.</strong> Your emergency fund should be in a high-yield savings account — not your checking account (too easy to spend), not invested in stocks (too volatile when you need it), and not in a CD (penalties for early withdrawal). The goal is liquidity with a modest return. Current high-yield savings accounts offer 4 to 5 percent APY, which means your emergency fund grows passively while remaining available within one to two business days.</p>
+        <p><strong>Replenish after use.</strong> When you dip into your emergency fund (and you will), make rebuilding it the top financial priority until it is back to full. Pause extra debt payments, investment contributions, and discretionary spending until the fund is restored. An empty emergency fund after a crisis is when you are most vulnerable to a second hit.</p>
       </div>
     </section>
   </Fragment>

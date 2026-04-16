@@ -1,0 +1,101 @@
+---
+interface BlogPost {
+  title: string;
+  slug: string;
+  description: string;
+}
+
+interface Props {
+  posts: BlogPost[];
+  categorySlug: string;
+}
+
+const { posts, categorySlug } = Astro.props;
+
+if (posts.length === 0) return;
+
+// Normalize category slugs to CSS class prefixes
+const categoryMap: Record<string, string> = {
+  freelance: 'freelance',
+  creator: 'creator',
+  'gig-economy': 'gig',
+  'side-hustle': 'sidehustle',
+  'personal-finance': 'finance',
+  finance: 'finance',
+};
+
+const cat = categoryMap[categorySlug] || 'freelance';
+
+const gradientBarClasses: Record<string, string> = {
+  freelance: 'bg-gradient-freelance',
+  creator: 'bg-gradient-creator',
+  gig: 'bg-gradient-gig',
+  sidehustle: 'bg-gradient-sidehustle',
+  finance: 'bg-gradient-finance',
+};
+
+const glowBgClasses: Record<string, string> = {
+  freelance: 'bg-[rgba(6,182,212,0.15)]',
+  creator: 'bg-[rgba(236,72,153,0.15)]',
+  gig: 'bg-[rgba(16,185,129,0.15)]',
+  sidehustle: 'bg-[rgba(168,85,247,0.15)]',
+  finance: 'bg-[rgba(245,158,11,0.15)]',
+};
+
+const glowClasses: Record<string, string> = {
+  freelance: 'shadow-glow-freelance',
+  creator: 'shadow-glow-creator',
+  gig: 'shadow-glow-gig',
+  sidehustle: 'shadow-glow-sidehustle',
+  finance: 'shadow-glow-finance',
+};
+
+const gradientBar = gradientBarClasses[cat];
+const glowBg = glowBgClasses[cat];
+const glowShadow = glowClasses[cat];
+
+// Show up to 2 posts
+const displayPosts = posts.slice(0, 2);
+---
+
+<section class="mb-10">
+  <div class="relative bg-neutral-950 rounded-2xl overflow-hidden">
+    <!-- Gradient top bar -->
+    <div class={`h-1 ${gradientBar}`}></div>
+
+    <!-- Radial glow background -->
+    <div class={`absolute top-0 right-0 w-1/2 h-full rounded-full blur-3xl opacity-20 pointer-events-none ${glowBg}`}></div>
+
+    <!-- Content -->
+    <div class="relative p-6 md:p-8">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+          </svg>
+        </div>
+        <p class="text-white font-bold text-lg">Dive Deeper</p>
+      </div>
+
+      <div class={`space-y-4 ${displayPosts.length > 1 ? 'md:grid md:grid-cols-2 md:gap-4 md:space-y-0' : ''}`}>
+        {displayPosts.map((post) => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="block group rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 p-4 transition-all"
+          >
+            <h3 class="text-white font-semibold group-hover:text-primary-300 transition-colors leading-snug">
+              {post.title}
+            </h3>
+            <p class="text-neutral-400 text-sm mt-2 leading-relaxed line-clamp-2">{post.description}</p>
+            <span class={`inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-primary-400 group-hover:text-primary-300 transition-colors`}>
+              Read the Guide
+              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

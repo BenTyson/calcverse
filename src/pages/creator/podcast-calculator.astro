@@ -69,6 +69,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Podcast Monetization Works</h2>
+        <p>Podcast advertising is a $4 billion industry built on a simple metric: CPM, or cost per mille (thousand). Advertisers pay a fixed rate for every 1,000 times an episode containing their ad is downloaded. Unlike social media impressions, podcast downloads represent a listener who actively chose your content, which is why podcast CPM rates consistently outperform display ads and most other digital advertising formats.</p>
+        <p>The economics of podcast sponsorship depend on three variables: your download count per episode, the number of ad slots you fill, and your CPM rate. A podcast averaging 10,000 downloads per episode with two mid-roll ads at $25 CPM earns $500 per episode. Publish weekly, and that is $2,000/month from sponsorships alone. The math scales linearly -- double your downloads, double your revenue.</p>
+        <h3>Understanding CPM and Ad Placement</h3>
+        <p>Not all ad placements are equal. Mid-roll ads (inserted during the episode) command the highest CPM because listeners are engaged and less likely to skip. Pre-roll ads at the start are second, and post-roll ads at the end earn the least. This calculator models each placement type separately so you can see exactly how your ad inventory translates into revenue. In Advanced mode, you can also layer in affiliate income from promo codes, which adds a performance-based revenue stream on top of CPM-based sponsorships.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <PodcastSponsorshipCalc client:visible />
 
   <Fragment slot="content">
@@ -79,6 +91,78 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to model multiple ad placements per episode. The three standard placements are pre-roll (15-30 seconds at the start, typically $15-25 CPM), mid-roll (60 seconds during the episode, $20-50 CPM), and post-roll (15-30 seconds at the end, $10-15 CPM). Mid-roll commands the highest rates because listeners are most engaged and least likely to skip. You can also add affiliate revenue estimates for promo-code-based deals.</p>
         <p>For realistic projections, keep in mind that most podcasts need at least 5,000 downloads per episode to attract network sponsors. Smaller shows with niche audiences (finance, B2B, tech) can command premium CPMs of $30-50+ because their listeners have higher purchasing power. General entertainment podcasts typically see lower CPMs of $15-25.</p>
         <p>The calculator helps you compare total revenue across different scenarios. Try modeling what happens if you increase episode frequency, grow your audience by 20%, or add a second mid-roll ad. Many successful podcasters find that publishing consistently and growing downloads by even 10% per month compounds into significant revenue over 6-12 months.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Podcast CPM Rates by Niche and Placement</h2>
+        <p>CPM rates vary dramatically by niche, audience demographics, and ad placement. Finance and business podcasts command premium rates because their listeners have high purchasing power. Entertainment and comedy podcasts have larger audiences but lower CPMs. The table below shows typical CPM ranges for 2024-2025.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Niche</th>
+              <th>Pre-Roll CPM</th>
+              <th>Mid-Roll CPM</th>
+              <th>Post-Roll CPM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Finance / Investing</td>
+              <td>$25 - $40</td>
+              <td>$40 - $80</td>
+              <td>$15 - $25</td>
+            </tr>
+            <tr>
+              <td>Business / B2B</td>
+              <td>$20 - $35</td>
+              <td>$35 - $60</td>
+              <td>$12 - $20</td>
+            </tr>
+            <tr>
+              <td>Tech / Software</td>
+              <td>$20 - $30</td>
+              <td>$30 - $50</td>
+              <td>$10 - $18</td>
+            </tr>
+            <tr>
+              <td>Health / Fitness</td>
+              <td>$15 - $25</td>
+              <td>$25 - $45</td>
+              <td>$10 - $15</td>
+            </tr>
+            <tr>
+              <td>True Crime / Entertainment</td>
+              <td>$12 - $20</td>
+              <td>$18 - $30</td>
+              <td>$8 - $12</td>
+            </tr>
+            <tr>
+              <td>Comedy / Pop Culture</td>
+              <td>$10 - $18</td>
+              <td>$15 - $25</td>
+              <td>$6 - $10</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: From 5,000 to 20,000 Downloads</h2>
+        <p>A weekly tech podcast currently averaging 5,000 downloads per episode wants to project revenue growth. Here is how the math changes as they scale:</p>
+        <p><strong>At 5,000 downloads (starting point):</strong> One pre-roll ($20 CPM) and one mid-roll ($35 CPM) per episode. Revenue per episode: $100 + $175 = $275. Monthly revenue (4 episodes): $1,100. This is the threshold where most podcast networks will accept you.</p>
+        <p><strong>At 10,000 downloads (6-month target):</strong> Same ad placements, plus the ability to negotiate higher CPMs due to proven audience. Pre-roll at $25 CPM and mid-roll at $40 CPM. Revenue per episode: $250 + $400 = $650. Monthly: $2,600. At this level, direct sponsor outreach becomes viable.</p>
+        <p><strong>At 20,000 downloads (12-month target):</strong> Two mid-roll slots and one pre-roll. Premium rates: pre-roll $28 CPM, mid-roll $45 CPM each. Revenue per episode: $560 + $900 + $900 = $2,360. Monthly: $9,440. At this scale, brands approach you directly and you can command exclusivity premiums.</p>
+
+        <h2>Network vs Direct Sales: Revenue Impact</h2>
+        <p>Podcast ad networks like Megaphone, Acast, and AdvertiseCast handle sponsor matching, ad insertion, and payment for a cut of your revenue. Networks typically take 30-40% of the ad revenue they generate. The tradeoff is convenience versus income.</p>
+        <p><strong>Network advantages:</strong> Automated ad fill means fewer empty slots. No sales calls or invoicing on your end. Networks can fill remnant inventory that you would not sell yourself. For podcasts under 10,000 downloads, networks are often the only realistic option for consistent sponsorship.</p>
+        <p><strong>Direct sales advantages:</strong> You keep 100% of the revenue. You control which brands appear on your show. You can negotiate multi-episode packages and exclusivity deals. Direct relationships often lead to long-term partnerships worth 2-3x the CPM a network would negotiate.</p>
+        <p><strong>Hybrid approach:</strong> Many successful podcasters sell premium mid-roll placements directly to brands they have relationships with, then use a network to fill pre-roll and post-roll inventory. This maximizes both revenue and fill rate. At 15,000+ downloads per episode, the hybrid model typically outperforms either approach alone.</p>
+
+        <h2>Growing Your Download Count</h2>
+        <p>Since podcast revenue scales directly with downloads, growing your audience is the highest-leverage activity. The most effective growth strategies for independent podcasters include consistent publishing schedules (listeners subscribe to habits, not one-off episodes), guest appearances on other podcasts in adjacent niches, and building an email list to notify subscribers of new episodes. Social media clips drive discovery, but email and podcast app subscribers drive reliable download numbers. Focus on the metrics that compound: subscriber count and episode completion rate.</p>
       </div>
     </section>
   </Fragment>

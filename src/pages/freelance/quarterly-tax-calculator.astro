@@ -77,6 +77,18 @@ const relatedCalculators = [
     badge: 'Recommended',
   }}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Understanding Quarterly Estimated Taxes for Freelancers</h2>
+        <p>When you work as a freelancer or independent contractor, no employer withholds taxes from your income. Instead, the IRS expects you to pay as you earn throughout the year by making four estimated tax payments. Failing to do so can result in underpayment penalties even if you pay your full tax bill by April 15.</p>
+        <p>Quarterly taxes cover two separate obligations: federal income tax on your earnings and self-employment tax, which funds Social Security and Medicare. Together, these can consume 25 to 40 percent of your net freelance income depending on your tax bracket and state of residence.</p>
+        <h3>How the Calculator Estimates Your Payments</h3>
+        <p>This tool takes your projected annual net self-employment income and applies the current federal tax brackets, the 15.3 percent self-employment tax rate (on 92.35 percent of net earnings), and your state tax rate. It then subtracts the standard deduction and the deductible half of SE tax to arrive at your total annual tax liability, which it divides into four equal quarterly payments. In Advanced mode, you can enter specific deductions, filing status, and W-2 withholding to refine the estimate further.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <QuarterlyTaxCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -92,6 +104,35 @@ const relatedCalculators = [
         <h3>The Safe Harbor Rule</h3>
         <p>You can avoid penalties by paying at least 100 percent of your prior year's total tax liability (110 percent if your adjusted gross income exceeded $150,000) or 90 percent of your current year's liability, whichever is smaller. When in doubt, use last year's return as a baseline and adjust upward if your income is growing.</p>
         <p>Consider opening a separate high-yield savings account for tax funds. Each time you receive a payment from a client, transfer 25 to 30 percent into that account so the money is ready when deadlines arrive.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Quarterly Tax Payment Schedule and Deadlines</h2>
+        <p>The IRS divides the tax year into four unequal periods. Each quarter covers a specific range of income, and the payment is due shortly after the period ends.</p>
+        <table>
+          <thead>
+            <tr><th>Quarter</th><th>Income Period</th><th>Payment Deadline</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td>January 1 - March 31</td><td>April 15</td></tr>
+            <tr><td>Q2</td><td>April 1 - May 31</td><td>June 15</td></tr>
+            <tr><td>Q3</td><td>June 1 - August 31</td><td>September 15</td></tr>
+            <tr><td>Q4</td><td>September 1 - December 31</td><td>January 15 (following year)</td></tr>
+          </tbody>
+        </table>
+        <p>Notice that Q2 only covers two months while Q3 covers three. This catches many freelancers off guard — the Q2 payment arrives quickly after Q1, and the income period it covers is shorter than expected.</p>
+        <h2>A Worked Example</h2>
+        <p>Suppose you are a single freelance web developer earning $95,000 in net self-employment income with $8,000 in business deductions. Your self-employment tax on 92.35 percent of $87,000 ($80,325) is approximately $12,290. Half of that ($6,145) is deductible. After the standard deduction of $14,600, your taxable income for federal purposes is approximately $66,255, putting you in the 22 percent bracket with a federal tax bill of roughly $9,850. Add a 5 percent state tax of approximately $4,040, and your total annual tax obligation is about $26,180 — or roughly $6,545 per quarter.</p>
+        <p>If you did not make quarterly payments and waited until April to pay the full $26,180, the IRS would assess an underpayment penalty calculated on each missed quarter using the federal short-term interest rate plus 3 percentage points.</p>
+        <h2>Strategies to Simplify Quarterly Taxes</h2>
+        <p><strong>Automate your savings.</strong> Each time a client payment hits your account, transfer 25 to 30 percent into a dedicated tax savings account. By the time each deadline arrives, the money is already set aside.</p>
+        <p><strong>Use the prior-year safe harbor.</strong> If your income fluctuates, basing quarterly payments on 100 percent (or 110 percent for high earners) of last year's total tax is the easiest way to avoid penalties without forecasting variable income.</p>
+        <p><strong>Adjust mid-year.</strong> If your income changes significantly — a big project lands or a client cancels — recalculate your estimated payments for the remaining quarters. You are not locked into equal payments across all four quarters.</p>
+        <p><strong>Track deductions year-round.</strong> Business expenses reduce your taxable income and therefore your quarterly obligation. Keeping receipts and categorizing expenses monthly prevents a scramble at tax time and gives you more accurate quarterly estimates.</p>
       </div>
     </section>
   </Fragment>

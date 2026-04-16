@@ -71,6 +71,19 @@ const relatedCalculators = [
     category: 'creator',
   }}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Understanding Etsy's Fee Structure</h2>
+        <p>Etsy charges sellers through a layered fee system that can significantly impact profit margins if you do not account for every cost. Unlike platforms with a single flat percentage, Etsy stacks multiple fees on each transaction: listing fees, transaction fees, payment processing fees, and potentially advertising fees. Understanding each layer is essential for pricing products that actually turn a profit.</p>
+        <p>The base cost to list an item is $0.20, which covers a four-month listing period or until the item sells. The transaction fee is 6.5% of the total sale price including shipping. On top of that, Etsy Payments charges 3% plus $0.25 per transaction for payment processing. These three fees alone take roughly 10-12% of a typical sale before you factor in any advertising costs.</p>
+        <h3>How Offsite Ads Change the Equation</h3>
+        <p>Etsy's Offsite Ads program advertises your products on Google, Facebook, Instagram, and other platforms. When a buyer clicks one of these ads and purchases within 30 days, Etsy charges you an additional 12% fee (or 15% for shops earning over $10,000 annually). Shops earning under $10,000 per year can opt out of this program, but larger shops cannot. This single fee can push your total fee burden above 25% on affected sales, making it critical to factor into your pricing strategy from day one.</p>
+        <p>Many sellers are surprised by Offsite Ads fees because they appear inconsistently. If 20-30% of your sales come through Offsite Ads, your average effective fee rate is meaningfully higher than the base 10-12%. This calculator helps you model that blended rate so you can set prices that protect your margins across all order sources.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <EtsyFeesCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -85,6 +98,45 @@ const relatedCalculators = [
         <p>Consider a $30 item that costs you $8 to produce. The listing fee is $0.20. The transaction fee is $1.95 (6.5 percent of $30). Payment processing is $1.15 (3 percent plus $0.25). That totals $3.30 in fees before any advertising, leaving you $18.70 in gross profit. If the sale came through Offsite Ads, add another $3.60 (12 percent), dropping your profit to $15.10. Knowing these numbers upfront prevents unpleasant surprises.</p>
         <h3>Pricing Strategy</h3>
         <p>Work backward from your desired profit. Add your production cost, shipping cost, and target profit, then divide by one minus your total fee rate. For example, if you want $15 profit on an $8 item with 12 percent total fees: ($8 plus $15) divided by 0.88 equals $26.14 minimum price. Round up to account for Offsite Ads if you cannot opt out. Revisit your pricing quarterly as costs and fee structures change.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Complete Etsy Fee Breakdown</h2>
+        <p>Every Etsy sale incurs multiple fees. The table below shows exactly what applies, when it applies, and how it is calculated so you can price with precision.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fee Type</th>
+              <th>Amount</th>
+              <th>Applied To</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Listing Fee</td><td>$0.20</td><td>Each listing</td><td>Charged at listing and each renewal (every 4 months or upon sale)</td></tr>
+            <tr><td>Transaction Fee</td><td>6.5%</td><td>Sale price + shipping</td><td>Applied to the total order amount including any shipping charged</td></tr>
+            <tr><td>Payment Processing</td><td>3% + $0.25</td><td>Sale price + shipping + tax</td><td>Etsy Payments only; varies slightly by country</td></tr>
+            <tr><td>Offsite Ads (optional)</td><td>12% or 15%</td><td>Sale price</td><td>12% under $10K/year (opt-out available); 15% over $10K (mandatory)</td></tr>
+            <tr><td>Etsy Ads (optional)</td><td>Variable CPC</td><td>Per click</td><td>You set a daily budget; costs vary by category and competition</td></tr>
+            <tr><td>Multi-quantity Fee</td><td>$0.20</td><td>Each additional unit</td><td>If a buyer purchases more than one of the same listing</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Calculating True Profit on a $45 Item</h2>
+        <p>Suppose you sell a handmade candle for $45 with $5 shipping charged to the buyer. Your material and labor cost is $12. Here is how the fees break down:</p>
+        <p>Listing fee: $0.20. Transaction fee: 6.5% of $50 (price + shipping) = $3.25. Payment processing: 3% of $50 + $0.25 = $1.75. Total standard fees: $5.20. Your gross profit is $45 + $5 - $12 - $5.20 = $32.80.</p>
+        <p>Now suppose this sale came through Offsite Ads and you are under the $10,000 annual threshold. The Offsite Ads fee is 12% of $45 = $5.40. Your profit drops to $27.40 — a 17% reduction from a single fee. If you were over $10,000 and the 15% rate applied, the fee would be $6.75 and profit would be $26.05.</p>
+        <p>This is why understanding your Offsite Ads exposure matters. If 25% of your sales come through Offsite Ads, your blended fee rate is roughly 3 percentage points higher than standard fees alone.</p>
+
+        <h2>Pricing Strategies for Etsy Sellers</h2>
+        <p><strong>Work backward from target profit.</strong> Decide what you need to earn per item after all costs. Add your material cost, labor, and shipping, then divide by (1 minus your expected total fee rate). If you want $20 profit on a $10-cost item with 15% blended fees: ($10 + $20) / 0.85 = $35.29 minimum price.</p>
+        <p><strong>Factor in free shipping.</strong> Etsy's search algorithm favors listings with free shipping. If you absorb the $5 shipping cost, your item needs to be priced higher to compensate. Many successful sellers build shipping into the listed price and use "free shipping" as a conversion advantage.</p>
+        <p><strong>Use multi-item discounts strategically.</strong> Offering 10-15% off when buyers purchase 2+ items increases average order value while spreading the fixed $0.25 payment processing fee across more revenue. A buyer who spends $80 in one transaction pays $0.25 once, not twice.</p>
+        <p><strong>Review margins quarterly.</strong> Etsy has adjusted its fee structure multiple times — the transaction fee increased from 5% to 6.5% in 2022. Sellers who do not revisit pricing after fee changes gradually lose margin without realizing it. Set a calendar reminder to re-run your numbers every quarter.</p>
       </div>
     </section>
   </Fragment>

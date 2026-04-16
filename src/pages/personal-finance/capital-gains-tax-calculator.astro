@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/capital-gains-tax.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Capital Gains Tax: What Investors and Freelancers Need to Know</h2>
+        <p>When you sell an investment for more than you paid, the profit is a capital gain — and the IRS wants its share. How much you owe depends on two factors: how long you held the investment and your total taxable income. Short-term gains (investments held less than one year) are taxed at your ordinary income rate, which can be as high as 37 percent. Long-term gains (held one year or longer) qualify for preferential rates of 0, 15, or 20 percent.</p>
+        <p>For freelancers and self-employed workers who invest side income, understanding capital gains taxes is critical for timing asset sales and managing tax liability. Selling an appreciated stock in a high-income year versus a low-income year can mean a difference of thousands of dollars in tax. This calculator models the exact tax impact of your gain based on your income level, holding period, and filing status.</p>
+        <h3>How Bracket Stacking Works</h3>
+        <p>Long-term capital gains are not taxed in isolation — they stack on top of your ordinary income. If your ordinary taxable income already fills the 0 percent capital gains bracket, your gains start in the 15 percent bracket. This means two investors with identical gains can pay very different tax rates depending on their other income. The calculator handles this stacking automatically, applying gains to the correct bracket based on your total income picture.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <CapitalGainsTaxCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -78,6 +90,33 @@ const relatedCalculators = [
         <p>Long-term capital gains have their own bracket structure (0%, 15%, 20%), but your gains "stack" on top of ordinary income. If your ordinary taxable income already fills the 0% bracket, your gains start in the 15% bracket. This is why two people with the same gain but different incomes pay different capital gains tax rates.</p>
         <h3>Key Concepts</h3>
         <p>Hold investments for at least one year to qualify for long-term rates. Use tax-loss harvesting to offset gains. Be aware of NIIT if your income is above the threshold. Capital losses exceeding gains can offset up to $3,000 of ordinary income per year, with the remainder carrying forward.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>2024 Capital Gains Tax Brackets</h2>
+        <p>Long-term capital gains rates depend on your total taxable income (ordinary income plus gains). Short-term gains are taxed at your ordinary income rate.</p>
+        <table>
+          <thead>
+            <tr><th>Tax Rate</th><th>Single Filer</th><th>Married Filing Jointly</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0%</td><td>Up to $47,025</td><td>Up to $94,050</td></tr>
+            <tr><td>15%</td><td>$47,026 - $518,900</td><td>$94,051 - $583,750</td></tr>
+            <tr><td>20%</td><td>Over $518,900</td><td>Over $583,750</td></tr>
+            <tr><td>+3.8% NIIT</td><td>MAGI over $200,000</td><td>MAGI over $250,000</td></tr>
+          </tbody>
+        </table>
+        <h2>Tax-Saving Strategies for Capital Gains</h2>
+        <p><strong>Hold for at least one year.</strong> The difference between short-term and long-term rates can be massive. A freelancer in the 32 percent bracket who sells a stock at a $50,000 gain after 11 months pays $16,000 in federal tax. Waiting one more month drops the rate to 15 percent, saving $8,500.</p>
+        <p><strong>Tax-loss harvesting.</strong> Sell investments at a loss to offset gains dollar for dollar. If you have $30,000 in gains and $10,000 in losses, you only pay tax on $20,000. Losses exceeding gains can offset up to $3,000 of ordinary income per year, with unused losses carrying forward indefinitely. This is especially useful in volatile markets where some positions may be underwater.</p>
+        <p><strong>Time sales in low-income years.</strong> Freelancers with variable income can strategically sell appreciated assets during low-income years when their ordinary income leaves room in the 0 percent capital gains bracket. A single filer with $40,000 in ordinary taxable income can realize up to $7,025 in long-term gains at a 0 percent federal rate.</p>
+        <p><strong>Use tax-advantaged accounts.</strong> Gains inside a 401(k), IRA, or Roth IRA are not subject to capital gains tax. Roth accounts are especially powerful because qualified withdrawals, including all gains, are completely tax-free. Holding your highest-growth investments in tax-advantaged accounts maximizes this benefit.</p>
+        <h2>Capital Gains for Freelancers and Business Owners</h2>
+        <p>Self-employed workers often have both business income and investment income. Your self-employment earnings raise your ordinary income level, which pushes capital gains into higher brackets and can trigger the 3.8 percent NIIT. Planning the timing of asset sales around your expected business income for the year can meaningfully reduce your total tax bill. Work with a tax professional to model different scenarios before making large asset sales.</p>
       </div>
     </section>
   </Fragment>

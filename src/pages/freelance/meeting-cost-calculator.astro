@@ -63,6 +63,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Meetings Have a Price Tag: Here Is How to Calculate It</h2>
+        <p>Every meeting has an invisible cost that goes far beyond the time spent in the room or on the call. For freelancers who bill by the hour, each non-billable meeting directly reduces revenue. For salaried knowledge workers, meetings consume time that could be spent on deep, focused work. Research from Microsoft and Atlassian consistently shows that excessive meetings are the top productivity killer in modern workplaces.</p>
+        <p>The true cost of a meeting includes the meeting itself, preparation time beforehand, follow-up action items afterward, and the context-switching penalty — the 15 to 25 minutes it takes to regain deep focus after an interruption. A single one-hour meeting with 15 minutes of prep, 15 minutes of follow-up, and 20 minutes of context switching costs nearly two hours of productive time.</p>
+        <h3>What This Calculator Measures</h3>
+        <p>Enter your hourly rate or salary equivalent, meeting length, and weekly meeting count. The calculator instantly computes the per-meeting cost, annual total cost, and the percentage of your work week consumed by meetings. Advanced mode adds prep time, follow-up time, context switching, and multi-attendee costs for a complete picture of what meetings actually cost your business or team.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <MeetingCostCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -77,6 +89,24 @@ const relatedCalculators = [
         <p>Pay attention to the annual meeting cost and percentage of your work week. If meetings consume more than 20% of your time, you're likely losing significant billable revenue. For freelancers billing $100/hour, five 1-hour meetings per week costs over $26,000 per year in direct time — and much more when you include prep and recovery.</p>
         <h3>Cutting Meeting Costs</h3>
         <p>The most effective strategies are structural: designate meeting-free days, shorten default meeting lengths from 60 to 25 minutes, require written agendas before any meeting gets scheduled, and use asynchronous tools like Loom for updates that don't need real-time discussion. Batching all meetings onto one or two days per week also reduces context switching costs dramatically.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>The Hidden Time Costs of Meetings</h2>
+        <p>Consider a freelancer billing $125 per hour who attends six one-hour meetings per week. The direct meeting time costs $750 per week. But the true cost is much higher.</p>
+        <p><strong>Preparation:</strong> 15 minutes per meeting reviewing notes, preparing updates, and gathering materials adds 1.5 hours ($187.50) per week.</p>
+        <p><strong>Follow-up:</strong> 10 minutes per meeting for action items, notes, and client communication adds another hour ($125) per week.</p>
+        <p><strong>Context switching:</strong> Research shows it takes an average of 23 minutes to regain deep focus after an interruption. Six meetings create six context switches, costing 2.3 hours ($287.50) per week.</p>
+        <p><strong>True weekly meeting cost: $1,350.</strong> Over 48 working weeks, that is $64,800 per year — more than many freelancers earn in total. Even cutting two meetings per week saves $21,600 annually.</p>
+        <h2>Meeting Reduction Strategies That Work</h2>
+        <p><strong>The 25-minute default.</strong> Replace 30-minute meetings with 25-minute meetings and 60-minute meetings with 50-minute meetings. Parkinson's Law applies — work expands to fill the time available. Shorter time slots force tighter agendas and faster decisions, and the saved minutes add up to hours over a week.</p>
+        <p><strong>No-meeting days.</strong> Block two or three days per week as meeting-free. Protect these days aggressively. Many freelancers find that batching all meetings onto Tuesday and Thursday (or similar) creates large uninterrupted blocks for deep work on the remaining days, dramatically increasing billable output.</p>
+        <p><strong>The async-first rule.</strong> Before scheduling a meeting, ask whether a Loom video, a short email, or a shared document could achieve the same outcome. Status updates, simple approvals, and information sharing rarely need synchronous discussion. Reserve meetings for brainstorming, negotiation, relationship building, and complex problem-solving that genuinely benefits from real-time conversation.</p>
+        <p><strong>Require an agenda.</strong> Institute a policy that every meeting must have a written agenda shared at least 24 hours in advance. Meetings without agendas get declined. This single practice eliminates a surprising number of unnecessary meetings because the act of writing an agenda forces the organizer to consider whether the meeting is truly needed.</p>
       </div>
     </section>
   </Fragment>

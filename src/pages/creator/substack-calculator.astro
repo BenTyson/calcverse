@@ -64,6 +64,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Substack Newsletter Revenue Works</h2>
+        <p>Substack is a newsletter platform that lets writers monetize through paid subscriptions. Unlike advertising-supported platforms where revenue scales with pageviews, Substack's model is simple: readers pay a monthly or annual fee for premium content, and you keep what they pay minus platform and processing fees. This direct-to-reader model gives writers stable, recurring income that does not depend on algorithmic distribution or ad market fluctuations.</p>
+        <p>Substack takes a flat 10% of your subscription revenue. Stripe, which handles all payment processing, takes an additional 2.9% plus $0.30 per transaction. On a $10 monthly subscription, that means you receive roughly $8.71 after both fees. The per-transaction fixed cost of $0.30 makes lower price points less efficient — a $5 monthly subscription yields about $4.22 per payment (15.6% total fees), while a $50 annual subscription yields about $43.55 per payment (12.9% total fees).</p>
+        <h3>Free vs. Paid Subscriber Dynamics</h3>
+        <p>Most successful Substack newsletters maintain a large free subscriber base that serves as a conversion funnel for paid subscriptions. The typical conversion rate from free to paid ranges from 2% to 5%, with top-performing newsletters reaching 8-10%. This means you generally need 1,000 to 5,000 free subscribers before paid revenue becomes meaningful. The calculator helps you model this funnel by letting you set your free subscriber count, conversion rate, and pricing to project realistic earnings.</p>
+        <p>Annual subscriptions are a critical lever in the Substack model. They are typically offered at a 10-20% discount (effectively 10 months for the price of 12), but annual subscribers churn at roughly one-third the rate of monthly subscribers. A newsletter with 50% of subscribers on annual plans will have significantly more stable revenue than one relying entirely on monthly billing.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <SubstackCalc client:visible />
 
   <Fragment slot="content">
@@ -74,6 +87,44 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to model more realistic scenarios. You can adjust the split between monthly and annual subscribers — aim for 30-50% annual, since these subscribers churn at roughly one-third the rate of monthly ones. Set your monthly churn rate (typically 3-7% for monthly subscribers) to see how retention impacts long-term revenue. The calculator accounts for both Substack's 10% platform fee and Stripe's payment processing fees.</p>
         <p>Use the projection to understand your growth trajectory. A newsletter with 5,000 free subscribers at a 3% conversion rate and $7/month pricing nets roughly $700-800/month after all fees. To increase revenue, focus on growing your free list through cross-promotions and SEO, improving conversion with premium content previews, and reducing churn by delivering consistent value to paid subscribers.</p>
         <p>Remember that annual subscriptions (typically offered at a 10-20% discount) provide better cash flow predictability and significantly lower churn. If your calculator shows high monthly churn eating into growth, consider promoting annual plans more aggressively.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Substack Revenue Benchmarks by Newsletter Size</h2>
+        <p>The table below shows estimated monthly revenue at different subscriber counts, assuming a $7/month price, 3.5% free-to-paid conversion rate, and 40% of paid subscribers on annual plans. Revenue is shown after Substack's 10% fee and Stripe processing.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Free Subscribers</th>
+              <th>Paid Subscribers</th>
+              <th>Monthly Revenue (est.)</th>
+              <th>Annual Revenue (est.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1,000</td><td>35</td><td>$210</td><td>$2,520</td></tr>
+            <tr><td>5,000</td><td>175</td><td>$1,050</td><td>$12,600</td></tr>
+            <tr><td>10,000</td><td>350</td><td>$2,100</td><td>$25,200</td></tr>
+            <tr><td>25,000</td><td>875</td><td>$5,250</td><td>$63,000</td></tr>
+            <tr><td>50,000</td><td>1,750</td><td>$10,500</td><td>$126,000</td></tr>
+          </tbody>
+        </table>
+        <p>These figures assume steady-state subscriber counts. In practice, you must also account for monthly churn (typically 3-7% for monthly subscribers, 1-2% for annual) and ongoing free-to-paid conversion. A newsletter needs to continually grow its free list to offset paid subscriber churn.</p>
+
+        <h2>Worked Example: From Launch to $1,000/Month</h2>
+        <p>You start with 2,000 email subscribers from a blog or social media following. You launch a paid Substack at $8/month ($70/year for annual). In the first month, 3% convert to paid — that is 60 paid subscribers, split 60% monthly ($8) and 40% annual ($70/12 = $5.83 effective monthly).</p>
+        <p>Monthly gross: 36 monthly subs at $8 = $288, plus 24 annual subs at $5.83 = $140. Total gross: $428. After Substack's 10% ($42.80) and Stripe processing (~$18), you net approximately $367 in month one.</p>
+        <p>Assume you grow your free list by 500 subscribers per month through cross-promotions, SEO, and social sharing, with a 2% ongoing conversion rate on new subscribers. Monthly churn is 5% for monthly subs and 1.5% for annual. By month 6, you would have approximately 120 paid subscribers generating about $720 net. By month 10, you cross the $1,000/month threshold with roughly 170 paid subscribers.</p>
+
+        <h2>Strategies for Growing Substack Revenue</h2>
+        <p><strong>Grow the free list relentlessly.</strong> Your free subscriber list is the top of your conversion funnel. Every 1,000 new free subscribers yields 20-50 new paid subscribers at typical conversion rates. Cross-promotions with other newsletter writers, guest appearances on podcasts, and SEO-optimized posts are the most cost-effective growth channels.</p>
+        <p><strong>Use the paywall strategically.</strong> Putting your best content behind the paywall gives free readers a reason to upgrade. A common approach is publishing one free post and one paid post per week, with the free post demonstrating your expertise and the paid post delivering actionable depth. Avoid paywalling everything — free content is your marketing.</p>
+        <p><strong>Push annual plans aggressively.</strong> Annual subscribers churn less, provide upfront cash flow, and smooth out revenue fluctuations. Offer a meaningful discount (15-20% off the monthly rate) and promote annual plans in onboarding emails, in posts, and at renewal time. Aim for 40-50% of your paid base on annual billing.</p>
+        <p><strong>Raise prices deliberately.</strong> Many Substack writers underprice their work. If your content delivers genuine value — saving readers time, making them money, or providing unique expertise — test price increases. Moving from $7 to $10/month is a 43% revenue increase per subscriber. Some existing subscribers will cancel, but the math usually favors higher prices: even losing 20% of subscribers at a 43% price increase nets you a 14% revenue gain.</p>
       </div>
     </section>
   </Fragment>

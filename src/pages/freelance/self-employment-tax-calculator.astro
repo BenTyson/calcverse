@@ -82,6 +82,18 @@ const relatedCalculators = [
     badge: 'Recommended',
   }}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Self-Employment Tax Explained: What Freelancers Owe and Why</h2>
+        <p>Self-employment tax is the freelancer's version of FICA — the Social Security and Medicare taxes that W-2 employees split with their employer. The critical difference is that you pay both halves. At 15.3 percent of your net earnings, SE tax is often a freelancer's single largest tax bill, frequently exceeding federal income tax for earners in the lower and middle brackets.</p>
+        <p>The 15.3 percent rate breaks into two components: 12.4 percent for Social Security (capped at $168,600 of earnings in 2024) and 2.9 percent for Medicare (no cap). If your net self-employment income exceeds $200,000 as a single filer or $250,000 filing jointly, an additional 0.9 percent Medicare surtax applies to the excess.</p>
+        <h3>How This Calculator Works</h3>
+        <p>Enter your net self-employment income (gross revenue minus business expenses) and filing status. The calculator applies the 92.35 percent adjustment that the IRS uses to mirror the employer-equivalent share, computes Social Security and Medicare taxes separately, checks for the Additional Medicare Tax threshold, and calculates the deductible half of SE tax that reduces your adjusted gross income. In Advanced mode, you can enter business deductions, state tax rates, and see the Qualified Business Income (QBI) deduction under Section 199A.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <SelfEmploymentTaxCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -96,6 +108,34 @@ const relatedCalculators = [
         <p>You can deduct half of your self-employment tax when calculating your adjusted gross income. This deduction reduces your income tax but does not reduce your SE tax itself. It goes on line 15 of Schedule 1 (Form 1040).</p>
         <h3>Schedule SE</h3>
         <p>Schedule SE is the IRS form that calculates your self-employment tax. The short version (Section A) works for most self-employed individuals with net earnings under $168,600. If your income is higher or you have church employee income, you will need the long version (Section B).</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Self-Employment Tax by Income Level</h2>
+        <p>The table below shows approximate SE tax amounts for single filers at various net income levels, before considering the half-SE-tax deduction on income taxes.</p>
+        <table>
+          <thead>
+            <tr><th>Net SE Income</th><th>SE Tax (15.3%)</th><th>Additional Medicare</th><th>Total SE Tax</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>$50,000</td><td>$7,065</td><td>$0</td><td>$7,065</td></tr>
+            <tr><td>$75,000</td><td>$10,597</td><td>$0</td><td>$10,597</td></tr>
+            <tr><td>$100,000</td><td>$14,130</td><td>$0</td><td>$14,130</td></tr>
+            <tr><td>$150,000</td><td>$21,195</td><td>$0</td><td>$21,195</td></tr>
+            <tr><td>$200,000</td><td>$24,975</td><td>$0</td><td>$24,975</td></tr>
+            <tr><td>$250,000</td><td>$27,399</td><td>$463</td><td>$27,862</td></tr>
+          </tbody>
+        </table>
+        <p>Notice that at $168,600 the Social Security portion (12.4 percent) caps out. Above that threshold, only the 2.9 percent Medicare tax continues. This creates a natural inflection point where the effective SE tax rate drops from 15.3 percent to 2.9 percent on marginal income.</p>
+        <h2>Strategies to Reduce Self-Employment Tax</h2>
+        <p><strong>Maximize business deductions.</strong> Every dollar of legitimate business expense reduces your net SE income and therefore your SE tax. Common deductions include home office (simplified or actual), equipment depreciation, software subscriptions, professional development, business insurance, and mileage for client meetings.</p>
+        <p><strong>Consider S-Corp election.</strong> An S-Corporation structure lets you split income between a reasonable salary (subject to SE tax) and distributions (not subject to SE tax). For freelancers earning above $80,000 to $100,000, this can save thousands per year. However, S-Corps come with additional administrative costs including payroll processing and separate tax filings, so the savings must outweigh the overhead.</p>
+        <p><strong>Contribute to retirement accounts.</strong> Solo 401(k) employer contributions reduce your net self-employment income reported on Schedule SE. A $20,000 employer contribution at the 15.3 percent SE tax rate saves roughly $3,060 in SE tax while simultaneously building your retirement fund.</p>
+        <p><strong>Time large expenses strategically.</strong> If you plan a major equipment purchase or professional development investment, timing it to fall in a high-income year maximizes the SE tax reduction. Bunching deductible expenses into years with peak earnings amplifies their impact.</p>
       </div>
     </section>
   </Fragment>

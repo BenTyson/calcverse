@@ -64,6 +64,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Understanding Dropshipping Profit Margins</h2>
+        <p>Dropshipping appeals to new entrepreneurs because it eliminates inventory risk, but that convenience comes at a cost. With no bulk-purchase discount and multiple intermediaries taking a cut, margins in dropshipping are structurally thinner than traditional e-commerce. The sellers who succeed are the ones who understand their unit economics cold before spending a dollar on ads.</p>
+        <p>A dropshipping order touches at least four cost layers: the supplier's product price, advertising spend to acquire the customer, platform and payment processing fees, and an allocation of monthly fixed costs like your Shopify subscription. On top of that, returns and refunds create a hidden drag that most beginners overlook entirely. A single returned order on a low-margin product can wipe out the profit from three or four successful sales.</p>
+        <h3>How This Calculator Works</h3>
+        <p>This calculator models every cost line on a per-order basis and then scales to monthly volume. It computes your gross profit (selling price minus supplier cost), subtracts variable costs (ad spend, platform fees, payment processing), deducts a per-order share of fixed costs, and applies return and refund rate adjustments. The result is your true net profit per order and your monthly bottom line at your projected volume. It also calculates your break-even order count -- the minimum monthly sales needed just to cover fixed costs -- and your ROAS (Return on Ad Spend), the ratio of revenue generated per dollar of advertising.</p>
+        <p>Whether you are evaluating a new product, comparing platforms, or deciding whether to scale ad spend, the numbers here reflect what actually lands in your bank account, not the optimistic math that ignores half the costs.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <DropshippingMarginCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -78,6 +91,91 @@ const relatedCalculators = [
         <p>Focus on three key metrics: profit margin (aim for 15-30%), break-even orders (how many sales you need to cover fixed costs), and ROAS (target 3x or higher). If your profit margin is below 15%, a single return can eliminate all profit from multiple orders. If your ROAS is below 2x, advertising costs are likely unsustainable.</p>
         <h3>Pricing Strategy</h3>
         <p>Work backward from a target margin. If your supplier charges $12 and you want a 25% margin after all costs, your minimum selling price needs to account for ads, fees, and returns on top of the supplier cost. Use this calculator to test different price points and find the sweet spot between competitiveness and profitability.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Dropshipping Margin Benchmarks by Product Category</h2>
+        <p>Not all dropshipping niches are created equal. Product category, average order value, and competition level all influence what margins are achievable. The table below shows typical ranges based on industry data from established dropshippers.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Product Category</th>
+              <th>Avg. Selling Price</th>
+              <th>Typical Margin</th>
+              <th>Avg. Return Rate</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Phone accessories</td>
+              <td>$15-$30</td>
+              <td>25-40%</td>
+              <td>3-5%</td>
+              <td>High volume, low ad costs</td>
+            </tr>
+            <tr>
+              <td>Fashion / clothing</td>
+              <td>$25-$60</td>
+              <td>15-25%</td>
+              <td>15-25%</td>
+              <td>High return rate erodes margin</td>
+            </tr>
+            <tr>
+              <td>Home decor</td>
+              <td>$30-$80</td>
+              <td>20-35%</td>
+              <td>5-8%</td>
+              <td>Good margins, moderate competition</td>
+            </tr>
+            <tr>
+              <td>Pet products</td>
+              <td>$15-$45</td>
+              <td>25-40%</td>
+              <td>3-5%</td>
+              <td>Passionate buyers, repeat orders</td>
+            </tr>
+            <tr>
+              <td>Electronics</td>
+              <td>$50-$200</td>
+              <td>8-18%</td>
+              <td>8-12%</td>
+              <td>Thin margins, high ticket value</td>
+            </tr>
+            <tr>
+              <td>Health / wellness</td>
+              <td>$20-$50</td>
+              <td>30-50%</td>
+              <td>4-6%</td>
+              <td>High perceived value, good markup</td>
+            </tr>
+            <tr>
+              <td>Beauty / skincare</td>
+              <td>$15-$40</td>
+              <td>30-50%</td>
+              <td>5-8%</td>
+              <td>Strong impulse buying, repeat customers</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Analyzing a $39.99 Product</h2>
+        <p>Suppose you find a home decor item from a supplier at $12.50 and plan to sell it for $39.99 on Shopify. Here is how the math breaks down step by step:</p>
+        <p>Supplier cost: $12.50. Ad spend per sale (assuming $8 CPA through Facebook ads): $8.00. Shopify payment processing (2.9% + $0.30): $1.46. Platform subscription allocated per order (assuming $79/month and 100 orders): $0.79. Packaging and shipping insert: $0.50. Total costs per order: $23.25. Gross profit per order: $16.74. Profit margin: 41.9%.</p>
+        <p>Now factor in returns. At a 6% return rate, you lose the full sale on roughly 6 out of every 100 orders, plus you already spent $8 on ads to acquire those customers. That costs $2.88 per 100 orders on average, reducing your effective profit per order to about $13.86 and your effective margin to roughly 34.7%. Still healthy -- but nearly 7 percentage points lower than the naive calculation.</p>
+
+        <h2>The Hidden Cost of Low ROAS</h2>
+        <p>Return on Ad Spend is the metric that makes or breaks a dropshipping store. Here is why small differences in ROAS have an outsized impact on profitability:</p>
+        <p>At a 4x ROAS on a $40 product, you spend $10 per sale on ads. At a 2x ROAS, you spend $20 per sale. That $10 difference often exceeds your entire profit margin. Many beginners launch ads, see a 1.5-2x ROAS, and assume they just need more volume. In reality, scaling unprofitable ads only scales losses.</p>
+        <p>Before increasing ad budget, ensure your ROAS is at least 3x on your target product. Test multiple creatives, audiences, and platforms. Facebook and TikTok ads behave differently -- TikTok often delivers cheaper clicks for impulse products under $30, while Facebook performs better for higher-ticket items where the buying decision takes longer.</p>
+
+        <h2>Platform Fee Comparison</h2>
+        <p>Your choice of selling platform significantly impacts margins. Shopify with a basic plan charges 2.9% + $0.30 per transaction for payment processing, plus the monthly subscription fee. WooCommerce on your own hosting avoids platform fees but adds hosting costs ($20-50/month) and requires more technical management. Amazon charges a 15% referral fee on most categories plus $39.99/month for a professional seller account -- the referral fee alone can cut margins in half compared to Shopify, but Amazon provides built-in traffic that can reduce your ad spend to near zero for popular products.</p>
+        <p>Run your specific numbers through the calculator for each platform before committing. A product that is highly profitable on Shopify might be borderline on Amazon, and vice versa. Many successful dropshippers sell the same product on multiple platforms with different pricing to optimize total profit.</p>
       </div>
     </section>
   </Fragment>

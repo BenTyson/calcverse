@@ -69,6 +69,19 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How Gumroad Revenue and Fees Work</h2>
+        <p>Gumroad is a digital product platform designed for creators who sell ebooks, templates, courses, software, music, and other downloadable goods. Its fee structure is one of the simplest in the creator economy: a flat 10% on every transaction, with no monthly subscriptions, listing fees, or separate payment processing charges. This all-inclusive model makes it straightforward to calculate your margins — for every $1 you charge, you keep $0.90.</p>
+        <p>Unlike marketplace platforms such as Etsy or Amazon, Gumroad does not provide built-in discovery or search traffic. You are responsible for driving your own customers through email lists, social media, content marketing, or paid advertising. This trade-off means lower fees but requires an existing audience or marketing strategy. Creators who succeed on Gumroad typically already have a following on another platform and use Gumroad as the transaction layer for their digital products.</p>
+        <h3>Product Types and Revenue Models</h3>
+        <p>Gumroad supports both one-time purchases and recurring memberships, each with different revenue dynamics. One-time product sales create spiky revenue tied to launches and promotions, while memberships generate predictable monthly recurring revenue. Many successful Gumroad sellers use a hybrid approach: standalone products for acquisition and top-line revenue, plus a membership for ongoing income and community building. The 10% fee applies identically to both models, so your pricing strategy should focus on customer lifetime value rather than trying to optimize around fee differences.</p>
+        <p>The platform also includes a built-in affiliate system where you set a commission rate (commonly 25-50%) and affiliates promote your products through tracked links. This can be a powerful growth channel, but the affiliate commission comes out of your share, not Gumroad's — so a $20 product with 10% Gumroad fee and 30% affiliate commission nets you only $12.00 per affiliate-driven sale.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <GumroadCalc client:visible />
 
   <Fragment slot="content">
@@ -85,6 +98,47 @@ const relatedCalculators = [
         <p>For context, selling a $29 digital product nets you $26.10 after Gumroad's cut. At 20 sales per month, that is $522 in net revenue. Increasing your price to $39 would net $702 per month at the same volume — a 34% increase in revenue from a $10 price bump.</p>
         <h3>Growing Gumroad Revenue</h3>
         <p>Your email list is the single most important growth lever on Gumroad. Unlike marketplace platforms where you benefit from built-in traffic, Gumroad requires you to bring your own audience. Focus on building an email list through free lead magnets, then launch products to that list. A healthy email list converts at 1-3% per launch, meaning 1,000 subscribers could generate 10-30 sales each time you release something new.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Gumroad Fee Comparison with Other Platforms</h2>
+        <p>Choosing the right platform depends on your product type, sales volume, and whether you need marketplace traffic or bring your own audience. The table below compares effective fees across popular platforms for digital product sales.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Platform Fee</th>
+              <th>Payment Processing</th>
+              <th>Monthly Cost</th>
+              <th>Total on $30 Sale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Gumroad</td><td>10%</td><td>Included</td><td>$0</td><td>$3.00 (10%)</td></tr>
+            <tr><td>Etsy (digital)</td><td>6.5% + $0.20</td><td>3% + $0.25</td><td>$0</td><td>$3.10 (10.3%)</td></tr>
+            <tr><td>Shopify Basic</td><td>0%</td><td>2.9% + $0.30</td><td>$39</td><td>$1.17 + $39/mo</td></tr>
+            <tr><td>Payhip</td><td>5%</td><td>~2.9% + $0.30</td><td>$0 (free plan)</td><td>$2.67 (8.9%)</td></tr>
+            <tr><td>Lemon Squeezy</td><td>5% + 50c</td><td>Included</td><td>$0</td><td>$2.00 (6.7%)</td></tr>
+            <tr><td>Teachable (Basic)</td><td>5%</td><td>~2.9% + $0.30</td><td>$59</td><td>$2.67 + $59/mo</td></tr>
+          </tbody>
+        </table>
+        <p>Gumroad's 10% flat fee is competitive at low to medium volumes because there is no monthly subscription. However, at higher volumes, platforms with lower percentage fees and a monthly subscription become more cost-effective. The break-even point where Shopify becomes cheaper than Gumroad is approximately $560/month in sales ($39 / 0.07 difference in fee rates).</p>
+
+        <h2>Worked Example: Launching a Digital Product on Gumroad</h2>
+        <p>You create a Notion template pack priced at $19. Your costs are minimal — 20 hours of development time and $0 in marginal production costs since it is digital. You have an email list of 3,000 subscribers and 15,000 social media followers.</p>
+        <p>Launch week: You email your list and post on social media. A warm email list typically converts at 1-3% on a launch. At 2% conversion on 3,000 subscribers, you sell 60 copies in week one: 60 x $19 x 0.90 = $1,026 net revenue.</p>
+        <p>Ongoing sales: After the launch spike, organic sales from social media links, SEO, and word-of-mouth might average 2-5 sales per day initially, tapering to 1-2 per day over the following months. At a steady 1.5 sales/day, monthly revenue is: 45 x $19 x 0.90 = $769.50 net.</p>
+        <p>Now suppose you add an affiliate program at 30% commission and 20% of sales come through affiliates. Those affiliate sales net you: $19 x 0.90 x 0.70 = $11.97 per sale (vs. $17.10 for direct sales). At 9 affiliate sales per month, affiliate revenue is $107.73 and direct revenue is $615.60, for a blended total of $723.33.</p>
+
+        <h2>Strategies for Maximizing Gumroad Revenue</h2>
+        <p><strong>Build your email list before launching.</strong> Gumroad does not provide marketplace traffic. Your launch revenue is almost entirely determined by the size and engagement of your existing audience. A pre-launch email sequence that teases the product, shares behind-the-scenes progress, and builds anticipation can double conversion rates compared to a cold announcement.</p>
+        <p><strong>Use tiered pricing.</strong> Offer a base product, a premium version with bonuses, and a complete bundle. Gumroad supports "pay what you want" pricing where you set a minimum and let buyers pay more. Many creators find that 10-20% of buyers voluntarily pay above the minimum, especially when you frame higher tiers as supporting your work.</p>
+        <p><strong>Create a product ladder.</strong> A single product generates a single purchase. A product ladder — where each product leads naturally to the next — generates multiple purchases per customer. For example: a free lead magnet leads to a $9 starter guide, which leads to a $39 comprehensive course, which leads to a $99 template bundle. Each step increases customer lifetime value without requiring new audience acquisition.</p>
+        <p><strong>Leverage the affiliate program.</strong> Set competitive commission rates (25-40%) and recruit affiliates in your niche. A strong affiliate network effectively outsources your marketing to motivated partners. The commission reduces your per-sale margin, but affiliate-driven sales are incremental revenue you would not have captured otherwise. Focus on recruiting affiliates with email lists in your target market, as email-driven affiliate promotions consistently outperform social media shares.</p>
       </div>
     </section>
   </Fragment>

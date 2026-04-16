@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/debt-payoff.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Paying Off Debt Faster: Snowball vs Avalanche Strategies</h2>
+        <p>Carrying multiple debts — credit cards, student loans, car payments, personal loans — creates a drag on your finances that compounds over time. Every month you carry a balance, interest accrues, and a portion of your payment goes to the lender rather than building your wealth. A structured payoff strategy can save you thousands in interest and years of payments compared to making minimum payments alone.</p>
+        <p>The two most effective approaches are the avalanche method and the snowball method. The avalanche method targets the debt with the highest interest rate first, which minimizes total interest paid. The snowball method targets the smallest balance first, which produces quicker psychological wins that keep motivation high. Both methods have you make minimum payments on all debts while directing extra funds to one target debt at a time.</p>
+        <h3>How This Calculator Simulates Your Payoff</h3>
+        <p>Add each debt with its balance, interest rate, and minimum payment. Enter the extra monthly amount you can put toward debt. The calculator runs a month-by-month simulation, applying interest, making payments, and rolling freed-up minimums into the next target debt as each one is eliminated. The projection chart shows your accelerated payoff timeline compared to minimum-payment-only scenario, so you can see exactly how much time and money extra payments save you.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <DebtPayoffCalc client:visible />
   <Fragment slot="content">
     <section class="mb-10">
@@ -76,6 +88,26 @@ const relatedCalculators = [
         <p>Choose between avalanche and snowball strategies, and add a one-time lump sum payment. The projection chart shows both your accelerated payoff timeline and what happens with minimum payments only.</p>
         <h3>How the Payoff Simulation Works</h3>
         <p>Each month, the calculator applies interest to each debt, makes all minimum payments, then directs your extra payment to the target debt (highest rate for avalanche, lowest balance for snowball). When a debt is eliminated, its minimum payment "rolls" into the extra amount, creating a snowball effect that accelerates payoff of remaining debts.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Snowball vs Avalanche: A Side-by-Side Comparison</h2>
+        <p>Consider a person with three debts: a $2,500 credit card at 22 percent APR ($75 minimum), an $8,000 personal loan at 12 percent APR ($200 minimum), and a $15,000 car loan at 6 percent APR ($300 minimum). They can put an extra $200 per month toward debt.</p>
+        <p><strong>Avalanche method (highest rate first):</strong> Targets the credit card first, then the personal loan, then the car loan. Total payoff time: approximately 36 months. Total interest paid: approximately $4,150.</p>
+        <p><strong>Snowball method (smallest balance first):</strong> Also targets the credit card first (since it happens to be the smallest), then the car loan, then the personal loan. Total payoff time: approximately 37 months. Total interest paid: approximately $4,480.</p>
+        <p>In this example, the avalanche method saves about $330 in interest and one month of payments. The difference is relatively small because the highest-rate debt also has the smallest balance. In cases where the smallest balance has the lowest rate, the gap between methods widens significantly.</p>
+        <h2>The Debt Payoff Acceleration Effect</h2>
+        <p>Both methods benefit from a powerful acceleration effect. When your first debt is eliminated, its minimum payment rolls into the extra amount targeting the next debt. In the example above, once the $2,500 credit card is paid off, the $75 minimum plus the $200 extra ($275 total) is redirected to the next target. As each debt falls, the payment snowball grows, making subsequent debts fall faster and faster.</p>
+        <p>This is why even a modest extra payment — $50 or $100 per month — has an outsized impact. It is not just the extra money itself but the chain reaction it triggers as debts are eliminated and their minimums are freed up.</p>
+        <h2>Finding Extra Money for Debt Payments</h2>
+        <p><strong>Audit subscriptions.</strong> Most people can find $50 to $150 per month in subscriptions they do not actively use. Redirect that money to debt.</p>
+        <p><strong>Sell unused items.</strong> Old electronics, furniture, clothes, and equipment can generate a lump sum to apply directly to principal. Even $500 reduces your payoff timeline by weeks or months.</p>
+        <p><strong>Increase income temporarily.</strong> Freelancers can take on an additional client or project specifically earmarked for debt payoff. Even two to three months of extra income can eliminate a smaller debt entirely, accelerating the payoff of everything that remains.</p>
+        <p><strong>Negotiate rates.</strong> Call credit card companies and ask for a lower rate. If you have good payment history, many will reduce your APR by 2 to 5 percentage points. A balance transfer to a 0 percent introductory rate card can save hundreds in interest if you pay it off within the promotional period.</p>
       </div>
     </section>
   </Fragment>

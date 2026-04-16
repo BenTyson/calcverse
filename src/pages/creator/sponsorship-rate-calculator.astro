@@ -69,6 +69,18 @@ const relatedCalculators = [
   faqs={faqs}
   relatedCalculators={relatedCalculators}
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>How to Price Influencer Sponsorships</h2>
+        <p>Pricing brand deals is one of the most common struggles for content creators. Charge too little and you leave money on the table. Charge too much and brands walk away. The difference between getting it right and guessing can be tens of thousands of dollars per year for mid-size creators. Sponsorship pricing is not arbitrary -- it is built on measurable metrics that brands use to evaluate ROI.</p>
+        <p>There are two dominant pricing models in the creator economy. CPE (cost per engagement) is used for social platforms like Instagram, TikTok, YouTube, and Twitter, where likes, comments, shares, and saves are the primary value signal. CPM (cost per mille / thousand impressions) is used for content formats with passive consumption like podcasts, newsletters, and blog posts, where audience reach matters more than individual interactions.</p>
+        <h3>The CPE and CPM Formulas</h3>
+        <p>For CPE-based pricing, the formula is: <strong>Rate = Followers x Engagement Rate x CPE Rate x Multipliers</strong>. A creator with 50,000 Instagram followers, 4% engagement rate, and a $0.15 CPE base rate starts at $300 per post. Multipliers for niche, deliverable type, exclusivity, and usage rights then adjust this base upward. For CPM-based pricing, the formula is: <strong>Rate = (Audience / 1,000) x CPM Rate x Multipliers</strong>. This calculator applies the correct model for each platform automatically and lets you layer on the modifiers that reflect the true scope of a deal.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <SponsorshipRateCalc client:visible />
 
   <Fragment slot="content">
@@ -83,6 +95,82 @@ const relatedCalculators = [
         <h3>Understanding Your Rate</h3>
         <p>Your sponsorship rate is driven primarily by engagement, not follower count. A creator with 10,000 highly engaged followers in the finance niche can command higher rates than a lifestyle creator with 100,000 passive followers. The calculator accounts for this by using cost-per-engagement rather than cost-per-follower.</p>
         <p>The market range shows where your rate falls relative to the industry. If you consistently land deals at the high end, your engagement quality or niche expertise may warrant an even higher rate. If brands push back, you may need to improve engagement before raising prices.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Sponsorship Rate Benchmarks by Platform</h2>
+        <p>The following table shows typical base rates per sponsored post, before niche or deliverable multipliers are applied. These represent mid-range rates for creators with average engagement in general niches. Premium niches (finance, B2B, tech) can command 1.5-2x these figures.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Audience Size</th>
+              <th>Typical Base Rate</th>
+              <th>Pricing Model</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Instagram (Feed Post)</td>
+              <td>10,000</td>
+              <td>$100 - $250</td>
+              <td>CPE</td>
+            </tr>
+            <tr>
+              <td>Instagram (Feed Post)</td>
+              <td>50,000</td>
+              <td>$500 - $1,500</td>
+              <td>CPE</td>
+            </tr>
+            <tr>
+              <td>Instagram (Feed Post)</td>
+              <td>250,000</td>
+              <td>$2,500 - $7,000</td>
+              <td>CPE</td>
+            </tr>
+            <tr>
+              <td>TikTok (Video)</td>
+              <td>50,000</td>
+              <td>$300 - $800</td>
+              <td>CPE</td>
+            </tr>
+            <tr>
+              <td>YouTube (Dedicated Video)</td>
+              <td>50,000 subs</td>
+              <td>$2,000 - $5,000</td>
+              <td>CPE</td>
+            </tr>
+            <tr>
+              <td>Podcast (Mid-Roll)</td>
+              <td>10,000 downloads</td>
+              <td>$250 - $500</td>
+              <td>CPM</td>
+            </tr>
+            <tr>
+              <td>Newsletter (Sponsored Issue)</td>
+              <td>10,000 subscribers</td>
+              <td>$200 - $500</td>
+              <td>CPM</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Multipliers That Increase Your Rate</h2>
+        <p>Base rates are just the starting point. Real sponsorship deals include several modifiers that can multiply your fee significantly. Understanding these lets you negotiate confidently rather than accepting the first offer.</p>
+        <p><strong>Niche premium (1.0x - 1.5x):</strong> Finance, investing, and B2B audiences are worth more to advertisers because they have higher purchasing power and buying intent. A finance creator with 20,000 followers can charge what a lifestyle creator with 50,000 followers charges. Gaming and entertainment niches typically sit at the lower end of the multiplier range.</p>
+        <p><strong>Deliverable type (1x - 5x):</strong> An Instagram Story disappears in 24 hours (1x). A feed post lives forever (1.5x). A Reel with production value is 2x. A dedicated YouTube video that takes days to produce is 3-5x a single social post. Price the deliverable based on your time investment and the content's shelf life.</p>
+        <p><strong>Usage rights (1.15x - 2x):</strong> When a brand wants to reuse your content beyond the original post, that costs extra. Organic reposting on their brand account adds 15%. Running your content as a paid advertisement adds 50%. Perpetual or unlimited usage rights should double the base rate. These fees compensate you for the brand extracting value from your likeness and content beyond the agreed-upon scope.</p>
+        <p><strong>Exclusivity (1.25x - 1.75x):</strong> Category exclusivity means you cannot work with competing brands for a defined period. This blocks potential income, so you charge for that opportunity cost. A 30-day category exclusivity might add 25%, while a 90-day full exclusivity (no other sponsors at all) could add 75% or more.</p>
+
+        <h2>Negotiation Strategies for Creators</h2>
+        <p><strong>Always quote a package, not a single post.</strong> Brands get better unit economics on multi-post deals, and you get guaranteed income. A 3-post package at a 10% discount per post still earns you more total revenue than a single post at full price.</p>
+        <p><strong>Lead with your engagement rate, not your follower count.</strong> If your engagement rate is above average for your platform (above 3% on Instagram, above 5% on TikTok), make it the centerpiece of your pitch. Brands care about action, not eyeballs.</p>
+        <p><strong>Separate content creation fees from distribution fees.</strong> A sponsored YouTube video requires scripting, filming, editing, and publishing. The content creation alone has value. If the brand also wants you to post clips on Instagram and TikTok, that is additional distribution and should be priced separately.</p>
+        <p><strong>Never accept the first offer.</strong> Initial brand offers are typically 40-60% of their actual budget. Counter with your calculated rate backed by engagement data, and expect to land somewhere in between. Brands respect creators who know their numbers.</p>
       </div>
     </section>
   </Fragment>

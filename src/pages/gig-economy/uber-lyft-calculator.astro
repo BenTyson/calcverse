@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/uber-lyft-earnings.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>The Real Economics of Rideshare Driving</h2>
+        <p>Rideshare driving through Uber and Lyft is one of the most accessible gig economy jobs -- you need a qualifying vehicle, a clean driving record, and a smartphone. But accessibility does not equal profitability. The gap between what the app shows you earned and what actually lands in your bank account after expenses is often 40-50%. Understanding this gap is critical before you commit significant hours to rideshare driving.</p>
+        <p>Vehicle depreciation is the single largest hidden cost most drivers ignore. Every mile driven accelerates your car's value loss by $0.10-0.25 depending on make, model, and age. A full-time driver logging 40,000 miles per year may lose $4,000-10,000 in vehicle value alone -- money that never shows up as a line item on your weekly earnings statement. Add fuel, maintenance, commercial insurance gaps, and self-employment taxes, and the picture shifts significantly from the gross numbers.</p>
+        <h3>How This Calculator Models Your Earnings</h3>
+        <p>This calculator takes your ride volume, average fare, and schedule to project gross income, then subtracts real-world operating costs in Advanced mode. It accounts for fuel costs based on your vehicle's efficiency, per-mile depreciation, maintenance reserves, and insurance premiums. The output is your true net hourly rate -- the number you should compare against any other employment opportunity. It also projects annual mileage for tax deduction planning, since the IRS standard mileage rate often provides the most advantageous write-off for rideshare drivers.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <UberLyftCalc client:visible />
 
   <Fragment slot="content">
@@ -74,6 +86,89 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to account for the real costs of rideshare driving. Enter your vehicle's depreciation rate, maintenance costs, insurance premiums, and fuel expenses. Vehicle depreciation is the expense most drivers overlook — at $0.15-0.25 per mile, it often exceeds gas costs. The calculator reveals your true net hourly rate after all expenses, which is typically 40-50% lower than your gross earnings.</p>
         <p>For tax planning, track every mile you drive while the app is active. The IRS standard mileage deduction ($0.67/mile in 2024) covers gas, depreciation, maintenance, and insurance in a single deduction. Most full-time rideshare drivers log 30,000-50,000 miles per year, resulting in $20,000-33,000 in deductions. Keep a mileage log or use an automatic tracking app — the IRS requires records if you are audited.</p>
         <p>To maximize earnings, focus on driving during surge pricing periods (weekend nights, major events, airport rushes) and in high-demand zones. Running both Uber and Lyft simultaneously minimizes downtime between rides. Many experienced drivers find that working 20-30 strategic hours earns nearly as much as 40+ hours of unfocused driving.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Rideshare Earnings by Vehicle Type and Market</h2>
+        <p>Your vehicle choice has an outsized impact on rideshare profitability. The table below compares net earnings across common vehicle categories, assuming 30 rides per week at an average $14 fare in a mid-size market.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Vehicle Type</th>
+              <th>Avg. MPG</th>
+              <th>Gas Cost/Mile</th>
+              <th>Depreciation/Mile</th>
+              <th>Total Cost/Mile</th>
+              <th>Est. Net $/Hour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Compact sedan (Civic, Corolla)</td>
+              <td>32-38</td>
+              <td>$0.09-0.11</td>
+              <td>$0.08-0.12</td>
+              <td>$0.22-0.28</td>
+              <td>$16-20</td>
+            </tr>
+            <tr>
+              <td>Midsize sedan (Camry, Accord)</td>
+              <td>28-34</td>
+              <td>$0.10-0.13</td>
+              <td>$0.10-0.18</td>
+              <td>$0.25-0.36</td>
+              <td>$14-18</td>
+            </tr>
+            <tr>
+              <td>Hybrid (Prius, Ioniq)</td>
+              <td>48-58</td>
+              <td>$0.06-0.07</td>
+              <td>$0.06-0.10</td>
+              <td>$0.17-0.22</td>
+              <td>$18-23</td>
+            </tr>
+            <tr>
+              <td>SUV (Uber XL eligible)</td>
+              <td>20-26</td>
+              <td>$0.13-0.18</td>
+              <td>$0.15-0.25</td>
+              <td>$0.33-0.48</td>
+              <td>$12-17</td>
+            </tr>
+            <tr>
+              <td>Electric (Tesla Model 3, Bolt)</td>
+              <td>N/A (EV)</td>
+              <td>$0.03-0.05</td>
+              <td>$0.08-0.15</td>
+              <td>$0.16-0.25</td>
+              <td>$19-24</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Hybrids and EVs consistently deliver the highest net hourly rates. The Toyota Prius remains the most popular rideshare vehicle for good reason -- its combination of low fuel costs, slow depreciation, and high reliability makes it the profit-maximizing choice for most drivers.</p>
+
+        <h2>Worked Example: Full-Time Rideshare Driver Annual Breakdown</h2>
+        <p>A driver working 35 hours per week, 48 weeks per year, completing 3 rides per hour at an average $13 fare in a midsize sedan (30 MPG):</p>
+        <p><strong>Gross annual:</strong> 35 hrs x 48 weeks x 3 rides x $13 = $65,520</p>
+        <p><strong>Annual miles:</strong> Approximately 42,000 (25 miles/hour x 35 hrs x 48 weeks)</p>
+        <p><strong>Gas:</strong> 42,000 / 30 MPG x $3.40 = $4,760</p>
+        <p><strong>Depreciation:</strong> 42,000 x $0.14 = $5,880</p>
+        <p><strong>Maintenance:</strong> 42,000 x $0.06 = $2,520</p>
+        <p><strong>Insurance premium (commercial gap):</strong> $1,800/year</p>
+        <p><strong>Net before taxes:</strong> $65,520 - $14,960 = $50,560</p>
+        <p><strong>Self-employment tax (15.3% on 92.35%):</strong> $7,138</p>
+        <p><strong>IRS mileage deduction:</strong> 42,000 x $0.67 = $28,140 (reduces taxable income significantly)</p>
+        <p>The mileage deduction is powerful -- it often eliminates federal income tax liability entirely for drivers earning under $50,000 net, though you still owe self-employment tax on actual net profit.</p>
+
+        <h2>Peak Hours and Surge Strategy</h2>
+        <p><strong>Timing is everything.</strong> Rideshare demand follows predictable patterns. Weekend nights (10pm-2am) typically offer 1.5-3x surge pricing. Airport runs during business travel hours (Monday and Friday mornings) provide consistent above-average fares. Major events -- concerts, sports games, conventions -- create intense localized surges.</p>
+        <p><strong>Position before the surge.</strong> Experienced drivers arrive at surge-likely areas 15-20 minutes before expected demand spikes. Sitting at a stadium 30 minutes before a game ends puts you at the front of the queue. The driver who arrives after the surge starts often waits in a queue of 50+ cars and misses the premium pricing entirely.</p>
+        <p><strong>Multi-app to reduce dead miles.</strong> Running both Uber and Lyft simultaneously is standard practice among profitable drivers. When one app is slow, the other often has requests. The key is never accepting a ride on one app while already en route to a pickup on the other -- that hurts ratings and can lead to deactivation. Toggle off the second app as soon as you accept a ride.</p>
+        <p><strong>Know when to stop.</strong> Earnings per hour typically decline sharply after 8-10 hours of continuous driving. Fatigue leads to slower navigation, missed turns, and lower ratings. Many top earners find that two focused 5-hour shifts (lunch and dinner rushes) outperform a single 10-hour grind by 15-20% on a per-hour basis.</p>
       </div>
     </section>
   </Fragment>

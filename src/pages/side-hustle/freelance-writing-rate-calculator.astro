@@ -64,6 +64,18 @@ const relatedCalculators = [
   relatedCalculators={relatedCalculators}
   ogImage="/og-images/freelance-writing-rate.png"
 >
+  <Fragment slot="intro">
+    <section class="mb-8">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Setting the Right Freelance Writing Rate</h2>
+        <p>Freelance writing is one of the most accessible side hustles, but most writers leave significant money on the table because they price their work incorrectly. The core problem is that per-word rates -- the most commonly quoted metric in the industry -- hide the true economics of a writing project. A 2,000-word technical whitepaper requiring 12 hours of research, writing, and revision is fundamentally different from a 2,000-word listicle that takes 3 hours, yet both are often quoted at the same per-word rate.</p>
+        <p>The writers who earn sustainable income treat their rate as a function of time, not word count. Your effective hourly rate is the number that actually determines whether freelance writing is worth your time compared to other side hustle options. This calculator helps you work backward from your desired hourly earnings to find the per-word and per-article rates that make the math work.</p>
+        <h3>How the Calculator Works</h3>
+        <p>Enter your target word count, estimated writing time, and desired hourly rate. The calculator derives your per-word rate and per-article price, then projects monthly income at your expected volume. In Advanced mode, you can layer in research hours, revision rounds, and administrative overhead -- the unpaid work that most writers forget to price into their rates. The result is a complete picture of what you need to charge to hit your income target without burning out on underpriced work.</p>
+      </div>
+    </section>
+  </Fragment>
+
   <FreelanceWritingRateCalc client:visible />
 
   <Fragment slot="content">
@@ -74,6 +86,97 @@ const relatedCalculators = [
         <p>Switch to <strong>Advanced mode</strong> to factor in research time, revision rounds, and administrative overhead. Most writers underestimate how much time goes into non-writing tasks like client communication, invoicing, and pitching. Adding even 10% admin time can significantly change your effective hourly rate, so it is important to price these hours into your article rate.</p>
         <p>Use the experience level selector as a reference point. Beginner writers building their portfolio might start at lower rates to land initial clients, while expert writers with proven results in profitable niches should price accordingly. Compare your calculated per-word rate against industry benchmarks to ensure you are not leaving money on the table.</p>
         <p>Remember that your per-article rate should cover all the time you spend, not just the hours typing. A 1,500-word article that requires 2 hours of research, 4 hours of writing, and 1 hour of revisions represents 7+ hours of work. Price the total effort, not just the word count, and you will build a sustainable freelance writing business.</p>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="deep-dive">
+    <section class="mb-10">
+      <div class="prose prose-neutral max-w-none">
+        <h2>Freelance Writing Rate Benchmarks by Niche</h2>
+        <p>Writing rates vary dramatically based on the subject matter, the client type, and the level of expertise required. The table below reflects current market rates across the most common freelance writing niches, based on data from industry surveys and freelance platforms.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Writing Niche</th>
+              <th>Per-Word Rate</th>
+              <th>Per-Article (1,500 words)</th>
+              <th>Typical Client</th>
+              <th>Demand Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>General blog posts</td>
+              <td>$0.05-$0.15</td>
+              <td>$75-$225</td>
+              <td>Small businesses, agencies</td>
+              <td>High (saturated)</td>
+            </tr>
+            <tr>
+              <td>SaaS / technology</td>
+              <td>$0.15-$0.50</td>
+              <td>$225-$750</td>
+              <td>Tech companies, startups</td>
+              <td>Very high</td>
+            </tr>
+            <tr>
+              <td>Finance / fintech</td>
+              <td>$0.20-$0.60</td>
+              <td>$300-$900</td>
+              <td>Banks, fintech, advisors</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Medical / health</td>
+              <td>$0.25-$0.75</td>
+              <td>$375-$1,125</td>
+              <td>Healthcare companies, publishers</td>
+              <td>High (credentials help)</td>
+            </tr>
+            <tr>
+              <td>Legal</td>
+              <td>$0.20-$0.60</td>
+              <td>$300-$900</td>
+              <td>Law firms, legal tech</td>
+              <td>Moderate</td>
+            </tr>
+            <tr>
+              <td>E-commerce / product</td>
+              <td>$0.08-$0.25</td>
+              <td>$120-$375</td>
+              <td>Online stores, brands</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Copywriting (sales)</td>
+              <td>$0.25-$1.00+</td>
+              <td>$500-$2,000+ (per page)</td>
+              <td>Agencies, direct clients</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Technical documentation</td>
+              <td>$0.15-$0.50</td>
+              <td>$225-$750</td>
+              <td>Software companies</td>
+              <td>Moderate</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Worked Example: Pricing a Technical Article</h2>
+        <p>A SaaS company asks you to write a 2,000-word guide on API authentication best practices. Here is how to price it properly:</p>
+        <p>Research time: 2 hours (reading documentation, interviewing the client's developer). Writing time: 4 hours. One revision round: 1 hour. Administrative time (communication, invoicing): 0.5 hours. Total time: 7.5 hours.</p>
+        <p>If your target hourly rate is $60, the article should be priced at $450, which works out to $0.225 per word. This is squarely within the SaaS niche range and represents fair value for both sides. If you priced this at the general blog rate of $0.10 per word ($200 total), your effective hourly rate drops to $26.67 -- well below what technical expertise commands.</p>
+        <p>The key lesson: always price based on total time invested, then verify that the per-word rate falls within the acceptable range for your niche. If it falls below, either the project requires fewer hours than you estimated or you need to charge more.</p>
+
+        <h2>Strategies for Increasing Your Writing Income</h2>
+        <p>There are three levers for growing freelance writing revenue: raising rates, increasing volume, and shifting to higher-paying niches.</p>
+        <p><strong>Raising rates</strong> is the most efficient path. If you deliver consistently good work, test a 15-20% rate increase with new clients while keeping existing clients at their current rate. Most experienced writers can raise rates once per year without losing clients. When a client pushes back, it usually means you have outgrown them -- find clients at your new rate rather than discounting.</p>
+        <p><strong>Increasing volume</strong> works up to a point but hits a ceiling quickly. A solo writer producing more than 20 articles per month risks quality decline and burnout. Instead, focus on reducing time per article through reusable research, templated outlines, and subject matter expertise that makes writing faster.</p>
+        <p><strong>Niche specialization</strong> is the biggest long-term lever. A generalist charging $0.10/word who moves into SaaS content at $0.30/word triples their income on the same number of articles. Pick a niche where you have genuine interest or background knowledge, build 5-8 strong portfolio pieces, and market yourself specifically to companies in that space.</p>
+        <p>Finally, track your effective hourly rate on every project. If a "well-paying" article requires so many revisions that your hourly rate drops below target, it is a signal to either renegotiate scope, add a revision fee, or move on from that client.</p>
       </div>
     </section>
   </Fragment>
