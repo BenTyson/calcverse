@@ -87,6 +87,18 @@ const categoryColors: Record<string, { accent: string; light: string; text: stri
 
 const colors = categoryColors[categorySlug] || categoryColors.freelance;
 
+// Category-specific gradient classes for the "Jump to Calculator" button.
+// Tailwind needs literal strings — cannot be dynamically constructed.
+const jumpButtonClasses: Record<string, string> = {
+  freelance: 'bg-gradient-freelance shadow-glow-freelance',
+  creator: 'bg-gradient-creator shadow-glow-creator',
+  'gig-economy': 'bg-gradient-gig shadow-glow-gig',
+  'side-hustle': 'bg-gradient-sidehustle shadow-glow-sidehustle',
+  finance: 'bg-gradient-finance shadow-glow-finance',
+  'personal-finance': 'bg-gradient-finance shadow-glow-finance',
+};
+const jumpButton = jumpButtonClasses[categorySlug] || jumpButtonClasses.freelance;
+
 // Find blog posts that reference this calculator
 const calcPath = `/${categorySlug}/${slug}`;
 const allBlogPosts = await getCollection('blog');
@@ -126,16 +138,29 @@ const relatedBlogPosts = allBlogPosts
       </nav>
 
       <!-- Header -->
-      <header class="mb-8">
+      <header class="mb-6">
         <h1 class="heading-lg text-neutral-900">{calculatorName}</h1>
         <p class="text-lg text-neutral-600 mt-3 leading-relaxed">{description}</p>
       </header>
+
+      <!-- Jump to Calculator -->
+      <div class="mb-8">
+        <a
+          href="#calculator"
+          class={`inline-flex items-center gap-2 px-5 py-2.5 ${jumpButton} text-white font-semibold rounded-xl transition-all hover:opacity-90`}
+        >
+          Jump to the Calculator
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
 
       <!-- Intro Content -->
       <slot name="intro" />
 
       <!-- Calculator Card -->
-      <div class="card-elevated-lg p-6 md:p-8 mb-10">
+      <div id="calculator" class="card-elevated-lg p-6 md:p-8 mb-10 scroll-mt-24">
         <slot />
       </div>
 
