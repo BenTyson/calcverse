@@ -30,8 +30,9 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
+  const subscribersUrl = `${sparrowUrl}/v1/subscribers`;
   try {
-    const res = await fetch(`${sparrowUrl}/v1/subscribers`, {
+    const res = await fetch(subscribersUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,11 +81,27 @@ export const POST: APIRoute = async ({ request }) => {
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (err) {
-    console.error('[subscribe] unexpected error', err);
+    // undici wraps the real network error in TypeError.cause
+    const cause = err instanceof Error && 'cause' in err ? (err as Error & { cause?: unknown }).cause : undefined;
+    const causeMsg = cause instanceof Error ? cause.message : cause ? String(cause) : undefined;
+    const causeCode = cause && typeof cause === 'object' && 'code' in cause ? String((cause as { code: unknown }).code) : undefined;
+
+    console.error('[subscribe] fetch threw', {
+      url: subscribersUrl,
+      sparrowUrlSet: !!sparrowUrl,
+      sparrowUrlLength: sparrowUrl?.length,
+      sparrowUrlScheme: sparrowUrl?.startsWith('https://') ? 'https' : sparrowUrl?.startsWith('http://') ? 'http' : 'other',
+      message: err instanceof Error ? err.message : String(err),
+      causeMsg,
+      causeCode,
+    });
+
     return new Response(
       JSON.stringify({
         error: 'Something went wrong. Please try again.',
         detail: err instanceof Error ? err.message : String(err),
+        cause: causeMsg,
+        code: causeCode,
       }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
