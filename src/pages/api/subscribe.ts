@@ -37,13 +37,23 @@ export const POST: APIRoute = async ({ request }) => {
         'Content-Type': 'application/json',
         'x-api-key': sparrowKey,
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email, list: 'calcfalc-newsletter' }),
     });
 
     if (!res.ok) {
       const data = await res.json();
       throw new Error(data.error || 'Subscription failed');
     }
+
+    // Fire welcome email — non-blocking, don't fail the subscribe if this errors
+    fetch(`${sparrowUrl}/v1/send/transactional`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': sparrowKey,
+      },
+      body: JSON.stringify({ to: email, template_id: 2 }),
+    }).catch(() => {});
 
     return new Response(
       JSON.stringify({ success: true }),

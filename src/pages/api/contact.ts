@@ -56,6 +56,7 @@ export const POST: APIRoute = async ({ request }) => {
         body: JSON.stringify({
           from: 'CalcFalcon Contact <no-reply@calcfalcon.com>',
           to: 'ideaswithben@gmail.com',
+          reply_to: email,
           subject: `[CalcFalcon] ${subject}`,
           html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Subject:</strong> ${subject}</p><p>${message}</p>`,
         }),
