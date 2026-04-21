@@ -64,7 +64,9 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Fire welcome email — non-blocking, don't fail the subscribe if this errors
+    // Fire welcome email — non-blocking, don't fail the subscribe if this errors.
+    // Surface BOTH network errors (rejected promise) AND Sparrow app errors
+    // (non-2xx responses, which resolve normally) to Railway logs.
     fetch(`${sparrowUrl}/v1/send/transactional`, {
       method: 'POST',
       headers: {
@@ -72,9 +74,31 @@ export const POST: APIRoute = async ({ request }) => {
         'x-api-key': sparrowKey,
       },
       body: JSON.stringify({ to: email, template_id: 2 }),
-    }).catch((err) => {
-      console.error('[subscribe] welcome email failed (non-blocking)', err);
-    });
+    })
+      .then(async (welcomeRes) => {
+        if (!welcomeRes.ok) {
+          const rawBody = await welcomeRes.text().catch(() => '<unreadable>');
+          console.error('[subscribe] welcome email upstream failure', {
+            status: welcomeRes.status,
+            statusText: welcomeRes.statusText,
+            body: rawBody.slice(0, 500),
+            to: email,
+          });
+        } else {
+          console.log('[subscribe] welcome email accepted by Sparrow', {
+            status: welcomeRes.status,
+            to: email,
+          });
+        }
+      })
+      .catch((err) => {
+        const cause = err instanceof Error && 'cause' in err ? (err as Error & { cause?: unknown }).cause : undefined;
+        console.error('[subscribe] welcome email fetch threw', {
+          message: err instanceof Error ? err.message : String(err),
+          cause: cause instanceof Error ? cause.message : cause ? String(cause) : undefined,
+          to: email,
+        });
+      });
 
     return new Response(
       JSON.stringify({ success: true }),
