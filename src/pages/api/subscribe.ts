@@ -38,7 +38,8 @@ export const POST: APIRoute = async ({ request }) => {
         'Content-Type': 'application/json',
         'x-api-key': sparrowKey,
       },
-      body: JSON.stringify({ email, list: 'newsletter' }),
+      // Sparrow defaults list to "newsletter" when omitted (see sparrow docs).
+      body: JSON.stringify({ email }),
     });
 
     if (!res.ok) {
