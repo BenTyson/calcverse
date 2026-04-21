@@ -38,7 +38,7 @@ export const POST: APIRoute = async ({ request }) => {
         'Content-Type': 'application/json',
         'x-api-key': sparrowKey,
       },
-      body: JSON.stringify({ email, list: 'calcfalc-newsletter' }),
+      body: JSON.stringify({ email, list: 'newsletter' }),
     });
 
     if (!res.ok) {
