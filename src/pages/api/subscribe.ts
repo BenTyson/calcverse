@@ -41,8 +41,26 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (!res.ok) {
-      const data = await res.json();
-      throw new Error(data.error || 'Subscription failed');
+      // Read the body as text first — Sparrow may return non-JSON on some errors.
+      const rawBody = await res.text();
+      let parsedError: string | undefined;
+      try {
+        parsedError = JSON.parse(rawBody)?.error;
+      } catch {
+        parsedError = rawBody.slice(0, 300);
+      }
+      console.error('[subscribe] Sparrow /v1/subscribers failed', {
+        status: res.status,
+        statusText: res.statusText,
+        body: rawBody.slice(0, 500),
+      });
+      return new Response(
+        JSON.stringify({
+          error: parsedError || 'Subscription failed',
+          upstreamStatus: res.status,
+        }),
+        { status: 502, headers: { 'Content-Type': 'application/json' } }
+      );
     }
 
     // Fire welcome email — non-blocking, don't fail the subscribe if this errors
@@ -53,15 +71,21 @@ export const POST: APIRoute = async ({ request }) => {
         'x-api-key': sparrowKey,
       },
       body: JSON.stringify({ to: email, template_id: 2 }),
-    }).catch(() => {});
+    }).catch((err) => {
+      console.error('[subscribe] welcome email failed (non-blocking)', err);
+    });
 
     return new Response(
       JSON.stringify({ success: true }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
-  } catch {
+  } catch (err) {
+    console.error('[subscribe] unexpected error', err);
     return new Response(
-      JSON.stringify({ error: 'Something went wrong. Please try again.' }),
+      JSON.stringify({
+        error: 'Something went wrong. Please try again.',
+        detail: err instanceof Error ? err.message : String(err),
+      }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
