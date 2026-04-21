@@ -5,9 +5,10 @@ interface Props {
   url: string;
   category: string;
   badge?: string;
+  partner?: string;
 }
 
-const { product, description, url, category, badge } = Astro.props;
+const { product, description, url, category, badge, partner } = Astro.props;
 
 const borderColors: Record<string, string> = {
   freelance: 'border-l-primary-500',
@@ -33,7 +34,8 @@ const borderColor = borderColors[category] || borderColors.freelance;
     href={url}
     rel="nofollow sponsored"
     target="_blank"
-    class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+    data-affiliate-partner={partner || product}
+    class="affiliate-link inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
   >
     Learn More
     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,3 +43,14 @@ const borderColor = borderColors[category] || borderColors.freelance;
     </svg>
   </a>
 </div>
+
+<script>
+  import { track } from '@lib/utils/analytics';
+
+  document.querySelectorAll<HTMLAnchorElement>('a.affiliate-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      const partner = link.getAttribute('data-affiliate-partner') || 'unknown';
+      track('affiliate-click', { partner });
+    });
+  });
+</script>

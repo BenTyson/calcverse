@@ -16,13 +16,13 @@ The roadmap is organized into **9 session-sized phases** (R1–R9), ordered by R
 
 ---
 
-## External Blockers (as of 2026-04-17)
+## External Blockers (as of 2026-04-20)
 
 These are outside the code and gate parts of R1/R3. Work around them — don't wait.
 
-1. **Google AdSense account under review (again).** A few more days expected. AdSense publisher ID wire-up in R1 is **deferred** until approval. Everything else in R1 (affiliate URLs, event tracking, ads.txt prep) proceeds without it. Once approved, wire-up is a ~15-minute follow-on task.
+1. **Google AdSense account under review (again).** Still waiting. AdSense publisher ID wire-up in R1 is **deferred** until approval. Everything else in R1 (affiliate URLs, event tracking, ads.txt prep) proceeds without it. Once approved, wire-up is a ~15-minute follow-on task.
 2. **QuickBooks affiliate not yet signed up.** Ben to enroll in QuickBooks ProAdvisor / Intuit affiliate program before R1 can replace the `#` placeholder. R1 can proceed with the other partners; swap QB URL in as soon as the link is available.
-3. **Sparrow email integration not yet confirmed.** Blocked on Postmark going live (in progress). R3 (email engine) cannot fully verify end-to-end delivery until Sparrow is confirmed — but all code (EmailCapture updates, exit-intent, category metadata, lead-magnet PDFs) can be built and deployed. Flip the switch once Postmark is live.
+3. ~~**Sparrow email integration not yet confirmed.**~~ **Cleared 2026-04-20.** Postmark is live, Sparrow is confirmed. R3 end-to-end verification is now unblocked.
 
 **Rule:** None of these delay the overall roadmap. Build around them; activate the blocked pieces the moment the dependency clears.
 
