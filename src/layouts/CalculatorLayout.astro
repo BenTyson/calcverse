@@ -25,6 +25,7 @@ interface AffiliateProduct {
   url: string;
   category: string;
   badge?: string;
+  partner?: string;
 }
 
 interface Props {
@@ -173,6 +174,7 @@ const relatedBlogPosts = allBlogPosts
             url={affiliateProduct.url}
             category={affiliateProduct.category}
             badge={affiliateProduct.badge}
+            partner={affiliateProduct.partner}
           />
           <AffiliateDisclosure />
         </div>
@@ -229,7 +231,7 @@ const relatedBlogPosts = allBlogPosts
       </div>
 
       <!-- Email Capture -->
-      <EmailCapture variant="inline" leadMagnet={true} client:visible />
+      <EmailCapture variant="inline" leadMagnet={true} source={`calculator:${categorySlug}/${slug}`} client:visible />
 
       <!-- Related Calculators -->
       <RelatedCalculators calculators={relatedCalculators} />

@@ -1,1 +1,8 @@
+# CalcFalcon authorized digital sellers
+# Format: <domain>, <publisher-id>, <relationship>, <certification-authority-id>
+#
+# TODO: AdSense account is under review. The line below uses the existing
+# publisher ID (also referenced in src/layouts/BaseLayout.astro). Confirm
+# this is the correct ID once Google approval completes — or replace with
+# the approved publisher ID and update BaseLayout.astro to match.
 google.com, pub-3941293108914142, DIRECT, f08c47fec0942fa0

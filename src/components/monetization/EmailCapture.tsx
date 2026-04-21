@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
+import { track } from '@lib/utils/analytics';
 
 interface Props {
   variant: 'inline' | 'compact';
   leadMagnet?: boolean;
   dark?: boolean;
+  source?: string;
 }
 
-export function EmailCapture({ variant, leadMagnet = false, dark = false }: Props) {
+export function EmailCapture({ variant, leadMagnet = false, dark = false, source = 'unknown' }: Props) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
@@ -28,6 +30,7 @@ export function EmailCapture({ variant, leadMagnet = false, dark = false }: Prop
       if (res.ok && data.success) {
         setStatus('success');
         setEmail('');
+        track('email-signup', { source, variant });
       } else {
         setStatus('error');
         setErrorMsg(data.error || 'Something went wrong.');
