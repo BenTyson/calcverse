@@ -4,6 +4,7 @@ import SchemaOrg from '@components/seo/SchemaOrg.astro';
 import AdSlot from '@components/monetization/AdSlot.astro';
 import { EmailCapture } from '@components/monetization/EmailCapture';
 import MidArticleCTA from '@components/blog/MidArticleCTA.astro';
+import TopArticleCTA from '@components/blog/TopArticleCTA.astro';
 import type { ArticleSEO, BreadcrumbItem } from '@lib/seo/schema';
 
 interface Props {
@@ -13,6 +14,8 @@ interface Props {
   updatedDate?: Date;
   category: string;
   calculatorSlug?: string;
+  calculatorSlugs?: string[];
+  postSlug?: string;
   readTime: number;
   ogImage?: string;
 }
@@ -24,9 +27,16 @@ const {
   updatedDate,
   category,
   calculatorSlug,
+  calculatorSlugs,
+  postSlug,
   readTime,
   ogImage,
 } = Astro.props;
+
+// Posts may use either the singular `calculatorSlug` or the plural
+// `calculatorSlugs` frontmatter field — normalize to a single array so every
+// CTA below (top, mid-article, bottom) works regardless of which was used.
+const slugs: string[] = calculatorSlug ? [calculatorSlug] : (calculatorSlugs ?? []);
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
 const currentUrl = `${siteUrl}${Astro.url.pathname}`;
@@ -97,7 +107,84 @@ const calculatorNames: Record<string, string> = {
   '/freelance/consulting-fee-calculator': 'Consulting Fee Calculator',
   '/personal-finance/net-worth-calculator': 'Net Worth Calculator',
   '/personal-finance/savings-goal-calculator': 'Savings Goal Calculator',
+  '/creator/gumroad-calculator': 'Gumroad Calculator',
+  '/creator/newsletter-revenue-calculator': 'Newsletter Revenue Calculator',
+  '/creator/online-course-revenue-calculator': 'Online Course Revenue Calculator',
+  '/creator/print-on-demand-profit-calculator': 'Print-on-Demand Profit Calculator',
+  '/creator/sponsorship-rate-calculator': 'Sponsorship Rate Calculator',
+  '/creator/tiktok-calculator': 'TikTok Calculator',
+  '/freelance/freelance-retirement-calculator': 'Freelance Retirement Calculator',
+  '/freelance/freelance-vacation-calculator': 'Freelance Vacation Calculator',
+  '/freelance/meeting-cost-calculator': 'Meeting Cost Calculator',
+  '/freelance/value-based-pricing-calculator': 'Value-Based Pricing Calculator',
+  '/gig-economy/amazon-flex-calculator': 'Amazon Flex Calculator',
+  '/gig-economy/taskrabbit-calculator': 'TaskRabbit Calculator',
+  '/gig-economy/turo-calculator': 'Turo Calculator',
+  '/personal-finance/emergency-fund-calculator': 'Emergency Fund Calculator',
+  '/personal-finance/fire-calculator': 'FIRE Calculator',
+  '/personal-finance/rent-vs-buy-calculator': 'Rent vs Buy Calculator',
+  '/personal-finance/subscription-audit-calculator': 'Subscription Audit Calculator',
+  '/side-hustle/dropshipping-margin-calculator': 'Dropshipping Margin Calculator',
+  '/side-hustle/freelance-writing-rate-calculator': 'Freelance Writing Rate Calculator',
+  '/side-hustle/reselling-profit-calculator': 'Reselling Profit Calculator',
+  '/side-hustle/tutoring-income-calculator': 'Tutoring Income Calculator',
 };
+
+// Short, benefit-first hooks for the above-the-fold callout — what the
+// calculator actually answers, not a generic "click here."
+const calculatorHooks: Record<string, string> = {
+  '/creator/etsy-fee-calculator': "See your real profit per item after Etsy's fees.",
+  '/creator/gumroad-calculator': 'Model your Gumroad payout after fees, refunds, and affiliates.',
+  '/creator/kofi-calculator': "See your Ko-fi take-home after fees, and if Gold pays off.",
+  '/creator/newsletter-revenue-calculator': 'Compare Substack, Beehiiv, and ConvertKit payouts side by side.',
+  '/creator/online-course-revenue-calculator': 'Compare Teachable, Udemy, and Skillshare payouts on your numbers.',
+  '/creator/patreon-calculator': "See what you'll actually take home after Patreon's fees.",
+  '/creator/podcast-calculator': 'Estimate sponsorship revenue from your downloads and CPM rate.',
+  '/creator/print-on-demand-profit-calculator': 'Compare Printful, Printify, and Merch by Amazon margins.',
+  '/creator/sponsorship-rate-calculator': 'Find your fair rate by followers, engagement, and niche.',
+  '/creator/substack-calculator': 'Project your net take-home as your subscriber list grows.',
+  '/creator/tiktok-calculator': 'Estimate Creator Fund, brand deal, and LIVE gift income.',
+  '/creator/twitch-calculator': 'See what subs, bits, and ads could actually pay you.',
+  '/creator/youtube-adsense-calculator': 'Estimate ad revenue from your views, niche, and CPM.',
+  '/freelance/break-even-calculator': 'Find how many units you need to sell to break even.',
+  '/freelance/consulting-fee-calculator': 'Get hourly, daily, and retainer rates for your experience level.',
+  '/freelance/freelance-retirement-calculator': 'Compare Solo 401(k) vs SEP-IRA limits and tax savings.',
+  '/freelance/freelance-vacation-calculator': 'See how much to save for time off without losing income.',
+  '/freelance/hourly-rate-calculator': 'Find the rate that actually covers your income goals and taxes.',
+  '/freelance/meeting-cost-calculator': 'See what that hour-long call really costs in lost billable time.',
+  '/freelance/project-rate-calculator': 'Turn your hourly rate into a fair flat project price.',
+  '/freelance/quarterly-tax-calculator': 'Estimate what you owe the IRS before the deadline hits.',
+  '/freelance/self-employment-tax-calculator': 'See your full Schedule SE breakdown, including the QBI deduction.',
+  '/freelance/value-based-pricing-calculator': 'Price by client value instead of hours — see the difference.',
+  '/freelance/w2-vs-1099-calculator': 'Compare take-home pay as an employee vs a contractor.',
+  '/gig-economy/airbnb-calculator': 'Find your break-even occupancy rate and real monthly profit.',
+  '/gig-economy/amazon-flex-calculator': 'See your true hourly pay after gas and mileage deductions.',
+  '/gig-economy/doordash-calculator': 'Estimate your actual hourly after gas and depreciation.',
+  '/gig-economy/instacart-calculator': 'See your weekly and monthly take-home after expenses.',
+  '/gig-economy/taskrabbit-calculator': "Calculate your real hourly rate after TaskRabbit's service fee.",
+  '/gig-economy/turo-calculator': 'See your break-even days and profit margin per car.',
+  '/gig-economy/uber-lyft-calculator': 'See your true hourly rate after gas and vehicle wear.',
+  '/personal-finance/capital-gains-tax-calculator': 'Compare short-term vs long-term rates on your investment gains.',
+  '/personal-finance/debt-payoff-calculator': 'See your debt-free date with snowball vs avalanche.',
+  '/personal-finance/emergency-fund-calculator': 'Find the right fund size for irregular income.',
+  '/personal-finance/fire-calculator': 'See your FIRE number and years to financial independence.',
+  '/personal-finance/net-worth-calculator': 'Track assets and liabilities to see where you stand.',
+  '/personal-finance/rent-vs-buy-calculator': 'Compare the true cost of renting vs buying where you live.',
+  '/personal-finance/savings-goal-calculator': 'See what to save monthly to hit your target on time.',
+  '/personal-finance/subscription-audit-calculator': 'Find the recurring charges quietly draining your budget.',
+  '/side-hustle/dropshipping-margin-calculator': 'See your true margin after supplier costs, ads, and fees.',
+  '/side-hustle/freelance-writing-rate-calculator': 'Find your per-word and per-article rate by experience.',
+  '/side-hustle/profit-margin-calculator': 'Break down gross, operating, and net margin for your business.',
+  '/side-hustle/reselling-profit-calculator': 'Compare eBay, Poshmark, and Mercari profit after fees.',
+  '/side-hustle/time-to-goal-calculator': 'See how long your side hustle takes to hit $10K or more.',
+  '/side-hustle/tutoring-income-calculator': 'Compare independent vs platform tutoring income after fees.',
+};
+
+const ctaCalculators = slugs.map((slug) => ({
+  slug,
+  name: calculatorNames[slug] || 'Calculator',
+  hook: calculatorHooks[slug] || 'Get your personalized numbers in under a minute.',
+}));
 ---
 
 <BaseLayout title={title} description={description} ogType="article" ogImage={ogImage}>
@@ -137,17 +224,23 @@ const calculatorNames: Record<string, string> = {
         </time>
       </header>
 
+      <!-- Above-the-fold Calculator Entry Point -->
+      {ctaCalculators.length > 0 && (
+        <TopArticleCTA calculators={ctaCalculators} category={category} postSlug={postSlug || ''} />
+      )}
+
       <!-- Article Content -->
       <div class="prose prose-neutral prose-lg max-w-none" id="blog-prose">
         <slot />
       </div>
 
-      {calculatorSlug && (
+      {ctaCalculators.length > 0 && (
         <div id="mid-article-cta" class="hidden">
           <MidArticleCTA
-            calculatorName={calculatorNames[calculatorSlug] || 'Calculator'}
-            calculatorSlug={calculatorSlug}
+            calculatorName={ctaCalculators[0].name}
+            calculatorSlug={ctaCalculators[0].slug}
             category={category}
+            postSlug={postSlug}
           />
         </div>
       )}
@@ -171,26 +264,52 @@ const calculatorNames: Record<string, string> = {
       </div>
 
       <!-- Calculator CTA -->
-      {calculatorSlug && (
+      {ctaCalculators.length > 0 && (
         <div class="mt-12 card-elevated p-6 md:p-8 border-l-4 border-primary-500">
-          <h3 class="font-bold text-lg text-neutral-900 mb-2">Try the Calculator</h3>
+          <h3 class="font-bold text-lg text-neutral-900 mb-2">
+            {ctaCalculators.length > 1 ? 'Try the Calculators' : 'Try the Calculator'}
+          </h3>
           <p class="text-neutral-600 mb-4">
-            Put what you've learned into practice with our free {calculatorNames[calculatorSlug] || 'calculator'}.
+            Put what you've learned into practice with our free {ctaCalculators.length > 1 ? 'calculators' : ctaCalculators[0].name.toLowerCase()}.
           </p>
-          <a
-            href={calculatorSlug}
-            class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-colors"
-          >
-            Open Calculator
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+          <div class="flex flex-wrap gap-3">
+            {ctaCalculators.slice(0, 3).map((calc) => (
+              <a
+                href={calc.slug}
+                data-blog-cta
+                data-post={postSlug}
+                data-calculator={calc.slug}
+                data-position="bottom"
+                class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-colors"
+              >
+                {ctaCalculators.length > 1 ? calc.name : 'Open Calculator'}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            ))}
+          </div>
         </div>
       )}
 
+      <script>
+        import { track } from '@lib/utils/analytics';
+
+        document
+          .querySelectorAll<HTMLAnchorElement>('[data-blog-cta][data-position="bottom"]')
+          .forEach((link) => {
+            link.addEventListener('click', () => {
+              track('blog-cta-click', {
+                post: link.getAttribute('data-post') || 'unknown',
+                calculator: link.getAttribute('data-calculator') || 'unknown',
+                position: 'bottom',
+              });
+            });
+          });
+      </script>
+
       <!-- Email Capture -->
-      <div class={calculatorSlug ? 'mt-8' : 'mt-12'}>
+      <div class={ctaCalculators.length > 0 ? 'mt-8' : 'mt-12'}>
         <EmailCapture variant="inline" source="blog" client:visible />
       </div>
     </article>

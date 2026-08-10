@@ -1,0 +1,105 @@
+---
+interface CalculatorLink {
+  slug: string;
+  name: string;
+  hook: string;
+}
+
+interface Props {
+  calculators: CalculatorLink[];
+  category: string;
+  postSlug: string;
+}
+
+const { calculators, category, postSlug } = Astro.props;
+
+// Normalize blog categories to CSS class prefixes (matches MidArticleCTA)
+const categoryMap: Record<string, string> = {
+  freelance: 'freelance',
+  creator: 'creator',
+  'gig-economy': 'gig',
+  'side-hustle': 'sidehustle',
+  finance: 'finance',
+};
+
+const cat = categoryMap[category] || 'freelance';
+
+// Tailwind needs literal class strings — no dynamic construction
+const borderClasses: Record<string, string> = {
+  freelance: 'border-freelance-500',
+  creator: 'border-creator-500',
+  gig: 'border-gig-500',
+  sidehustle: 'border-sidehustle-500',
+  finance: 'border-finance-500',
+};
+
+const iconBgClasses: Record<string, string> = {
+  freelance: 'bg-freelance-100 text-freelance-700',
+  creator: 'bg-creator-100 text-creator-700',
+  gig: 'bg-gig-100 text-gig-700',
+  sidehustle: 'bg-sidehustle-100 text-sidehustle-700',
+  finance: 'bg-finance-100 text-finance-700',
+};
+
+const buttonClasses: Record<string, string> = {
+  freelance: 'bg-freelance-500 hover:bg-freelance-600',
+  creator: 'bg-creator-500 hover:bg-creator-600',
+  gig: 'bg-gig-500 hover:bg-gig-600',
+  sidehustle: 'bg-sidehustle-500 hover:bg-sidehustle-600',
+  finance: 'bg-finance-500 hover:bg-finance-600',
+};
+
+const borderColor = borderClasses[cat];
+const iconBg = iconBgClasses[cat];
+const buttonColor = buttonClasses[cat];
+
+// Above-the-fold callout stays compact — cap at 2 calculators even if a post has 3.
+const shown = calculators.slice(0, 2);
+---
+
+<div class={`not-prose mb-8 card-elevated border-l-4 ${borderColor} p-4 md:p-5`}>
+  <div class="flex items-start gap-3">
+    <div class={`flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center ${iconBg}`}>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m-6 4h6m-6 4h3M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
+      </svg>
+    </div>
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-semibold text-neutral-900">Before you read on</p>
+      <ul class="mt-1.5 space-y-1.5">
+        {shown.map((calc) => (
+          <li class="flex flex-wrap items-baseline gap-x-1.5">
+            <span class="text-sm text-neutral-600">{calc.hook}</span>
+            <a
+              href={calc.slug}
+              data-blog-cta
+              data-post={postSlug}
+              data-calculator={calc.slug}
+              data-position="top"
+              class={`inline-flex items-center gap-1 text-sm font-semibold text-white ${buttonColor} px-2.5 py-0.5 rounded-full transition-colors whitespace-nowrap`}
+            >
+              {calc.name}
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { track } from '@lib/utils/analytics';
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-blog-cta][data-position="top"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      track('blog-cta-click', {
+        post: link.getAttribute('data-post') || 'unknown',
+        calculator: link.getAttribute('data-calculator') || 'unknown',
+        position: 'top',
+      });
+    });
+  });
+</script>
