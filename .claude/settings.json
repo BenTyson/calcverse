@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(npm run preview)",
+      "Bash(npm install)",
+      "Bash(npm install *)",
+      "Bash(git status)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git branch)",
+      "Bash(ls)",
+      "Bash(ls -la *)",
+      "Bash(cat *)",
+      "Bash(head -*)",
+      "Bash(tail -*)",
+      "Bash(grep *)",
+      "Bash(grep -r *)",
+      "Bash(grep -v \"^\\\\s*$\")",
+      "Bash(grep -oP '\\(?<=>\\)[^<>]{40,}\\(?=<\\)')",
+      "Bash(find . -name *)",
+      "Bash(wc -l *)",
+      "Read",
+      "Write"
+    ]
+  }
+}

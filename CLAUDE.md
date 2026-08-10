@@ -54,14 +54,16 @@ Every calculator has 3 files:
 | Calculator state hook | `src/hooks/useCalculatorState.ts` |
 | Embed routes | `src/pages/embed/[...slug].astro` |
 | Monetization config | `src/lib/config/monetization.ts` |
-| Email API endpoint | `src/pages/api/subscribe.ts` (SSR, `prerender = false`) |
+| Email API endpoint | `src/pages/api/subscribe.ts` (SSR, `prerender = false`, uses Sparrow API) |
 | Ad slots | `src/components/monetization/AdSlot.astro` |
 | Email capture | `src/components/monetization/EmailCapture.tsx` |
 | Affiliate card | `src/components/monetization/AffiliateCard.astro` |
+| Analytics | `src/lib/utils/analytics.ts` (Umami event tracking helper) |
 | Manual tasks | `docs/ben.md` |
 | OG image converter | `scripts/convert-og-images.mjs` |
 | PWA manifest | `public/manifest.json` |
 | Service worker | `public/sw.js` |
+| Ads.txt | `public/ads.txt` (IAB ads.txt for ad buyers) |
 
 ## Design System
 
@@ -89,7 +91,15 @@ Every calculator has 3 files:
 |-----|-------------|
 | `docs/STATUS.md` | Current state, what's live, what's next |
 | `docs/ARCHITECTURE.md` | Deep technical reference |
+| `docs/REVENUE-ROADMAP.md` | Revenue phases R1-R9 (affiliate, email, PDF, B2B, SEO, sponsorships) |
 | `/add-calculator` skill | Full guided workflow for adding calculators |
 | `docs/DECISIONS.md` | What's decided (don't re-debate) |
 | `docs/ROADMAP.md` | Full implementation plan with phases |
 | `docs/CALCULATOR-IDEAS.md` | Backlog of calculator ideas |
+
+## Analytics
+
+**Provider:** Umami (self-hosted at umami-production-3685.up.railway.app)
+- Website ID: 789f1a13-f7d2-4a67-8888-2b5934ba4a94
+- Script: Loaded in `src/layouts/BaseLayout.astro` (PROD-gated, lines 65–67)
+- Event tracking: Use `src/lib/utils/analytics.ts` `track()` helper

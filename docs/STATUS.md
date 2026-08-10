@@ -1,6 +1,6 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-03-17 (Phase 6 partial — automatable tasks complete)
+**Last Updated:** 2026-08-09 (Phase R1 shipped)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
@@ -81,7 +81,7 @@
 - Privacy Policy (`/privacy`) — includes email, advertising, affiliate disclosures
 - Terms of Service (`/terms`)
 - 404 page
-- API: `/api/subscribe` (SSR endpoint for email capture via Resend)
+- API: `/api/subscribe` (SSR endpoint for email capture via Sparrow API gateway)
 
 ## What's Done
 
@@ -159,7 +159,7 @@
 - [x] `AdSlot.astro` — CLS-safe ad placeholders (leaderboard 728x90, rectangle 336x280)
 - [x] Ad slots in CalculatorLayout (mid + bottom) and BlogLayout (after content)
 - [x] `EmailCapture.tsx` — React form with inline/compact variants, dark mode
-- [x] `/api/subscribe` — SSR endpoint using Resend API
+- [x] `/api/subscribe` — SSR endpoint using Sparrow API gateway (migrated 2026-04-21)
 - [x] Email capture in CalculatorLayout, BlogLayout, and Footer
 - [x] Lead magnet: placeholder PDF at `/downloads/freelancer-tax-cheatsheet.pdf`
 - [x] `monetization.ts` — central config for affiliate URLs + AdSense publisher ID
@@ -302,6 +302,14 @@
 - [x] Consulting Rates by Industry in 2026 — 8 industries, 5 experience tiers, location/specialization multipliers
 - [x] Savings Goals on Variable Income — percentage-based saving, irregular income buffer, competing goals
 - [x] Backlinks added to 8 existing posts (fire-calculator-guide, emergency-fund, debt-payoff, freelance-pricing, freelance-rate, profit-margin, online-course, subscription-audit)
+
+### Phase R1 — Activate Dormant Revenue (Session 1, Shipped 2026-04-21)
+- [x] Umami event tracking via `src/lib/utils/analytics.ts` — `track()` helper with type-safe event names
+- [x] Affiliate-click tracking in `src/components/monetization/AffiliateCard.astro` via Umami custom events
+- [x] Email-signup tracking in `src/components/monetization/EmailCapture.tsx` via Umami custom events
+- [x] Calculator-to-affiliate mapping in `src/lib/config/monetization.ts` — `calculatorAffiliates` slug→partner map
+- [x] `public/ads.txt` — IAB ads.txt for ad buyer transparency
+- [x] AdSense publisher ID wiring (currently placeholder; approval pending)
 
 ### Phase 6 (partial) — Polish & Technical SEO
 - [x] OG images converted from SVG to PNG (42 files: 41 calculators + default) via `scripts/convert-og-images.mjs`

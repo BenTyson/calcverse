@@ -16,13 +16,13 @@ The roadmap is organized into **9 session-sized phases** (R1–R9), ordered by R
 
 ---
 
-## External Blockers (as of 2026-04-20)
+## External Blockers (as of 2026-08-09)
 
 These are outside the code and gate parts of R1/R3. Work around them — don't wait.
 
-1. **Google AdSense account under review (again).** Still waiting. AdSense publisher ID wire-up in R1 is **deferred** until approval. Everything else in R1 (affiliate URLs, event tracking, ads.txt prep) proceeds without it. Once approved, wire-up is a ~15-minute follow-on task.
-2. **QuickBooks affiliate not yet signed up.** Ben to enroll in QuickBooks ProAdvisor / Intuit affiliate program before R1 can replace the `#` placeholder. R1 can proceed with the other partners; swap QB URL in as soon as the link is available.
-3. ~~**Sparrow email integration not yet confirmed.**~~ **Cleared 2026-04-20.** Postmark is live, Sparrow is confirmed. R3 end-to-end verification is now unblocked.
+1. **Google AdSense account rejected.** Initial application rejected. AdSense publisher ID wire-up in R1 is **deferred** pending reapplication and approval. Everything else in R1 (affiliate URLs, event tracking, ads.txt prep) proceeds without it. Note: AdSense has no traffic minimum — the rejection was unrelated to page volume.
+2. **QuickBooks affiliate not yet signed up.** Ben to enroll in QuickBooks ProAdvisor / Intuit affiliate program before replacing the `#` placeholder. R1 can proceed with the other partners; swap QB URL in as soon as the link is available.
+3. ~~**Sparrow email integration not yet confirmed.**~~ **Cleared 2026-04-21.** Postmark is live, Sparrow is confirmed. Email capture migrated from Resend.
 
 **Rule:** None of these delay the overall roadmap. Build around them; activate the blocked pieces the moment the dependency clears.
 
@@ -33,8 +33,8 @@ These are outside the code and gate parts of R1/R3. Work around them — don't w
 Each phase below specifies the recommended Claude model and thinking effort for efficient execution. Rough heuristic:
 
 - **Haiku 4.5** — mechanical, well-patterned work (copy, config, scaffolding from clear templates)
-- **Sonnet 4.6** — default for implementation; balanced speed/quality
-- **Opus 4.7** — architecture-critical, security-sensitive, or novel work where getting it right once > iterating cheaply
+- **Sonnet 5** — default for implementation; balanced speed/quality
+- **Opus 5** — architecture-critical, security-sensitive, or novel work where getting it right once > iterating cheaply
 
 Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tricky bits).
 
@@ -55,7 +55,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R1 — Activate Dormant Revenue (Session 1)
 
-**Model:** Sonnet 4.6 · **Effort:** low–medium
+**Model:** Sonnet 5 · **Effort:** low–medium
 *Rationale: mechanical config + component edits, clear patterns exist. No architectural decisions. Haiku 4.5 would also work for the config-replace pieces but Sonnet handles the tracking wrapper integration more reliably in one pass.*
 
 **Blocked pieces (do in parallel, not in-line):**
@@ -86,7 +86,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R2 — Affiliate Expansion (Session 2)
 
-**Model:** Sonnet 4.6 · **Effort:** medium
+**Model:** Sonnet 5 · **Effort:** medium
 *Rationale: a new `AffiliateGrid` component + config extension + layout integration. Clear pattern to follow from existing AffiliateCard. Partner research is human-side — Ben enrolls in programs, feeds URLs to the session.*
 
 **Goal:** Every calculator has 1–3 contextually relevant affiliate partners. Finance/tax calcs are the highest CPA and get prioritized.
@@ -117,7 +117,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R3 — Email Engine (Session 3)
 
-**Model:** Sonnet 4.6 · **Effort:** medium
+**Model:** Sonnet 5 · **Effort:** medium
 *Rationale: React components (ExitIntentModal, category-aware EmailCapture) + Sparrow metadata plumbing. Non-trivial UX timing logic (exit intent, frequency capping) benefits from Sonnet over Haiku. PDF lead magnets produced outside the code session.*
 
 **Dependency:** Final verification of Sparrow delivery blocked on Postmark going live. Build and deploy everything; flip on the welcome series automations in Sparrow once email is confirmed.
@@ -151,7 +151,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R4 — Analytics & Conversion Optimization (Session 4)
 
-**Model:** Sonnet 4.6 · **Effort:** medium (Haiku 4.5 acceptable for Clarity snippet + event wiring)
+**Model:** Sonnet 5 · **Effort:** medium (Haiku 4.5 acceptable for Clarity snippet + event wiring)
 *Rationale: instrumentation is mostly mechanical, but the A/B harness (deterministic bucket + session persistence + variant-tagged events) has enough subtlety to want Sonnet. Clarity install alone is a Haiku task.*
 
 **Goal:** Measure everything that matters for revenue; run first round of A/B tests.
@@ -178,7 +178,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R5 — Premium: Branded PDF Reports (Session 5)
 
-**Model:** Opus 4.7 · **Effort:** high
+**Model:** Opus 5 · **Effort:** high
 *Rationale: Stripe webhooks + money-handling logic + PDF generation pipeline + one-time-signed-URL delivery. Security-sensitive (webhook signature verification, refund edge cases) and novel to this codebase. Getting it right once is cheaper than debugging a Sonnet pass.*
 
 **Goal:** First paid revenue stream. Monetize serious users — accountants, coaches, and freelancers preparing client-ready deliverables.
@@ -205,7 +205,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R6 — B2B White-Label Embeds (Session 6)
 
-**Model:** Opus 4.7 · **Effort:** high
+**Model:** Opus 5 · **Effort:** high
 *Rationale: architecturally the biggest shift in the roadmap — embed route flips from SSG to SSR, introduces auth (magic link), license validation, subscription lifecycle, and customer dashboard. Highest-LTV revenue stream, so the extra token spend is warranted. Split into 2 sessions if scope runs long: session A = license validation + SSR embed + branding; session B = auth + dashboard + Stripe subscription.*
 
 **Goal:** Highest-LTV channel. Sell embed licenses to accountants, financial coaches, freelance bloggers, and SaaS apps who want calculators on their site.
@@ -237,7 +237,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R7 — Programmatic SEO Expansion (Session 7)
 
-**Model:** Sonnet 4.6 for architecture · Haiku 4.5 for bulk data generation · **Effort:** medium (high on the first variant pattern)
+**Model:** Sonnet 5 for architecture · Haiku 4.5 for bulk data generation · **Effort:** medium (high on the first variant pattern)
 *Rationale: the first variant route (state tax, niche CPM) needs careful design — schema.ts updates, getStaticPaths, templated meta copy. Sonnet for the pattern. Once the pattern is set, generating the 50-state bracket data and 10 niche defaults is bulk work Haiku handles cheaply. Also consider `claude-api` skill for one-off data-generation scripts.*
 
 **Goal:** 3–5× indexable pages without 3–5× the content-writing work. Long-tail traffic = compounding ad + affiliate revenue.
@@ -264,7 +264,7 @@ Effort levels: `low` (snappy), `medium` (default), `high` (deep thinking on tric
 
 ## Phase R8 — Direct Sponsorships (Session 8)
 
-**Model:** Sonnet 4.6 · **Effort:** low–medium
+**Model:** Sonnet 5 · **Effort:** low–medium
 *Rationale: new component + config layer + one landing page. Pattern mirrors existing AffiliateCard/AdSlot. No novel architecture. Could use Haiku 4.5 if running tight on budget — the work is well-templated.*
 
 **Goal:** Replace programmatic AdSense on top-traffic pages with direct sponsorship deals at 2–3× the RPM.
