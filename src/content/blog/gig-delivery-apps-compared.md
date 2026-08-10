@@ -4,6 +4,7 @@ description: "Compare real earnings, expenses, and working conditions across Doo
 publishedDate: 2026-01-17
 category: gig-economy
 calculatorSlugs:
+  - /gig-economy/doordash-calculator
   - /gig-economy/instacart-calculator
   - /gig-economy/amazon-flex-calculator
 ---

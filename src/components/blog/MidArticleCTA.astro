@@ -3,9 +3,10 @@ interface Props {
   calculatorName: string;
   calculatorSlug: string;
   category: string;
+  postSlug?: string;
 }
 
-const { calculatorName, calculatorSlug, category } = Astro.props;
+const { calculatorName, calculatorSlug, category, postSlug } = Astro.props;
 
 // Normalize blog categories to CSS class prefixes
 const categoryMap: Record<string, string> = {
@@ -83,6 +84,10 @@ const glowBg = glowBgClasses[cat];
       <!-- Button -->
       <a
         href={calculatorSlug}
+        data-blog-cta
+        data-post={postSlug}
+        data-calculator={calculatorSlug}
+        data-position="mid"
         class={`flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 ${gradientBar} text-white font-semibold rounded-xl transition-all hover:opacity-90 ${glowShadow}`}
       >
         Open Calculator
@@ -93,3 +98,17 @@ const glowBg = glowBgClasses[cat];
     </div>
   </div>
 </div>
+
+<script>
+  import { track } from '@lib/utils/analytics';
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-blog-cta][data-position="mid"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      track('blog-cta-click', {
+        post: link.getAttribute('data-post') || 'unknown',
+        calculator: link.getAttribute('data-calculator') || 'unknown',
+        position: 'mid',
+      });
+    });
+  });
+</script>
