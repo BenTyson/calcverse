@@ -1,6 +1,8 @@
 // Site-wide contact and trust-page constants.
 //
-// TODO(ben): decide on a public-facing contact address (e.g. hello@calcfalcon.com or
-// corrections@calcfalcon.com) and set it up to actually receive mail before publishing this.
-// Do not reuse a personal inbox on public YMYL pages without deciding that's intentional.
-export const CONTACT_EMAIL = 'TODO(ben): public contact email';
+// ACTION REQUIRED (ben): this address is published on /about, /contact, and
+// /methodology as the corrections channel. Set up forwarding on the
+// calcfalcon.com domain so it actually receives mail BEFORE requesting the
+// AdSense review — a published contact address that bounces is a worse trust
+// signal than none at all. Change it here if you'd rather use another address.
+export const CONTACT_EMAIL = 'hello@calcfalcon.com';

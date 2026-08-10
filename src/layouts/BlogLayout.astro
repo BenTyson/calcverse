@@ -6,7 +6,7 @@ import { isAdSlotEnabled } from '@lib/config/monetization';
 import { EmailCapture } from '@components/monetization/EmailCapture';
 import MidArticleCTA from '@components/blog/MidArticleCTA.astro';
 import TopArticleCTA from '@components/blog/TopArticleCTA.astro';
-import { getAuthor } from '@lib/config/authors';
+import { getAuthor, AUTHOR_PATH } from '@lib/config/authors';
 import type { ArticleSEO, BreadcrumbItem } from '@lib/seo/schema';
 
 interface Props {
@@ -45,13 +45,9 @@ const slugs: string[] = calculatorSlug ? [calculatorSlug] : (calculatorSlugs ?? 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
 const currentUrl = `${siteUrl}${Astro.url.pathname}`;
 const author = getAuthor(authorSlug);
-const authorUrl = `${siteUrl}/authors/${author.slug}`;
-const authorInitials = author.name
-  .split(' ')
-  .map((part) => part[0])
-  .join('')
-  .slice(0, 2)
-  .toUpperCase();
+// No per-author page — the byline links to /about, which is where
+// accountability for the site's figures actually lives.
+const authorUrl = `${siteUrl}${AUTHOR_PATH}`;
 
 const categoryLabels: Record<string, string> = {
   freelance: 'Freelance',
