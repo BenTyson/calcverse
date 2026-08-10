@@ -1,17 +1,37 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ContactForm from '@components/ContactForm.tsx';
+import { CONTACT_EMAIL } from '@lib/config/site';
 ---
 
 <BaseLayout
   title="Contact Us | CalcFalcon"
-  description="Get in touch with the CalcFalcon team. Questions, feedback, or partnership inquiries welcome."
+  description="Get in touch with CalcFalcon about corrections, partnerships, press, or data questions. Email address and response time included."
 >
   <div class="py-16">
     <div class="max-w-2xl mx-auto px-4">
       <h1 class="heading-lg mb-4">Contact Us</h1>
-      <p class="text-neutral-400 text-lg mb-10">
-        Have a question, suggestion, or feedback? Fill out the form below and we'll get back to you.
+      <p class="text-neutral-600 text-lg mb-6 leading-relaxed">
+        Have a question, correction, or partnership idea? Reach us directly at
+        <a href={`mailto:${CONTACT_EMAIL}`} class="text-primary-600 font-medium hover:underline">{CONTACT_EMAIL}</a>,
+        or use the form below.
+      </p>
+
+      <div class="card-elevated p-6 mb-10">
+        <h2 class="font-semibold text-neutral-900 mb-3">What to contact us about</h2>
+        <ul class="space-y-2 text-neutral-600 text-sm">
+          <li><strong>Corrections:</strong> A calculator figure, tax bracket, or platform fee that looks outdated or wrong. See our <a href="/methodology" class="text-primary-600 hover:underline">correction policy</a>.</li>
+          <li><strong>Data &amp; sourcing questions:</strong> Where a specific number in a calculator comes from, or a source you'd like us to cite.</li>
+          <li><strong>Partnerships:</strong> Affiliate, advertising, or content partnership inquiries.</li>
+          <li><strong>Press:</strong> Media requests and interview inquiries.</li>
+          <li><strong>General feedback:</strong> Bugs, feature requests, or anything else.</li>
+        </ul>
+      </div>
+
+      <p class="text-neutral-600 mb-10 leading-relaxed">
+        <strong>Response time:</strong> We aim to reply within 3-5 business days. Correction reports
+        involving an actual tax or fee error are prioritized — if you're flagging a specific inaccuracy,
+        please include the calculator name and the figure you believe is wrong so we can verify it quickly.
       </p>
 
       <ContactForm client:load />

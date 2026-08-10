@@ -2,6 +2,13 @@
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { QuarterlyTaxCalc } from '@components/calculators/QuarterlyTaxCalc';
 import { MONETIZATION } from '@lib/config/monetization';
+import SourcesBlock from '@components/calculator/SourcesBlock.astro';
+
+const sources = [
+  { label: 'IRS Revenue Procedure 2023-34', url: 'https://www.irs.gov/pub/irs-drop/rp-23-34.pdf', note: '2024 tax brackets and standard deduction amounts' },
+  { label: 'SSA — 2024 Social Security/SSI/Medicare Information', url: 'https://www.ssa.gov/legislation/2024FactSheet.pdf', note: '$168,600 Social Security wage base' },
+  { label: 'IRS 2024 Instructions for Schedule SE', url: 'https://www.irs.gov/pub/irs-prior/i1040sse--2024.pdf', note: 'Self-employment tax calculation' },
+];
 
 const faqs = [
   {
@@ -136,5 +143,6 @@ const relatedCalculators = [
         <p><strong>Track deductions year-round.</strong> Business expenses reduce your taxable income and therefore your quarterly obligation. Keeping receipts and categorizing expenses monthly prevents a scramble at tax time and gives you more accurate quarterly estimates.</p>
       </div>
     </section>
+    <SourcesBlock taxYear="2024" lastVerified="August 9, 2026" sources={sources} />
   </Fragment>
 </CalculatorLayout>

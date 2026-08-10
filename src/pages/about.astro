@@ -1,10 +1,14 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { AUTHORS } from '@lib/config/authors';
+import { CONTACT_EMAIL } from '@lib/config/site';
+
+const founder = AUTHORS.ben;
 ---
 
 <BaseLayout
-  title="About CalcFalcon | Free Calculators for Freelancers & Creators"
-  description="CalcFalcon provides free, privacy-first financial calculators for freelancers, creators, gig workers, and side hustlers."
+  title="About CalcFalcon | Who We Are & How Our Calculators Work"
+  description="Who runs CalcFalcon, why it exists, how our calculators are built and sourced, and how the site makes money."
 >
   <div class="py-16">
     <div class="max-w-3xl mx-auto px-4">
@@ -12,16 +16,37 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 
       <div class="prose prose-neutral prose-lg max-w-none">
         <p>
-          CalcFalcon builds free financial calculators for people who work for themselves. Whether you're a freelancer setting rates, a creator tracking platform earnings, a gig worker estimating take-home pay, or someone building a side hustle toward a financial goal, our tools help you make smarter money decisions.
+          CalcFalcon builds free financial calculators for people who work for themselves. Whether you're a
+          freelancer setting rates, a creator tracking platform earnings, a gig worker estimating take-home
+          pay, or someone building a side hustle toward a financial goal, our tools help you make smarter
+          money decisions — without a login, a paywall, or a sales call.
+        </p>
+
+        <h2>Who's Behind This Site</h2>
+        <p>
+          CalcFalcon is run by <strong>{founder.name}</strong>, {founder.title}.
+        </p>
+        <p>
+          {founder.background}
+        </p>
+        <p>
+          TODO(ben): expand this section with the real story — when you started CalcFalcon, why you decided
+          freelancers and creators specifically needed better calculators than what existed, and what your
+          day-to-day relationship to this content is (do you write the calculators' methodology yourself,
+          work with a contractor, review every figure personally?). Google's guidance on trustworthy YMYL
+          content specifically rewards sites that make clear who is accountable for the numbers — this is
+          that answer. See the full <a href="/authors/ben" class="text-primary-600 hover:underline">author
+          page</a> for the byline that appears on every article.
         </p>
 
         <h2>Who It's For</h2>
         <p>
-          Traditional financial tools are built for salaried employees with predictable paychecks. That doesn't work when your income varies by month, your tax situation involves self-employment calculations, or your expenses include platform fees and business costs that most calculators ignore.
+          Traditional financial tools are built for salaried employees with predictable paychecks. That
+          doesn't work when your income varies by month, your tax situation involves self-employment
+          calculations, or your expenses include platform fees and business costs that most calculators
+          ignore.
         </p>
-        <p>
-          CalcFalcon is built specifically for:
-        </p>
+        <p>CalcFalcon is built specifically for:</p>
         <ul>
           <li><strong>Freelancers and consultants</strong> who need to set hourly or project rates that actually cover taxes, expenses, and profit</li>
           <li><strong>Content creators</strong> on YouTube, Twitch, Patreon, Substack, Etsy, and Ko-fi who want to understand their real earnings after platform fees</li>
@@ -29,20 +54,80 @@ import BaseLayout from '@layouts/BaseLayout.astro';
           <li><strong>Side hustlers</strong> planning their path from extra income to a sustainable business</li>
         </ul>
 
-        <h2>How Our Calculators Work</h2>
+        <h2>How Our Calculators Are Built and Sourced</h2>
         <p>
-          Every calculator on CalcFalcon runs entirely in your browser. Your numbers never leave your device — there's no account to create, no data stored on our servers, and no tracking of your financial inputs. When you close the tab, your data is gone.
+          Every calculator starts from a documented, primary-source formula — not a rough approximation. Tax
+          calculators (self-employment tax, quarterly estimated payments, W-2 vs. 1099 comparisons, capital
+          gains) are implemented directly from IRS publications and Revenue Procedures: federal tax brackets,
+          standard deductions, FICA and Social Security wage base figures, the self-employment tax's 92.35%
+          adjustment, and Net Investment Income Tax thresholds. Platform-fee calculators (YouTube AdSense,
+          Etsy, DoorDash, Airbnb, and others) start from each platform's published fee schedule.
         </p>
         <p>
-          Each calculator offers two modes: <strong>Quick mode</strong> for fast estimates with sensible defaults, and <strong>Advanced mode</strong> for detailed analysis when precision matters. Results can be shared via URL — the calculator state is encoded directly in the link, so the recipient sees exactly what you see without any server-side storage.
+          Every tax and finance calculator on the site displays a visible "Sources &amp; Last Updated" block
+          naming the specific IRS publication the figures come from and the date we last verified them. Our
+          full build process, review cadence, and correction policy are documented on the
+          <a href="/methodology" class="text-primary-600 hover:underline">methodology page</a>.
+        </p>
+        <p>
+          Every calculator on CalcFalcon runs entirely in your browser. Your numbers never leave your device —
+          there's no account to create, no data stored on our servers, and no tracking of your financial
+          inputs. When you close the tab, your data is gone. Each calculator offers two modes: <strong>Quick
+          mode</strong> for fast estimates with sensible defaults, and <strong>Advanced mode</strong> for
+          detailed analysis when precision matters. Results can be shared via URL — the calculator state is
+          encoded directly in the link, so the recipient sees exactly what you see without any server-side
+          storage.
+        </p>
+
+        <h2 id="how-we-make-money">How This Site Makes Money</h2>
+        <p>
+          CalcFalcon is free to use and supported by two revenue sources: display advertising and affiliate
+          partnerships. We think that's worth stating plainly rather than burying in a privacy policy,
+          because transparency about incentives is part of how you should judge whether to trust a financial
+          site.
+        </p>
+        <ul>
+          <li>
+            <strong>Display ads.</strong> We show ads (via Google AdSense) around calculator and blog content.
+            Ad placement and content are decided independently — advertisers do not see or influence
+            calculator results.
+          </li>
+          <li>
+            <strong>Affiliate partnerships.</strong> Some calculator pages recommend specific products (like
+            accounting software) with an affiliate link. If you click through and make a purchase, we may
+            earn a commission at no extra cost to you. These recommendations are clearly labeled, and — as
+            covered on our methodology page — affiliate relationships never change what a calculator computes.
+            The math is identical whether or not an affiliate link is present.
+          </li>
+        </ul>
+        <p>
+          We do not accept payment to change a calculator's formula, alter a tax figure, or misrepresent a
+          result. See our full <a href="/privacy" class="text-primary-600 hover:underline">privacy policy</a>
+          for how we handle data, and our <a href="/disclaimer" class="text-primary-600 hover:underline">
+          financial disclaimer</a> for what our calculators are — and are not.
+        </p>
+
+        <h2>How We Keep Figures Current</h2>
+        <p>
+          Federal tax brackets, standard deductions, and Social Security wage bases change annually. We
+          review our tax calculators against newly published IRS and SSA figures and update the "Sources
+          &amp; Last Updated" date on each calculator when we do. If you spot a figure that looks stale,
+          email us at <a href={`mailto:${CONTACT_EMAIL}`} class="text-primary-600 hover:underline">{CONTACT_EMAIL}</a>
+          — see our <a href="/methodology" class="text-primary-600 hover:underline">correction policy</a> for
+          what happens next.
         </p>
 
         <h2>Why We Built This</h2>
         <p>
-          The independent workforce is growing, but the financial tools haven't kept up. Most "freelance rate calculators" online are marketing funnels for accounting software or oversimplified tools that miss critical factors like self-employment tax, quarterly estimated payments, or platform-specific fee structures.
+          The independent workforce is growing, but the financial tools haven't kept up. Most "freelance rate
+          calculators" online are marketing funnels for accounting software or oversimplified tools that miss
+          critical factors like self-employment tax, quarterly estimated payments, or platform-specific fee
+          structures.
         </p>
         <p>
-          CalcFalcon exists to fill that gap with tools that are genuinely useful, totally free, and respect your privacy. No paywalls, no email gates, no "schedule a demo" buttons. Just calculators that work.
+          CalcFalcon exists to fill that gap with tools that are genuinely useful, clearly sourced, and
+          transparent about how the site is funded. No paywalls, no email gates, no "schedule a demo"
+          buttons. Just calculators that work, and a straight answer about who built them and why.
         </p>
       </div>
     </div>

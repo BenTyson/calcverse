@@ -1,0 +1,93 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { CONTACT_EMAIL } from '@lib/config/site';
+---
+
+<BaseLayout
+  title="Financial Disclaimer | CalcFalcon"
+  description="CalcFalcon's calculators are estimation tools, not tax, financial, or investment advice. Read our full disclaimer before relying on any result."
+>
+  <div class="py-16">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="heading-lg mb-4">Financial Disclaimer</h1>
+      <p class="text-neutral-600 text-lg mb-8">
+        <strong>Last updated:</strong> August 9, 2026
+      </p>
+
+      <div class="card-elevated p-6 md:p-8 mb-10 border-l-4 border-finance-500">
+        <p class="font-semibold text-neutral-900 mb-2">In short: this is not advice.</p>
+        <p class="text-neutral-600 leading-relaxed">
+          Every calculator, article, and worked example on CalcFalcon is an educational estimation tool.
+          Nothing on this site is tax, legal, investment, or financial advice, and using it does not create
+          an advisory or professional relationship of any kind. Your specific situation almost certainly
+          involves details a general-purpose calculator can't see. Before you file a return, make a
+          quarterly payment, sell an asset, or make any other financial decision, confirm the numbers with
+          a licensed CPA, tax attorney, enrolled agent, or financial advisor.
+        </p>
+      </div>
+
+      <div class="prose prose-neutral prose-lg max-w-none">
+        <h2>Why We Publish This</h2>
+        <p>
+          Freelance income, self-employment tax, capital gains, and retirement planning fall into what the
+          industry calls "Your Money or Your Life" (YMYL) content — topics where bad information can cause
+          real financial harm. We take that seriously. This page exists so you know exactly what our
+          calculators are, and are not, before you rely on a single number they produce.
+        </p>
+
+        <h2>What Our Calculators Do</h2>
+        <p>
+          Every calculator on CalcFalcon applies published formulas — IRS tax brackets, FICA rates, platform
+          fee structures, compound interest math — to the numbers you enter. They run entirely in your
+          browser. See our <a href="/methodology" class="text-primary-600 hover:underline">methodology page</a>
+          for exactly how each calculator is built and sourced.
+        </p>
+
+        <h2>What Our Calculators Don't Do</h2>
+        <ul>
+          <li>They don't know your full financial picture — dependents, prior-year carryovers, state-specific rules, credits, or deductions you haven't entered.</li>
+          <li>They don't account for every edge case in the tax code, platform fee schedule, or interest calculation they model.</li>
+          <li>They don't replace a professional's judgment. A CPA or financial advisor can ask follow-up questions a calculator cannot.</li>
+          <li>They can be wrong. Inputs can be mistyped, formulas can have bugs despite our best effort, and published rates change. See our <a href="/methodology" class="text-primary-600 hover:underline">correction policy</a> if you spot an error.</li>
+        </ul>
+
+        <h2>Tax and Legal Rules Change</h2>
+        <p>
+          Tax brackets, contribution limits, and thresholds are adjusted annually and can change through new
+          legislation at any time. Each tax and finance calculator on this site shows a "Sources &amp;
+          Last Updated" block citing which tax year the figures reflect and when we last checked them against
+          the IRS. If you are reading this after that date, confirm current figures directly with the IRS or
+          your tax professional before acting.
+        </p>
+
+        <h2>No Investment Recommendations</h2>
+        <p>
+          Nothing on CalcFalcon recommends buying, selling, or holding any specific investment, security, or
+          financial product. Where we link to third-party financial products (see our
+          <a href="/about#how-we-make-money" class="text-primary-600 hover:underline">affiliate disclosure</a>),
+          those links are compensated referrals, not endorsements of suitability for your situation.
+        </p>
+
+        <h2>No Professional Relationship</h2>
+        <p>
+          Using this site, subscribing to our newsletter, or contacting us does not create a
+          client, advisory, fiduciary, or professional relationship between you and CalcFalcon or its authors.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>
+          CalcFalcon and its operators are not liable for decisions made using information from this site. See
+          our full <a href="/terms" class="text-primary-600 hover:underline">Terms of Service</a> for the
+          complete limitation of liability.
+        </p>
+
+        <h2>Questions or Corrections</h2>
+        <p>
+          Spotted a figure that looks outdated or wrong? Please tell us — <a href={`mailto:${CONTACT_EMAIL}`} class="text-primary-600 hover:underline">{CONTACT_EMAIL}</a>
+          or via our <a href="/contact" class="text-primary-600 hover:underline">contact form</a>. We would
+          rather fix it than have it stand.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
