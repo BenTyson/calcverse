@@ -1,8 +1,7 @@
 # CalcFalcon authorized digital sellers
 # Format: <domain>, <publisher-id>, <relationship>, <certification-authority-id>
 #
-# TODO: AdSense account is under review. The line below uses the existing
-# publisher ID (also referenced in src/layouts/BaseLayout.astro). Confirm
-# this is the correct ID once Google approval completes — or replace with
-# the approved publisher ID and update BaseLayout.astro to match.
+# The publisher ID below must match `adsense.publisherId` in
+# src/lib/config/monetization.ts (this file is served as-is and cannot read
+# config at build time). If the ID ever changes, change it in both places.
 google.com, pub-3941293108914142, DIRECT, f08c47fec0942fa0

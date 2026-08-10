@@ -6,6 +6,7 @@ import EmbedCodeGenerator from '@components/calculator/EmbedCodeGenerator.astro'
 import RelatedCalculators from '@components/calculator/RelatedCalculators.astro';
 import RelatedBlogCTA from '@components/calculator/RelatedBlogCTA.astro';
 import AdSlot from '@components/monetization/AdSlot.astro';
+import { isAdSlotEnabled } from '@lib/config/monetization';
 import AffiliateCard from '@components/monetization/AffiliateCard.astro';
 import AffiliateDisclosure from '@components/monetization/AffiliateDisclosure.astro';
 import { EmailCapture } from '@components/monetization/EmailCapture';
@@ -181,9 +182,11 @@ const relatedBlogPosts = allBlogPosts
       )}
 
       <!-- Ad: Mid -->
-      <div class="mb-10">
-        <AdSlot slot="calculator-mid" format="leaderboard" />
-      </div>
+      {isAdSlotEnabled('calculator-mid') && (
+        <div class="mb-10">
+          <AdSlot slot="calculator-mid" format="leaderboard" />
+        </div>
+      )}
 
       <!-- How to Use / Guide Content -->
       <slot name="content" />
@@ -226,9 +229,11 @@ const relatedBlogPosts = allBlogPosts
       <RelatedBlogCTA posts={relatedBlogPosts} categorySlug={categorySlug} />
 
       <!-- Ad: Bottom -->
-      <div class="mb-10">
-        <AdSlot slot="calculator-bottom" format="rectangle" />
-      </div>
+      {isAdSlotEnabled('calculator-bottom') && (
+        <div class="mb-10">
+          <AdSlot slot="calculator-bottom" format="rectangle" />
+        </div>
+      )}
 
       <!-- Email Capture -->
       <EmailCapture variant="inline" leadMagnet={true} source={`calculator:${categorySlug}/${slug}`} client:visible />

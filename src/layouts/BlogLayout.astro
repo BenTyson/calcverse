@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import SchemaOrg from '@components/seo/SchemaOrg.astro';
 import AdSlot from '@components/monetization/AdSlot.astro';
+import { isAdSlotEnabled } from '@lib/config/monetization';
 import { EmailCapture } from '@components/monetization/EmailCapture';
 import MidArticleCTA from '@components/blog/MidArticleCTA.astro';
 import TopArticleCTA from '@components/blog/TopArticleCTA.astro';
@@ -290,9 +291,11 @@ const ctaCalculators = slugs.map((slug) => ({
       </script>
 
       <!-- Ad: Blog Content -->
-      <div class="mt-10">
-        <AdSlot slot="blog-content" format="leaderboard" />
-      </div>
+      {isAdSlotEnabled('blog-content') && (
+        <div class="mt-10">
+          <AdSlot slot="blog-content" format="leaderboard" />
+        </div>
+      )}
 
       <!-- Calculator CTA -->
       {ctaCalculators.length > 0 && (
