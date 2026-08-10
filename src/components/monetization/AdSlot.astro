@@ -1,4 +1,6 @@
 ---
+import { MONETIZATION, getAdUnitId } from '@lib/config/monetization';
+
 interface Props {
   slot: string;
   format: 'leaderboard' | 'rectangle';
@@ -6,16 +8,34 @@ interface Props {
 
 const { slot, format } = Astro.props;
 
+const client = MONETIZATION.adsense.publisherId;
+const adUnitId = getAdUnitId(slot);
+
+// No publisher ID or no unit ID for this slot => render absolutely nothing.
+// An empty labeled box reads as "Made for Advertising" to a policy reviewer.
+const enabled = Boolean(client && adUnitId);
+
+// CLS-safe reservations, sized to the unit each slot serves.
 const styles = {
   leaderboard: 'min-h-[50px] sm:min-h-[90px] max-w-[728px]',
   rectangle: 'min-h-[280px] max-w-[336px]',
 };
+
+const adFormat = format === 'leaderboard' ? 'horizontal' : 'rectangle';
 ---
 
-<div
-  class={`mx-auto border border-dashed border-neutral-200 flex items-center justify-center ${styles[format]}`}
-  data-ad-slot={slot}
->
-  <!-- AdSense code here -->
-  <span class="text-xs text-neutral-400">Advertisement</span>
-</div>
+{enabled && (
+  <div class={`mx-auto ${styles[format]}`} data-ad-slot={slot}>
+    <ins
+      class="adsbygoogle"
+      style="display:block;width:100%"
+      data-ad-client={client}
+      data-ad-slot={adUnitId}
+      data-ad-format={adFormat}
+      data-full-width-responsive="true"
+    ></ins>
+    <script is:inline>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+)}
