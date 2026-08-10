@@ -1,0 +1,84 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { AUTHORS } from '@lib/config/authors';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  return Object.values(AUTHORS).map((author) => ({
+    params: { slug: author.slug },
+    props: { author },
+  }));
+}
+
+const { author } = Astro.props;
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft && (post.data.author ?? 'ben') === author.slug)
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+
+const authorInitials = author.name
+  .split(' ')
+  .map((part: string) => part[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
+---
+
+<BaseLayout
+  title={`${author.name} | CalcFalcon`}
+  description={`Articles by ${author.name} on CalcFalcon: ${author.title}.`}
+>
+  <div class="py-16">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row gap-6 sm:items-center mb-10">
+        {author.avatar ? (
+          <img src={author.avatar} alt={author.name} class="w-20 h-20 rounded-full object-cover flex-shrink-0" />
+        ) : (
+          <div class="w-20 h-20 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center font-semibold text-2xl flex-shrink-0">
+            {authorInitials}
+          </div>
+        )}
+        <div>
+          <h1 class="heading-lg text-neutral-900">{author.name}</h1>
+          {author.title && <p class="text-neutral-500 mt-1">{author.title}</p>}
+        </div>
+      </div>
+
+      <div class="prose prose-neutral prose-lg max-w-none">
+        <p>{author.bio}</p>
+        <h2>Background</h2>
+        <p>{author.background}</p>
+      </div>
+
+      {author.social && (author.social.linkedin || author.social.x || author.social.website) && (
+        <div class="flex gap-4 mt-6">
+          {author.social.linkedin && (
+            <a href={author.social.linkedin} class="text-primary-600 hover:underline text-sm font-medium">LinkedIn</a>
+          )}
+          {author.social.x && (
+            <a href={author.social.x} class="text-primary-600 hover:underline text-sm font-medium">X / Twitter</a>
+          )}
+          {author.social.website && (
+            <a href={author.social.website} class="text-primary-600 hover:underline text-sm font-medium">Website</a>
+          )}
+        </div>
+      )}
+
+      {posts.length > 0 && (
+        <div class="mt-12">
+          <h2 class="heading-md text-neutral-900 mb-6">Articles by {author.name}</h2>
+          <ul class="space-y-4">
+            {posts.map((post) => (
+              <li class="card-elevated p-5">
+                <a href={`/blog/${post.id}`} class="font-semibold text-neutral-900 hover:text-primary-600 transition-colors">
+                  {post.data.title}
+                </a>
+                <p class="text-sm text-neutral-500 mt-1">{post.data.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>

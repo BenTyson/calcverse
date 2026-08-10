@@ -2,6 +2,14 @@
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTaxCalc';
 import { MONETIZATION } from '@lib/config/monetization';
+import SourcesBlock from '@components/calculator/SourcesBlock.astro';
+
+const sources = [
+  { label: 'SSA — 2024 Social Security/SSI/Medicare Information', url: 'https://www.ssa.gov/legislation/2024FactSheet.pdf', note: '$168,600 Social Security wage base' },
+  { label: 'IRS Topic no. 560, Additional Medicare Tax', url: 'https://www.irs.gov/taxtopics/tc560', note: '0.9% surtax thresholds' },
+  { label: 'IRS 2024 Instructions for Schedule SE', url: 'https://www.irs.gov/pub/irs-prior/i1040sse--2024.pdf', note: '15.3% rate, 92.35% adjustment' },
+  { label: 'IRS — Qualified Business Income Deduction (Section 199A)', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction', note: 'QBI deduction basics' },
+];
 
 const faqs = [
   {
@@ -139,5 +147,6 @@ const relatedCalculators = [
         <p><strong>Time large expenses strategically.</strong> If you plan a major equipment purchase or professional development investment, timing it to fall in a high-income year maximizes the SE tax reduction. Bunching deductible expenses into years with peak earnings amplifies their impact.</p>
       </div>
     </section>
+    <SourcesBlock taxYear="2024" lastVerified="August 9, 2026" sources={sources} />
   </Fragment>
 </CalculatorLayout>

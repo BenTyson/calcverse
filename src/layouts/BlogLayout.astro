@@ -4,6 +4,7 @@ import SchemaOrg from '@components/seo/SchemaOrg.astro';
 import AdSlot from '@components/monetization/AdSlot.astro';
 import { EmailCapture } from '@components/monetization/EmailCapture';
 import MidArticleCTA from '@components/blog/MidArticleCTA.astro';
+import { getAuthor } from '@lib/config/authors';
 import type { ArticleSEO, BreadcrumbItem } from '@lib/seo/schema';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
   description: string;
   publishedDate: Date;
   updatedDate?: Date;
+  author?: string;
   category: string;
   calculatorSlug?: string;
   readTime: number;
@@ -22,6 +24,7 @@ const {
   description,
   publishedDate,
   updatedDate,
+  author: authorSlug,
   category,
   calculatorSlug,
   readTime,
@@ -30,6 +33,14 @@ const {
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
 const currentUrl = `${siteUrl}${Astro.url.pathname}`;
+const author = getAuthor(authorSlug);
+const authorUrl = `${siteUrl}/authors/${author.slug}`;
+const authorInitials = author.name
+  .split(' ')
+  .map((part) => part[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
 
 const categoryLabels: Record<string, string> = {
   freelance: 'Freelance',
@@ -63,9 +74,17 @@ const article: ArticleSEO = {
   publishedDate: publishedDate.toISOString(),
   updatedDate: updatedDate?.toISOString(),
   category: label,
+  author: { name: author.name, url: authorUrl },
+  siteUrl,
 };
 
 const formattedDate = publishedDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -132,14 +151,43 @@ const calculatorNames: Record<string, string> = {
         </div>
         <h1 class="heading-lg text-neutral-900">{title}</h1>
         <p class="text-lg text-neutral-600 mt-3 leading-relaxed">{description}</p>
-        <time datetime={publishedDate.toISOString()} class="block text-sm text-neutral-500 mt-4">
-          {formattedDate}
-        </time>
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-neutral-500 mt-4">
+          <span>
+            By <a href={authorUrl} class="font-medium text-neutral-700 hover:text-primary-600 transition-colors">{author.name}</a>
+          </span>
+          <span class="text-neutral-300">&middot;</span>
+          <time datetime={publishedDate.toISOString()}>{formattedDate}</time>
+          {updatedDate && (
+            <>
+              <span class="text-neutral-300">&middot;</span>
+              <span>
+                Updated <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
+              </span>
+            </>
+          )}
+        </div>
       </header>
 
       <!-- Article Content -->
       <div class="prose prose-neutral prose-lg max-w-none" id="blog-prose">
         <slot />
+      </div>
+
+      <!-- Author Bio -->
+      <div class="mt-10 card-elevated p-6 flex flex-col sm:flex-row gap-4 sm:items-center">
+        {author.avatar ? (
+          <img src={author.avatar} alt={author.name} class="w-14 h-14 rounded-full object-cover flex-shrink-0" />
+        ) : (
+          <div class="w-14 h-14 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center font-semibold text-lg flex-shrink-0">
+            {authorInitials}
+          </div>
+        )}
+        <div>
+          <p class="text-sm text-neutral-500">Written by</p>
+          <a href={authorUrl} class="font-semibold text-neutral-900 hover:text-primary-600 transition-colors">{author.name}</a>
+          {author.title && <p class="text-sm text-neutral-500">{author.title}</p>}
+          <p class="text-sm text-neutral-600 mt-2 leading-relaxed">{author.bio}</p>
+        </div>
       </div>
 
       {calculatorSlug && (

@@ -8,6 +8,7 @@ const blog = defineCollection({
     description: z.string(),
     publishedDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
+    author: z.string().default('ben'),
     category: z.enum([
       'freelance',
       'creator',

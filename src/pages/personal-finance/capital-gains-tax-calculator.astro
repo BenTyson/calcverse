@@ -1,6 +1,12 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { CapitalGainsTaxCalc } from '@components/calculators/CapitalGainsTaxCalc';
+import SourcesBlock from '@components/calculator/SourcesBlock.astro';
+
+const sources = [
+  { label: 'IRS Revenue Procedure 2023-34', url: 'https://www.irs.gov/pub/irs-drop/rp-23-34.pdf', note: '2024 long-term capital gains brackets (0%/15%/20%)' },
+  { label: 'IRS Instructions for Form 8960 (Net Investment Income Tax)', url: 'https://www.irs.gov/pub/irs-pdf/i8960.pdf', note: '3.8% NIIT rate and $200,000 / $250,000 / $125,000 MAGI thresholds' },
+];
 
 const faqs = [
   {
@@ -119,5 +125,6 @@ const relatedCalculators = [
         <p>Self-employed workers often have both business income and investment income. Your self-employment earnings raise your ordinary income level, which pushes capital gains into higher brackets and can trigger the 3.8 percent NIIT. Planning the timing of asset sales around your expected business income for the year can meaningfully reduce your total tax bill. Work with a tax professional to model different scenarios before making large asset sales.</p>
       </div>
     </section>
+    <SourcesBlock taxYear="2024" lastVerified="August 9, 2026" sources={sources} />
   </Fragment>
 </CalculatorLayout>

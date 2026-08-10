@@ -1,0 +1,90 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { CONTACT_EMAIL } from '@lib/config/site';
+---
+
+<BaseLayout
+  title="Our Methodology | CalcFalcon"
+  description="How CalcFalcon builds, sources, and maintains its calculators — formula derivation, data sourcing, review cadence, and how we correct errors."
+>
+  <div class="py-16">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="heading-lg mb-8">Our Methodology</h1>
+
+      <div class="prose prose-neutral prose-lg max-w-none">
+        <p>
+          This page explains how CalcFalcon's calculators are built, where the numbers come from, how often
+          we check them, and what happens when we find a mistake. We publish it because financial estimation
+          tools are only useful if you can trust the math behind them — and trust starts with showing our
+          work.
+        </p>
+
+        <h2>How We Build a Calculator</h2>
+        <p>
+          Every calculator starts from a documented formula, not a guess. For tax calculators, that means
+          working from the relevant IRS publication or Revenue Procedure line by line — tax brackets,
+          standard deductions, FICA rates, the self-employment tax's 92.35% adjustment, capital gains bracket
+          stacking, and Net Investment Income Tax thresholds are all implemented directly from primary IRS
+          sources, not third-party summaries. For platform-fee calculators (YouTube AdSense, Etsy, DoorDash,
+          Airbnb, and similar), we start from the platform's published fee schedule and terms.
+        </p>
+        <p>
+          Each formula is implemented as a pure, isolated function, separate from the interface that collects
+          your inputs. That separation lets us test the math on its own and update a rate or bracket in one
+          place without touching how the calculator looks or behaves.
+        </p>
+
+        <h2>Where Our Tax Data Comes From</h2>
+        <p>
+          Every tax and finance calculator that cites IRS figures displays a visible <strong>"Sources &amp;
+          Last Updated"</strong> block directly on the calculator page. It names the specific IRS publication,
+          Revenue Procedure, or Social Security Administration fact sheet the numbers come from, states which
+          tax year the figures apply to, and gives the date we last checked them against that source. If
+          you're ever unsure whether a number is current, check that block before you check anything else on
+          the page.
+        </p>
+
+        <h2>Review Cadence</h2>
+        <p>
+          Federal tax brackets, standard deductions, and Social Security wage bases are set annually by the
+          IRS and SSA, typically announced in the final months of the preceding year. We review our tax
+          calculators against the newly published figures each time the IRS releases them and update the
+          "Sources &amp; Last Updated" date accordingly.
+        </p>
+        <p>
+          TODO(ben): confirm the actual review cadence you intend to commit to (e.g. "we review all tax
+          calculators every January when new IRS figures are released, and platform-fee calculators
+          quarterly") so this section states a real, followable process rather than an aspiration.
+        </p>
+
+        <h2>How We Correct Errors</h2>
+        <p>
+          If you find a figure that looks outdated, a formula that looks wrong, or a broken calculator,
+          please tell us at <a href={`mailto:${CONTACT_EMAIL}`} class="text-primary-600 hover:underline">{CONTACT_EMAIL}</a>
+          or through our <a href="/contact" class="text-primary-600 hover:underline">contact form</a>. We
+          verify the report against the primary source, fix the underlying formula or constant if it's wrong,
+          and update the calculator's "Sources &amp; Last Updated" date to reflect the correction. We do not
+          silently edit published figures without updating that date — if the numbers on a page changed, the
+          date changes with them.
+        </p>
+
+        <h2>What Our Calculators Are Not</h2>
+        <p>
+          Our calculators are general-purpose estimation tools. They cannot account for every detail of your
+          individual situation — state-specific rules, prior-year carryovers, credits you may qualify for, or
+          circumstances a form field doesn't ask about. Read our full
+          <a href="/disclaimer" class="text-primary-600 hover:underline">financial disclaimer</a> for what
+          that means before you rely on a result.
+        </p>
+
+        <h2>Editorial Independence</h2>
+        <p>
+          CalcFalcon is supported by display advertising and affiliate partnerships — see
+          <a href="/about#how-we-make-money" class="text-primary-600 hover:underline">how we make money</a>
+          for the full breakdown. Affiliate relationships never change what a calculator computes. A
+          calculator's math is the same whether or not an affiliate link appears next to it.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

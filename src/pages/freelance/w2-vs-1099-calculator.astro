@@ -2,6 +2,13 @@
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { W2vs1099Calc } from '@components/calculators/W2vs1099Calc';
 import { MONETIZATION } from '@lib/config/monetization';
+import SourcesBlock from '@components/calculator/SourcesBlock.astro';
+
+const sources = [
+  { label: 'IRS Revenue Procedure 2023-34', url: 'https://www.irs.gov/pub/irs-drop/rp-23-34.pdf', note: '2024 tax brackets and standard deduction amounts' },
+  { label: 'SSA — 2024 Social Security/SSI/Medicare Information', url: 'https://www.ssa.gov/legislation/2024FactSheet.pdf', note: '$168,600 Social Security wage base, 7.65% employer FICA share' },
+  { label: 'IRS 2024 Instructions for Schedule SE', url: 'https://www.irs.gov/pub/irs-prior/i1040sse--2024.pdf', note: '15.3% self-employment tax rate' },
+];
 
 const faqs = [
   {
@@ -125,5 +132,6 @@ const relatedCalculators = [
         <p>Contracting tends to outperform W-2 employment when the rate premium exceeds 40 percent, when you have a spouse's health insurance, when you maximize retirement contributions through a Solo 401(k), when significant business deductions (home office, equipment, travel) reduce your taxable income, or when you can work with multiple clients simultaneously and maintain high utilization rates.</p>
       </div>
     </section>
+    <SourcesBlock taxYear="2024" lastVerified="August 9, 2026" sources={sources} />
   </Fragment>
 </CalculatorLayout>

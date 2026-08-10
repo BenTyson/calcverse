@@ -50,6 +50,11 @@ export function generateFAQSchema(faqs: FAQ[]): object {
   };
 }
 
+export interface ArticleAuthorSEO {
+  name: string;
+  url: string;
+}
+
 export interface ArticleSEO {
   headline: string;
   description: string;
@@ -57,9 +62,14 @@ export interface ArticleSEO {
   publishedDate: string;
   updatedDate?: string;
   category: string;
+  /** Byline author. Falls back to the CalcFalcon organization if omitted. */
+  author?: ArticleAuthorSEO;
+  siteUrl?: string;
 }
 
 export function generateArticleSchema(article: ArticleSEO): object {
+  const siteUrl = article.siteUrl || 'https://calcfalcon.com';
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -69,15 +79,21 @@ export function generateArticleSchema(article: ArticleSEO): object {
     datePublished: article.publishedDate,
     ...(article.updatedDate && { dateModified: article.updatedDate }),
     articleSection: article.category,
-    author: {
-      '@type': 'Organization',
-      name: 'CalcFalcon',
-      url: 'https://calcfalcon.com',
-    },
+    author: article.author
+      ? {
+          '@type': 'Person',
+          name: article.author.name,
+          url: article.author.url,
+        }
+      : {
+          '@type': 'Organization',
+          name: 'CalcFalcon',
+          url: siteUrl,
+        },
     publisher: {
       '@type': 'Organization',
       name: 'CalcFalcon',
-      url: 'https://calcfalcon.com',
+      url: siteUrl,
     },
   };
 }
