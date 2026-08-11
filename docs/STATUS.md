@@ -1,6 +1,6 @@
 # CalcFalcon — Current Status
 
-**Last Updated:** 2026-08-09 (Phase R1 shipped)
+**Last Updated:** 2026-08-09 (Phase R1 shipped; tax data updated to TY2026)
 **Domain:** calcfalcon.com
 **Hosting:** Railway (auto-deploy from main)
 
@@ -319,6 +319,22 @@
 - [x] Structured data: `image` property added to WebApplication schema (`schema.ts` + `CalculatorLayout.astro`)
 - [x] PWA support: `manifest.json`, service worker (`sw.js`), 192/512px PNG icons, manifest link + theme-color meta in BaseLayout
 - [x] `sharp` added as explicit dependency for OG image conversion
+
+## Tax Data — TY2026
+
+Calculators compute on **tax year 2026** figures, verified 2026-08-09 against
+IRS Rev. Proc. 2025-32, Notice 2025-67, Notice 2026-10 / Announcement 2026-11,
+and the SSA OASDI base determination. Citations live at the top of
+`src/lib/calculators/shared/tax-brackets.ts`. See **Tax Data** in `CLAUDE.md`
+for the rules and the annual update procedure.
+
+Guard: `npm run check:tax-data` (must pass alongside `npm run build`).
+
+Open tax-data work:
+- 13 blog posts carry stale figures — `docs/BLOG-TAX-AUDIT.md`
+- QBI modeled as flat 20% (no phase-out / SSTB limit)
+- OBBBA "no tax on tips" / "no tax on overtime" deductions not modeled —
+  the gig calculators over-state tax for tipped workers
 
 ## What's NOT Done
 

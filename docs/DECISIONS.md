@@ -70,6 +70,19 @@ These are settled. Changing them requires explicit user approval.
 | Affiliate placement | Opt-in per calculator via `affiliateProduct` prop | Not all calcs have relevant products |
 | Affiliate links | `rel="nofollow sponsored"` | FTC compliance |
 
+## Tax Data (decided 2026-08-09)
+
+| Decision | Choice | Why |
+|----------|--------|-----|
+| Source of truth | `shared/tax-brackets.ts` + `shared/mileage-rates.ts` | Figures were duplicated across 6+ files and drifted 2 years stale |
+| Year exposure | `TAX_YEAR` / `TAX_DATA_LAST_VERIFIED` exports drive every `SourcesBlock` | Pages hardcoded `taxYear="2024"` while blog titles said 2026 |
+| Verification standard | Primary sources only (irs.gov / ssa.gov / Federal Register), fetched in-session | YMYL; an invented bracket on a site with a live AdSense violation is unrecoverable |
+| Unverifiable figures | Leave the old value, label it, report it | A labeled stale figure beats a confident wrong one |
+| Enforcement | `npm run check:tax-data`, denylist grows each year | Review alone already failed once |
+| Non-indexed figures | NIIT + Additional Medicare thresholds are statutory — never "update" them | Easy to wrongly re-index during an inflation pass |
+| Mileage rate | Use the rate currently in effect; disclose split-year periods | 2026 changed mid-year (72.5¢ → 76¢ on Jul 1) |
+| Blog backlog | Flagged in `docs/BLOG-TAX-AUDIT.md`, fixed separately | 13 posts; not worth blocking the calculator fix |
+
 ## What's Still Open
 
 - Blog content voice (casual vs professional)

@@ -3,11 +3,12 @@ import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { QuarterlyTaxCalc } from '@components/calculators/QuarterlyTaxCalc';
 import { MONETIZATION } from '@lib/config/monetization';
 import SourcesBlock from '@components/calculator/SourcesBlock.astro';
+import { TAX_YEAR, TAX_DATA_LAST_VERIFIED } from '@lib/calculators/shared/tax-brackets';
 
 const sources = [
-  { label: 'IRS Revenue Procedure 2023-34', url: 'https://www.irs.gov/pub/irs-drop/rp-23-34.pdf', note: '2024 tax brackets and standard deduction amounts' },
-  { label: 'SSA — 2024 Social Security/SSI/Medicare Information', url: 'https://www.ssa.gov/legislation/2024FactSheet.pdf', note: '$168,600 Social Security wage base' },
-  { label: 'IRS 2024 Instructions for Schedule SE', url: 'https://www.irs.gov/pub/irs-prior/i1040sse--2024.pdf', note: 'Self-employment tax calculation' },
+  { label: 'IRS Revenue Procedure 2025-32', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf', note: '2026 tax brackets (§ 4.01) and standard deduction amounts (§ 4.14)' },
+  { label: 'IRS Topic no. 751, Social Security and Medicare withholding rates', url: 'https://www.irs.gov/taxtopics/tc751', note: '$184,500 Social Security wage base for 2026' },
+  { label: 'IRS Instructions for Schedule SE (Form 1040)', url: 'https://www.irs.gov/pub/irs-pdf/i1040sse.pdf', note: 'Self-employment tax calculation — 92.35% adjustment and 15.3% combined rate' },
 ];
 
 const faqs = [
@@ -134,7 +135,7 @@ const relatedCalculators = [
         </table>
         <p>Notice that Q2 only covers two months while Q3 covers three. This catches many freelancers off guard — the Q2 payment arrives quickly after Q1, and the income period it covers is shorter than expected.</p>
         <h2>A Worked Example</h2>
-        <p>Suppose you are a single freelance web developer earning $95,000 in net self-employment income with $8,000 in business deductions. Your self-employment tax on 92.35 percent of $87,000 ($80,325) is approximately $12,290. Half of that ($6,145) is deductible. After the standard deduction of $14,600, your taxable income for federal purposes is approximately $66,255, putting you in the 22 percent bracket with a federal tax bill of roughly $9,850. Add a 5 percent state tax of approximately $4,040, and your total annual tax obligation is about $26,180 — or roughly $6,545 per quarter.</p>
+        <p>Suppose you are a single freelance web developer earning $95,000 in net self-employment income with $8,000 in business deductions. Your self-employment tax on 92.35 percent of $87,000 ($80,345) is approximately $12,293. Half of that ($6,146) is deductible. After the 2026 standard deduction of $16,100, your taxable income for federal purposes is approximately $64,754, putting you in the 22 percent bracket with a federal tax bill of roughly $8,958. Add a 5 percent state tax of approximately $3,238, and your total annual tax obligation is about $24,488 — or roughly $6,122 per quarter.</p>
         <p>If you did not make quarterly payments and waited until April to pay the full $26,180, the IRS would assess an underpayment penalty calculated on each missed quarter using the federal short-term interest rate plus 3 percentage points.</p>
         <h2>Strategies to Simplify Quarterly Taxes</h2>
         <p><strong>Automate your savings.</strong> Each time a client payment hits your account, transfer 25 to 30 percent into a dedicated tax savings account. By the time each deadline arrives, the money is already set aside.</p>
@@ -143,6 +144,6 @@ const relatedCalculators = [
         <p><strong>Track deductions year-round.</strong> Business expenses reduce your taxable income and therefore your quarterly obligation. Keeping receipts and categorizing expenses monthly prevents a scramble at tax time and gives you more accurate quarterly estimates.</p>
       </div>
     </section>
-    <SourcesBlock taxYear="2024" lastVerified="August 9, 2026" sources={sources} />
+    <SourcesBlock taxYear={TAX_YEAR} lastVerified={TAX_DATA_LAST_VERIFIED} sources={sources} />
   </Fragment>
 </CalculatorLayout>

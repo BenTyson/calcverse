@@ -232,8 +232,8 @@ export function FreelanceRetirementCalc() {
               <p className="font-medium mb-1">Tax tip</p>
               <p>
                 A Solo 401(k) allows the highest contribution limits for self-employed
-                workers — up to $69,000/year. If you're 50 or older, catch-up
-                contributions add another $7,500. SEP-IRAs are simpler but cap at 25%
+                workers — up to $72,000/year. If you're 50 or older, catch-up
+                contributions add another $8,000. SEP-IRAs are simpler but cap at 25%
                 of net earnings.
               </p>
             </div>

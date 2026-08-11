@@ -1,3 +1,7 @@
+// IRS standard mileage rate, currently $0.76/mile (July 1 – Dec 31, 2026).
+// See shared/mileage-rates.ts — 2026 is a split-rate year.
+import { IRS_MILEAGE_RATE } from './shared/mileage-rates';
+
 export interface UberLyftInputs {
   grossWeeklyEarnings: number;
   milesDriven: number;
@@ -26,9 +30,6 @@ export interface UberLyftResults {
     isDeduction?: boolean;
   }[];
 }
-
-// IRS mileage rate 2024: $0.67/mile
-const IRS_MILEAGE_RATE = 0.67;
 
 // Average depreciation per mile (varies by vehicle)
 const DEPRECIATION_PER_MILE = 0.15;

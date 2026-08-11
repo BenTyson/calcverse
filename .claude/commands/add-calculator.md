@@ -62,10 +62,27 @@ Must include:
 - Round percentages to 1 decimal: `Math.round(value * 10) / 10`
 - Round integer values: `Math.round(value)`
 - Use `4.33` for weeks-per-month, `52` for weeks-per-year, `12` for months-per-year
-- IRS mileage rate constant: `0.67` (if applicable)
 - Break-even calculations use iteration (loop 1 to max), not algebra
 - Breakdown array: `{ label: string; amount: number; isDeduction?: boolean }[]`
-- No side effects, no DOM access, no imports beyond types
+- No side effects, no DOM access, no imports beyond types and shared constants
+
+### NEVER hardcode a tax or government figure — import it
+
+Any figure the IRS/SSA publishes and revises annually is **banned as a literal**
+in a calculator file. Import it from the shared modules instead:
+
+| Figure | Import from |
+|--------|-------------|
+| Brackets, standard deduction, LTCG, NIIT, QBI, FICA rates, SS wage base | `./shared/tax-brackets` |
+| IRS standard mileage rate | `./shared/mileage-rates` |
+| Retirement contribution limits | `./shared/tax-brackets` (add there if missing) |
+
+This applies to `.tsx` components and `.astro` page copy too — no `$0.76`,
+no `$184,500`, no `$16,100` typed as a literal anywhere. Components import the
+constant and format it (`$${IRS_MILEAGE_RATE.toFixed(2)}`).
+
+If the figure you need isn't in a shared module yet, **add it there** with a
+source citation — do not inline it. See "Tax data rules" in CLAUDE.md.
 
 ## Step 3: Create UI Component
 
@@ -146,6 +163,33 @@ Must include:
 - Include one FAQ about taxes/deductions
 - Keep answers 2-4 sentences, factual, with specific numbers
 
+### If the calculator uses IRS/SSA figures, add a `SourcesBlock`:
+
+```astro
+import SourcesBlock from '@components/calculator/SourcesBlock.astro';
+import { TAX_YEAR, TAX_DATA_LAST_VERIFIED } from '@lib/calculators/shared/tax-brackets';
+
+const sources = [
+  { label: 'IRS Revenue Procedure XXXX-XX', url: '...', note: 'what it sources' },
+];
+```
+```astro
+<SourcesBlock taxYear={TAX_YEAR} lastVerified={TAX_DATA_LAST_VERIFIED} sources={sources} />
+```
+
+Never pass a string literal for `taxYear` or `lastVerified` — always the imported
+constants, so one module update fixes every page at once.
+
+**Every source URL must be one you actually fetched in this session.** Do not add
+a citation from memory. If you can't load it, don't cite it.
+
+### Body copy carries the same rules as code
+
+Worked examples in `<Fragment slot="content">` and FAQ answers are the easiest
+place for stale numbers to hide — the build won't catch them. If you write a
+worked example using tax figures, **compute it by running the calculator**, not
+by hand. Never write a year next to a figure you haven't verified for that year.
+
 ### Category reference:
 
 | Category | `category` prop | `categorySlug` prop | CSS prefix |
@@ -206,6 +250,15 @@ Run `npm run build` and confirm:
 - New page appears in build output
 - New embed page appears in build output
 - Page count increased correctly
+
+Then run the stale-figure check — it must come back clean for your new files:
+
+```bash
+npm run check:tax-data
+```
+
+This greps for hardcoded IRS/SSA figures and past-year labels outside the shared
+modules. If it flags your calculator, import the constant instead of inlining it.
 
 ## Step 10: Blog Article Consideration
 

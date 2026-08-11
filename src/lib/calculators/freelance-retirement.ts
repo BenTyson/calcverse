@@ -36,13 +36,22 @@ export const ACCOUNT_TYPE_OPTIONS = [
   { value: 'roth_ira', label: 'Roth IRA' },
 ];
 
-// 2024 contribution limits
-const SOLO_401K_EMPLOYEE_LIMIT = 23500;
-const SOLO_401K_TOTAL_LIMIT = 69000;
-const SOLO_401K_CATCHUP = 7500;
-const SEP_IRA_LIMIT = 69000;
-const IRA_LIMIT = 7000;
-const IRA_CATCHUP = 1000;
+// 2026 contribution limits — IRS Notice 2025-67, "2026 Amounts Relating to
+// Retirement Plans and IRAs" (https://www.irs.gov/pub/irs-drop/n-25-67.pdf).
+// Verified August 9, 2026.
+//   § 402(g)(1) elective deferral ............ $24,500
+//   § 415(c)(1)(A) annual additions .......... $72,000
+//   § 414(v)(2)(B)(i) catch-up (age 50+) ..... $8,000
+//   § 219(b)(5)(A) IRA ....................... $7,500
+//   § 219(b)(5)(B)(ii) IRA catch-up .......... $1,100
+// Note: a higher § 414(v)(2)(E)(i) catch-up of $11,250 applies to those who
+// attain age 60–63 in 2026; this calculator does not model that tier.
+const SOLO_401K_EMPLOYEE_LIMIT = 24500;
+const SOLO_401K_TOTAL_LIMIT = 72000;
+const SOLO_401K_CATCHUP = 8000;
+const SEP_IRA_LIMIT = 72000;
+const IRA_LIMIT = 7500;
+const IRA_CATCHUP = 1100;
 const CATCHUP_AGE = 50;
 
 function getMaxContribution(

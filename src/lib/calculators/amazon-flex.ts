@@ -1,3 +1,7 @@
+// IRS standard mileage rate, currently $0.76/mile (July 1 – Dec 31, 2026).
+// See shared/mileage-rates.ts — 2026 is a split-rate year.
+import { IRS_MILEAGE_RATE } from './shared/mileage-rates';
+
 export interface AmazonFlexInputs {
   blocksPerWeek: number;
   averagePayPerBlock: number;
@@ -25,8 +29,6 @@ export interface AmazonFlexResults {
     isDeduction?: boolean;
   }[];
 }
-
-const IRS_MILEAGE_RATE = 0.67;
 
 export const DEFAULT_INPUTS: AmazonFlexInputs = {
   blocksPerWeek: 5,

@@ -7,6 +7,7 @@ import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
 import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { Tooltip } from '../ui/Tooltip';
+import { IRS_MILEAGE_RATE, IRS_MILEAGE_RATE_2026_H1 } from '../../lib/calculators/shared/mileage-rates';
 import {
   calculateUberLyftEarnings,
   DEFAULT_INPUTS,
@@ -192,11 +193,11 @@ export function UberLyftCalc() {
             <ResultCard
               label="Weekly IRS Deduction"
               value={formatCurrency(results.irsMileageDeduction)}
-              description={`${inputs.milesDriven} mi x $0.67`}
+              description={`${inputs.milesDriven} mi x $${IRS_MILEAGE_RATE.toFixed(2)}`}
               size="sm"
             />
             <div className="bg-gig-50 rounded-xl p-4 text-sm text-gig-800">
-              <strong>Tax tip:</strong> Your annual <Tooltip text="Deduct $0.67 per business mile instead of tracking actual vehicle expenses">IRS mileage deduction</Tooltip> could be{' '}
+              <strong>Tax tip:</strong> Your annual <Tooltip text={`Deduct $${IRS_MILEAGE_RATE.toFixed(2)} per business mile instead of tracking actual vehicle expenses. Miles driven before July 1, 2026 are deducted at the earlier $${IRS_MILEAGE_RATE_2026_H1.toFixed(3)} rate.`}>IRS mileage deduction</Tooltip> could be{' '}
               {formatCurrency(results.irsMileageDeduction * 52)}. This is usually
               better than deducting actual expenses. Keep detailed mileage logs!
             </div>

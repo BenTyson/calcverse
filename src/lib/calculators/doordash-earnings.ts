@@ -1,3 +1,8 @@
+// IRS standard mileage rate, currently $0.76/mile (July 1 – Dec 31, 2026).
+// This covers gas, maintenance, depreciation, insurance.
+// See shared/mileage-rates.ts — 2026 is a split-rate year.
+import { IRS_MILEAGE_RATE } from './shared/mileage-rates';
+
 export interface DoorDashInputs {
   deliveriesPerWeek: number;
   averageTip: number;
@@ -24,10 +29,6 @@ export interface DoorDashResults {
     isDeduction?: boolean;
   }[];
 }
-
-// IRS standard mileage rate for 2024: $0.67/mile
-// This covers gas, maintenance, depreciation, insurance
-const IRS_MILEAGE_RATE = 0.67;
 
 export const DEFAULT_INPUTS: DoorDashInputs = {
   deliveriesPerWeek: 30,

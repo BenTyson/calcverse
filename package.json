@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:tax-data": "node scripts/check-tax-data.mjs"
   },
   "engines": {
     "node": ">=20"

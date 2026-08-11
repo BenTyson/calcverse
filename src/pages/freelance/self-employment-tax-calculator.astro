@@ -3,11 +3,13 @@ import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTaxCalc';
 import { MONETIZATION } from '@lib/config/monetization';
 import SourcesBlock from '@components/calculator/SourcesBlock.astro';
+import { TAX_YEAR, TAX_DATA_LAST_VERIFIED } from '@lib/calculators/shared/tax-brackets';
 
 const sources = [
-  { label: 'SSA — 2024 Social Security/SSI/Medicare Information', url: 'https://www.ssa.gov/legislation/2024FactSheet.pdf', note: '$168,600 Social Security wage base' },
-  { label: 'IRS Topic no. 560, Additional Medicare Tax', url: 'https://www.irs.gov/taxtopics/tc560', note: '0.9% surtax thresholds' },
-  { label: 'IRS 2024 Instructions for Schedule SE', url: 'https://www.irs.gov/pub/irs-prior/i1040sse--2024.pdf', note: '15.3% rate, 92.35% adjustment' },
+  { label: 'IRS Revenue Procedure 2025-32', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf', note: '2026 tax brackets (§ 4.01), standard deduction (§ 4.14), QBI thresholds (§ 4.26)' },
+  { label: 'IRS Topic no. 751, Social Security and Medicare withholding rates', url: 'https://www.irs.gov/taxtopics/tc751', note: '$184,500 Social Security wage base for 2026' },
+  { label: 'IRS Topic no. 560, Additional Medicare Tax', url: 'https://www.irs.gov/taxtopics/tc560', note: '0.9% surtax thresholds (fixed in statute, not inflation-indexed)' },
+  { label: 'IRS Instructions for Schedule SE (Form 1040)', url: 'https://www.irs.gov/pub/irs-pdf/i1040sse.pdf', note: '15.3% rate, 92.35% adjustment' },
   { label: 'IRS — Qualified Business Income Deduction (Section 199A)', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction', note: 'QBI deduction basics' },
 ];
 
@@ -30,7 +32,7 @@ const faqs = [
   {
     question: 'What is the QBI deduction?',
     answer:
-      'The Qualified Business Income (QBI) deduction under Section 199A lets eligible self-employed individuals deduct up to 20% of their qualified business income. Most sole proprietors and single-member LLCs qualify if their taxable income is below $191,950 (single) or $383,900 (married filing jointly) for 2024.',
+      'The Qualified Business Income (QBI) deduction under Section 199A lets eligible self-employed individuals deduct up to 20% of their qualified business income. Most sole proprietors and single-member LLCs qualify if their taxable income is below $201,750 (single) or $403,500 (married filing jointly) for 2026.',
   },
   {
     question: 'What is Schedule SE?',
@@ -96,7 +98,7 @@ const relatedCalculators = [
       <div class="prose prose-neutral max-w-none">
         <h2>Self-Employment Tax Explained: What Freelancers Owe and Why</h2>
         <p>Self-employment tax is the freelancer's version of FICA — the Social Security and Medicare taxes that W-2 employees split with their employer. The critical difference is that you pay both halves. At 15.3 percent of your net earnings, SE tax is often a freelancer's single largest tax bill, frequently exceeding federal income tax for earners in the lower and middle brackets.</p>
-        <p>The 15.3 percent rate breaks into two components: 12.4 percent for Social Security (capped at $168,600 of earnings in 2024) and 2.9 percent for Medicare (no cap). If your net self-employment income exceeds $200,000 as a single filer or $250,000 filing jointly, an additional 0.9 percent Medicare surtax applies to the excess.</p>
+        <p>The 15.3 percent rate breaks into two components: 12.4 percent for Social Security (capped at $184,500 of earnings in 2026) and 2.9 percent for Medicare (no cap). If your net self-employment income exceeds $200,000 as a single filer or $250,000 filing jointly, an additional 0.9 percent Medicare surtax applies to the excess.</p>
         <h3>How This Calculator Works</h3>
         <p>Enter your net self-employment income (gross revenue minus business expenses) and filing status. The calculator applies the 92.35 percent adjustment that the IRS uses to mirror the employer-equivalent share, computes Social Security and Medicare taxes separately, checks for the Additional Medicare Tax threshold, and calculates the deductible half of SE tax that reduces your adjusted gross income. In Advanced mode, you can enter business deductions, state tax rates, and see the Qualified Business Income (QBI) deduction under Section 199A.</p>
       </div>
@@ -112,11 +114,11 @@ const relatedCalculators = [
         <h3>The 92.35% Rule</h3>
         <p>The IRS only taxes 92.35% of your net self-employment income. This adjustment mirrors the fact that employers pay half of FICA taxes and that portion is not taxed. So on $100,000 of net SE income, only $92,350 is subject to SE tax.</p>
         <h3>Social Security vs Medicare</h3>
-        <p>The 15.3% SE tax rate breaks down into two parts: 12.4% for Social Security (capped at $168,600 in wages for 2024) and 2.9% for Medicare (no cap). If your income exceeds $200,000 (single) or $250,000 (married filing jointly), you also owe an additional 0.9% Medicare tax on the excess.</p>
+        <p>The 15.3% SE tax rate breaks down into two parts: 12.4% for Social Security (capped at $184,500 in wages for 2026) and 2.9% for Medicare (no cap). If your income exceeds $200,000 (single) or $250,000 (married filing jointly), you also owe an additional 0.9% Medicare tax on the excess.</p>
         <h3>The 50% Deduction</h3>
         <p>You can deduct half of your self-employment tax when calculating your adjusted gross income. This deduction reduces your income tax but does not reduce your SE tax itself. It goes on line 15 of Schedule 1 (Form 1040).</p>
         <h3>Schedule SE</h3>
-        <p>Schedule SE is the IRS form that calculates your self-employment tax. The short version (Section A) works for most self-employed individuals with net earnings under $168,600. If your income is higher or you have church employee income, you will need the long version (Section B).</p>
+        <p>Schedule SE is the IRS form that calculates your self-employment tax. The short version (Section A) works for most self-employed individuals with net earnings under $184,500. If your income is higher or you have church employee income, you will need the long version (Section B).</p>
       </div>
     </section>
   </Fragment>
@@ -139,7 +141,7 @@ const relatedCalculators = [
             <tr><td>$250,000</td><td>$27,399</td><td>$463</td><td>$27,862</td></tr>
           </tbody>
         </table>
-        <p>Notice that at $168,600 the Social Security portion (12.4 percent) caps out. Above that threshold, only the 2.9 percent Medicare tax continues. This creates a natural inflection point where the effective SE tax rate drops from 15.3 percent to 2.9 percent on marginal income.</p>
+        <p>Notice that at $184,500 the Social Security portion (12.4 percent) caps out. Above that threshold, only the 2.9 percent Medicare tax continues. This creates a natural inflection point where the effective SE tax rate drops from 15.3 percent to 2.9 percent on marginal income.</p>
         <h2>Strategies to Reduce Self-Employment Tax</h2>
         <p><strong>Maximize business deductions.</strong> Every dollar of legitimate business expense reduces your net SE income and therefore your SE tax. Common deductions include home office (simplified or actual), equipment depreciation, software subscriptions, professional development, business insurance, and mileage for client meetings.</p>
         <p><strong>Consider S-Corp election.</strong> An S-Corporation structure lets you split income between a reasonable salary (subject to SE tax) and distributions (not subject to SE tax). For freelancers earning above $80,000 to $100,000, this can save thousands per year. However, S-Corps come with additional administrative costs including payroll processing and separate tax filings, so the savings must outweigh the overhead.</p>
@@ -147,6 +149,6 @@ const relatedCalculators = [
         <p><strong>Time large expenses strategically.</strong> If you plan a major equipment purchase or professional development investment, timing it to fall in a high-income year maximizes the SE tax reduction. Bunching deductible expenses into years with peak earnings amplifies their impact.</p>
       </div>
     </section>
-    <SourcesBlock taxYear="2024" lastVerified="August 9, 2026" sources={sources} />
+    <SourcesBlock taxYear={TAX_YEAR} lastVerified={TAX_DATA_LAST_VERIFIED} sources={sources} />
   </Fragment>
 </CalculatorLayout>

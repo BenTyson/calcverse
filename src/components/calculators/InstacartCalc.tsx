@@ -264,7 +264,7 @@ export function InstacartCalc() {
             <li>• Work during peak hours (mornings, evenings, weekends) for better batch offers</li>
             <li>• Focus on high-tip customers - check tip % before accepting</li>
             <li>• Learn store layouts to shop faster</li>
-            <li>• Track mileage for tax deductions (currently $0.67/mile)</li>
+            <li>• Track mileage for tax deductions (currently $0.76/mile, from July 1, 2026)</li>
             <li>• Avoid low-paying multi-batch orders unless tips are good</li>
           </ul>
         </div>

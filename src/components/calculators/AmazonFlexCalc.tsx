@@ -6,6 +6,7 @@ import { ResultCard } from '../ui/results/ResultCard';
 import { ResultBreakdown } from '../ui/results/ResultBreakdown';
 import { CopyResultsButton } from '../ui/results/CopyResultsButton';
 import { Tooltip } from '../ui/Tooltip';
+import { IRS_MILEAGE_RATE, IRS_MILEAGE_RATE_2026_H1 } from '../../lib/calculators/shared/mileage-rates';
 import {
   calculateAmazonFlex,
   DEFAULT_INPUTS,
@@ -203,9 +204,9 @@ export function AmazonFlexCalc() {
               size="sm"
             />
             <div className="bg-gig-50 rounded-xl p-4 text-sm text-gig-800">
-              <strong>Tax tip:</strong> Track your miles! The <Tooltip text="You can deduct $0.67 per business mile driven instead of tracking actual vehicle expenses">IRS mileage deduction</Tooltip> allows $0.67/mile
-              for 2024. At {results.weeklyMiles} miles/week, that's{' '}
-              {formatCurrency(results.weeklyMiles * 0.67 * 52)}/year in deductions.
+              <strong>Tax tip:</strong> Track your miles! The <Tooltip text="You can deduct $0.76 per business mile driven instead of tracking actual vehicle expenses. Miles driven before July 1, 2026 are deducted at the earlier $0.725 rate.">IRS mileage deduction</Tooltip> allows ${IRS_MILEAGE_RATE.toFixed(2)}/mile
+              from July 1, 2026 (${IRS_MILEAGE_RATE_2026_H1.toFixed(3)}/mile before that date). At {results.weeklyMiles} miles/week, that's{' '}
+              {formatCurrency(results.weeklyMiles * IRS_MILEAGE_RATE * 52)}/year in deductions.
             </div>
           </div>
         </div>
