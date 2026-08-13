@@ -160,9 +160,14 @@ export const NIIT_THRESHOLDS: Record<FilingStatus, number> = {
 // limited/denied for a specified service trade or business); the phase-out is
 // complete at `phaseInEnd`.
 //
-// NOTE: these are published for reference. The self-employment-tax calculator
-// currently applies a flat 20% QBI deduction and does NOT model this phase-out
-// or the SSTB limitation — see the disclosure on that calculator.
+// The phase-in range WIDTH is `phaseInEnd - threshold` — $75,000, or $150,000
+// on a joint return, per § 199A(b)(3)(B)(ii)(II) and (d)(3)(B)(ii) as amended
+// by OBBBA § 70105 (it was $50,000/$100,000 through TY2025). Derive it from
+// these two fields rather than restating it anywhere.
+//
+// Applied by calculateQBIDeduction() in src/lib/calculators/self-employment-tax.ts,
+// which is currently the only calculator that computes a QBI deduction. Import
+// that function rather than reimplementing the phase-out if another one needs it.
 export interface QBIThreshold {
   threshold: number;
   phaseInEnd: number;

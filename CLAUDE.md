@@ -149,17 +149,43 @@ OASDI base determination. Full citations live at the top of
 
 ### Known gaps (not modeled)
 
-- QBI has **no phase-out or SSTB limit**; over-states the deduction for service
-  businesses above the threshold. (The two §199A ceilings — 20% of QBI net of
-  the SE-tax deduction, and 20% of taxable income before the deduction — ARE
-  modeled as of 2026-08-13.)
-- QBI assumes net capital gain is zero; the calculator has no gains input.
-- OBBBA §199A minimum deduction ($400) not applied.
+- QBI assumes net capital gain is zero; the calculator has no gains input, so
+  the 20%-of-taxable-income ceiling is over-stated for filers with large gains.
+- QBI models a single trade or business only. Not modeled: aggregation of
+  multiple businesses, REIT/PTP income, qualified business loss carryforwards,
+  patron reductions, and the de minimis SSTB rules (§199A(d)(3) gross-receipts
+  tests). The §199A(i) floor assumes material participation.
 - Age 60–63 "super catch-up" (§414(v)(2)(E)(i), $11,250) not modeled by the
   retirement calculator — it applies the ordinary age-50 catch-up instead.
 - "No tax on tips" (up to $25,000, TY2025–2028) not modeled — this affects the
   gig calculators, which currently over-state tax for tipped workers.
 - "No tax on overtime" (up to $12,500 / $25,000 joint) not modeled.
+
+### §199A (QBI) — what IS modeled
+
+`calculateQBIDeduction()` in `src/lib/calculators/self-employment-tax.ts` is the
+only QBI implementation on the site. Import it rather than reimplementing the
+phase-out. Statute and Form 8995-A line references are in the comment block
+directly above it. As of 2026-08-13 it applies:
+
+- QBI reduced by the deductible half of SE tax.
+- **SSTB applicable percentage**, §199A(d)(3): full deduction at or below the
+  threshold, straight-line to zero across the phase-in range, and no deduction
+  at or above `phaseInEnd` (an SSTB stops being a qualified trade or business).
+  Consulting is an SSTB — the common case for this site's audience, which is
+  why `qbiBusinessType` defaults to `'sstb'`.
+- **W-2 wage / UBIA limit** and its phase-in, §199A(b)(2)–(3). A solo
+  freelancer has $0 wages and $0 UBIA, so above the range this alone zeroes the
+  deduction even for a non-SSTB.
+- The 20%-of-taxable-income ceiling, §199A(a).
+- The §199A(i) $400 minimum deduction.
+
+For an SSTB with no payroll both reductions hit the same income, so the
+deduction falls off faster than linearly across the range. That is correct —
+it is what Schedule A followed by Part III of Form 8995-A does.
+
+The phase-in range width is derived as `phaseInEnd - threshold`, never
+restated. OBBBA widened it from $50k/$100k to $75k/$150k for TY2026.
 
 ## Docs
 

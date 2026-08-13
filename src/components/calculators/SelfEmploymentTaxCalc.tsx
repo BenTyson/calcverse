@@ -25,11 +25,19 @@ const FILING_STATUS_OPTIONS = [
   { value: 'head_household', label: 'Head of Household' },
 ];
 
+const BUSINESS_TYPE_OPTIONS = [
+  { value: 'sstb', label: 'Specified service business (consulting, health, law, finance…)' },
+  { value: 'non_sstb', label: 'Any other trade or business' },
+];
+
 export function SelfEmploymentTaxCalc() {
   const { mode, setMode, inputs, updateInput, isAdvanced } =
     useCalculatorState<SelfEmploymentTaxInputs>(DEFAULT_INPUTS, QUICK_MODE_DEFAULTS);
 
   const results = calculateSelfEmploymentTaxResults(inputs);
+  const qbi = results.qbiDetail;
+  const aboveThreshold = qbi.taxableIncomeBeforeQBI > qbi.threshold;
+  const isSSTB = inputs.qbiBusinessType === 'sstb';
 
   const getResultsText = () =>
     `Self-Employment Tax Calculator (CalcFalcon)\n` +
@@ -145,12 +153,48 @@ export function SelfEmploymentTaxCalc() {
                 aria-describedby="qbiHelp"
               />
               <label htmlFor="qbiToggle" className="text-sm font-medium text-neutral-700">
-                <Tooltip text="Deduct 20% of qualified business income (Section 199A). Available to most sole proprietors, partnerships, and S-corps below income thresholds.">
-                  QBI Deduction (20%)
+                <Tooltip text="The Section 199A deduction: up to 20% of qualified business income. Above the income threshold it is limited by the type of business you run and the W-2 wages your business pays.">
+                  QBI Deduction (Section 199A)
                 </Tooltip>
               </label>
               <span id="qbiHelp" className="sr-only">Qualified Business Income deduction under Section 199A</span>
             </div>
+          )}
+
+          {isAdvanced && inputs.qualifiedBusinessIncomeDeduction && (
+            <DropdownInput
+              id="qbiBusinessType"
+              label="Type of Business (for QBI)"
+              value={inputs.qbiBusinessType}
+              onChange={(v) => updateInput('qbiBusinessType', v as SelfEmploymentTaxInputs['qbiBusinessType'])}
+              options={BUSINESS_TYPE_OPTIONS}
+              helpText="Consulting, health, law, accounting, financial services, athletics, performing arts — and any business trading on the owner's reputation or skill — are specified service businesses. This only changes your result above the income threshold."
+            />
+          )}
+
+          {isAdvanced && inputs.qualifiedBusinessIncomeDeduction && aboveThreshold && (
+            <>
+              <CurrencyInput
+                id="w2WagesPaid"
+                label="W-2 Wages Paid by the Business"
+                value={inputs.w2WagesPaid}
+                onChange={(v) => updateInput('w2WagesPaid', v)}
+                min={0}
+                max={1000000}
+                step={5000}
+                helpText="Wages on payroll, not your own draw. A sole proprietor with no employees enters $0."
+              />
+              <CurrencyInput
+                id="qualifiedPropertyUBIA"
+                label="Business Property (UBIA)"
+                value={inputs.qualifiedPropertyUBIA}
+                onChange={(v) => updateInput('qualifiedPropertyUBIA', v)}
+                min={0}
+                max={5000000}
+                step={10000}
+                helpText="Original cost of depreciable property still in its recovery period. Usually $0 for a service business."
+              />
+            </>
           )}
         </div>
       </div>
@@ -201,6 +245,61 @@ export function SelfEmploymentTaxCalc() {
           </div>
         )}
 
+        {inputs.qualifiedBusinessIncomeDeduction && aboveThreshold && (
+          <div className="mb-6 p-4 bg-amber-50 rounded-xl border border-amber-100">
+            <p className="text-amber-900 font-medium">
+              {qbi.deduction > 0
+                ? `QBI deduction limited to ${formatCurrency(qbi.deduction)}`
+                : 'No QBI deduction at this income level'}
+            </p>
+            <p className="text-amber-800 text-sm mt-1">
+              Your taxable income before the QBI deduction is{' '}
+              {formatCurrency(qbi.taxableIncomeBeforeQBI)}, above the{' '}
+              {formatCurrency(qbi.threshold)} threshold for your filing status. Above that
+              point Section 199A starts limiting the deduction, and the limits are fully
+              phased in at {formatCurrency(qbi.phaseInEnd)}.
+            </p>
+            <ul className="text-amber-800 text-sm mt-2 space-y-1 list-disc list-inside">
+              {isSSTB && qbi.abovePhaseInRange && (
+                <li>
+                  A specified service business stops being a qualified trade or business
+                  entirely at {formatCurrency(qbi.phaseInEnd)}, so none of its income
+                  counts.
+                </li>
+              )}
+              {isSSTB && qbi.inPhaseInRange && (
+                <li>
+                  Only {(qbi.sstbApplicablePercent * 100).toFixed(1)}% of your business
+                  income counts as qualified business income, because a specified service
+                  business phases out across this range.
+                </li>
+              )}
+              {qbi.limitedByWagesOrUbia && !(isSSTB && qbi.abovePhaseInRange) && (
+                <li>
+                  {inputs.w2WagesPaid === 0 && inputs.qualifiedPropertyUBIA === 0
+                    ? 'Your business pays no W-2 wages and holds no qualifying property, so the payroll cap on the deduction is $0'
+                    : `Your business pays ${formatCurrency(inputs.w2WagesPaid)} in W-2 wages, which sets the payroll cap at ${formatCurrency(qbi.wageAndUbiaLimit)}`}
+                  {qbi.abovePhaseInRange
+                    ? '. That cap is fully in force at this income level.'
+                    : ', phased in across this range.'}
+                </li>
+              )}
+              {qbi.incomeLimitBinds && (
+                <li>
+                  The deduction is also capped at 20% of taxable income, or{' '}
+                  {formatCurrency(qbi.incomeLimit)}.
+                </li>
+              )}
+              {qbi.minimumApplied && (
+                <li>
+                  The computed deduction fell below the Section 199A(i) minimum, so you get
+                  the {formatCurrency(qbi.deduction)} floor instead.
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
+
         <ChartCard title="Tax Breakdown by Type" category="freelance">
           <BarComparisonChart
             data={[
@@ -232,8 +331,8 @@ export function SelfEmploymentTaxCalc() {
               ? <Tooltip text="Combined Social Security (12.4%) and Medicare (2.9%) tax on 92.35% of net SE income">{item.label}</Tooltip>
               : item.label === 'SE Tax Deduction (50%)'
               ? <Tooltip text="Half of your SE tax is deductible from adjusted gross income">{item.label}</Tooltip>
-              : item.label === 'QBI Deduction (20%)'
-              ? <Tooltip text="Section 199A deduction: 20% of qualified business income">{item.label}</Tooltip>
+              : item.label === 'QBI Deduction (Section 199A)'
+              ? <Tooltip text="Up to 20% of qualified business income, after the specified-service and W-2 wage limits and the 20%-of-taxable-income cap">{item.label}</Tooltip>
               : item.label,
             value: formatCurrency(Math.abs(item.value)),
             highlight: item.label === 'Total Tax Burden',

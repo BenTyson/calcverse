@@ -3,7 +3,13 @@ import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTaxCalc';
 import { MONETIZATION } from '@lib/config/monetization';
 import SourcesBlock from '@components/calculator/SourcesBlock.astro';
-import { TAX_YEAR, TAX_DATA_LAST_VERIFIED } from '@lib/calculators/shared/tax-brackets';
+import { TAX_YEAR, TAX_DATA_LAST_VERIFIED, QBI_THRESHOLDS } from '@lib/calculators/shared/tax-brackets';
+
+// Never restate an IRS figure in page copy — interpolate it from the shared
+// module so one edit updates the prose, the FAQ and the calculator together.
+const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
+const qbiSingle = QBI_THRESHOLDS.single;
+const qbiJoint = QBI_THRESHOLDS.married_joint;
 
 const sources = [
   { label: 'IRS Revenue Procedure 2025-32', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf', note: '2026 tax brackets (§ 4.01), standard deduction (§ 4.14), QBI thresholds (§ 4.26)' },
@@ -12,6 +18,10 @@ const sources = [
   { label: 'IRS Instructions for Schedule SE (Form 1040)', url: 'https://www.irs.gov/pub/irs-pdf/i1040sse.pdf', note: '15.3% rate, 92.35% adjustment' },
   { label: 'IRS — Qualified Business Income Deduction (Section 199A)', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction', note: 'QBI deduction is the lesser of the QBI component or 20% of taxable income minus net capital gain' },
   { label: 'IRS Instructions for Form 8995', url: 'https://www.irs.gov/instructions/i8995', note: 'QBI is reduced by the deductible part of SE tax; taxable-income limit is figured before the QBI deduction' },
+  { label: '26 U.S.C. § 199A', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section199A', note: 'Statute as amended by the OBBBA: the SSTB applicable percentage (d)(3), the W-2 wage and UBIA limit and its phase-in (b)(2)–(3), and the $400 minimum deduction (i)' },
+  { label: 'IRS Form 8995-A, Qualified Business Income Deduction', url: 'https://www.irs.gov/pub/irs-pdf/f8995a.pdf', note: 'Part II, Part III and Part IV — the line-by-line arithmetic this calculator reproduces' },
+  { label: 'IRS Instructions for Form 8995-A', url: 'https://www.irs.gov/pub/irs-pdf/i8995a.pdf', note: 'Lists consulting among the specified service fields, and the three income zones for an SSTB' },
+  { label: 'IRS — Section 199A qualified business income deduction FAQs', url: 'https://www.irs.gov/newsroom/tax-cuts-and-jobs-act-provision-11011-section-199a-qualified-business-income-deduction-faqs', note: 'Confirms every limitation is tested against taxable income figured before the QBI deduction' },
 ];
 
 const faqs = [
@@ -33,7 +43,17 @@ const faqs = [
   {
     question: 'What is the QBI deduction?',
     answer:
-      'The Qualified Business Income (QBI) deduction under Section 199A lets eligible self-employed individuals deduct up to 20% of their qualified business income. It is the lesser of two amounts: 20% of your QBI (your net business income reduced by the deductible half of your SE tax), or 20% of your taxable income figured before the QBI deduction. For a solo filer taking the standard deduction, the second ceiling usually binds — which is why the deduction shown here is often less than a flat 20% of your earnings. Most sole proprietors and single-member LLCs qualify if their taxable income is below $201,750 (single) or $403,500 (married filing jointly) for 2026.',
+      `The Qualified Business Income (QBI) deduction under Section 199A lets eligible self-employed individuals deduct up to 20% of their qualified business income. It is the lesser of two amounts: 20% of your QBI (your net business income reduced by the deductible half of your SE tax), or 20% of your taxable income figured before the QBI deduction. For a solo filer taking the standard deduction, the second ceiling usually binds — which is why the deduction shown here is often less than a flat 20% of your earnings. Below the ${TAX_YEAR} threshold of ${usd(qbiSingle.threshold)} (single) or ${usd(qbiJoint.threshold)} (married filing jointly) that is the whole calculation. Above it, two further limits phase in: what kind of business you run, and how much W-2 wages your business pays.`,
+  },
+  {
+    question: 'I am a consultant. Do I still get the QBI deduction?',
+    answer:
+      `Only up to a point. Consulting is a specified service trade or business (SSTB) under Section 199A, along with health, law, accounting, actuarial science, performing arts, athletics, financial services, investing, and any business whose principal asset is the reputation or skill of its owners. Below ${usd(qbiSingle.threshold)} of taxable income (${usd(qbiJoint.threshold)} married filing jointly) being an SSTB makes no difference at all — you get the full deduction. Between that threshold and ${usd(qbiSingle.phaseInEnd)} (${usd(qbiJoint.phaseInEnd)} joint) only an "applicable percentage" of your business income counts, falling in a straight line to zero. At or above the top of that range an SSTB is not a qualified trade or business, and the deduction is gone entirely. Set the business type in Advanced mode to see this applied.`,
+  },
+  {
+    question: 'Why did my QBI deduction drop to zero even though I am not a consultant?',
+    answer:
+      `Above the threshold the deduction is also capped by your business payroll: 50% of the W-2 wages your business pays, or 25% of wages plus 2.5% of the cost of qualifying business property, whichever is greater. A sole proprietor with no employees pays no W-2 wages — your own draw does not count — and typically owns no qualifying property, so that cap is $0. The cap phases in across the same ${usd(qbiSingle.phaseInEnd - qbiSingle.threshold)} range, so it bites gradually and is fully in force at ${usd(qbiSingle.phaseInEnd)} (${usd(qbiJoint.phaseInEnd)} joint). This is the limit that most often surprises high-earning solo freelancers who are not in a service field.`,
   },
   {
     question: 'What is Schedule SE?',
@@ -101,7 +121,7 @@ const relatedCalculators = [
         <p>Self-employment tax is the freelancer's version of FICA — the Social Security and Medicare taxes that W-2 employees split with their employer. The critical difference is that you pay both halves. At 15.3 percent of your net earnings, SE tax is often a freelancer's single largest tax bill, frequently exceeding federal income tax for earners in the lower and middle brackets.</p>
         <p>The 15.3 percent rate breaks into two components: 12.4 percent for Social Security (capped at $184,500 of earnings in 2026) and 2.9 percent for Medicare (no cap). If your net self-employment income exceeds $200,000 as a single filer or $250,000 filing jointly, an additional 0.9 percent Medicare surtax applies to the excess.</p>
         <h3>How This Calculator Works</h3>
-        <p>Enter your net self-employment income (gross revenue minus business expenses) and filing status. The calculator applies the 92.35 percent adjustment that the IRS uses to mirror the employer-equivalent share, computes Social Security and Medicare taxes separately, checks for the Additional Medicare Tax threshold, and calculates the deductible half of SE tax that reduces your adjusted gross income. In Advanced mode, you can enter business deductions, state tax rates, and see the Qualified Business Income (QBI) deduction under Section 199A.</p>
+        <p>Enter your net self-employment income (gross revenue minus business expenses) and filing status. The calculator applies the 92.35 percent adjustment that the IRS uses to mirror the employer-equivalent share, computes Social Security and Medicare taxes separately, checks for the Additional Medicare Tax threshold, and calculates the deductible half of SE tax that reduces your adjusted gross income. In Advanced mode, you can enter business deductions and state tax rates, and turn on the Qualified Business Income (QBI) deduction under Section 199A — including the service-business and payroll limits that reduce or eliminate it above the income threshold.</p>
       </div>
     </section>
   </Fragment>
@@ -148,6 +168,13 @@ const relatedCalculators = [
         <p><strong>Consider S-Corp election.</strong> An S-Corporation structure lets you split income between a reasonable salary (subject to SE tax) and distributions (not subject to SE tax). For freelancers earning above $80,000 to $100,000, this can save thousands per year. However, S-Corps come with additional administrative costs including payroll processing and separate tax filings, so the savings must outweigh the overhead.</p>
         <p><strong>Contribute to retirement accounts.</strong> Solo 401(k) employer contributions reduce your net self-employment income reported on Schedule SE. A $20,000 employer contribution at the 15.3 percent SE tax rate saves roughly $3,060 in SE tax while simultaneously building your retirement fund.</p>
         <p><strong>Time large expenses strategically.</strong> If you plan a major equipment purchase or professional development investment, timing it to fall in a high-income year maximizes the SE tax reduction. Bunching deductible expenses into years with peak earnings amplifies their impact.</p>
+        <h2>The QBI Deduction Above the Income Threshold</h2>
+        <p>Section 199A is simple until your taxable income passes {usd(qbiSingle.threshold)} as a single filer or {usd(qbiJoint.threshold)} filing jointly. Below that line, the deduction is just the smaller of 20 percent of your qualified business income or 20 percent of your taxable income. Above it, two separate limits phase in across the next {usd(qbiSingle.phaseInEnd - qbiSingle.threshold)} ({usd(qbiJoint.phaseInEnd - qbiJoint.threshold)} on a joint return), and for a service business they compound.</p>
+        <p><strong>The service business limit.</strong> If you are a consultant, therapist, lawyer, accountant, financial adviser, or work in any field where the business essentially sells your own skill and reputation, you run a specified service trade or business. Across the phase-in range only an applicable percentage of your income counts as qualified business income — 100 percent at the threshold, falling in a straight line to nothing at {usd(qbiSingle.phaseInEnd)} ({usd(qbiJoint.phaseInEnd)} joint). Past that point the business is not a qualified trade or business at all.</p>
+        <p><strong>The payroll limit.</strong> Over the same range, the deduction is separately capped at the greater of 50 percent of the W-2 wages your business pays or 25 percent of those wages plus 2.5 percent of the original cost of qualifying business property. Your own owner's draw is not W-2 wages. A solo freelancer with no employees and no equipment therefore has a cap of zero, which is why a high-earning sole proprietor can lose the deduction entirely even in a non-service field.</p>
+        <p>For a service business with no payroll, both reductions apply to the same income, so the deduction falls off considerably faster than a straight line across the range. That is not a quirk of this calculator — it is what Form 8995-A does when Schedule A reduces your income and wages first and Part III then phases in the wage cap on the reduced figures.</p>
+        <h3>What this calculator does not model</h3>
+        <p>It assumes a single trade or business with no aggregation, no REIT or publicly traded partnership income, no qualified business loss carried forward from a prior year, and no patron reduction for cooperative members. It assumes you materially participate in the business, which matters only for the Section 199A minimum deduction. Net capital gain is treated as zero, since there is no capital gains input — if you have significant long-term gains or qualified dividends, your 20-percent-of-taxable-income ceiling is lower than shown. The de minimis rules that let a business with a small share of service revenue escape service-business treatment are not applied; if that describes you, choose the non-service option. Tips and overtime income are treated as ordinary income, so the temporary deductions for those are not reflected.</p>
       </div>
     </section>
     <SourcesBlock taxYear={TAX_YEAR} lastVerified={TAX_DATA_LAST_VERIFIED} sources={sources} />
