@@ -2,6 +2,7 @@
 title: "Self-Employment Tax Guide 2026: Rates, Rules, and How to Pay Less"
 description: "How self-employment tax works in 2026 — the 15.3% rate, Social Security and Medicare splits, deductions, and strategies to legally reduce what you owe."
 publishedDate: 2026-01-13
+updatedDate: 2026-08-09
 category: freelance
 calculatorSlug: /freelance/self-employment-tax-calculator
 ---
@@ -26,9 +27,9 @@ The 15.3% self-employment tax rate is not a single flat rate. It has two compone
 
 ### Social Security: 12.4%
 
-The Social Security portion is 12.4% of your net self-employment earnings, up to the Social Security wage base. In 2026, that wage base is $168,600. Once your combined wages and self-employment income exceed that threshold, the 12.4% stops. You do not owe Social Security tax on earnings above the cap.
+The Social Security portion is 12.4% of your net self-employment earnings, up to the Social Security wage base. In 2026, that wage base is $184,500. Once your combined wages and self-employment income exceed that threshold, the 12.4% stops. You do not owe Social Security tax on earnings above the cap.
 
-If you have a W-2 job alongside your freelance work, your W-2 wages count toward the cap first. So if your W-2 salary is $120,000, only the first $48,600 of your self-employment income is subject to the 12.4% Social Security tax.
+If you have a W-2 job alongside your freelance work, your W-2 wages count toward the cap first. So if your W-2 salary is $120,000, only the first $64,500 of your self-employment income is subject to the 12.4% Social Security tax.
 
 ### Medicare: 2.9%
 
@@ -49,7 +50,7 @@ Here is how the math works on $80,000 of net self-employment income:
 **Step 1:** Multiply net earnings by 92.35%.
 $80,000 x 0.9235 = $73,880
 
-**Step 2:** Apply the 12.4% Social Security rate (since $73,880 is under the $168,600 cap).
+**Step 2:** Apply the 12.4% Social Security rate (since $73,880 is under the $184,500 cap).
 $73,880 x 0.124 = $9,161
 
 **Step 3:** Apply the 2.9% Medicare rate.
@@ -104,7 +105,7 @@ Common deductions that reduce your SE tax base include:
 - **Professional development** (courses, books, conferences related to your work)
 - **Marketing and advertising**
 - **Professional services** (accounting, legal, bookkeeping)
-- **Vehicle expenses** (standard mileage rate of $0.70/mile in 2026, or actual expenses)
+- **Vehicle expenses** (2026 is a split-rate year: $0.725/mile for miles driven January 1 through June 30 and $0.76/mile from July 1 through December 31 — or actual expenses)
 - **Internet and phone** (business-use percentage)
 
 Note that health insurance premiums for self-employed individuals are deducted on Schedule 1, not Schedule C. This means they reduce your income tax but do not reduce your self-employment tax base. It is a common point of confusion.
@@ -115,7 +116,7 @@ The Section 199A qualified business income deduction allows eligible self-employ
 
 For a sole proprietor with $80,000 in QBI, the deduction could be up to $16,000, saving roughly $3,520 in income tax at the 22% bracket. But the $11,304 in SE tax remains unchanged.
 
-The QBI deduction phases out for specified service trades or businesses (SSTBs) — which includes consulting, accounting, law, health, and financial services — when taxable income exceeds $191,950 for single filers ($383,900 for married filing jointly) in 2026. If your freelance work falls into one of these categories and your income is above the threshold, you may receive a reduced or zero QBI deduction.
+The QBI deduction phases out for specified service trades or businesses (SSTBs) — which includes consulting, accounting, law, health, and financial services — when taxable income exceeds $201,750 for single filers ($403,500 for married filing jointly) in 2026. If your freelance work falls into one of these categories and your income is above the threshold, you may receive a reduced or zero QBI deduction.
 
 ## Quarterly Payment Requirements
 
@@ -170,7 +171,7 @@ At $120,000, the S-corp is worth considering. At $200,000 or above, it is almost
 
 ## Common Mistakes
 
-**Forgetting SE tax exists.** The most expensive mistake is budgeting only for income tax. A freelancer in the 22% bracket with $80,000 net income might estimate $8,000 to $10,000 in income tax — then get blindsided by an additional $11,304 in SE tax. Your combined effective rate is closer to 27% to 30%, not 22%.
+**Forgetting SE tax exists.** The most expensive mistake is budgeting only for income tax. A freelancer in the 22% bracket with $80,000 net income owes roughly $7,500 in federal income tax — then gets blindsided by an additional $11,304 in SE tax. That is about $18,800 of federal tax on $80,000, an effective rate near 24% before a dollar of state tax. The bracket number you see quoted is not the rate you actually pay.
 
 **Not deducting business expenses.** Every dollar of legitimate business expense you fail to deduct costs you roughly 14.1 cents in unnecessary SE tax (the 15.3% rate applied to 92.35% of that dollar). If you are not tracking mileage, home office, equipment, and software, you are likely overpaying.
 
@@ -178,7 +179,7 @@ At $120,000, the S-corp is worth considering. At $200,000 or above, it is almost
 
 **Confusing SE tax deductions with SE tax reductions.** The 50% deduction, the QBI deduction, and the standard deduction all reduce your income tax. None of them reduce your self-employment tax. The only things that reduce your SE tax are: earning less net self-employment income, claiming more Schedule C business deductions, or structuring as an S-corp.
 
-**Ignoring the Social Security wage base.** If you have W-2 income alongside your freelance income, and your combined earnings exceed the $168,600 wage base, you are only subject to the 2.9% Medicare rate (not the full 15.3%) on self-employment income above the cap. This matters for part-time freelancers with full-time jobs.
+**Ignoring the Social Security wage base.** If you have W-2 income alongside your freelance income, and your combined earnings exceed the $184,500 wage base, you are only subject to the 2.9% Medicare rate (not the full 15.3%) on self-employment income above the cap. This matters for part-time freelancers with full-time jobs.
 
 **Not making quarterly payments.** Self-employment tax is included in your quarterly estimated tax obligation. Failing to pay quarterly results in underpayment penalties. See the [Quarterly Tax Guide](/blog/quarterly-tax-guide-freelancers) for deadlines and safe harbor rules.
 
@@ -196,7 +197,9 @@ To give you a practical reference, here is what self-employment tax looks like a
 
 **$150,000 net:** $150,000 x 0.9235 x 0.153 = $21,194
 
-**$168,600 net (at the SS cap):** After the 92.35% factor, SE income is $155,703. Social Security tax = $155,703 x 0.124 = $19,307. Medicare tax = $155,703 x 0.029 = $4,515. Total = $23,822. Above this level, only Medicare applies to additional earnings.
+**$184,500 net (at the Social Security wage base):** After the 92.35% factor, SE income is $170,386. Social Security tax = $170,386 x 0.124 = $21,128. Medicare tax = $170,386 x 0.029 = $4,941. Total = $26,069.
+
+Note the wrinkle: because the 92.35% factor is applied *before* the cap, the 12.4% Social Security portion does not actually max out until your net earnings reach roughly $199,783 — the point at which 92.35% of your net earnings equals the $184,500 base. At that level the Social Security tax tops out at $22,878, and every additional dollar of self-employment income is subject only to the 2.9% Medicare rate.
 
 These numbers represent SE tax only. Your total federal tax obligation includes income tax on top of these amounts.
 
@@ -204,7 +207,7 @@ These numbers represent SE tax only. Your total federal tax obligation includes 
 
 Contributing to a retirement account does not reduce your self-employment tax, but it does reduce your income tax. Solo 401(k) and SEP-IRA contributions are based on your net self-employment income after the 50% SE tax deduction, and they come off your AGI.
 
-However, there is an indirect relationship worth understanding. Your retirement contribution limits as a self-employed person are based on your net self-employment income. The higher your Schedule C profit, the more you can contribute to a Solo 401(k) (up to $23,500 as an employee plus 25% of net self-employment income as an employer, with a combined maximum of $70,000 in 2026). This is one area where higher self-employment income — and the higher SE tax that comes with it — unlocks larger tax-advantaged savings.
+However, there is an indirect relationship worth understanding. Your retirement contribution limits as a self-employed person are based on your net self-employment income. The higher your Schedule C profit, the more you can contribute to a Solo 401(k) (up to $24,500 as an employee plus 25% of net self-employment income as an employer, with a combined maximum of $72,000 in 2026). This is one area where higher self-employment income — and the higher SE tax that comes with it — unlocks larger tax-advantaged savings.
 
 ## Calculate Your Self-Employment Tax
 

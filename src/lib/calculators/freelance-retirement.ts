@@ -1,3 +1,11 @@
+import {
+  ELECTIVE_DEFERRAL_LIMIT,
+  ANNUAL_ADDITIONS_LIMIT,
+  CATCH_UP_401K,
+  IRA_CONTRIBUTION_LIMIT,
+  IRA_CATCH_UP,
+} from './shared/retirement-limits';
+
 export interface FreelanceRetirementInputs {
   annualIncome: number;
   annualContribution: number;
@@ -36,22 +44,13 @@ export const ACCOUNT_TYPE_OPTIONS = [
   { value: 'roth_ira', label: 'Roth IRA' },
 ];
 
-// 2026 contribution limits — IRS Notice 2025-67, "2026 Amounts Relating to
-// Retirement Plans and IRAs" (https://www.irs.gov/pub/irs-drop/n-25-67.pdf).
-// Verified August 9, 2026.
-//   § 402(g)(1) elective deferral ............ $24,500
-//   § 415(c)(1)(A) annual additions .......... $72,000
-//   § 414(v)(2)(B)(i) catch-up (age 50+) ..... $8,000
-//   § 219(b)(5)(A) IRA ....................... $7,500
-//   § 219(b)(5)(B)(ii) IRA catch-up .......... $1,100
-// Note: a higher § 414(v)(2)(E)(i) catch-up of $11,250 applies to those who
-// attain age 60–63 in 2026; this calculator does not model that tier.
-const SOLO_401K_EMPLOYEE_LIMIT = 24500;
-const SOLO_401K_TOTAL_LIMIT = 72000;
-const SOLO_401K_CATCHUP = 8000;
-const SEP_IRA_LIMIT = 72000;
-const IRA_LIMIT = 7500;
-const IRA_CATCHUP = 1100;
+// Contribution limits come from shared/retirement-limits.ts (IRS Notice
+// 2025-67) — do not retype them here. The § 415(c) annual additions limit caps
+// both the Solo 401(k) combined contribution and the SEP-IRA.
+//
+// Note: a higher § 414(v)(2)(E)(i) catch-up (CATCH_UP_401K_AGE_60_63) applies
+// to those who attain age 60–63 in 2026; this calculator does not model that
+// tier and applies the ordinary age-50 catch-up instead.
 const CATCHUP_AGE = 50;
 
 function getMaxContribution(
@@ -63,15 +62,18 @@ function getMaxContribution(
 
   switch (accountType) {
     case 'solo_401k': {
-      const employeeLimit = SOLO_401K_EMPLOYEE_LIMIT + (isCatchUp ? SOLO_401K_CATCHUP : 0);
+      const employeeLimit = ELECTIVE_DEFERRAL_LIMIT + (isCatchUp ? CATCH_UP_401K : 0);
       const employerLimit = netSeIncome * 0.25;
-      return Math.min(employeeLimit + employerLimit, SOLO_401K_TOTAL_LIMIT + (isCatchUp ? SOLO_401K_CATCHUP : 0));
+      return Math.min(
+        employeeLimit + employerLimit,
+        ANNUAL_ADDITIONS_LIMIT + (isCatchUp ? CATCH_UP_401K : 0)
+      );
     }
     case 'sep_ira':
-      return Math.min(netSeIncome * 0.25, SEP_IRA_LIMIT);
+      return Math.min(netSeIncome * 0.25, ANNUAL_ADDITIONS_LIMIT);
     case 'traditional_ira':
     case 'roth_ira':
-      return IRA_LIMIT + (isCatchUp ? IRA_CATCHUP : 0);
+      return IRA_CONTRIBUTION_LIMIT + (isCatchUp ? IRA_CATCH_UP : 0);
   }
 }
 

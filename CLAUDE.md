@@ -53,6 +53,7 @@ Every calculator has 3 files:
 | Category styles | `src/lib/utils/category-styles.ts` |
 | Shared tax brackets | `src/lib/calculators/shared/tax-brackets.ts` |
 | Shared mileage rates | `src/lib/calculators/shared/mileage-rates.ts` |
+| Shared retirement limits | `src/lib/calculators/shared/retirement-limits.ts` |
 | Stale tax-data guard | `scripts/check-tax-data.mjs` |
 | Calculator state hook | `src/hooks/useCalculatorState.ts` |
 | Embed routes | `src/pages/embed/[...slug].astro` |
@@ -104,9 +105,10 @@ OASDI base determination. Full citations live at the top of
 ### Rules
 
 1. **Never hardcode an IRS/SSA figure.** Not in `.ts`, not in `.tsx`, not in
-   `.astro` page copy. Import from `shared/tax-brackets.ts` or
-   `shared/mileage-rates.ts`. If the figure isn't there yet, add it there with a
-   citation. `npm run check:tax-data` enforces this.
+   `.astro` page copy. Import from `shared/tax-brackets.ts`,
+   `shared/mileage-rates.ts`, or `shared/retirement-limits.ts`. If the figure
+   isn't there yet, add it there with a citation. `npm run check:tax-data`
+   enforces this.
 2. **Never pass `taxYear` / `lastVerified` as string literals** to
    `SourcesBlock`. Import `TAX_YEAR` and `TAX_DATA_LAST_VERIFIED` so one edit
    updates every page.
@@ -130,9 +132,11 @@ OASDI base determination. Full citations live at the top of
 ### Annual update procedure (~1 hour, do it each autumn)
 
 1. Fetch the new IRS Revenue Procedure (published ~October for the next tax
-   year) and the SSA OASDI base determination. Read them; don't trust summaries.
-2. Update `shared/tax-brackets.ts` + `shared/mileage-rates.ts`, bump `TAX_YEAR`
-   and `TAX_DATA_LAST_VERIFIED`, and refresh the source comment block.
+   year), the IRS retirement-plan COLA Notice (the 2026 one was Notice 2025-67),
+   and the SSA OASDI base determination. Read them; don't trust summaries.
+2. Update `shared/tax-brackets.ts` + `shared/mileage-rates.ts` +
+   `shared/retirement-limits.ts`, bump `TAX_YEAR`, `TAX_DATA_LAST_VERIFIED` and
+   `RETIREMENT_LIMITS_LAST_VERIFIED`, and refresh the source comment blocks.
 3. **Move the superseded values into the `SUPERSEDED` denylist in
    `scripts/check-tax-data.mjs`.** This is what makes the guard stronger every
    year instead of decaying.
@@ -145,9 +149,14 @@ OASDI base determination. Full citations live at the top of
 
 ### Known gaps (not modeled)
 
-- QBI is a flat 20% with no phase-out or SSTB limit; over-states the deduction
-  for service businesses above the threshold.
+- QBI has **no phase-out or SSTB limit**; over-states the deduction for service
+  businesses above the threshold. (The two §199A ceilings — 20% of QBI net of
+  the SE-tax deduction, and 20% of taxable income before the deduction — ARE
+  modeled as of 2026-08-13.)
+- QBI assumes net capital gain is zero; the calculator has no gains input.
 - OBBBA §199A minimum deduction ($400) not applied.
+- Age 60–63 "super catch-up" (§414(v)(2)(E)(i), $11,250) not modeled by the
+  retirement calculator — it applies the ordinary age-50 catch-up instead.
 - "No tax on tips" (up to $25,000, TY2025–2028) not modeled — this affects the
   gig calculators, which currently over-state tax for tipped workers.
 - "No tax on overtime" (up to $12,500 / $25,000 joint) not modeled.

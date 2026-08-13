@@ -2,6 +2,7 @@
 title: "Reselling for Profit: eBay, Poshmark, and Mercari Fee Breakdown"
 description: "Compare reselling fees across eBay, Poshmark, Mercari, and FB Marketplace. Real profit margins, ROI math, and what most resellers get wrong."
 publishedDate: 2026-02-11
+updatedDate: 2026-08-09
 category: side-hustle
 calculatorSlug: /side-hustle/reselling-profit-calculator
 ---
@@ -126,7 +127,7 @@ Higher-priced items generate more profit per transaction. A $100 item with a 25%
 
 Reselling income is self-employment income. If you net more than $400 in a year, you owe self-employment tax (15.3%) in addition to your regular income tax. The IRS receives 1099-K forms from platforms that process more than $5,000 in payments, but your tax obligation exists regardless of whether you receive a 1099.
 
-Your cost of goods sold — what you paid for the items — is deductible. So are platform fees, shipping costs, packaging materials, mileage to thrift stores and the post office (at $0.70 per mile in 2026), home office space used for photographing and storing inventory, and any tools or equipment used for the business. Our [side hustle tax guide](/blog/side-hustle-taxes) covers the full picture for resellers and other independent earners.
+Your cost of goods sold — what you paid for the items — is deductible. So are platform fees, shipping costs, packaging materials, mileage to thrift stores and the post office (at $0.725 per mile through June 30, 2026 and $0.76 per mile from July 1), home office space used for photographing and storing inventory, and any tools or equipment used for the business. Our [side hustle tax guide](/blog/side-hustle-taxes) covers the full picture for resellers and other independent earners.
 
 If your monthly net exceeds roughly $500, start making quarterly estimated tax payments to avoid an underpayment penalty at filing time.
 

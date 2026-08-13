@@ -2,6 +2,7 @@
 title: "How to Calculate Your Freelance Rate (Without Selling Yourself Short)"
 description: "A step-by-step guide to setting freelance rates that cover taxes, expenses, and profit — not just your old salary divided by hours."
 publishedDate: 2026-01-15
+updatedDate: 2026-08-09
 category: freelance
 calculatorSlug: /freelance/hourly-rate-calculator
 ---
@@ -20,7 +21,7 @@ This guide walks through the real math behind setting a freelance rate that keep
 
 When you work as a W2 employee, your employer pays 7.65% of your wages toward Social Security and Medicare (FICA), and you pay the other 7.65%. It comes out of your paycheck automatically, and most people barely notice it.
 
-As a freelancer, you pay both halves. That is 15.3% on the first $168,600 of net self-employment income in 2026 (the Social Security wage base), plus 2.9% Medicare tax on everything above that. Earn $100,000 in net freelance income and you owe roughly $14,130 in self-employment tax before a single dollar of federal or state income tax.
+As a freelancer, you pay both halves. That is 15.3% on the first $184,500 of net self-employment income in 2026 (the Social Security wage base), plus 2.9% Medicare tax on everything above that. Earn $100,000 in net freelance income and you owe roughly $14,130 in self-employment tax before a single dollar of federal or state income tax.
 
 You can deduct half of that SE tax from your adjusted gross income, which softens the blow slightly. But the cash still leaves your bank account every quarter.
 

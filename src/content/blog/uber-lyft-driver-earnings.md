@@ -2,6 +2,7 @@
 title: "Uber and Lyft Driver Earnings: What You Really Take Home"
 description: "Real Uber and Lyft driver earnings after gas, maintenance, and depreciation — gross vs net math and what experienced drivers actually make per hour."
 publishedDate: 2026-03-08
+updatedDate: 2026-08-09
 category: gig-economy
 calculatorSlug: /gig-economy/uber-lyft-calculator
 ---
@@ -88,7 +89,7 @@ Adding a rideshare endorsement to your personal policy costs $15 to $50 per mont
 
 ### Total Cost Per Mile
 
-When you combine gas ($0.12 to $0.18 per mile), maintenance ($0.05 to $0.10), depreciation ($0.10 to $0.20), and insurance ($0.02 to $0.04), most rideshare drivers are looking at $0.30 to $0.50 per mile in total vehicle costs. The IRS standard mileage rate for 2026 is $0.67 per mile, which is designed to capture all of these costs for tax deduction purposes — and the IRS number is often close to reality for drivers using newer vehicles.
+When you combine gas ($0.12 to $0.18 per mile), maintenance ($0.05 to $0.10), depreciation ($0.10 to $0.20), and insurance ($0.02 to $0.04), most rideshare drivers are looking at $0.30 to $0.50 per mile in total vehicle costs. The IRS standard mileage rate is designed to capture all of these costs for tax deduction purposes, and 2026 is a split-rate year: $0.725 per mile for miles driven January 1 through June 30, and $0.76 per mile from July 1 through December 31. Either way the IRS number sits above most drivers' real cost per mile, which is why the deduction is often worth more than the expenses it stands in for.
 
 ## Market Variation: Where You Drive Changes Everything
 
@@ -112,11 +113,11 @@ Concerts, sports games, and conventions create predictable surge windows. Experi
 
 ## The IRS Mileage Deduction
 
-The 2026 IRS standard mileage rate is $0.67 per mile, and for most rideshare drivers, this is the single most valuable tax deduction available. At 500 miles per week, that's $335 per week or $17,420 per year in deductible expenses.
+The 2026 IRS standard mileage rate comes in two pieces: $0.725 per mile for miles driven January 1 through June 30, and $0.76 per mile for miles driven July 1 through December 31. For most rideshare drivers this is the single most valuable tax deduction available. At 500 miles per week, that's $362.50 per week under the first-half rate and $380 per week under the second-half rate — roughly $19,305 across a full year of driving at that pace.
 
 ### Standard Mileage vs. Actual Expense Method
 
-You have two options. The standard mileage method lets you deduct $0.67 for every mile driven for business — simple, requires only a mileage log. The actual expense method lets you deduct the real costs of gas, maintenance, depreciation, insurance, and other vehicle expenses proportional to your business use percentage. For most drivers, the standard mileage method produces a larger deduction and is far easier to track.
+You have two options. The standard mileage method lets you deduct $0.725 for every business mile driven before July 1, 2026 and $0.76 for every business mile after — simple, requires only a mileage log, though the split rate means your log needs dates as well as distances. The actual expense method lets you deduct the real costs of gas, maintenance, depreciation, insurance, and other vehicle expenses proportional to your business use percentage. For most drivers, the standard mileage method produces a larger deduction and is far easier to track.
 
 Whichever method you choose, you need a mileage log. Apps like Stride, Everlance, or Gridwise track your miles automatically. Without a log, you can't claim the deduction — and the mileage deduction is often the difference between owing $4,000 in taxes and owing $1,500.
 

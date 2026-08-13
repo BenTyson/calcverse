@@ -2,6 +2,7 @@
 title: "Quarterly Estimated Taxes for Freelancers: The Complete Guide"
 description: "How to calculate, file, and pay quarterly estimated taxes as a freelancer — deadlines, safe harbor rules, and avoiding underpayment penalties."
 publishedDate: 2026-01-22
+updatedDate: 2026-08-09
 category: freelance
 calculatorSlug: /freelance/quarterly-tax-calculator
 ---
@@ -48,7 +49,7 @@ This is where freelancers tend to either overcomplicate or dangerously oversimpl
 
 ### Self-Employment Tax
 
-Self-employment (SE) tax covers Social Security and Medicare — the same FICA taxes that W-2 employees split with their employer. As a freelancer, you pay both halves. The 2025 SE tax rate is 15.3 percent, broken into 12.4 percent for Social Security (on net earnings up to $168,600) and 2.9 percent for Medicare (on all net earnings, with no cap). Our [self-employment tax guide](/blog/self-employment-tax-guide) covers the full mechanics, deductions, and reduction strategies in detail.
+Self-employment (SE) tax covers Social Security and Medicare — the same FICA taxes that W-2 employees split with their employer. As a freelancer, you pay both halves. The 2026 SE tax rate is 15.3 percent, broken into 12.4 percent for Social Security (on net earnings up to $184,500) and 2.9 percent for Medicare (on all net earnings, with no cap). Our [self-employment tax guide](/blog/self-employment-tax-guide) covers the full mechanics, deductions, and reduction strategies in detail.
 
 However, you do not pay SE tax on your gross income. The IRS first multiplies your net self-employment earnings by 92.35 percent. This adjustment approximates the "employer half" deduction that W-2 workers get. So if your Schedule C net profit is $80,000, your SE tax base is $73,880, and your SE tax is approximately $11,304.
 
@@ -56,9 +57,9 @@ However, you do not pay SE tax on your gross income. The IRS first multiplies yo
 
 On top of SE tax, you owe federal income tax on your freelance profit. You can deduct half of your SE tax from your adjusted gross income (this is the "employer-equivalent" portion), which reduces your taxable income. From there, standard tax brackets apply.
 
-For a single filer with $80,000 in net freelance income, after the SE tax deduction and standard deduction, taxable income lands around $48,000, putting the effective federal income tax in the range of $5,500 to $6,500 depending on other deductions and credits.
+For a single filer with $80,000 in net freelance income, after the SE tax deduction ($5,652) and the 2026 standard deduction ($16,100), taxable income lands around $58,250, putting the federal income tax at roughly $7,500 before any other deductions and credits.
 
-Combining both components, a freelancer earning $80,000 net might owe roughly $17,000 to $18,000 in total federal tax. Divided across four quarters, that is approximately $4,250 to $4,500 per payment. You can run your own numbers with our [quarterly tax calculator](/freelance/quarterly-tax-calculator) to get a precise breakdown based on your income and filing status.
+Combining both components, a freelancer earning $80,000 net owes roughly $18,800 in total federal tax. Divided across four quarters, that is approximately $4,700 per payment. You can run your own numbers with our [quarterly tax calculator](/freelance/quarterly-tax-calculator) to get a precise breakdown based on your income and filing status.
 
 ## Safe Harbor Rules: Your Insurance Policy
 

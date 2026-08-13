@@ -25,6 +25,7 @@ const SRC = join(ROOT, 'src');
 const SOURCE_OF_TRUTH = [
   'src/lib/calculators/shared/tax-brackets.ts',
   'src/lib/calculators/shared/mileage-rates.ts',
+  'src/lib/calculators/shared/retirement-limits.ts',
 ];
 
 /**
@@ -40,6 +41,12 @@ const SOURCE_OF_TRUTH = [
 // mileage RATE. Require the line to be talking about the IRS deduction.
 const MILEAGE_CTX = /IRS|deduct|standard mileage/i;
 const RETIREMENT_CTX = /401|IRA|SEP|contribut|deferral|catch-up|retirement limit/i;
+// Narrower than RETIREMENT_CTX. The IRA phase-out figures collide with ordinary
+// salaries, safe-harbor AGI thresholds and home prices — "$150,000 net income"
+// on a line that also says "SEP-IRA" is not a Roth MAGI threshold. Require the
+// line to mention an IRA *and* be talking about a phase-out.
+const IRA_PHASEOUT_CTX =
+  /(?=.*\b(IRA|Roth)\b)(?=.*(phase|MAGI|modified AGI|income limit|cannot contribute))/i;
 
 const SUPERSEDED = [
   // Social Security wage base — distinctive enough to match unconditionally
@@ -51,6 +58,11 @@ const SUPERSEDED = [
   { pattern: /\$?0\.70\b(?!\d)/, label: 'mileage rate $0.70 (TY2025)', context: MILEAGE_CTX },
   { pattern: /\$?0\.655\b/, label: 'mileage rate $0.655 (TY2023)', context: MILEAGE_CTX },
   { pattern: /\b70 cents\b/i, label: 'mileage rate 70 cents (TY2025)', context: MILEAGE_CTX },
+  // Spelled-out variants — "$0.67" and "67 cents" are the same stale rate, but
+  // only the decimal form was denied. A "67 cents per mile in 2026" survived a
+  // whole audit pass in tutoring-side-hustle-earnings.md because of this gap.
+  { pattern: /\b67 cents\b/i, label: 'mileage rate 67 cents (TY2024)', context: MILEAGE_CTX },
+  { pattern: /\b65\.5 cents\b/i, label: 'mileage rate 65.5 cents (TY2023)', context: MILEAGE_CTX },
   // Standard deduction
   { pattern: /\b14[,.]?600\b/, label: 'std deduction $14,600 single (TY2024)' },
   { pattern: /\b29[,.]?200\b/, label: 'std deduction $29,200 MFJ (TY2024)' },
@@ -69,7 +81,22 @@ const SUPERSEDED = [
   { pattern: /\b69[,.]?000\b/, label: 'DC annual additions $69,000 (TY2024)', context: RETIREMENT_CTX },
   { pattern: /\b70[,.]?000\b/, label: 'DC annual additions $70,000 (TY2025)', context: RETIREMENT_CTX },
   { pattern: /\b23[,.]?500\b/, label: 'elective deferral $23,500 (TY2025)', context: RETIREMENT_CTX },
-  { pattern: /\b7[,.]?000\b/, label: 'IRA limit $7,000 (TY2025)', context: /IRA (limit|contribut)|contribut\w* .{0,30}\bIRA/i },
+  // Widened from `IRA (limit|contribut)`: "A Traditional or Roth IRA ... The
+  // $7,000 annual limit is achievable" sat on a live calculator page and the
+  // old context missed it because the words were not adjacent.
+  { pattern: /\b7[,.]?000\b/, label: 'IRA limit $7,000 (TY2025)', context: /\bIRA\b/i },
+  { pattern: /\b61[,.]?000\b/, label: 'DC annual additions $61,000 (TY2022)', context: RETIREMENT_CTX },
+  // Roth / traditional IRA MAGI phase-out ranges. Every one of these doubles as
+  // an ordinary salary or home price, so they ALL require phase-out context.
+  // Source for both the old and new values: IRS Notice 2025-67.
+  { pattern: /\b146[,.]?000\b/, label: 'Roth IRA MAGI cap $146,000 (TY2024)', context: IRA_PHASEOUT_CTX },
+  { pattern: /\b161[,.]?000\b/, label: 'Roth IRA MAGI cap $161,000 (TY2024)', context: IRA_PHASEOUT_CTX },
+  { pattern: /\b150[,.]?000\b/, label: 'Roth IRA MAGI phase-out start $150,000 (TY2025)', context: IRA_PHASEOUT_CTX },
+  { pattern: /\b165[,.]?000\b/, label: 'Roth IRA MAGI phase-out end $165,000 (TY2025)', context: IRA_PHASEOUT_CTX },
+  { pattern: /\b236[,.]?000\b/, label: 'Roth IRA MFJ phase-out start $236,000 (TY2025)', context: IRA_PHASEOUT_CTX },
+  { pattern: /\b246[,.]?000\b/, label: 'Roth IRA MFJ phase-out end $246,000 (TY2025)', context: IRA_PHASEOUT_CTX },
+  { pattern: /\b126[,.]?000\b/, label: 'traditional IRA MFJ phase-out $126,000 (TY2025)', context: IRA_PHASEOUT_CTX },
+  { pattern: /\b89[,.]?000\b/, label: 'traditional IRA single phase-out end $89,000 (TY2025)', context: IRA_PHASEOUT_CTX },
 ];
 
 function walk(dir, out = []) {

@@ -2,6 +2,7 @@
 title: "Side Hustle Taxes: What You Owe and How to Pay Less"
 description: "A practical guide to side hustle taxes — when you owe self-employment tax, what you can deduct, and how to avoid surprises at tax time."
 publishedDate: 2026-03-06
+updatedDate: 2026-08-09
 category: side-hustle
 calculatorSlugs:
   - /freelance/quarterly-tax-calculator
@@ -39,7 +40,7 @@ The key rule is that expenses must be "ordinary and necessary" for your business
 
 ### Delivery Drivers (DoorDash, Instacart, Uber Eats)
 
-Vehicle expenses are your largest deduction. You have two methods: the standard mileage rate or actual expenses. For 2025, the standard mileage rate is 70 cents per mile. If you drove 12,000 miles for deliveries, that is an $8,400 deduction — which can wipe out a significant chunk of your delivery income.
+Vehicle expenses are your largest deduction. You have two methods: the standard mileage rate or actual expenses. For 2026 the standard mileage rate is split across the year: 72.5 cents per mile for miles driven January 1 through June 30, and 76 cents per mile from July 1 through December 31. If you drove 12,000 miles for deliveries spread evenly across the year, that is an $8,910 deduction — which can wipe out a significant chunk of your delivery income.
 
 Beyond mileage, delivery drivers can deduct their phone bill (the business-use percentage), insulated delivery bags, phone mounts and chargers used while driving, parking fees and tolls incurred during deliveries, and any platform fees that are not already deducted from your earnings. For a full breakdown of what rideshare drivers actually take home after these costs, see our [Uber and Lyft driver earnings analysis](/blog/uber-lyft-driver-earnings).
 
@@ -73,7 +74,7 @@ One important limitation: the home office deduction cannot create a business los
 
 If you use your car for side hustle work — driving for rideshare, making deliveries, traveling to client sites — you have two options for deducting vehicle costs.
 
-**Standard mileage rate** is simpler and often more favorable for side hustlers. You multiply your business miles by the IRS rate (70 cents per mile for 2025) and deduct the result. You must track your miles contemporaneously — the IRS does not accept estimates or reconstructed logs. Apps like Everlance, Stride, and MileIQ automate this.
+**Standard mileage rate** is simpler and often more favorable for side hustlers. You multiply your business miles by the IRS rate (for 2026: 72.5 cents per mile before July 1, 76 cents on or after) and deduct the result. Because the rate changed mid-year, your log needs to show *when* each trip happened, not just how far. You must track your miles contemporaneously — the IRS does not accept estimates or reconstructed logs. Apps like Everlance, Stride, and MileIQ automate this.
 
 **Actual expense method** requires you to track all vehicle costs — gas, insurance, maintenance, repairs, registration, depreciation — and deduct the business-use percentage. If 60 percent of your driving is for business, you deduct 60 percent of total vehicle costs.
 
@@ -85,7 +86,7 @@ For most side hustlers with a moderately efficient car, the standard mileage rat
 
 If you have a full-time W-2 job and a side hustle, the tax situation has a couple of layers worth understanding.
 
-Your W-2 wages already have FICA taxes (Social Security and Medicare) withheld. Your side hustle income generates its own SE tax on top of that. However, there is a cap on Social Security tax: you only pay the 12.4 percent Social Security portion on combined earnings up to $168,600 (2025 threshold). If your W-2 salary is $120,000 and your side hustle nets $30,000, only $48,600 of your side hustle income is subject to Social Security tax because your W-2 already covered the first $120,000. The 2.9 percent Medicare tax applies to all earnings with no cap.
+Your W-2 wages already have FICA taxes (Social Security and Medicare) withheld. Your side hustle income generates its own SE tax on top of that. However, there is a cap on Social Security tax: you only pay the 12.4 percent Social Security portion on combined earnings up to $184,500 (the 2026 wage base). That cap is high enough that most side hustlers never reach it. If your W-2 salary is $120,000 and your side hustle nets $30,000, your combined $150,000 is still under the cap, so the full $30,000 is subject to Social Security tax. The cap only starts helping once your W-2 wages alone get close to it — on a $170,000 salary, only the first $14,500 of side hustle income would be subject to the 12.4 percent. The 2.9 percent Medicare tax applies to all earnings with no cap.
 
 Your side hustle income stacks on top of your W-2 income for income tax purposes, which means it is taxed at your marginal rate. If your salary puts you in the 24 percent bracket, your side hustle income is also taxed at 24 percent (and potentially pushes some income into the next bracket). This is one of the reasons the [W-2 vs 1099 calculator](/freelance/w2-vs-1099-calculator) is useful — it shows you the real after-tax difference between employment income and self-employment income.
 

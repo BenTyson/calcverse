@@ -2,6 +2,7 @@
 title: "How to Start a Tutoring Side Hustle (And What You Can Earn)"
 description: "Tutoring rates by platform, subject, and experience level. Compare Wyzant, Varsity Tutors, Tutor.com, and independent tutoring to find your real hourly earnings."
 publishedDate: 2026-02-24
+updatedDate: 2026-08-09
 category: side-hustle
 calculatorSlug: /side-hustle/tutoring-income-calculator
 ---
@@ -90,7 +91,7 @@ For in-person tutoring, local channels outperform digital marketing. Flyers at l
 
 Tutoring income is self-employment income whether you work through a platform or independently. If your net tutoring income exceeds $400 per year, you owe self-employment tax at 15.3% plus your regular income tax rate.
 
-Deductible expenses include platform fees, teaching materials and textbooks, a home office deduction if you tutor from home, mileage for driving to in-person sessions (67 cents per mile in 2026), and a portion of your internet bill for online tutoring. These deductions can reduce your taxable tutoring income by 15% to 30% depending on your setup. For a deeper dive on side hustle taxation, our [side hustle tax guide](/blog/side-hustle-taxes) covers quarterly payments, Schedule C, and common deductions.
+Deductible expenses include platform fees, teaching materials and textbooks, a home office deduction if you tutor from home, mileage for driving to in-person sessions (72.5 cents per mile for miles driven before July 1, 2026 and 76 cents on or after), and a portion of your internet bill for online tutoring. These deductions can reduce your taxable tutoring income by 15% to 30% depending on your setup. For a deeper dive on side hustle taxation, our [side hustle tax guide](/blog/side-hustle-taxes) covers quarterly payments, Schedule C, and common deductions.
 
 ## Is Tutoring Worth It as a Side Hustle?
 
