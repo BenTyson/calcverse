@@ -2,6 +2,7 @@
 title: "Net Worth Tracking for Freelancers"
 description: "How to calculate and track net worth as a freelancer — including asset allocation, debt-to-asset ratios, and why net worth matters more than income."
 publishedDate: 2026-02-26
+updatedDate: 2026-08-09
 category: finance
 calculatorSlug: /personal-finance/net-worth-calculator
 ---
@@ -38,7 +39,7 @@ Most financial planners recommend that freelancers hold 3 to 6 months of expense
 
 Retirement accounts (Solo 401(k), SEP-IRA, Traditional IRA, Roth IRA), brokerage accounts, and any other invested assets. For freelancers, retirement accounts are often the largest gap in their net worth compared to salaried peers. A W-2 employee with a 4.5% employer match on a $90,000 salary receives $4,050 per year in free retirement contributions. Over 20 years at 7% growth, that employer match alone grows to roughly $166,000.
 
-As a freelancer, you have to replace that contribution yourself. The good news is that Solo 401(k) contribution limits are generous — up to $23,500 as an employee contribution plus 25% of net self-employment income as an employer contribution in 2026. The challenge is actually making those contributions when income is variable and competing financial demands feel more urgent.
+As a freelancer, you have to replace that contribution yourself. The good news is that Solo 401(k) contribution limits are generous — up to $24,500 as an employee contribution plus 25% of net self-employment income as an employer contribution in 2026. The challenge is actually making those contributions when income is variable and competing financial demands feel more urgent.
 
 ### Real estate
 

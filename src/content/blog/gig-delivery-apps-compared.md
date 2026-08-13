@@ -2,6 +2,7 @@
 title: "Gig Delivery Apps Compared: DoorDash vs Instacart vs Amazon Flex"
 description: "Compare real earnings, expenses, and working conditions across DoorDash, Instacart, and Amazon Flex. Data-driven breakdown of what drivers actually take home."
 publishedDate: 2026-01-17
+updatedDate: 2026-08-09
 category: gig-economy
 calculatorSlugs:
   - /gig-economy/doordash-calculator
@@ -65,13 +66,13 @@ Using a vehicle that gets 25 MPG and gas at $3.50 per gallon, the weekly gas cos
 
 ### Vehicle wear and maintenance
 
-The IRS estimates total vehicle costs (gas, maintenance, depreciation, insurance) at $0.67 per mile for 2025. Using the mileage figures above:
+The IRS estimates total vehicle costs (gas, maintenance, depreciation, insurance) at $0.76 per mile for the second half of 2026 — it was $0.725 per mile through June 30. Using the current rate and the mileage figures above:
 
-**DoorDash:** $134 to $201 per week in total vehicle costs.
+**DoorDash:** $152 to $228 per week in total vehicle costs.
 
-**Instacart:** roughly $84 per week.
+**Instacart:** roughly $95 per week.
 
-**Amazon Flex:** roughly $134 per week.
+**Amazon Flex:** roughly $152 per week.
 
 These numbers are aggressive — not every driver incurs IRS-level depreciation. But maintenance costs are real. Delivery driving puts 2 to 3 times more wear on your vehicle than normal commuting, particularly on brakes, tires, and suspension. Budget at least $0.05 per mile ($250 to $400 per year at part-time volume) for maintenance alone.
 
@@ -109,7 +110,7 @@ DoorDash accepts almost any vehicle including scooters and bicycles in some mark
 
 All three platforms classify you as an independent contractor. You receive a 1099-NEC (or 1099-K for payments exceeding $5,000 through third-party processors) and owe self-employment tax (15.3 percent) plus income tax on your net earnings.
 
-The standard mileage deduction ($0.67 per mile in 2025) is the most significant tax benefit for gig drivers. A DoorDash driver covering 12,000 miles per year for deliveries gets an $8,040 deduction. At a 22 percent income tax bracket plus 15.3 percent SE tax, that saves roughly $3,000 in taxes.
+The standard mileage deduction is the most significant tax benefit for gig drivers. 2026 splits it into two rates: $0.725 per mile for miles driven January 1 through June 30, and $0.76 per mile from July 1 through December 31. A DoorDash driver covering 12,000 miles per year, spread evenly across the year, gets an $8,910 deduction. At a 22 percent income tax bracket plus 15.3 percent SE tax, that saves roughly $3,200 in taxes.
 
 Track your miles from day one. Apps like Stride, Everlance, and Gridwise track automatically. The IRS will not accept estimates, and untracked miles are money left on the table. For a full guide to self-employment tax for gig workers, see our [side hustle taxes guide](/blog/side-hustle-taxes).
 

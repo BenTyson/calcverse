@@ -44,14 +44,34 @@ export function calculateSelfEmploymentTaxResults(inputs: SelfEmploymentTaxInput
   const totalIncome = netSEIncome + inputs.otherIncome;
   const agi = totalIncome - seTax.seDeduction;
 
-  // QBI deduction (20% of qualified business income, capped at taxable income)
-  const qbiDeduction = inputs.qualifiedBusinessIncomeDeduction
-    ? Math.min(netSEIncome * 0.20, Math.max(0, agi))
-    : 0;
-
   const standardDeduction = STANDARD_DEDUCTIONS[inputs.filingStatus];
   const deductions = Math.max(standardDeduction, inputs.estimatedDeductions);
-  const taxableIncome = Math.max(0, agi - deductions - qbiDeduction);
+
+  // § 199A QBI deduction. Two things this must get right, both of which the
+  // earlier "20% of net income, capped at AGI" version got wrong — it
+  // overstated the deduction by ~30% at $100k and so understated tax owed:
+  //
+  //  1. QBI is net business income REDUCED by the deductible half of SE tax.
+  //     Instructions for Form 8995 list "deductible part of self-employment
+  //     tax" among the items that reduce QBI.
+  //     https://www.irs.gov/instructions/i8995
+  //  2. The deduction is the LESSER of 20% of QBI and 20% of taxable income
+  //     figured BEFORE the QBI deduction, minus net capital gain. For a solo
+  //     filer the second ceiling usually binds, because the standard deduction
+  //     has already come off.
+  //     https://www.irs.gov/newsroom/qualified-business-income-deduction
+  //
+  // Still not modeled (see the disclosure on this calculator): the SSTB
+  // limitation and the phase-out above QBI_THRESHOLDS, and the § 199A(i)
+  // minimum deduction. Net capital gain is assumed to be zero — this
+  // calculator has no capital gains input.
+  const qbi = Math.max(0, netSEIncome - seTax.seDeduction);
+  const taxableIncomeBeforeQBI = Math.max(0, agi - deductions);
+  const qbiDeduction = inputs.qualifiedBusinessIncomeDeduction
+    ? Math.min(qbi * 0.20, taxableIncomeBeforeQBI * 0.20)
+    : 0;
+
+  const taxableIncome = Math.max(0, taxableIncomeBeforeQBI - qbiDeduction);
 
   const federalIncomeTax = calculateFederalTax(taxableIncome, inputs.filingStatus);
   const stateTax = taxableIncome * (inputs.stateTaxRate / 100);

@@ -2,12 +2,13 @@
 title: "Freelance Retirement Planning: Solo 401(k), SEP-IRA, and Your Options"
 description: "Compare Solo 401(k), SEP-IRA, Traditional IRA, and Roth IRA for freelancers. Contribution limits, tax savings, and how to choose the right retirement account."
 publishedDate: 2026-01-19
+updatedDate: 2026-08-09
 category: freelance
 calculatorSlugs:
   - /freelance/freelance-retirement-calculator
 ---
 
-Nobody becomes a freelancer for the retirement benefits. But the lack of an employer match does not mean you are worse off — it means the responsibility shifts to you, and the upside can actually be larger. A freelancer earning $100,000 per year can contribute up to $69,000 to a Solo 401(k) in 2025. A W-2 employee at the same salary, even with a generous 6 percent employer match, maxes out at $29,500 ($23,500 employee plus $6,000 match). The freelancer's ceiling is more than double.
+Nobody becomes a freelancer for the retirement benefits. But the lack of an employer match does not mean you are worse off — it means the responsibility shifts to you, and the upside can actually be larger. A freelancer earning $100,000 per year can contribute up to $72,000 to a Solo 401(k) in 2026. A W-2 employee at the same salary, even with a generous 6 percent employer match, maxes out at $30,500 ($24,500 employee plus $6,000 match). The freelancer's ceiling is more than double.
 
 The problem is that most freelancers either do not know their options or put off the decision because the alphabet soup of account types — Solo 401(k), SEP-IRA, Traditional IRA, Roth IRA — feels overwhelming. This guide breaks down each account type, the real contribution limits, the tax implications, and how to choose based on your income and timeline. Run your numbers through our [freelance retirement calculator](/freelance/freelance-retirement-calculator) to see the projected balance and tax savings for each option.
 
@@ -17,35 +18,35 @@ The problem is that most freelancers either do not know their options or put off
 
 The Solo 401(k) — also called an Individual 401(k) or Solo-k — is the most powerful retirement account available to freelancers with no full-time employees. It has two contribution components.
 
-**Employee contributions** allow you to defer up to $23,500 of your income in 2025. If you are 50 or older, an additional $7,500 catch-up contribution brings the employee side to $31,000.
+**Employee contributions** allow you to defer up to $24,500 of your income in 2026. If you are 50 or older, an additional $8,000 catch-up contribution brings the employee side to $32,500.
 
 **Employer contributions** (yes, you are both the employee and the employer) allow you to contribute up to 25 percent of your net self-employment income. Net SE income for this purpose is your gross self-employment income multiplied by 0.9235 (to account for the deductible half of SE tax).
 
-The combined limit is $69,000 in 2025 ($76,500 with catch-up). For a freelancer earning $100,000, net SE income is approximately $92,350, and the employer side caps at roughly $23,088. Combined with the $23,500 employee deferral, the total contribution is $46,588 — more than double what you could put into a SEP-IRA at the same income.
+The combined limit is $72,000 in 2026 ($80,000 with catch-up). For a freelancer earning $100,000, net SE income is approximately $92,350, and the employer side caps at roughly $23,088. Combined with the $24,500 employee deferral, the total contribution is $47,588 — more than double what you could put into a SEP-IRA at the same income.
 
 The [freelance retirement calculator](/freelance/freelance-retirement-calculator) compares all four account types side by side, showing the maximum contribution and projected balance for each based on your income and age.
 
 ### SEP-IRA: Simpler, But Lower Limits
 
-A SEP-IRA (Simplified Employee Pension) is the simplest retirement account for freelancers. There is one contribution bucket: up to 25 percent of net self-employment income, capped at $69,000 in 2025.
+A SEP-IRA (Simplified Employee Pension) is the simplest retirement account for freelancers. There is one contribution bucket: up to 25 percent of net self-employment income, capped at $72,000 in 2026.
 
-For a freelancer earning $75,000, net SE income is roughly $69,263. Twenty-five percent of that is $17,316 — the maximum SEP-IRA contribution. The same freelancer could put $23,500 into a Solo 401(k) just from the employee side, plus another $17,316 from the employer side, for a total of $40,816. The Solo 401(k) wins by $23,500.
+For a freelancer earning $75,000, net SE income is roughly $69,263. Twenty-five percent of that is $17,316 — the maximum SEP-IRA contribution. The same freelancer could put $24,500 into a Solo 401(k) just from the employee side, plus another $17,316 from the employer side, for a total of $41,816. The Solo 401(k) wins by $24,500.
 
 So why would anyone choose a SEP-IRA? Setup simplicity. Opening a SEP-IRA takes 15 minutes with most brokerages, and there is no annual filing requirement. A Solo 401(k) requires filing IRS Form 5500-EZ once the account balance exceeds $250,000. For freelancers contributing modest amounts (under $17,000 per year), a SEP-IRA offers the same contribution capacity with less paperwork.
 
 ### Traditional IRA: The Low-Ceiling Fallback
 
-A Traditional IRA allows contributions of up to $7,000 in 2025 ($8,000 if you are 50 or older). Contributions are tax-deductible if you are not covered by an employer plan — and as a freelancer without a 401(k) or SEP-IRA, you are not covered. The deduction phases out if you have a workplace plan and your income exceeds certain thresholds, but this is not a concern for most freelancers.
+A Traditional IRA allows contributions of up to $7,500 in 2026 ($8,600 if you are 50 or older). Contributions are tax-deductible if you are not covered by an employer plan — and as a freelancer without a 401(k) or SEP-IRA, you are not covered. The deduction phases out if you have a workplace plan and your income exceeds certain thresholds, but this is not a concern for most freelancers.
 
-The contribution limit is the lowest of all four options. A $7,000 contribution at a 22 percent tax bracket saves you $1,540 in income tax for the year. Helpful, but not transformative. A Traditional IRA is best used as a supplement to a Solo 401(k) or SEP-IRA, not as your primary retirement vehicle.
+The contribution limit is the lowest of all four options. A $7,500 contribution at a 22 percent tax bracket saves you $1,650 in income tax for the year. Helpful, but not transformative. A Traditional IRA is best used as a supplement to a Solo 401(k) or SEP-IRA, not as your primary retirement vehicle.
 
 ### Roth IRA: Pay Tax Now, Withdraw Tax-Free Later
 
-A Roth IRA has the same $7,000 contribution limit ($8,000 with catch-up) as a Traditional IRA, but contributions are made with after-tax dollars. You get no deduction today, but withdrawals in retirement are completely tax-free — including all investment growth.
+A Roth IRA has the same $7,500 contribution limit ($8,600 with catch-up) as a Traditional IRA, but contributions are made with after-tax dollars. You get no deduction today, but withdrawals in retirement are completely tax-free — including all investment growth.
 
 The Roth is most valuable for freelancers who expect to be in a higher tax bracket in retirement than they are now. If you are early in your freelance career earning $50,000 and expect to earn $150,000 within a decade, paying tax at your current rate and withdrawing tax-free later is a good deal.
 
-Income limits apply: single filers with modified AGI above $161,000 in 2025 cannot contribute to a Roth IRA directly. Above $146,000, the contribution limit phases down. High-earning freelancers can use a backdoor Roth conversion, but that introduces complexity.
+Income limits apply: for 2026, single filers and heads of household with modified AGI of $168,000 or more cannot contribute to a Roth IRA directly, and the limit phases down starting at $153,000. For married couples filing jointly the range is $242,000 to $252,000. High-earning freelancers can use a backdoor Roth conversion, but that introduces complexity.
 
 One nuance: many Solo 401(k) plans offer a Roth option for the employee contribution portion. This gives you the higher contribution ceiling of a 401(k) with the tax-free-growth benefit of a Roth. Not every brokerage offers this feature on their Solo 401(k) plans, so check before opening an account.
 
@@ -75,19 +76,19 @@ These projections assume a consistent 7 percent return, which is roughly the his
 
 A Roth IRA is likely your best option. At lower income levels, you are in a low tax bracket, so the tax deduction from a Traditional IRA or SEP-IRA saves you less. Paying tax now (at a low rate) and withdrawing tax-free in retirement (potentially at a higher rate) is the better trade.
 
-If you can save more than $7,000 per year, add a SEP-IRA. The administrative simplicity makes it better than a Solo 401(k) at this income level, since both accounts have the same employer-side contribution formula.
+If you can save more than $7,500 per year, add a SEP-IRA. The administrative simplicity makes it better than a Solo 401(k) at this income level, since both accounts have the same employer-side contribution formula.
 
 ### If you earn $50,000 to $100,000
 
-A Solo 401(k) becomes the clear winner. The employee deferral ($23,500) gives you significant tax savings — at least $5,170 per year in the 22 percent bracket. Add the employer contribution on top, and you can shelter $30,000 to $45,000 from taxes annually.
+A Solo 401(k) becomes the clear winner. The employee deferral ($24,500) gives you significant tax savings — at least $5,390 per year in the 22 percent bracket. Add the employer contribution on top, and you can shelter $30,000 to $45,000 from taxes annually.
 
-If you do not want the paperwork of a Solo 401(k), a SEP-IRA is a reasonable alternative, but you give up the employee deferral. At $75,000 in income, a SEP-IRA caps at roughly $17,316 versus the Solo 401(k)'s $40,816.
+If you do not want the paperwork of a Solo 401(k), a SEP-IRA is a reasonable alternative, but you give up the employee deferral. At $75,000 in income, a SEP-IRA caps at roughly $17,316 versus the Solo 401(k)'s $41,816.
 
 ### If you earn over $100,000
 
-Solo 401(k), no question. The combined contribution limit approaches $69,000, and the tax savings at higher brackets (24 to 32 percent or more) are substantial. A $50,000 contribution at a 32 percent bracket saves $16,000 in income tax in a single year.
+Solo 401(k), no question. The combined contribution limit approaches $72,000, and the tax savings at higher brackets (24 to 32 percent or more) are substantial. A $50,000 contribution at a 32 percent bracket saves $16,000 in income tax in a single year.
 
-Consider adding a backdoor Roth IRA for the additional $7,000 per year in tax-free growth, especially if you expect your income to remain high or increase.
+Consider adding a backdoor Roth IRA for the additional $7,500 per year in tax-free growth, especially if you expect your income to remain high or increase.
 
 ## Common Freelancer Retirement Mistakes
 
@@ -115,7 +116,7 @@ The practical steps are simpler than most freelancers expect.
 
 **SEP-IRA:** Open with any brokerage. No EIN required if you are a sole proprietor. No annual filing. Contributions are due by your tax filing deadline (April 15 or October 15 with extension).
 
-**Traditional/Roth IRA:** Open anywhere. $7,000 annual limit. Contributions for the current tax year can be made until April 15 of the following year.
+**Traditional/Roth IRA:** Open anywhere. $7,500 annual limit. Contributions for the current tax year can be made until April 15 of the following year.
 
 All contributions are invested in index funds, ETFs, target-date funds, or individual stocks — the same investment options as any other brokerage account. If you are not sure what to invest in, a total market index fund (like VTSAX or VTI) is a reasonable default for long-term retirement savings.
 

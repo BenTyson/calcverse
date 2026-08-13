@@ -2,6 +2,7 @@
 title: "Capital Gains Tax for Freelancers and Creators"
 description: "How capital gains tax applies to freelancers and creators — short-term vs long-term rates, NIIT, bracket stacking, and strategies to minimize what you owe."
 publishedDate: 2026-02-04
+updatedDate: 2026-08-09
 category: finance
 calculatorSlug: /personal-finance/capital-gains-tax-calculator
 ---
@@ -25,9 +26,9 @@ Short-term rates in 2026 follow the standard income tax brackets: 10%, 12%, 22%,
 Assets held for more than one year qualify for preferential rates: 0%, 15%, or 20%. The rate depends on your taxable income after deductions.
 
 For single filers in 2026, the brackets are approximately:
-- 0% on gains if taxable income is below $48,350
-- 15% on gains if taxable income is between $48,350 and $533,400
-- 20% on gains if taxable income exceeds $533,400
+- 0% on gains if taxable income is below $49,450
+- 15% on gains if taxable income is between $49,450 and $545,500
+- 20% on gains if taxable income exceeds $545,500
 
 The difference is substantial. A $30,000 long-term gain for someone in the 24% ordinary income bracket is taxed at 15% instead of 24% — saving $2,700.
 
@@ -41,11 +42,11 @@ Capital gains do not exist in a tax vacuum. Long-term gains stack on top of your
 
 ### How Stacking Works
 
-Consider a freelancer with $85,000 in net self-employment income. After the SE tax deduction and standard deduction, taxable ordinary income is approximately $62,000. Now add a $30,000 long-term capital gain.
+Consider a freelancer with $85,000 in net self-employment income. After the SE tax deduction and standard deduction, taxable ordinary income is approximately $62,900. Now add a $30,000 long-term capital gain.
 
 The first $0 of the gain is taxed at 0% (the 0% bracket was already filled by ordinary income). The entire $30,000 gain falls in the 15% bracket, costing $4,500 in federal capital gains tax.
 
-Now consider the same freelancer after a slow year — $40,000 in net income. After deductions, taxable ordinary income is roughly $20,000. Adding the same $30,000 gain: the first $28,350 of the gain fills the 0% bracket ($48,350 threshold minus $20,000 ordinary income), and the remaining $1,650 is taxed at 15%. Total capital gains tax: $247.50 instead of $4,500.
+Now consider the same freelancer after a slow year — $40,000 in net income. After deductions, taxable ordinary income is roughly $21,100. Adding the same $30,000 gain: the first $28,350 of the gain fills the 0% bracket ($49,450 threshold minus $21,100 ordinary income), and the remaining $1,650 is taxed at 15%. Total capital gains tax: $247.50 instead of $4,500.
 
 Same investment, same gain, same person. The difference is $4,252 in tax — entirely driven by how much freelance income you earned that year.
 

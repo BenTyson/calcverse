@@ -10,7 +10,8 @@ const sources = [
   { label: 'IRS Topic no. 751, Social Security and Medicare withholding rates', url: 'https://www.irs.gov/taxtopics/tc751', note: '$184,500 Social Security wage base for 2026' },
   { label: 'IRS Topic no. 560, Additional Medicare Tax', url: 'https://www.irs.gov/taxtopics/tc560', note: '0.9% surtax thresholds (fixed in statute, not inflation-indexed)' },
   { label: 'IRS Instructions for Schedule SE (Form 1040)', url: 'https://www.irs.gov/pub/irs-pdf/i1040sse.pdf', note: '15.3% rate, 92.35% adjustment' },
-  { label: 'IRS — Qualified Business Income Deduction (Section 199A)', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction', note: 'QBI deduction basics' },
+  { label: 'IRS — Qualified Business Income Deduction (Section 199A)', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction', note: 'QBI deduction is the lesser of the QBI component or 20% of taxable income minus net capital gain' },
+  { label: 'IRS Instructions for Form 8995', url: 'https://www.irs.gov/instructions/i8995', note: 'QBI is reduced by the deductible part of SE tax; taxable-income limit is figured before the QBI deduction' },
 ];
 
 const faqs = [
@@ -32,7 +33,7 @@ const faqs = [
   {
     question: 'What is the QBI deduction?',
     answer:
-      'The Qualified Business Income (QBI) deduction under Section 199A lets eligible self-employed individuals deduct up to 20% of their qualified business income. Most sole proprietors and single-member LLCs qualify if their taxable income is below $201,750 (single) or $403,500 (married filing jointly) for 2026.',
+      'The Qualified Business Income (QBI) deduction under Section 199A lets eligible self-employed individuals deduct up to 20% of their qualified business income. It is the lesser of two amounts: 20% of your QBI (your net business income reduced by the deductible half of your SE tax), or 20% of your taxable income figured before the QBI deduction. For a solo filer taking the standard deduction, the second ceiling usually binds — which is why the deduction shown here is often less than a flat 20% of your earnings. Most sole proprietors and single-member LLCs qualify if their taxable income is below $201,750 (single) or $403,500 (married filing jointly) for 2026.',
   },
   {
     question: 'What is Schedule SE?',

@@ -2,6 +2,7 @@
 title: "How Much Do DoorDash Drivers Actually Make? (2026 Breakdown)"
 description: "Real DoorDash earnings data after expenses — base pay, tips, peak pay, hidden costs, and what top dashers actually take home per hour."
 publishedDate: 2026-02-20
+updatedDate: 2026-08-09
 category: gig-economy
 calculatorSlug: /gig-economy/doordash-calculator
 ---
@@ -54,7 +55,7 @@ Switching to a fuel-efficient sedan or hybrid makes a measurable difference. A d
 
 ### Vehicle Maintenance and Wear
 
-Dashing puts serious miles on your car. Oil changes, tire replacements, brake pads, and general wear accumulate fast when you're driving 500 to 1,000 extra miles per month. The IRS standard mileage rate for 2026 is $0.70 per mile, which is designed to capture the full cost of operating a vehicle including depreciation. Most dashers underestimate these costs because they're spread out and don't hit your bank account in a single transaction.
+Dashing puts serious miles on your car. Oil changes, tire replacements, brake pads, and general wear accumulate fast when you're driving 500 to 1,000 extra miles per month. The IRS standard mileage rate is designed to capture the full cost of operating a vehicle including depreciation, and 2026 splits it in two: $0.725 per mile for miles driven January 1 through June 30, and $0.76 per mile from July 1 through December 31. Most dashers underestimate these costs because they're spread out and don't hit your bank account in a single transaction.
 
 A conservative estimate puts maintenance and wear at $0.10 to $0.15 per mile on top of fuel costs. Combined, you're looking at $0.25 to $0.40 per mile in total vehicle costs.
 
