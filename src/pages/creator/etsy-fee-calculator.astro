@@ -1,7 +1,6 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { EtsyFeesCalc } from '@components/calculators/EtsyFeesCalc';
-import { MONETIZATION } from '@lib/config/monetization';
 
 const faqs = [
   {
@@ -64,13 +63,6 @@ const relatedCalculators = [
   slug="etsy-fee-calculator"
   faqs={faqs}
   relatedCalculators={relatedCalculators}
-  affiliateProduct={{
-    product: MONETIZATION.affiliates.etsyAds.label,
-    description: 'Boost your Etsy shop visibility with promoted listings and offsite ads.',
-    url: MONETIZATION.affiliates.etsyAds.url,
-    category: 'creator',
-    partner: 'etsyAds',
-  }}
 >
   <Fragment slot="intro">
     <section class="mb-8">

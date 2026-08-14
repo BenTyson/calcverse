@@ -1,7 +1,6 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { YouTubeAdSenseCalc } from '@components/calculators/YouTubeAdSenseCalc';
-import { MONETIZATION } from '@lib/config/monetization';
 
 const faqs = [
   {
@@ -70,13 +69,6 @@ const relatedCalculators = [
   slug="youtube-adsense-calculator"
   faqs={faqs}
   relatedCalculators={relatedCalculators}
-  affiliateProduct={{
-    product: MONETIZATION.affiliates.tubeBuddy.label,
-    description: 'Grow your YouTube channel with keyword research, A/B testing, and SEO tools.',
-    url: MONETIZATION.affiliates.tubeBuddy.url,
-    category: 'creator',
-    partner: 'tubeBuddy',
-  }}
 >
   <Fragment slot="intro">
     <section class="mb-8">

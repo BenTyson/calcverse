@@ -1,0 +1,37 @@
+---
+// Resolves 1-3 partners for a calculator slug from
+// `MONETIZATION.calculatorAffiliates` and renders an AffiliateCard for each.
+// Partners whose url is still the '#' placeholder are already filtered out
+// by getAffiliatesForCalculator() — this component never has to know about
+// that rule, it just renders what it's given. If nothing resolves, this
+// renders NOTHING (no cards, no disclosure) rather than an empty section.
+import AffiliateCard from './AffiliateCard.astro';
+import AffiliateDisclosure from './AffiliateDisclosure.astro';
+import { getAffiliatesForCalculator } from '@lib/config/monetization';
+
+interface Props {
+  slug: string;
+  category: string;
+}
+
+const { slug, category } = Astro.props;
+const partners = getAffiliatesForCalculator(slug);
+---
+
+{partners.length > 0 && (
+  <div class="mb-6">
+    <div class={partners.length > 1 ? 'grid sm:grid-cols-2 gap-4' : ''}>
+      {partners.map((partner, i) => (
+        <AffiliateCard
+          product={partner.label}
+          description={partner.description}
+          url={partner.url}
+          category={category}
+          badge={i === 0 ? 'Recommended' : undefined}
+          partner={partner.key}
+        />
+      ))}
+    </div>
+    <AffiliateDisclosure />
+  </div>
+)}
