@@ -1,7 +1,6 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { SelfEmploymentTaxCalc } from '@components/calculators/SelfEmploymentTaxCalc';
-import { MONETIZATION } from '@lib/config/monetization';
 import SourcesBlock from '@components/calculator/SourcesBlock.astro';
 import { TAX_YEAR, TAX_DATA_LAST_VERIFIED, QBI_THRESHOLDS } from '@lib/calculators/shared/tax-brackets';
 
@@ -105,14 +104,6 @@ const relatedCalculators = [
   ogImage="/og-images/self-employment-tax.png"
   faqs={faqs}
   relatedCalculators={relatedCalculators}
-  affiliateProduct={{
-    product: MONETIZATION.affiliates.quickbooks.label,
-    description: 'Track expenses, maximize deductions, and estimate self-employment taxes automatically.',
-    url: MONETIZATION.affiliates.quickbooks.url,
-    category: 'freelance',
-    badge: 'Recommended',
-    partner: 'quickbooks',
-  }}
 >
   <Fragment slot="intro">
     <section class="mb-8">

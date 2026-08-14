@@ -7,8 +7,7 @@ import RelatedCalculators from '@components/calculator/RelatedCalculators.astro'
 import RelatedBlogCTA from '@components/calculator/RelatedBlogCTA.astro';
 import AdSlot from '@components/monetization/AdSlot.astro';
 import { isAdSlotEnabled } from '@lib/config/monetization';
-import AffiliateCard from '@components/monetization/AffiliateCard.astro';
-import AffiliateDisclosure from '@components/monetization/AffiliateDisclosure.astro';
+import AffiliateGrid from '@components/monetization/AffiliateGrid.astro';
 import { EmailCapture } from '@components/monetization/EmailCapture';
 import { getCollection } from 'astro:content';
 import type { FAQ, BreadcrumbItem } from '@lib/seo/schema';
@@ -18,15 +17,6 @@ interface RelatedCalc {
   description: string;
   href: string;
   category: string;
-}
-
-interface AffiliateProduct {
-  product: string;
-  description: string;
-  url: string;
-  category: string;
-  badge?: string;
-  partner?: string;
 }
 
 interface Props {
@@ -39,7 +29,6 @@ interface Props {
   faqs?: FAQ[];
   relatedCalculators?: RelatedCalc[];
   ogImage?: string;
-  affiliateProduct?: AffiliateProduct;
 }
 
 const {
@@ -52,7 +41,6 @@ const {
   faqs = [],
   relatedCalculators = [],
   ogImage,
-  affiliateProduct,
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://calcfalcon.com';
@@ -167,19 +155,7 @@ const relatedBlogPosts = allBlogPosts
       </div>
 
       <!-- Affiliate -->
-      {affiliateProduct && (
-        <div class="mb-6">
-          <AffiliateCard
-            product={affiliateProduct.product}
-            description={affiliateProduct.description}
-            url={affiliateProduct.url}
-            category={affiliateProduct.category}
-            badge={affiliateProduct.badge}
-            partner={affiliateProduct.partner}
-          />
-          <AffiliateDisclosure />
-        </div>
-      )}
+      <AffiliateGrid slug={slug} category={categorySlug} />
 
       <!-- Ad: Mid -->
       {isAdSlotEnabled('calculator-mid') && (

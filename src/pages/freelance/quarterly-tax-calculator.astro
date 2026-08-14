@@ -1,7 +1,6 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { QuarterlyTaxCalc } from '@components/calculators/QuarterlyTaxCalc';
-import { MONETIZATION } from '@lib/config/monetization';
 import SourcesBlock from '@components/calculator/SourcesBlock.astro';
 import { TAX_YEAR, TAX_DATA_LAST_VERIFIED } from '@lib/calculators/shared/tax-brackets';
 
@@ -77,14 +76,6 @@ const relatedCalculators = [
   ogImage="/og-images/quarterly-tax.png"
   faqs={faqs}
   relatedCalculators={relatedCalculators}
-  affiliateProduct={{
-    product: MONETIZATION.affiliates.quickbooks.label,
-    description: 'Track expenses, maximize deductions, and estimate quarterly taxes automatically.',
-    url: MONETIZATION.affiliates.quickbooks.url,
-    category: 'freelance',
-    badge: 'Recommended',
-    partner: 'quickbooks',
-  }}
 >
   <Fragment slot="intro">
     <section class="mb-8">
