@@ -131,6 +131,10 @@ Then prose covering:
 
 **A "Verify" row in a fact file is a stop sign, not a suggestion.** If downstream work needs a figure marked Verify, that work is blocked. Choosing the plausible number reintroduces exactly the defect the fact file exists to prevent.
 
+**Disjoint file ownership prevents merge conflicts, not contradictory answers.** *Earned in Wave 2:* a blog chip and a calculator chip owned entirely separate files and could each have published a different number for the same platform fee. Nothing in the ownership rule would have caught it. **Chips that publish facts from the same domain must either be sequenced, or must both derive from the same fact file in `docs/facts/`.** If your prose must agree with a calculator a sibling is currently fixing, say so in Reflections — the Command Center owns that sequencing.
+
+**When the thing you are fixing IS the calculator, "compute by running the calculator" needs a variant.** Import the real module into a scratch script with only the fee constants corrected, and say in your notes that you did. Do not hand-compute, and do not trust a sibling's uncommitted fix that isn't in your worktree.
+
 **Verify reports exhaustively, including your own.** *Earned in Wave 1:* a chip reported three calculators emitting dead URLs in their copy-results text. A full sweep of every hardcoded URL against the real routes found **five**. When you report a class of defect, enumerate the whole class programmatically rather than the instances you happened to notice.
 
 ---
@@ -167,6 +171,11 @@ Recorded as hit, so the next chip doesn't rediscover them:
 - **Worktrees branch from the last PUSHED commit, not from local `main`.** *Earned in Wave 1:* all four chips started from a commit two behind main, with no `CHIP-PROTOCOL.md` and a `DECISIONS.md` predating every ruling. Three noticed and recovered by reading from the main checkout via `git show <sha>:<path>`; a chip that trusted its own worktree would have concluded the operating model didn't apply. **Command Center: push before spawning.** If you are a chip and this file is missing from your worktree, read it from the main checkout — do not assume you are ungoverned.
 - **A stale `.astro` cache produces phantom build warnings.** A `Duplicate id` warning survived a merge with only one matching file on disk; `rm -rf .astro dist` cleared it. Clear the cache before reporting a build warning as a regression.
 - **Some sources are Cloudflare-gated against WebFetch, and `patreon.com` is browsing-policy-blocked.** The working escalation ladder for research chips is WebFetch → browser tools → the vendor's Zendesk JSON API. Documented per-source in `docs/facts/creator-payment-fees.md`.
+- **`client:visible` islands never hydrate in the headless browser.** The pane reports `window.innerHeight === 0` while hidden, so a calculator page looks broken in a way that mimics a bug in your own code. **Load `/embed/<category>/<slug>` instead** — it is `client:load`, renders the identical component, and hydrates immediately. Three separate chips lost time to this in one wave.
+- **The browser pane is shared across concurrent chips.** A tab can navigate itself to a sibling's page mid-verification. Re-check the URL before trusting what you see.
+- **Built HTML entity-encodes apostrophes** (`&#39;`). Grepping `dist/` for a string containing `'` returns nothing and reads as a clean sweep. Strip or encode apostrophes in verification greps.
+- **Worktree-isolated chips cannot use Bash heredocs.** Use the `Write` tool for scratch scripts.
+- **`formatCurrency` rounds to whole dollars** (D-013). It renders $0.50 as "$1". Use `formatCurrencyWithCents` for any per-unit, per-sale, or sub-dollar figure, and say so in your notes.
 - Railway auto-deploys from `main`. Nothing you do reaches production, but a careless push would.
 
 ---

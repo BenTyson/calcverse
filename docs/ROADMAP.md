@@ -43,8 +43,8 @@ The fourth is the Airbnb answer specifically. The Airbnb calculator sits at posi
 | Wave | Status | Focus |
 |---|---|---|
 | **W1** | **CLOSED** 2026-08-25 — 3 of 4 merged | CTR capture, hub spec, verified fee data |
-| **W2** | **RUNNING** | Correct wrong platform fees (blocker, D-011) + dead-link fix |
-| W3 | NOT STARTED | Redo calculator retitling against corrected fees; share-link state bug |
+| **W2** | **CLOSED** 2026-08-25 — 6 of 6 merged and deployed | Correct wrong platform fees (blocker, D-011) + dead-link fix |
+| W3 | NOT STARTED | Cents sweep (D-013), fee guard, remaining blog fee copy, retitling redo |
 | W4 | NOT STARTED | Build the first comparison hub per `docs/specs/comparison-hub.md` |
 | W5 | NOT STARTED | Buy Me a Coffee calculator (needs correct baseline + touches 2 hot spots) |
 | W6 | NOT STARTED | AdSense re-review once original value ships (D-004) |
@@ -66,6 +66,27 @@ Five chips, disjoint files, concurrent. Four fee corrections at **Opus** (money 
 Ownership is one logic module + one component + one page per fee chip; the dead-link chip owns four components none of them touch. `KofiCalc.tsx` carries a fifth dead URL and was assigned to `CHIP-FEE-KOFI` rather than split across two chips.
 
 **None of them may change a page `title`, `description`, or `<h1>`** — that surface belongs to W3, and editing it here would collide.
+
+### W2 outcome — closed 2026-08-25
+
+Six chips, all merged, verified, and deployed. Every creator payment calculator now computes correct fees with a cited source block. Five dead share URLs fixed. Two blog posts corrected, including the description string that was rendering the dead Patreon plan menu onto the corrected calculator page.
+
+Highest-value finding, again unasked-for: **`formatCurrency` rounds away cents site-wide** (D-013), caught independently by two chips only because both measured rendered output rather than source.
+
+Ruling changes this wave: D-013 (cents), D-014 (Confident publishes arithmetic, Verify withholds advice), D-015 (Command Center now pushes).
+
+### W3 — proposed, not yet spawned
+
+| Chip | Why | Model | Sequencing |
+|---|---|---|---|
+| `CHIP-CENTS-SWEEP` | D-013 — 45 files, per-call-site judgment | Opus · high | **Serialized, alone** — *move*-shaped |
+| `CHIP-FEE-GUARD` | D-011 says fees are "enforced by a guard"; no guard exists. **Four separate chips flagged this.** Extend the `SUPERSEDED` denylist in `scripts/check-tax-data.mjs` to platform fees | Opus · medium | Parallel-safe |
+| `CHIP-BLOG-FEE-COPY-2` | The fee defect is a class of **six** posts, not two. Two propagate errors into thresholds readers are told to act on — a $990 Beehiiv crossover and a Gumroad-vs-Sellfy crossover | Opus · high | After the fee guard |
+| `CHIP-HYDRATION` | React discards SSR HTML on every calculator; traced to `useCalculatorState` reading `window.location` at init. Measure before retitling so a page-speed shift isn't misattributed | Opus · high | **Serialized, alone** |
+| `CHIP-CTR-CALC-2` | The rejected W1 retitling, redone against correct fees. Start from the rollback table in `docs/notes/CHIP-CTR-CALC.md` | Fable · high | After the cents sweep |
+| `CHIP-RESEARCH-NEWSLETTER` | Beehiiv 0% and ConvertKit 3.5% appear in a live calculator and a published post with **no primary source**. Blocks any newsletter comparison work under D-011 | Opus · medium | Parallel-safe; gates the newsletter fixes |
+
+**Open question for the human, unresolved:** `docs/specs/comparison-hub.md` §8 flags that the comparison rankings justifying D-001 are held by existing blog posts, so a hub on those queries would cannibalize the site's best URLs. The spec recommends coexisting on broader queries and watching Search Console for four weeks before deciding per-post. That decision is due before any hub ships.
 
 ---
 
