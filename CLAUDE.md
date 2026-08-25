@@ -1,6 +1,17 @@
 # CalcFalcon
 
-SEO-driven calculator site for freelancers, creators, and gig workers. Generates passive income via display ads + affiliates.
+> ## ⚠️ Read this first
+>
+> **If you were spawned with a scoped job, you are a "chip." Read `docs/CHIP-PROTOCOL.md` in full before touching anything.**
+>
+> This project runs a command-center model. One session plans, spawns, merges, and rules; all feature work happens in chips running in isolated git worktrees. Chips write only the files their spawn prompt names, never write shared docs, and **never commit, push, or spawn other chips**.
+>
+> - `docs/CHIP-PROTOCOL.md` — the rules every chip follows
+> - `docs/DECISIONS.md` — numbered rulings; **overrides every spec and spawn prompt**
+> - `docs/ROADMAP.md` — waves, chip ownership, status
+> - `docs/notes/` — one file per chip; chips write here and nowhere else
+
+**Cross-platform comparison engine** for people deciding where to sell, drive, or host — surfaced as calculators for freelancers, creators, and gig workers. Monetized via display ads + affiliates. See `docs/DECISIONS.md` D-001 for the positioning ruling and the data behind it.
 
 **Domain:** calcfalcon.com
 **Stack:** Astro 5 (SSG + SSR hybrid) + React 19 + Tailwind CSS 4
@@ -191,14 +202,19 @@ restated. OBBBA widened it from $50k/$100k to $75k/$150k for TY2026.
 
 | Doc | When to read |
 |-----|-------------|
-| `docs/STATUS.md` | Current state, what's live, what's next |
+| **`docs/CHIP-PROTOCOL.md`** | **First, if you are a chip. The rules of the operating model.** |
+| **`docs/DECISIONS.md`** | **Numbered rulings — override every spec and spawn prompt. Then standing decisions.** |
+| `docs/ROADMAP.md` | The thesis, waves, chip ownership, status |
+| `docs/notes/` | One file per chip. Chips write here and nowhere else. |
+| `docs/specs/` | Design specs produced by spec-lane chips |
+| `docs/facts/` | Verified fact files from research chips; writing chips may use nothing else |
+| `docs/STATUS.md` | Current state, what's live |
 | `docs/ARCHITECTURE.md` | Deep technical reference |
-| `docs/REVENUE-ROADMAP.md` | Revenue phases R1-R9 (affiliate, email, PDF, B2B, SEO, sponsorships) |
+| `docs/REVENUE-ROADMAP.md` | Revenue phases R1-R9 (partly superseded by D-001) |
 | `/add-calculator` skill | Full guided workflow for adding calculators |
-| `docs/BLOG-TAX-AUDIT.md` | Blog posts with stale tax figures (open backlog) |
-| `docs/DECISIONS.md` | What's decided (don't re-debate) |
-| `docs/ROADMAP.md` | Full implementation plan with phases |
+| `docs/BLOG-TAX-AUDIT.md` | Blog tax-figure audit (closed 2026-08-09) |
 | `docs/CALCULATOR-IDEAS.md` | Backlog of calculator ideas |
+| `docs/archive/ROADMAP-v2-phases.md` | Superseded phase roadmap (Phases 12/13 cancelled — see D-002) |
 
 ## Analytics
 

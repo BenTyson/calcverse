@@ -1,183 +1,88 @@
 # CalcFalcon Roadmap
 
-## Phase Summary
-
-| Phase | Status | Focus |
-|-------|--------|-------|
-| 0. Manual/External Steps | IN PROGRESS | Email, AdSense (DNS + analytics + GSC done) |
-| 6. Polish, Distribution & Scale | PARTIAL | OG→PNG done, structured data done, PWA done. Manual: distribution, affiliates, PDF export |
-| 10a. Tax & Business Finance (SE Tax, Profit Margin) | DONE | Shared tax brackets, SE Tax, Profit Margin |
-| 10b. Tax & Business Finance (Cap Gains, Debt Payoff) | DONE | Capital Gains Tax, Debt Payoff (~15K/mo) |
-| 11. Financial Planning | DONE | Net Worth, Break-Even, Consulting Fee, Savings Goal (~16K/mo) |
-| 12. Creator & Digital Business | PLANNED | Crypto Tax, Affiliate Marketing, Social Media ROI, Digital Product Pricing (~11K/mo) |
-| 13. Business Operations | PLANNED | Late Payment, Cost Per Lead, Stock Options, 1099 Tax (~12K/mo) |
-| B6. Blog: Tax & Business | DONE | 4 posts paired with Phase 10 |
-| B7. Blog: Financial Planning | DONE | 4 posts paired with Phase 11 |
-| B8. Blog: Creator & Digital | PLANNED | 4 posts paired with Phase 12 |
-| B9. Blog: Business Operations | PLANNED | 4 posts paired with Phase 13 |
-
-> Completed phases (1-5, 7-9, B1-B7, 10a-11) archived in `docs/archive/ROADMAP-v1.md`
+**Operating model:** command center + chips. See `docs/CHIP-PROTOCOL.md`.
+**Rulings that override this document:** `docs/DECISIONS.md`.
+**Previous phase-based roadmap:** archived at `docs/archive/ROADMAP-v2-phases.md`.
 
 ---
 
-## Phase 0: Manual/External Steps (User Action)
+## The thesis
 
-- [x] Configure calcfalcon.com DNS → Railway
-- [x] Sign up for Fathom analytics (site ID: BRHGFMPN)
-- [x] Google Search Console — verify domain, submit sitemap
-- [ ] Sign up for Resend (email)
-- [ ] AdSense application (after domain + 30 pages + 1K visits)
+**CalcFalcon is a cross-platform comparison engine for people deciding where to sell, drive, or host. It is not a calculator directory.**
 
----
+This is the product bet, and it came out of Search Console data rather than taste. Over the last 12 months the site earned **30,880 impressions and 106 clicks — a 0.34% click-through rate** at an average position around 20. Impressions grew roughly 8x between March and August; clicks stayed flat. The traffic is being offered and not taken.
 
-## Phase 6: Polish, Distribution & Scale — PARTIAL
+Splitting queries by intent shows why:
 
-### Done (automated)
-- [x] OG images: SVG→PNG conversion (`scripts/convert-og-images.mjs`, 42 PNGs)
-- [x] Structured data: `image` in WebApplication schema
-- [x] PWA: manifest, service worker, 192/512 icons, theme-color
+| Query type | Queries | Impressions | Top-10 rate | Weighted position |
+|---|---|---|---|---|
+| **Comparison** ("X vs Y") | 122 | 1,466 | **36%** | 24.5 |
+| **Head terms** ("how much does X pay") | 481 | 5,433 | **3%** | 27.8 |
 
-### Remaining (manual — see `docs/ben.md`)
-- [ ] Distribution: Product Hunt, Reddit (r/freelance, r/sidehustle, r/smallbusiness), Indie Hackers, HARO
-- [ ] Affiliate URLs: replace placeholders in `monetization.ts`
-- [ ] AdSense / Mediavine application
-- [ ] PDF export of calculator results
-- [ ] Compare scenarios mode
+The site ranks in the top ten on comparison queries at **twelve times** the rate it does on head terms — position 3.0 on "printful vs printify pricing comparison 2026", 7.5 on "amazon flex vs doordash vs instacart", 7.4 on "patreon vs ko-fi fees comparison". Meanwhile "how much does doordash pay" has 1,006 impressions at position 27.8.
 
----
+The reason is structural and durable: **DoorDash will never publish that Instacart pays more.** Ko-fi will never publish an honest Patreon fee comparison. Indeed and ZipRecruiter publish per-job salary data, not cross-platform net-of-expenses math. No incumbent *can* occupy the comparison space, which is also why it satisfies AdSense's "substantial value and originality compared to other sites" — the bar the site has failed twice.
 
-## Phase 10a: Tax & Business Finance — DONE
+**Nothing gets deleted.** The 45 calculators keep their URLs and keep winning branded terms ("kofi calculator" position 5.3, "turo calc" position 3.0). They stop being the front door and become the evidence engine inside comparison hubs.
 
-- [x] Shared tax brackets: `src/lib/calculators/shared/tax-brackets.ts`
-- [x] Self-Employment Tax Calculator (Freelance, 8K/mo)
-- [x] Profit Margin Calculator (Side Hustle, 10K/mo)
+### The four hubs
 
-## Phase 10b: Tax & Business Finance — DONE
+| Hub | Platforms | Calculators today | Evidence |
+|---|---|---|---|
+| Creator payments | Ko-fi · Patreon · Buy Me a Coffee · Gumroad · Substack | 4 of 5 (BMAC missing) | pos 7.2–8.8 on vs-queries |
+| Gig delivery | DoorDash · Instacart · Amazon Flex · Uber Eats | 4 | pos 7.2–7.5; hub page already pos 10.9 |
+| Print-on-demand | Printful · Printify · Merch by Amazon · Gumroad | 2 | **pos 3.0–5.3**, best on the site |
+| Asset monetization | Airbnb · Turo · storage/parking | 2 | Turo calc pos 7.0 |
 
-- [x] Capital Gains Tax Calculator (Personal Finance, 5K/mo)
-- [x] Debt Payoff Calculator (Personal Finance, 10K/mo)
+The fourth is the Airbnb answer specifically. The Airbnb calculator sits at position 52 against AirDNA and Mashvisor, who hold real occupancy and ADR data by zip code. "Airbnb vs Turo: which asset earns more" needs no proprietary market data and has no owner.
 
 ---
 
-## Phase 11: Financial Planning — DONE
+## Wave status
 
-- [x] Net Worth Calculator (Personal Finance, 5K/mo)
-- [x] Break-Even Calculator (Freelance, 5K/mo)
-- [x] Consulting Fee Calculator (Freelance, 3K/mo)
-- [x] Savings Goal Calculator (Personal Finance, 3K/mo)
-
----
-
-## Phase 12: Creator & Digital Business (~11K/mo combined)
-
-| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
-|-----------|----------|---------------|----------|-------------------|
-| Crypto Tax | Personal Finance | "crypto tax calculator" | 5K/mo | CoinLedger, Koinly ($20-50/ref) |
-| Affiliate Marketing | Creator | "affiliate marketing calculator" | 2K/mo | ShareASale, Impact |
-| Social Media ROI | Creator | "social media ROI calculator" | 2K/mo | Buffer, Later |
-| Digital Product Pricing | Creator | "how to price digital products" | 2K/mo | Gumroad, Shopify |
-
-**Implementation notes:**
-- Crypto Tax: Extends Capital Gains logic with crypto-specific events (staking, airdrops, DeFi). FIFO/LIFO. DonutChart (gains by type).
-- Affiliate Marketing: Traffic → CTR → conversion → commission pipeline. ProjectionChart (revenue scaling).
-- Social Media ROI: Time + money invested vs revenue attributed. BarComparisonChart (per-platform).
-- Digital Product Pricing: Price optimization based on costs, market, and goals. BarComparisonChart (revenue at 3 price points).
+| Wave | Status | Focus |
+|---|---|---|
+| **W1** | PROPOSED — awaiting rulings | Capture existing impressions (CTR), spec the hub, gather verified fee data |
+| W2 | NOT STARTED | Build the comparison hub component + first hub |
+| W3 | NOT STARTED | Fill named gaps (Buy Me a Coffee), second hub |
+| W4 | NOT STARTED | AdSense re-review once original value ships |
 
 ---
 
-## Phase 13: Business Operations (~12K/mo combined)
+## Wave 1 — proposed
 
-| Calculator | Category | Target Keyword | Est. Vol | Affiliate Potential |
-|-----------|----------|---------------|----------|-------------------|
-| Late Payment / Invoice | Freelance | "late payment fee calculator" | 2K/mo | FreshBooks, HoneyBook |
-| Cost Per Lead | Side Hustle | "cost per lead calculator" | 2K/mo | Google Ads, Mailchimp |
-| Stock Options | Personal Finance | "stock option calculator" | 3K/mo | Carta, Fidelity |
-| 1099 Tax | Freelance | "1099 tax calculator" | 5K/mo | TurboTax, H&R Block |
+Four chips, disjoint file ownership, safe to run concurrently. Rationale for sequencing: W1 is deliberately the cheapest possible test of the thesis. Titles and meta capture traffic already being offered without writing a single new page, and two weeks of Search Console data afterward tells us whether intent-matching moves CTR *before* we commit to an architecture change.
 
-**Implementation notes:**
-- Late Payment: Interest accrual on overdue invoices. ProjectionChart (growing balance).
-- Cost Per Lead: CPL, CPA, ROAS, break-even CPL from LTV. DonutChart (spend breakdown).
-- Stock Options: ISO vs NSO, AMT, vesting, exercise strategy. ProjectionChart (value over time).
-- 1099 Tax: Beginner-friendly "I got a 1099, what do I owe?" Reuses SE Tax logic. DonutChart (tax breakdown). Distinct intent from Quarterly Tax and W2vs1099.
+| Chip | Lane | Model | Owns |
+|---|---|---|---|
+| `CHIP-CTR-CALC` | implementation | **Fable 5 · high** | `title`/`description` props on ~15 named calculator `.astro` pages |
+| `CHIP-CTR-BLOG` | implementation | **Opus 5 · high** | frontmatter `title`/`description` on ~10 named `src/content/blog/*.md` |
+| `CHIP-RESEARCH-PAYMENTS` | spec/docs | **Opus 5 · medium** | `docs/facts/creator-payment-fees.md` only |
+| `CHIP-HUB-SPEC` | spec/docs | **Fable 5 · high** | `docs/specs/comparison-hub.md` only |
+| `CHIP-INTEGRATOR-W1` | docs | **Sonnet 5 · low** | runs alone, last; merges notes into shared docs |
 
----
+**Why these four don't collide:** the two CTR chips touch different file types (`.astro` pages vs `.md` frontmatter) with explicitly named, non-overlapping lists. The two doc chips write one new file each and no code. No chip touches a hot-spot file from `CHIP-PROTOCOL.md §2`.
 
-## Category Distribution After All Phases
+**Why the CTR work is split rather than one chip:** editing titles across all 65 pages is *move*-shaped work — broad and shallow — which conflicts with everything. Scoping each chip to a named list of the highest-impression pages keeps it *extract*-shaped and parallelizable.
 
-| Category | Current | Remaining | Final |
-|----------|---------|-----------|-------|
-| Freelance | 11 | +1 | 12 |
-| Creator | 13 | +3 | 16 |
-| Gig Economy | 7 | +0 | 7 |
-| Side Hustle | 6 | +1 | 7 |
-| Personal Finance | 8 | +1 | 9 |
-| **Total** | **45** | **+6** | **51** |
+**Model tier rationale:** title and meta copy is conversion writing against a live traffic number, which is brand-voice judgment, not mechanical editing — hence the top tier on the calculator pages where 30,880 impressions are at stake. The hub spec is novel architecture plus product judgment. The research chip is accuracy-critical (its output feeds money calculations) but bounded, so strong tier rather than top.
 
 ---
 
-## Blog Content Roadmap
+## Deliberately not doing
 
-Each blog phase pairs with a calculator phase. Posts target "People Also Ask" and long-tail queries, linking to the calculator as a CTA.
+**Phases 12 and 13 of the old roadmap are cancelled** (see `DECISIONS.md` D-002). They planned eight more tax, finance, and business-operations calculators. Personal finance averages **position 88** across 12 months with zero clicks — "rent vs buy calculator" ranks 98th, "fire calculator" 91st. Adding inventory to the weakest category was the wrong bet.
 
-### Phase B6 (pairs with Phase 10) — DONE
-4 posts: SE Tax Guide, Profit Margins for Side Hustles, Capital Gains Tax for Freelancers, Debt Payoff on Irregular Income. Backlinks added to 8 existing posts.
+**Personal-finance calculators are de-prioritized, not deleted.** They have no natural comparison set, which is exactly why they lose. They stay as working utility pages and receive no further investment.
 
-### Phase B7 (pairs with Phase 11) — DONE
-4 posts: Net Worth Tracking for Freelancers, Break-Even Analysis for Course Creators, Consulting Rates by Industry 2026, Savings Goals on Variable Income. Backlinks added to 8 existing posts.
-
-### Phase B8 (pairs with Phase 12) — 4 posts
-1. "Crypto Tax Guide for Creators and Freelancers" → Crypto Tax calculator
-2. "Affiliate Marketing Income: Realistic Expectations" → Affiliate Marketing calculator
-3. "Measuring Social Media ROI as a Creator" → Social Media ROI calculator
-4. "How to Price Digital Products in 2026" → Digital Product Pricing calculator
-
-### Phase B9 (pairs with Phase 13) — 4 posts
-1. "How to Charge Late Fees as a Freelancer" → Late Payment calculator
-2. "Understanding Cost Per Lead for Small Businesses" → CPL calculator
-3. "Employee Stock Options Explained for Freelancers" → Stock Options calculator
-4. "1099 Tax Guide for Beginners" → 1099 Tax calculator
-
-### Blog Implementation Notes
-
-- Hub posts use `calculatorSlugs` (array) frontmatter; single-calc posts use `calculatorSlug` (string)
-- File naming: kebab-case matching existing pattern
-- Category values: `freelance`, `creator`, `gig-economy`, `side-hustle`, `finance`
-- Each post: 2,000-3,000 words, links to calculator in intro, links to 1-2 related blog posts
-- Space publishedDate values ~1 week apart within each phase
-- Run `/create-blog-post` to create each post (full guided workflow)
+**AdSense re-review is held** until a hub ships (`DECISIONS.md` D-004). Two reviews have already been spent; a third with nothing structurally new to point at would spend two more weeks for the same verdict.
 
 ---
 
-## Reusable Patterns for New Phases
+## Open questions for the human
 
-- **Shared tax library:** `src/lib/calculators/shared/tax-brackets.ts` — FilingStatus, brackets, deductions, FICA rates, LTCG brackets, NIIT, calculateFederalTax, calculateSelfEmploymentTax, calculateCapitalGainsTax, getMarginalBracket
-- **Dynamic list (add/remove rows):** Subscription Audit, Debt Payoff — reuse pattern from `subscription-audit.ts` (also for Net Worth, Crypto Tax)
-- **All existing shared components:** NumberInput, CurrencyInput, SliderInput, DropdownInput, ModeToggle, ResultCard, ResultBreakdown, CopyResultsButton, charts, Tooltip, useCalculatorState, ErrorBoundary
+Tracked here until ruled on, then moved to `DECISIONS.md`.
 
-### Per-calculator checklist (use `/add-calculator` skill)
-- Logic file, UI component, Astro page
-- Embed route added to `src/pages/embed/[...slug].astro`
-- OG image in `public/og-images/`
-- Category index page updated
-- Homepage counts updated
-- Cross-links to related calculators
-
----
-
-## Execution Order
-
-```
-Phase 0 (manual, ongoing)
-Phase 6 (polish) — PARTIAL (manual tasks remain)
-Phase 12 (creator/digital) → B8 (blog)
-Phase 13 (biz operations) → B9 (blog)
-```
-
-## Verification After Each Phase
-
-- `npm run build` — 0 errors
-- `npm run preview` — visual check
-- Sitemap at `/sitemap-index.xml` includes new pages
-- `grep -r "Calcverse" src/ public/` — must return 0
-- `grep -r "brand-" src/` — must return 0
-- Run `/update-phase` to update docs
+1. **Do we touch the Ko-fi calculator's title?** It is the single best-performing page on the site — position 12.3, 1.54% CTR, 52 of the site's 106 total clicks. Rewriting its title risks the one thing that works. Options: exclude it from W1 and learn from the other 14 pages first, or include it with a fast rollback if CTR drops.
+2. **Buy Me a Coffee: standalone calculator page, or hub-only?** Affects URL structure, which is a standing decision (`DECISIONS.md`, URL Structure).
+3. **Is `hello@calcfalcon.com` monitored well enough to publish more prominently** as the corrections channel on YMYL pages?
