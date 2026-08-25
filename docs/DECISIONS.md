@@ -128,6 +128,20 @@ The Wave 1 output of `CHIP-CTR-CALC` is **rejected for merge** and will be redon
 
 **Rejected:** changing `formatCurrency`'s default to two decimals. That silently adds ".00" to every headline annual and monthly figure across 45 calculators — a large uncontrolled visual change to fix a narrow numeric one.
 
+## D-014 · Confident rows publish arithmetic; Verify rows withhold recommendations — RULED 2026-08-25
+
+When a figure is Confident but its *interpretation* depends on an open Verify row, publish the arithmetic and withhold the advice.
+
+**The case:** Ko-fi Gold costs $12/month and the service fee is 5% — both Confident. The break-even is therefore $240/month, and D-010 states that figure. But **V-K1 is open**: Ko-fi's own Gold page is headed "You no longer need Ko-fi Gold" while its Help Centre fee breakdown omits Gold entirely, so whether Gold is still purchasable is unresolved.
+
+`CHIP-FEE-KOFI` handled this correctly without being told how. It published the dollar arithmetic, surfaced the contradiction from Confident rows, told the reader to check current pricing, and **did not** recommend buying Gold. It asked for a ruling instead of choosing.
+
+**Ruling:** that is the general pattern. D-011's Verify clause blocks *claims that depend on the unresolved fact*, not every sentence in the vicinity of one. Arithmetic from Confident inputs may ship. A recommendation to take an action whose availability is unverified may not.
+
+**Why this matters beyond Ko-fi:** the stricter reading — Verify blocks everything nearby — would have left a $6 price for a $12 product on the site's best page indefinitely, which is the failure D-010 exists to prevent. The looser reading — Verify is advisory — is what produced the Patreon plan menu. This is the line between them.
+
+**Credit where due:** the chip's instinct was better than the instruction it was given. Recorded per the operating model's requirement to say so plainly when a chip is right.
+
 ---
 
 # Part 2 — Standing decisions
