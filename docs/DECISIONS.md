@@ -58,6 +58,22 @@ Binding rules live in the Tax Data section of `CLAUDE.md` and the Tax Data table
 
 **Reasoning:** the calculators computed on 2024 federal data under 2026 headings for two years, across 45 calculators and 13 blog posts. On a YMYL site carrying a live AdSense violation, that is the highest-severity defect class available.
 
+## D-008 · The Ko-fi calculator page is excluded from Wave 1 title changes — RULED 2026-08-25
+
+`src/pages/creator/kofi-calculator.astro` is **not** to be modified by any Wave 1 chip. Its title and meta description stay exactly as they are.
+
+**Reasoning:** it is the best-performing page on the site by a wide margin — position 12.3, 1.54% click-through, and 52 of the site's 106 total clicks over 12 months. Every other page's CTR hypothesis is untested. Rewriting the one page that works, on an untested hypothesis, risks roughly half of all site traffic to learn something the other 14 pages can teach us for free.
+
+**Sequence:** rewrite the other 14 calculator pages, wait for a Search Console pull (~2 weeks), and apply the proven pattern to Ko-fi with evidence rather than theory.
+
+**Rejected:** including it with a documented rollback. Rollback restores the title but not the ranking — Google may re-evaluate the page on the new title before we revert, and recovery is not guaranteed to be symmetric.
+
+## D-009 · Wave 1 runs all four chips concurrently — RULED 2026-08-25
+
+**Reasoning:** file ownership is genuinely disjoint — the two implementation chips touch different file types (`.astro` pages vs `.md` frontmatter) with explicitly named non-overlapping lists, and the two doc chips each create one new file and touch no code. Two of four are docs-only, so the blast radius of a protocol failure is small. The first wave is expected to be rough; surfacing protocol gaps while the stakes are low is the point.
+
+**Follow-up obligation:** every Wave 1 chip's harness-improvement reflections get folded back into `docs/CHIP-PROTOCOL.md` before Wave 2 is spawned. The protocol is a living document; that loop matters more than any single rule in it.
+
 ---
 
 # Part 2 — Standing decisions
