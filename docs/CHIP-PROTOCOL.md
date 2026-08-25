@@ -75,6 +75,8 @@ npm run check:tax-data   # must pass with 0 warnings
 
 Plus a real runtime check of what you built — load the affected page and confirm the behavior, don't infer it from the code. Exit code alone is not verification; read the output.
 
+**Measure the RENDERED value, never the source value.** Grep the built output in `dist/client/` for anything user- or crawler-facing. *Earned in Wave 1:* a chip measured blog title lengths from markdown frontmatter, then discovered by grepping built HTML that `src/pages/blog/[slug].astro` appends `" | CalcFalcon"` to every one — 13 characters, pushing **32 of 40 posts over 60 characters** and 20 over 70, burying the query match past Google's truncation point. Calculator pages get no such suffix, so the discrepancy is invisible unless you check the real output.
+
 ### Spec / docs lane
 No `src/` changes. Bar is internal consistency, and **every claim you make about the code is checked against the code**. Do not describe a file you did not open. Note explicitly that production code was untouched.
 
@@ -125,7 +127,11 @@ Then prose covering:
 
 **Public factual copy ships with a fact table.** Claims split into Confident vs Verify, with sources. Unverified rows block the copy.
 
-**Research and writing split across chips.** A web-capable research chip produces a verified fact file; the writing chip may write nothing that isn't in it.
+**Research and writing split across chips — and across WAVES, not just scope.** A web-capable research chip produces a verified fact file; the writing chip may write nothing that isn't in it. **The research chip must have finished and merged before the writing chip is spawned.** *Earned in Wave 1:* the Command Center ran both concurrently. The writing chip verified its figures against the calculator source — the best thing available to it — and wrote "Patreon takes 5% (Lite), 8% (Pro), or 12% (Premium)" into 14 page titles. The research chip finished hours later and established that those plans have not existed since August 2025. The work was rejected (D-012). Scope separation is not enough; ordering is the rule.
+
+**A "Verify" row in a fact file is a stop sign, not a suggestion.** If downstream work needs a figure marked Verify, that work is blocked. Choosing the plausible number reintroduces exactly the defect the fact file exists to prevent.
+
+**Verify reports exhaustively, including your own.** *Earned in Wave 1:* a chip reported three calculators emitting dead URLs in their copy-results text. A full sweep of every hardcoded URL against the real routes found **five**. When you report a class of defect, enumerate the whole class programmatically rather than the instances you happened to notice.
 
 ---
 
@@ -158,6 +164,9 @@ Recorded as hit, so the next chip doesn't rediscover them:
 - **Fresh worktrees have no `node_modules`.** Run `npm install` before anything else, or `astro` is "command not found".
 - **Node 20 here does not support `--experimental-strip-types`.** To execute a `.ts` module in a scratch script, use `npx tsx`.
 - **A worktree branched before a history rewrite carries the old commits.** If the Command Center rewrote history, your branch needs rebasing — it will handle it; just don't force anything.
+- **Worktrees branch from the last PUSHED commit, not from local `main`.** *Earned in Wave 1:* all four chips started from a commit two behind main, with no `CHIP-PROTOCOL.md` and a `DECISIONS.md` predating every ruling. Three noticed and recovered by reading from the main checkout via `git show <sha>:<path>`; a chip that trusted its own worktree would have concluded the operating model didn't apply. **Command Center: push before spawning.** If you are a chip and this file is missing from your worktree, read it from the main checkout — do not assume you are ungoverned.
+- **A stale `.astro` cache produces phantom build warnings.** A `Duplicate id` warning survived a merge with only one matching file on disk; `rm -rf .astro dist` cleared it. Clear the cache before reporting a build warning as a regression.
+- **Some sources are Cloudflare-gated against WebFetch, and `patreon.com` is browsing-policy-blocked.** The working escalation ladder for research chips is WebFetch → browser tools → the vendor's Zendesk JSON API. Documented per-source in `docs/facts/creator-payment-fees.md`.
 - Railway auto-deploys from `main`. Nothing you do reaches production, but a careless push would.
 
 ---
@@ -178,7 +187,10 @@ Recorded as hit, so the next chip doesn't rediscover them:
 <commands run and what the output said — not just "passed">
 
 ## Measurements
-<any threshold you chose, and the distribution you measured it against>
+<any threshold you chose, and the distribution you measured it against — measured on the RENDERED output, not the source>
+
+## Rollback record
+<for any change to public-facing text: the exact prior value, verbatim, so it can be restored. Note that restoring a string does not restore a ranking.>
 
 ## Changelog entry (pre-drafted — Integrator merges this, do not write it to shared docs yourself)
 <one or two lines in the project's changelog voice>
