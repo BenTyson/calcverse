@@ -4,6 +4,7 @@
       "Bash(npm run build)",
       "Bash(npm run dev)",
       "Bash(npm run preview)",
+      "Bash(npm run check:tax-data)",
       "Bash(npm install)",
       "Bash(npm install *)",
       "Bash(git status)",
@@ -11,6 +12,9 @@
       "Bash(git diff *)",
       "Bash(git show *)",
       "Bash(git branch)",
+      "Bash(git worktree list)",
+      "Bash(git rev-list --count *)",
+      "Bash(git branch --contains *)",
       "Bash(ls)",
       "Bash(ls -la *)",
       "Bash(cat *)",
@@ -23,7 +27,16 @@
       "Bash(find . -name *)",
       "Bash(wc -l *)",
       "Read",
-      "Write"
+      "Write",
+      "mcp__Claude_Browser__read_page",
+      "mcp__Claude_Browser__get_page_text",
+      "mcp__Claude_Browser__find",
+      "mcp__Claude_Browser__read_console_messages",
+      "mcp__Claude_Browser__read_network_requests",
+      "mcp__Claude_Browser__preview_list",
+      "mcp__Claude_Browser__tabs_context",
+      "mcp__ccd_session__mark_chapter",
+      "mcp__ccd_session__read_widget_context"
     ]
   }
 }

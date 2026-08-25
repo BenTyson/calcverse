@@ -74,9 +74,42 @@ Binding rules live in the Tax Data section of `CLAUDE.md` and the Tax Data table
 
 **Follow-up obligation:** every Wave 1 chip's harness-improvement reflections get folded back into `docs/CHIP-PROTOCOL.md` before Wave 2 is spawned. The protocol is a living document; that loop matters more than any single rule in it.
 
----
+## D-010 · D-008 protects rankings, not falsehoods — RULED 2026-08-25
 
-# Part 2 — Standing decisions
+D-008 (Ko-fi page excluded from Wave 1) covers **the `title` and `description` props and the `<h1>` only** — the ranking-bearing, CTR-experiment surface. It does **not** shield factually wrong body copy, FAQ answers, or worked examples on that page.
+
+`src/pages/creator/kofi-calculator.astro` currently prices Ko-fi Gold at **$6/month** in three places (lines 9, 14, 79) and derives a **$120/month** break-even from it. Verified against Ko-fi's own pricing on 2026-08-25: Gold is **$12/month**, so the real break-even is **$240**. The page also asserts three times that shop sales are "always commission-free regardless of plan tier"; Ko-fi charges 5% on shop sales.
+
+**Reasoning:** a factual correction is not a ranking experiment. The page's ranking rests on its title, which nobody needs to touch. Reading D-008 literally would leave a wrong price for a paid product on the site's most-visited page indefinitely — that is worse than the risk D-008 was written to avoid.
+
+**Rejected:** waiting for the CTR experiment to conclude. Publishing a $6 price for a $12 product is the kind of error that damages trust with the exact audience the site is repositioning around.
+
+## D-011 · Platform fee data gets the tax-data treatment — RULED 2026-08-25
+
+Third-party platform fees are now governed like IRS/SSA figures: single source of truth, primary sources fetched in-session, cited with a verification date, and enforced by a guard.
+
+**Reasoning:** `CHIP-RESEARCH-PAYMENTS` verified 12 first-party sources and found **all four** existing creator calculators computing on wrong fees. Every error but one favours the platform:
+
+| Platform | Modelled | Actual | Severity |
+|---|---|---|---|
+| Patreon | Lite 5% / Pro 8% / Premium 12% | Those plans do not exist. Mandatory **10%** for anyone joining after 2025-08-04; legacy Founders 5% / Pro 8% / Pro+Merch 11% | **blocker** |
+| Gumroad | flat 10%, "no additional fees" | **10% + $0.50/transaction** — 11.7% at the module's own $29 default | **blocker** |
+| Ko-fi | Gold $6/mo, shop sales 0% | Gold **$12/mo**; shop sales **5%**; one-off tips **0%** not 5% | high |
+| Substack | 10% + 2.9% + $0.30 | missing Stripe's **0.7% Billing fee**; the 0.5% legacy rate expired 2025-06-30 | high |
+
+`patreon-earnings.ts:25` is commented `// Patreon fee structure (2024)`. This is the same defect class as the two-year-stale tax data, in the exact category D-001 names as the site's strategic core. Cross-platform fee math is now the product; wrong fees are not a content bug, they are a product failure.
+
+**Also settled:** `docs/facts/creator-payment-fees.md` is the source of truth. Its 21 open **Verify** rows block downstream copy. A chip that "resolves" a Verify row by choosing the plausible number reintroduces precisely the defect the fact file exists to prevent — three of those rows are load-bearing, including whether Buy Me a Coffee bills Stripe's payout fee to the creator, which is the headline figure a BMC calculator would exist to produce.
+
+## D-012 · CHIP-CTR-CALC is not merged; research precedes writing in sequence, not just in scope — RULED 2026-08-25
+
+The Wave 1 output of `CHIP-CTR-CALC` is **rejected for merge** and will be redone in Wave 2 after fee corrections land.
+
+**Why:** it wrote verified-against-the-code fee figures into 14 page titles and descriptions — including *"Patreon takes 5% (Lite), 8% (Pro), or 12% (Premium)"*. Per D-011 that plan menu does not exist. Merging would have published a fabricated fee structure into the metadata of the site's second-best page. The work was competent; its inputs were wrong.
+
+**Command Center error, recorded plainly:** `CHIP-PROTOCOL.md` §7 says research and writing split across chips, and that a writing chip may write nothing not in the verified fact file. I ran the research chip **concurrently** with a writing chip that depended on its output, so the fact file did not exist when the titles were written. The rule was about scope; it needs to be about ordering too. This is a sequencing failure by the Command Center, not a chip failure — and the fix belongs in the protocol before Wave 2.
+
+**Salvage:** the chip's before/after table in `docs/notes/CHIP-CTR-CALC.md` is a complete rollback record and its length measurements are sound. Wave 2's retitling chip should start from it rather than from scratch.
 
 Settled. Changing one requires a numbered ruling in Part 1.
 
