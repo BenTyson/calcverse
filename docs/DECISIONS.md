@@ -111,6 +111,27 @@ The Wave 1 output of `CHIP-CTR-CALC` is **rejected for merge** and will be redon
 
 **Salvage:** the chip's before/after table in `docs/notes/CHIP-CTR-CALC.md` is a complete rollback record and its length measurements are sound. Wave 2's retitling chip should start from it rather than from scratch.
 
+## D-013 · `formatCurrency` rounds away cents site-wide — RULED 2026-08-25
+
+`formatCurrency()` in `src/lib/utils/formatters.ts` sets `maximumFractionDigits: 0`. It renders **$0.50 as "$1"** and **$25.60 as "$26"**. A `formatCurrencyWithCents()` variant exists in the same file and was in use by 2 of 45 calculator components.
+
+**Two chips found this independently in the same wave**, both only because they measured the *rendered* output rather than reading the source:
+
+- `CHIP-FEE-GUMROAD` built correct source and shipped built HTML reading "10% + **$1**/sale" and "you keep **$26**" — a 100% error on the exact figure that chip existed to publish.
+- `CHIP-FEE-PATREON` saw a $0.25 payout fee render as **"-$0"**.
+
+**Measured exposure:** all 45 calculator components import `formatCurrency`; only `SubscriptionAuditCalc.tsx` and `PrintOnDemandCalc.tsx` use the cents variant.
+
+**Reasoning:** this is invisible to source review and to any check that stops at an exit code. It silently corrupts every sub-dollar and cents-sensitive figure on the site — per-sale fees, per-mile rates, per-delivery pay — in the exact category D-001 makes the product. Whole-dollar rounding is correct for headline annual figures and wrong for unit economics, so the fix is per-call-site judgment, not a global swap.
+
+**Sequencing:** *move*-shaped work — 45 files, shallow edits — so per `CHIP-PROTOCOL.md` §7 it runs **serialized, alone**, with no sibling touching a calculator component. Scheduled for W3 as `CHIP-CENTS-SWEEP`. Until then, any chip touching a cents-sensitive figure uses `formatCurrencyWithCents` locally and says so in its notes.
+
+**Rejected:** changing `formatCurrency`'s default to two decimals. That silently adds ".00" to every headline annual and monthly figure across 45 calculators — a large uncontrolled visual change to fix a narrow numeric one.
+
+---
+
+# Part 2 — Standing decisions
+
 Settled. Changing one requires a numbered ruling in Part 1.
 
 ## Stack
