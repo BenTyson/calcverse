@@ -152,7 +152,8 @@ export function SubstackCalc() {
             items={[
               { label: 'Monthly Gross', value: formatCurrency(results.monthlyGross) },
               { label: 'Substack Fee (10%)', value: `-${formatCurrency(results.substackFee)}` },
-              { label: <Tooltip text="Stripe payment processing: 2.9% + $0.30 per transaction">Stripe Fees</Tooltip>, value: `-${formatCurrency(results.stripeFee)}` },
+              { label: <Tooltip text="Stripe card processing: 2.9% + $0.30 per transaction">Stripe Processing</Tooltip>, value: `-${formatCurrency(results.stripeProcessingFee)}` },
+              { label: <Tooltip text="Stripe's 0.7% Billing fee on recurring payments. Charged on top of card processing and NOT included in the Stripe processing figure Substack shows you — it appears separately as 'Stripe fee' under Transactions → All Activity. The 0.5% legacy rate expired June 30, 2025.">Stripe Billing Fee (0.7%)</Tooltip>, value: `-${formatCurrency(results.stripeBillingFee)}` },
               { label: 'Net Revenue', value: formatCurrency(results.monthlyNet), highlight: true },
             ]}
           />
@@ -180,9 +181,9 @@ export function SubstackCalc() {
               </>
             )}
             <div className="bg-creator-50 rounded-xl p-4 text-sm text-creator-800">
-              <strong>Pro tip:</strong> Push annual subscriptions—you get 10 months
-              of revenue upfront and annual subscribers churn at 1/3 the rate of
-              monthly subscribers.
+              <strong>Pro tip:</strong> Push annual subscriptions—you get a year of
+              revenue upfront, pay Stripe's $0.30 fixed fee once instead of twelve
+              times, and annual subscribers churn at 1/3 the rate of monthly ones.
             </div>
           </div>
         </div>
