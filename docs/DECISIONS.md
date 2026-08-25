@@ -142,6 +142,22 @@ When a figure is Confident but its *interpretation* depends on an open Verify ro
 
 **Credit where due:** the chip's instinct was better than the instruction it was given. Recorded per the operating model's requirement to say so plainly when a chip is right.
 
+## D-015 · The Command Center pushes verified merges — RULED 2026-08-25
+
+The original operating model was "chips never commit or push; the Command Center merges and verifies; the human pushes." The human has delegated the push. **The Command Center now commits, merges, verifies, and pushes.** Chips still never commit or push.
+
+**The bar for pushing is unchanged and non-negotiable** — Railway auto-deploys from `main`, so a push is a production deploy:
+
+1. Merge verified **by ancestry** (`git branch --contains <sha>`), never by a silent command.
+2. `npm run build` — 0 errors, output read, not just the exit code.
+3. `npm run check:tax-data` — 0 warnings.
+4. A content spot-check of the **built** output in `dist/client/`, not the source. Per D-013, source-level review has already missed a 100% numeric error in this repo.
+5. For anything touching a page with existing rankings, the ranking surface is diffed against what is live before pushing.
+
+**Reasoning:** the human-in-the-loop step was catching nothing the verification gates didn't already catch, while a backlog of unpushed correct fixes meant the live site kept serving wrong fee data. The risk being managed is bad merges, and the defense against those is verification, not a second pair of eyes on a green build.
+
+**Still escalated to the human, not decided here:** anything that changes what the site *is* rather than fixing what it says — new URL structures, removing pages, monetization changes, and AdSense review submissions (D-004).
+
 ---
 
 # Part 2 — Standing decisions
