@@ -25,7 +25,7 @@ export function AirbnbProfitCalc() {
     `Monthly Net Profit: ${formatCurrency(results.monthlyNet)}\n` +
     `Annual Profit: ${formatCurrency(results.annualNet)}\n` +
     `Break-Even Occupancy: ${results.breakEvenOccupancy}%\n` +
-    `https://calcfalcon.com/gig-economy/airbnb-profit-calculator`;
+    `https://calcfalcon.com/gig-economy/airbnb-calculator`;
 
   return (
     <ErrorBoundary>

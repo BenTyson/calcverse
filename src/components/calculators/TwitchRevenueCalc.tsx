@@ -38,7 +38,7 @@ export function TwitchRevenueCalc() {
     `Monthly Revenue: ${formatCurrency(results.netMonthly)}\n` +
     `Annual Revenue: ${formatCurrency(results.netAnnual)}\n` +
     `Revenue Per Viewer: ${formatCurrency(results.revenuePerViewer)}/mo\n` +
-    `https://calcfalcon.com/creator/twitch-revenue-calculator`;
+    `https://calcfalcon.com/creator/twitch-calculator`;
 
   return (
     <ErrorBoundary>

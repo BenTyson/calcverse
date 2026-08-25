@@ -30,7 +30,7 @@ export function PodcastSponsorshipCalc() {
     `Monthly Revenue: ${formatCurrency(results.netMonthly)}\n` +
     `Annual Revenue: ${formatCurrency(results.netAnnual)}\n` +
     `Effective CPM: ${formatCurrency(results.effectiveCPM)}\n` +
-    `https://calcfalcon.com/creator/podcast-sponsorship-calculator`;
+    `https://calcfalcon.com/creator/podcast-calculator`;
 
   return (
     <ErrorBoundary>
