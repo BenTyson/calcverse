@@ -6,27 +6,37 @@ const faqs = [
   {
     question: 'How much does Gumroad charge per sale?',
     answer:
-      'Gumroad charges a flat 10% fee on every transaction. This includes payment processing — there are no additional credit card fees, monthly subscriptions, or listing fees. This makes pricing simple compared to platforms like Etsy or Shopify.',
+      'Gumroad charges 10% plus $0.50 per transaction on direct sales — sales made through your Gumroad profile or your own links. There is no monthly subscription, no listing fee, and no separate credit card charge: Gumroad is the merchant of record, so payment processing is inside the 10%. But the $0.50 is a real, additional charge, and it means your effective rate depends on your price. A $5 product loses 20% to fees; a $29 product loses 11.7%; a $100 product loses 10.5%.',
+  },
+  {
+    question: 'Why is my Gumroad fee higher than 10 percent?',
+    answer:
+      'Because of the $0.50 per transaction. Gumroad advertises "10%", but the published rate is 10% + $0.50 per transaction, and the flat component is a bigger share of a small sale than a large one. On a $10 product the total fee is $1.50, which is 15%, not 10%. This is also why bundling matters: one $50 order pays the $0.50 once, while five $10 orders pay it five times. Gumroad additionally publishes a 30% per-transaction rate for new customers who find you through its Discover marketplace.',
   },
   {
     question: 'Is Gumroad good for selling digital products?',
     answer:
-      'Gumroad is one of the best platforms for selling digital products like ebooks, courses, templates, software, and design assets. The flat 10% fee is competitive, there are no monthly costs, and you get built-in tools for email marketing, affiliates, and memberships.',
+      'Gumroad suits digital products like ebooks, courses, templates, software, and design assets, particularly if you already have an audience. There are no monthly costs, and you get built-in tools for email marketing, affiliates, and memberships. Gumroad is also the merchant of record, which means it collects and remits sales tax, VAT and GST on your behalf worldwide — a genuine administrative saving that most creator platforms do not offer. The trade-off is the $0.50 per transaction, which makes Gumroad a poor fit for very low-priced products.',
   },
   {
     question: 'How does the Gumroad affiliate program work?',
     answer:
-      'Gumroad has a built-in affiliate system. You set a commission rate (typically 25-50%), and affiliates get a unique link. When someone purchases through their link, the affiliate earns their commission. Gumroad handles all tracking and payouts automatically.',
+      'Gumroad has a built-in affiliate system. You set a commission rate (typically 25-50%), and affiliates get a unique link. When someone purchases through their link, the affiliate earns their commission. Gumroad handles all tracking and payouts automatically. This calculator assumes the commission is a percentage of the gross sale price and comes out of your share rather than Gumroad\'s.',
   },
   {
     question: 'How do Gumroad memberships work?',
     answer:
-      'Gumroad memberships let you charge recurring monthly or annual fees for access to content, community, or ongoing deliverables. The same 10% fee applies to membership payments. Members can cancel anytime, and you get tools to manage tiers and content access.',
+      'Gumroad memberships let you charge recurring monthly or annual fees for access to content, community, or ongoing deliverables. Members can cancel anytime, and you get tools to manage tiers and content access. Gumroad publishes its fee as "per transaction for all sales" but does not say explicitly whether the $0.50 is charged again on each renewal, so the calculator lets you model it either way — it charges the $0.50 per renewal by default, which is the literal reading of the published rate.',
+  },
+  {
+    question: 'When does Gumroad pay you?',
+    answer:
+      'Gumroad holds your balance until it reaches $100 USD, and some countries have higher local minimums. Payouts can be set to daily, weekly, monthly or quarterly; weekly and slower schedules carry a minimum seven-day holding period and cover sales through the previous Friday. Bank payouts have no published fee. PayPal payouts, offered only where bank payouts are unavailable, carry a 2% processing fee, and the optional instant payout (US creators, up to $10K) costs 3%.',
   },
   {
     question: 'Gumroad vs Etsy vs Shopify — which should I use?',
     answer:
-      'Gumroad (10% flat) is best for digital products with no monthly fee. Etsy (6.5% + listing fees) is best for handmade/vintage physical goods with built-in marketplace traffic. Shopify (2.9% + $39/mo) is best for high-volume stores that need full customization. Choose based on your product type and sales volume.',
+      'Gumroad (10% + $0.50 per transaction, no monthly cost) is built for digital products sold to an audience you already have — it gives you no marketplace traffic. Etsy is a marketplace: you pay listing and transaction fees but get search traffic, and it is oriented toward handmade, vintage and physical goods. Shopify is a full storefront on a monthly subscription, which suits high-volume sellers who need complete control. Because the per-sale economics turn on your price and volume, run the numbers on the calculator for whichever platforms you are actually choosing between rather than comparing headline percentages.',
   },
 ];
 
@@ -73,11 +83,32 @@ const relatedCalculators = [
     <section class="mb-8">
       <div class="prose prose-neutral max-w-none">
         <h2>How Gumroad Revenue and Fees Work</h2>
-        <p>Gumroad is a digital product platform designed for creators who sell ebooks, templates, courses, software, music, and other downloadable goods. Its fee structure is one of the simplest in the creator economy: a flat 10% on every transaction, with no monthly subscriptions, listing fees, or separate payment processing charges. This all-inclusive model makes it straightforward to calculate your margins — for every $1 you charge, you keep $0.90.</p>
-        <p>Unlike marketplace platforms such as Etsy or Amazon, Gumroad does not provide built-in discovery or search traffic. You are responsible for driving your own customers through email lists, social media, content marketing, or paid advertising. This trade-off means lower fees but requires an existing audience or marketing strategy. Creators who succeed on Gumroad typically already have a following on another platform and use Gumroad as the transaction layer for their digital products.</p>
+        <p>Gumroad is a digital product platform designed for creators who sell ebooks, templates, courses, software, music, and other downloadable goods. Its published rate for direct sales is <strong>10% + $0.50 per transaction</strong>, with no monthly subscription and no listing fees. Payment processing really is included — Gumroad has been the merchant of record since January 2025, so there is no separate Stripe or PayPal line item, and Gumroad collects and remits sales tax, VAT and GST for you. But the $0.50 is a genuine additional charge on every sale, and it is what makes Gumroad's real rate depend on your price rather than sitting at a flat 10%.</p>
+        <p>Unlike marketplace platforms such as Etsy or Amazon, Gumroad does not provide built-in discovery or search traffic on your direct links. You are responsible for driving your own customers through email lists, social media, content marketing, or paid advertising. Creators who succeed on Gumroad typically already have a following on another platform and use Gumroad as the transaction layer for their digital products. Gumroad does run a Discover marketplace for buyers browsing the platform, and it publishes a separate 30% per-transaction rate for new customers who arrive that way.</p>
+        <h3>What the $0.50 Actually Costs You</h3>
+        <p>The percentage is the part everyone quotes; the fixed component is the part that decides whether a price point works. Because $0.50 is the same on a $5 sale as on a $100 one, the effective rate falls as your price rises:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Product price</th>
+              <th>Gumroad fee</th>
+              <th>You keep</th>
+              <th>Effective rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>$5</td><td>$1.00</td><td>$4.00</td><td>20.0%</td></tr>
+            <tr><td>$10</td><td>$1.50</td><td>$8.50</td><td>15.0%</td></tr>
+            <tr><td>$19</td><td>$2.40</td><td>$16.60</td><td>12.6%</td></tr>
+            <tr><td>$29</td><td>$3.40</td><td>$25.60</td><td>11.7%</td></tr>
+            <tr><td>$50</td><td>$5.50</td><td>$44.50</td><td>11.0%</td></tr>
+            <tr><td>$100</td><td>$10.50</td><td>$89.50</td><td>10.5%</td></tr>
+          </tbody>
+        </table>
+        <p>The practical consequence is that Gumroad punishes low prices and rewards bundling. Selling a $50 bundle pays the $0.50 once. Selling the same $50 as five $10 products pays it five times, costing an extra $2.00 for identical revenue.</p>
         <h3>Product Types and Revenue Models</h3>
-        <p>Gumroad supports both one-time purchases and recurring memberships, each with different revenue dynamics. One-time product sales create spiky revenue tied to launches and promotions, while memberships generate predictable monthly recurring revenue. Many successful Gumroad sellers use a hybrid approach: standalone products for acquisition and top-line revenue, plus a membership for ongoing income and community building. The 10% fee applies identically to both models, so your pricing strategy should focus on customer lifetime value rather than trying to optimize around fee differences.</p>
-        <p>The platform also includes a built-in affiliate system where you set a commission rate (commonly 25-50%) and affiliates promote your products through tracked links. This can be a powerful growth channel, but the affiliate commission comes out of your share, not Gumroad's — so a $20 product with 10% Gumroad fee and 30% affiliate commission nets you only $12.00 per affiliate-driven sale.</p>
+        <p>Gumroad supports both one-time purchases and recurring memberships, each with different revenue dynamics. One-time product sales create spiky revenue tied to launches and promotions, while memberships generate predictable monthly recurring revenue. Many successful Gumroad sellers use a hybrid approach: standalone products for acquisition and top-line revenue, plus a membership for ongoing income and community building. Memberships matter for fees too — Gumroad states its fee is charged "per transaction for all sales" but does not say explicitly whether the $0.50 recurs on each renewal, so the calculator lets you model it both ways and charges it by default.</p>
+        <p>The platform also includes a built-in affiliate system where you set a commission rate (commonly 25-50%) and affiliates promote your products through tracked links. This can be a powerful growth channel, but the affiliate commission comes out of your share, not Gumroad's — so a $20 product with a 10% + $0.50 Gumroad fee and a 30% affiliate commission nets you $11.50 per affiliate-driven sale, against $17.50 on a direct sale.</p>
       </div>
     </section>
   </Fragment>
@@ -88,14 +119,15 @@ const relatedCalculators = [
     <section class="mb-10">
       <div class="prose prose-neutral max-w-none">
         <h2>How to Use the Gumroad Revenue Calculator</h2>
-        <p>Enter your product price and expected monthly sales to see your net revenue after Gumroad's 10% fee. The calculator shows exactly what you keep from each sale, making it easy to price your digital products profitably.</p>
+        <p>Enter your product price and expected monthly sales to see your net revenue after Gumroad's fee. Because the fee has both a percentage and a per-transaction component, the calculator counts your transactions as well as your revenue, and shows the resulting effective rate rather than the headline one.</p>
         <h3>Quick Mode</h3>
-        <p>Set your product price, monthly sales volume, and Gumroad's fee rate (default 10%). The calculator shows your gross revenue, fee deduction, and net take-home. Use this to quickly test different price points and see how they affect your bottom line.</p>
+        <p>Set your product price, monthly sales volume, and the two halves of Gumroad's fee — the percentage (standard 10%) and the per-transaction charge (standard $0.50). The calculator shows your gross revenue, both fee components separately, your net take-home, and what Gumroad's fee actually works out to as a percentage at your price.</p>
         <h3>Advanced Mode</h3>
-        <p>Advanced mode adds membership revenue modeling, affiliate program costs, refund rate estimates, and email list revenue projections. If you use Gumroad's built-in affiliate system, you can model what percentage of sales come through affiliates and what commission rate you pay, so there are no surprises when payouts arrive.</p>
+        <p>Advanced mode adds membership revenue modeling, affiliate program costs, refund rate estimates, and email list revenue projections. If you use Gumroad's built-in affiliate system, you can model what percentage of sales come through affiliates and what commission rate you pay. Advanced mode also lets you choose whether the $0.50 is charged on each membership renewal, since Gumroad does not state this explicitly.</p>
         <h3>Understanding Gumroad Fees</h3>
-        <p>Gumroad's flat 10% fee is all-inclusive — it covers payment processing, hosting, delivery, and the platform itself. There are no monthly subscriptions, listing fees, or hidden charges. This simplicity makes it easy to calculate your margins, unlike platforms with stacked fee structures.</p>
-        <p>For context, selling a $29 digital product nets you $26.10 after Gumroad's cut. At 20 sales per month, that is $522 in net revenue. Increasing your price to $39 would net $702 per month at the same volume — a 34% increase in revenue from a $10 price bump.</p>
+        <p>Gumroad's percentage is all-inclusive — it covers payment processing, hosting, delivery, and the platform itself, and there is no monthly subscription or listing fee. What it is not is flat. The $0.50 per transaction sits on top of the percentage, so the number that matters to your margin is the combined rate at your price, not the advertised 10%.</p>
+        <p>For context, a $29 digital product costs you $3.40 in Gumroad fees and nets $25.60 — an effective rate of 11.7%, not 10%. At 20 sales per month with no refunds that is <strong>$512</strong> in net revenue. Raising the price to $39 nets $34.60 per sale and <strong>$692</strong> per month at the same volume, a 35% increase from a $10 price bump. Note that the price rise also improves your effective fee rate, from 11.7% to 11.3%, because the $0.50 is spread over more revenue.</p>
+        <p>Refunds change the picture slightly. With the calculator's default 3% refund rate, the same $29 product at 20 sales nets <strong>$496.64</strong> per month rather than $512 — refunds cost you $17.40 in revenue but also reverse the fees on the refunded sales.</p>
         <h3>Growing Gumroad Revenue</h3>
         <p>Your email list is the single most important growth lever on Gumroad. Unlike marketplace platforms where you benefit from built-in traffic, Gumroad requires you to bring your own audience. Focus on building an email list through free lead magnets, then launch products to that list. A healthy email list converts at 1-3% per launch, meaning 1,000 subscribers could generate 10-30 sales each time you release something new.</p>
       </div>
@@ -105,41 +137,67 @@ const relatedCalculators = [
   <Fragment slot="deep-dive">
     <section class="mb-10">
       <div class="prose prose-neutral max-w-none">
-        <h2>Gumroad Fee Comparison with Other Platforms</h2>
-        <p>Choosing the right platform depends on your product type, sales volume, and whether you need marketplace traffic or bring your own audience. The table below compares effective fees across popular platforms for digital product sales.</p>
+        <h2>Gumroad Fee Comparison with Other Creator Platforms</h2>
+        <p>Headline percentages are the wrong thing to compare, because almost every creator platform has a fixed component somewhere — either its own per-transaction charge, or a payment processor's, or a monthly subscription. The table below quotes each platform with its fixed components included, so the rows are actually comparable. Every figure was read from the platform's own published pricing or help pages and last verified on August 25, 2026.</p>
         <table>
           <thead>
             <tr>
               <th>Platform</th>
-              <th>Platform Fee</th>
-              <th>Payment Processing</th>
-              <th>Monthly Cost</th>
-              <th>Total on $30 Sale</th>
+              <th>Platform fee</th>
+              <th>Payment processing</th>
+              <th>Monthly cost</th>
+              <th>Payout minimum</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Gumroad</td><td>10%</td><td>Included</td><td>$0</td><td>$3.00 (10%)</td></tr>
-            <tr><td>Etsy (digital)</td><td>6.5% + $0.20</td><td>3% + $0.25</td><td>$0</td><td>$3.10 (10.3%)</td></tr>
-            <tr><td>Shopify Basic</td><td>0%</td><td>2.9% + $0.30</td><td>$39</td><td>$1.17 + $39/mo</td></tr>
-            <tr><td>Payhip</td><td>5%</td><td>~2.9% + $0.30</td><td>$0 (free plan)</td><td>$2.67 (8.9%)</td></tr>
-            <tr><td>Lemon Squeezy</td><td>5% + 50c</td><td>Included</td><td>$0</td><td>$2.00 (6.7%)</td></tr>
-            <tr><td>Teachable (Basic)</td><td>5%</td><td>~2.9% + $0.30</td><td>$59</td><td>$2.67 + $59/mo</td></tr>
+            <tr><td>Gumroad</td><td>10% + $0.50 per transaction (30% via Discover)</td><td>Included — Gumroad is merchant of record</td><td>$0</td><td>$100</td></tr>
+            <tr><td>Ko-fi</td><td>0% or 5%, depending on the product and your plan</td><td>Charged separately — your own PayPal/Stripe (Ko-fi's guidance: around 3% + $0.30, varies)</td><td>$0 Free/Standard, $12 Gold</td><td>None</td></tr>
+            <tr><td>Patreon</td><td>10% standard plan (5%, 8% and 11% legacy plans are closed to new creators)</td><td>Charged separately — 2.9% + $0.30 on US cards</td><td>$0</td><td>PayPal $10 / Payoneer $25</td></tr>
+            <tr><td>Buy Me a Coffee</td><td>5%</td><td>Charged separately — 2.9% + $0.30</td><td>$0</td><td>$10</td></tr>
+            <tr><td>Substack</td><td>10%</td><td>Charged separately — Stripe 2.9% + $0.30, plus a 0.7% Stripe Billing fee on recurring payments</td><td>$0</td><td>Your own Stripe terms</td></tr>
           </tbody>
         </table>
-        <p>Gumroad's 10% flat fee is competitive at low to medium volumes because there is no monthly subscription. However, at higher volumes, platforms with lower percentage fees and a monthly subscription become more cost-effective. The break-even point where Shopify becomes cheaper than Gumroad is approximately $560/month in sales ($39 / 0.07 difference in fee rates).</p>
+        <p>Read that way, Gumroad's 10% is not the outlier it looks like: Patreon and Substack also take 10%, but charge card processing on top, whereas Gumroad's percentage already contains it. What Gumroad adds instead is the $0.50, plus a $100 payout minimum that is by far the highest of the five. The genuinely distinctive Gumroad feature is being merchant of record — it is the only one of these platforms that handles sales tax, VAT and GST collection and remittance on your behalf.</p>
+        <p>This table deliberately omits Etsy, Shopify and the other storefront platforms. Their current fee schedules have not been re-verified against primary sources to the same standard, and quoting a stale competitor number is exactly the mistake this page used to make about itself. For Etsy specifically, use the <a href="/creator/etsy-fee-calculator">Etsy fee calculator</a>, which models listing and transaction fees directly.</p>
 
         <h2>Worked Example: Launching a Digital Product on Gumroad</h2>
-        <p>You create a Notion template pack priced at $19. Your costs are minimal — 20 hours of development time and $0 in marginal production costs since it is digital. You have an email list of 3,000 subscribers and 15,000 social media followers.</p>
-        <p>Launch week: You email your list and post on social media. A warm email list typically converts at 1-3% on a launch. At 2% conversion on 3,000 subscribers, you sell 60 copies in week one: 60 x $19 x 0.90 = $1,026 net revenue.</p>
-        <p>Ongoing sales: After the launch spike, organic sales from social media links, SEO, and word-of-mouth might average 2-5 sales per day initially, tapering to 1-2 per day over the following months. At a steady 1.5 sales/day, monthly revenue is: 45 x $19 x 0.90 = $769.50 net.</p>
-        <p>Now suppose you add an affiliate program at 30% commission and 20% of sales come through affiliates. Those affiliate sales net you: $19 x 0.90 x 0.70 = $11.97 per sale (vs. $17.10 for direct sales). At 9 affiliate sales per month, affiliate revenue is $107.73 and direct revenue is $615.60, for a blended total of $723.33.</p>
+        <p>You create a Notion template pack priced at $19. Your costs are minimal — 20 hours of development time and $0 in marginal production costs since it is digital. You have an email list of 3,000 subscribers and 15,000 social media followers. At $19, Gumroad's fee is $2.40 per sale (12.6%), and you keep $16.60.</p>
+        <p>Launch week: You email your list and post on social media. A warm email list typically converts at 1-3% on a launch. At 2% conversion on 3,000 subscribers, you sell 60 copies in week one: 60 x $16.60 = <strong>$996</strong> net revenue, after $144 in Gumroad fees ($114 percentage + $30 in per-transaction charges).</p>
+        <p>Ongoing sales: After the launch spike, organic sales from social media links, SEO, and word-of-mouth might average 2-5 sales per day initially, tapering to 1-2 per day over the following months. At a steady 1.5 sales/day, monthly net revenue is 45 x $16.60 = <strong>$747</strong>.</p>
+        <p>Now suppose you add an affiliate program at 30% commission and 20% of sales come through affiliates. An affiliate sale nets you $19 minus $2.40 in Gumroad fees minus $5.70 in commission = <strong>$10.90</strong>, against $16.60 on a direct sale. At 9 affiliate sales and 36 direct sales per month, that is $98.10 from affiliates and $597.60 direct, for a blended total of <strong>$695.70</strong>.</p>
+
+        <h2>Getting Paid: Gumroad's Payout Rules</h2>
+        <p>Fees are only half the cashflow picture. Gumroad holds your earnings until the balance reaches <strong>$100 USD</strong> — the highest minimum among the platforms in the table above — and some countries have higher local minimums. You choose a payout frequency of daily, weekly, monthly or quarterly; anything slower than daily carries a minimum seven-day holding period and pays out sales through the previous Friday. Daily payouts are US-only and require at least four prior payouts.</p>
+        <p>Bank payouts have no published fee. Where bank payouts are unavailable, Gumroad offers PayPal payouts with a <strong>2%</strong> processing fee. US creators can also request an instant payout of up to $10,000 for <strong>3%</strong>. Neither of these is included in the calculator above, which models per-sale fees only — if you rely on PayPal or instant payouts, subtract another 2-3% from the net figures.</p>
+        <p>One trap worth knowing: changing your payout country, or switching payout method in a way that requires a new connected account, forfeits any unpaid balance on the old account. Gumroad makes you type a confirmation before it will do this.</p>
 
         <h2>Strategies for Maximizing Gumroad Revenue</h2>
         <p><strong>Build your email list before launching.</strong> Gumroad does not provide marketplace traffic. Your launch revenue is almost entirely determined by the size and engagement of your existing audience. A pre-launch email sequence that teases the product, shares behind-the-scenes progress, and builds anticipation can double conversion rates compared to a cold announcement.</p>
         <p><strong>Use tiered pricing.</strong> Offer a base product, a premium version with bonuses, and a complete bundle. Gumroad supports "pay what you want" pricing where you set a minimum and let buyers pay more. Many creators find that 10-20% of buyers voluntarily pay above the minimum, especially when you frame higher tiers as supporting your work.</p>
         <p><strong>Create a product ladder.</strong> A single product generates a single purchase. A product ladder — where each product leads naturally to the next — generates multiple purchases per customer. For example: a free lead magnet leads to a $9 starter guide, which leads to a $39 comprehensive course, which leads to a $99 template bundle. Each step increases customer lifetime value without requiring new audience acquisition.</p>
         <p><strong>Leverage the affiliate program.</strong> Set competitive commission rates (25-40%) and recruit affiliates in your niche. A strong affiliate network effectively outsources your marketing to motivated partners. The commission reduces your per-sale margin, but affiliate-driven sales are incremental revenue you would not have captured otherwise. Focus on recruiting affiliates with email lists in your target market, as email-driven affiliate promotions consistently outperform social media shares.</p>
+        <p><strong>Bundle rather than fragment.</strong> This is the one strategy the $0.50 per transaction makes into arithmetic rather than taste. Five $10 products sold separately generate $50 of revenue and $7.50 of fees. The same $50 sold as one bundle generates $5.50 of fees. Splitting a product into cheaper pieces to widen the funnel is a legitimate strategy, but on Gumroad it has a measurable cost — check it against the calculator before you do it.</p>
       </div>
+    </section>
+
+    <section class="card-elevated p-6 md:p-8 mb-10">
+      <h2 class="font-semibold text-neutral-900 mb-2">Sources &amp; Last Updated</h2>
+      <p class="text-sm text-neutral-500 mb-4">
+        Every Gumroad fee, payout and merchant-of-record figure on this page was read from Gumroad's own published pages and last verified on <strong>August 25, 2026</strong>. Fee schedules change without notice — check the source pages before making a pricing decision.
+      </p>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="https://gumroad.com/pricing" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline font-medium">Gumroad — Pricing</a>
+          <span class="text-neutral-500"> — 10% + $0.50 per transaction on direct sales, 30% via Discover, $0 monthly cost, merchant-of-record status</span>
+        </li>
+        <li>
+          <a href="https://gumroad.com/help/article/13-getting-paid" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline font-medium">Gumroad Help — Getting paid</a>
+          <span class="text-neutral-500"> — $100 payout minimum, payout schedules and holding periods, PayPal 2% and instant payout 3%</span>
+        </li>
+      </ul>
+      <p class="text-sm text-neutral-500 mt-4">
+        Two details are not published by Gumroad and are therefore modelled as assumptions you can see and change: whether the $0.50 recurs on membership renewals, and whether affiliate commission is calculated before or after the platform fee. This calculator provides estimates only and is not financial or legal advice. Read our full <a href="/disclaimer" class="text-primary-600 hover:underline">financial disclaimer</a>.
+      </p>
     </section>
   </Fragment>
 </CalculatorLayout>
