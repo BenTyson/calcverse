@@ -28,7 +28,7 @@ export function FreelancerRateCalc() {
     `Daily Rate: ${formatCurrency(results.dailyRate)}\n` +
     `Monthly Revenue: ${formatCurrency(results.monthlyRevenue)}\n` +
     `Annual Revenue: ${formatCurrency(results.annualRevenue)}\n` +
-    `https://calcfalcon.com/freelance/freelancer-rate-calculator`;
+    `https://calcfalcon.com/freelance/hourly-rate-calculator`;
 
   return (
     <ErrorBoundary>
