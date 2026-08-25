@@ -11,24 +11,39 @@ import { Tooltip } from '../ui/Tooltip';
 import {
   calculatePatreonEarnings,
   DEFAULT_INPUTS,
+  PATREON_LEGACY_CUTOFF,
   type PatreonInputs,
+  type PatreonPlan,
+  type PatreonPayoutMethod,
 } from '../../lib/calculators/patreon-earnings';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
-const feeTierOptions = [
-  { value: 'lite', label: 'Lite (5%)' },
-  { value: 'pro', label: 'Pro (8%)' },
-  { value: 'premium', label: 'Premium (12%)' },
+// Patreon closed its plan menu on 2025-08-04. The standard 10% plan is the only
+// one a creator can join; the rest are held only by grandfathered creators.
+// See the source block in src/lib/calculators/patreon-earnings.ts.
+const planOptions = [
+  { value: 'standard', label: 'Standard — 10% (current plan)' },
+  { value: 'legacy_founders', label: 'Legacy: Founders — 5% (closed since 2019)' },
+  { value: 'legacy_pro', label: 'Legacy: Pro — 8% (closed)' },
+  { value: 'legacy_pro_merch', label: 'Legacy: Pro + Merch — 11% (closed)' },
+];
+
+const payoutMethodOptions = [
+  { value: 'direct_deposit', label: 'Direct deposit — $0.25 per payout' },
+  { value: 'paypal', label: 'PayPal — 1% per payout ($0.25 min, $20 cap)' },
+  { value: 'payoneer', label: 'Payoneer Wallet — $1.00 per payout' },
 ];
 
 export function PatreonCalc() {
   const { mode, setMode, inputs, updateInput, isAdvanced } = useCalculatorState<PatreonInputs>(DEFAULT_INPUTS);
 
   const results = calculatePatreonEarnings(inputs);
+  const isLegacyPlan = inputs.plan !== 'standard';
 
   const getResultsText = () =>
     `Patreon Earnings Calculator (CalcFalcon)\n` +
+    `Plan: ${results.planLabel}\n` +
     `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
     `Annual Earnings: ${formatCurrency(results.annualNet)}\n` +
     `Effective Fee: ${results.effectiveFeePct}%\n` +
@@ -42,7 +57,7 @@ export function PatreonCalc() {
         <ModeToggle mode={mode} onChange={setMode} />
         {mode === 'quick' && (
           <p className="text-sm text-neutral-500">
-            Using Pro tier (8% fee) and 5% monthly churn
+            Using the standard 10% plan and 5% monthly churn
           </p>
         )}
       </div>
@@ -74,14 +89,14 @@ export function PatreonCalc() {
 
         {isAdvanced && (
           <div className="space-y-4">
-            <h3 className="font-semibold text-neutral-900">Plan & Growth</h3>
+            <h3 className="font-semibold text-neutral-900">Plan &amp; Growth</h3>
             <DropdownInput
-              id="feeTier"
+              id="plan"
               label="Patreon Plan"
-              value={inputs.feeTier}
-              onChange={(v) => updateInput('feeTier', v as 'lite' | 'pro' | 'premium')}
-              options={feeTierOptions}
-              helpText="Your Patreon membership tier"
+              value={inputs.plan}
+              onChange={(v) => updateInput('plan', v as PatreonPlan)}
+              options={planOptions}
+              helpText={`Every creator who published a page after ${PATREON_LEGACY_CUTOFF} is on the standard 10% plan. The legacy plans are closed — pick one only if you are already grandfathered in.`}
             />
             <SliderInput
               id="churnRate"
@@ -93,6 +108,25 @@ export function PatreonCalc() {
               step={1}
               formatValue={(v) => `${v}%`}
               helpText="% of patrons who cancel each month"
+            />
+            <SliderInput
+              id="crossCurrencyPct"
+              label="Patrons Paying in Another Currency"
+              value={inputs.crossCurrencyPct}
+              onChange={(v) => updateInput('crossCurrencyPct', v)}
+              min={0}
+              max={100}
+              step={5}
+              formatValue={(v) => `${v}%`}
+              helpText="Patreon charges 2.5% when a patron pays in a currency other than your payout currency"
+            />
+            <DropdownInput
+              id="payoutMethod"
+              label="Payout Method"
+              value={inputs.payoutMethod}
+              onChange={(v) => updateInput('payoutMethod', v as PatreonPayoutMethod)}
+              options={payoutMethodOptions}
+              helpText="Charged when money leaves Patreon. Assumes one payout per month. PayPal payouts need a $10 balance; Payoneer Wallet needs $25."
             />
           </div>
         )}
@@ -136,13 +170,47 @@ export function PatreonCalc() {
                 value: formatCurrency(results.monthlyGross),
               },
               {
-                label: `Patreon Fee`,
+                label: `Patreon Fee (${results.planRatePct}%)`,
                 value: `-${formatCurrency(results.patreonFee)}`,
               },
               {
-                label: <Tooltip text="Credit card and PayPal transaction fees (2.9% + $0.30 per transaction)">Payment Processing</Tooltip>,
+                label: (
+                  <Tooltip
+                    text={`Credit card, Apple Pay and US PayPal/Venmo transaction fees: ${results.processingRateLabel}.${
+                      results.micropaymentApplied
+                        ? ' The legacy micropayment rate applies because your average pledge is $3 or less.'
+                        : ''
+                    }`}
+                  >
+                    Payment Processing
+                  </Tooltip>
+                ),
                 value: `-${formatCurrency(results.paymentProcessingFee)}`,
               },
+              ...(results.currencyConversionFee > 0
+                ? [
+                    {
+                      label: (
+                        <Tooltip text="Patreon charges 2.5% when a patron pays in a currency other than your payout currency.">
+                          Currency Conversion
+                        </Tooltip>
+                      ),
+                      value: `-${formatCurrencyWithCents(results.currencyConversionFee)}`,
+                    },
+                  ]
+                : []),
+              ...(results.payoutFee > 0
+                ? [
+                    {
+                      label: (
+                        <Tooltip text="Charged when the balance leaves Patreon. Assumes one payout per month.">
+                          Payout Fee
+                        </Tooltip>
+                      ),
+                      value: `-${formatCurrencyWithCents(results.payoutFee)}`,
+                    },
+                  ]
+                : []),
               {
                 label: 'Net Earnings',
                 value: formatCurrency(results.monthlyNet),
@@ -167,10 +235,21 @@ export function PatreonCalc() {
                 />
               </>
             )}
+            {isLegacyPlan && (
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">
+                <strong>Legacy plan selected.</strong> {results.planLabel} is
+                closed to new creators. You keep it only if you were already on
+                it and have not unpublished or republished your page — doing
+                either moves you to the standard 10% plan permanently.
+              </div>
+            )}
             <div className="bg-creator-50 rounded-xl p-4 text-sm text-creator-800">
-              <strong>Pro tip:</strong> Reduce churn by engaging regularly with
-              patrons and offering exclusive content. Even a 1% churn reduction
-              significantly impacts annual revenue.
+              <strong>Pro tip:</strong> The $0.30 per-transaction processing fee
+              is what hurts small pledges. The standard plan has no micropayment
+              rate, so a $1 pledge gives up 32.9% to processing alone before
+              Patreon's 10% is applied — against 17.9% at $2 and 5.9% at $10.
+              Nudging patrons toward higher tiers or annual billing moves your
+              take-home faster than anything else you control.
             </div>
           </div>
         </div>
@@ -178,7 +257,8 @@ export function PatreonCalc() {
         {/* Quick mode indicator */}
         {mode === 'quick' && (
           <p className="text-xs text-neutral-400 mt-6 text-center">
-            Based on Pro tier (8% + payment processing) and {DEFAULT_INPUTS.churnRate}% monthly churn.{' '}
+            Based on the standard 10% plan, US card payment processing, and{' '}
+            {DEFAULT_INPUTS.churnRate}% monthly churn.{' '}
             <button
               onClick={() => setMode('advanced')}
               className="text-creator-600 hover:underline font-medium"

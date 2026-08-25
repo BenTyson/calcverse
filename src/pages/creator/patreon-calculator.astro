@@ -1,12 +1,31 @@
 ---
 import CalculatorLayout from '@layouts/CalculatorLayout.astro';
 import { PatreonCalc } from '@components/calculators/PatreonCalc';
+import {
+  PATREON_FEES_LAST_VERIFIED,
+  PATREON_LEGACY_CUTOFF,
+} from '@lib/calculators/patreon-earnings';
+
+// Fee figures on this page come from src/lib/calculators/patreon-earnings.ts,
+// which cites docs/facts/creator-payment-fees.md §3. Do not restate a rate here
+// that is not in that module. Worked examples below were computed by running
+// calculatePatreonEarnings(), not by hand.
 
 const faqs = [
   {
     question: 'How much does Patreon take from creators?',
     answer:
-      'Patreon takes between 5-12% depending on your plan: Lite (5%), Pro (8%), or Premium (12%). On top of this, payment processing fees apply (typically 2.9% + $0.30 per transaction). For most creators, total fees range from 8-15% of gross earnings.',
+      'Patreon charges a flat 10% platform fee. That is the only plan available — the old Lite / Pro / Premium menu was closed on August 4, 2025, and every creator who published a page after that date is on the 10% standard plan. Payment processing is charged separately at 2.9% plus $0.30 per transaction, and the standard plan has no reduced micropayment rate, so small pledges lose a much larger share. At 100 patrons pledging $5 each, total fees come to about 19% of gross.',
+  },
+  {
+    question: 'Can I still get a cheaper Patreon plan?',
+    answer:
+      'No, not if you are starting today. Three cheaper plans still exist — Founders at 5%, Pro at 8%, and Pro + Merch at 11% — but all three are closed to new creators. They are held only by creators who were already on them. Unpublishing your page, republishing it, or having Patreon unpublish it moves you to the standard 10% plan permanently, which is why Patreon tells legacy creators to use the pause tool instead of unpublishing.',
+  },
+  {
+    question: 'Why do small pledges lose so much to fees?',
+    answer:
+      'The $0.30 flat payment-processing charge applies to every transaction regardless of size. On the standard 10% plan there is no micropayment rate, so a $1 pledge is charged 2.9% plus $0.30 — about 32.9% in processing alone, before Patreon takes its 10%. At $1 pledges the total fee burden is roughly 43% of gross; at $10 pledges it falls to about 16%.',
   },
   {
     question: 'What is a good Patreon churn rate?',
@@ -17,11 +36,6 @@ const faqs = [
     question: 'How much can you realistically make on Patreon?',
     answer:
       'Earnings vary wildly. Most creators with 100+ patrons earn $500-$2,000/month. Top creators make $50,000+/month. The key is conversion rate—typically 1-5% of your audience will become paying patrons. Focus on building a loyal audience first.',
-  },
-  {
-    question: 'Which Patreon plan should I choose?',
-    answer:
-      'Start with Lite (5%) if you just need basic features. Choose Pro (8%) for most creators—it includes analytics, merch integration, and promotional tools. Premium (12%) is for larger creators needing team accounts and dedicated support.',
   },
 ];
 
@@ -69,9 +83,9 @@ const relatedCalculators = [
       <div class="prose prose-neutral max-w-none">
         <h2>How Patreon Revenue Works for Creators</h2>
         <p>Patreon is a membership platform where fans pay creators a recurring monthly amount in exchange for exclusive content, community access, or other perks. Unlike ad-based platforms where revenue depends on algorithmic reach, Patreon income is driven by direct relationships with your audience. This makes it one of the most predictable revenue streams available to creators, but it also means growth is tied to audience loyalty rather than viral moments.</p>
-        <p>Your take-home from Patreon depends on three factors: the number of active patrons, their average pledge amount, and the fees deducted by Patreon and payment processors. Patreon offers three plan tiers — Lite at 5%, Pro at 8%, and Premium at 12% — each with different feature sets. Payment processing fees (typically 2.9% plus $0.30 per transaction) apply on top of the platform fee, meaning your total fee burden ranges from roughly 8% to 15% of gross revenue.</p>
+        <p>Your take-home from Patreon depends on three factors: the number of active patrons, their average pledge amount, and the fees deducted by Patreon and payment processors. <strong>There is no longer a plan to choose.</strong> Patreon closed its plan menu on {PATREON_LEGACY_CUTOFF}; every creator who published a page after that date pays a flat <strong>10% platform fee</strong>. Payment processing is charged on top at 2.9% plus $0.30 per transaction. Because that $0.30 lands on every pledge regardless of size, the total fee burden is not a fixed percentage — it runs from roughly 43% of gross at $1 pledges down to about 14% at $25 pledges.</p>
         <h3>The Economics of Recurring Revenue</h3>
-        <p>What makes Patreon powerful is compounding. If you add 20 new patrons per month at $5 each and maintain a 5% monthly churn rate, your revenue grows steadily over time because new patrons accumulate faster than old ones leave. After 12 months, you would have roughly 155 active patrons generating about $660 per month after fees. The key metric to watch is net patron growth: new patrons minus churned patrons. As long as this number stays positive, your revenue trends upward without requiring more content output per dollar earned.</p>
+        <p>What makes Patreon powerful is compounding. If you add 20 new patrons per month at $5 each and hold a 5% monthly churn rate, your base grows steadily because new patrons accumulate faster than old ones leave. After 12 months you would have roughly 184 active patrons producing about $920 per month gross and <strong>$746 per month net</strong> of Patreon's fees. The key metric to watch is net patron growth: new patrons minus churned patrons. As long as this number stays positive, your revenue trends upward without requiring more content output per dollar earned.</p>
         <p>This calculator models these dynamics so you can project realistic growth trajectories based on your current audience size, conversion assumptions, and churn behavior.</p>
       </div>
     </section>
@@ -82,13 +96,13 @@ const relatedCalculators = [
     <section class="mb-10">
       <div class="prose prose-neutral max-w-none">
         <h2>How to Use the Patreon Earnings Calculator</h2>
-        <p>This calculator shows you what you will actually take home from Patreon after platform fees and payment processing costs. It helps you set realistic revenue expectations and choose the right plan for your creator business.</p>
+        <p>This calculator shows you what you will actually take home from Patreon after the platform fee, payment processing, currency conversion, and payout charges. It helps you set realistic revenue expectations and see which of those costs you can actually do something about.</p>
         <h3>Quick Mode</h3>
-        <p>Enter your current patron count and average pledge amount. The calculator applies standard Patreon fees to produce your estimated monthly and annual take-home. This is useful for quick projections when planning content investments or evaluating whether Patreon is viable for your audience size.</p>
+        <p>Enter your current patron count and average pledge amount. The calculator applies the standard 10% platform fee, US card payment processing at 2.9% plus $0.30 per patron, and a $0.25 direct-deposit payout fee, then shows your estimated monthly and annual take-home. This is the correct default for every creator who joined Patreon recently.</p>
         <h3>Advanced Mode</h3>
-        <p>Switch to Advanced to model different scenarios in detail. You can set your monthly churn rate, select your Patreon plan tier (Lite at 5 percent, Pro at 8 percent, or Premium at 12 percent), and adjust payment processing assumptions. The churn rate input is especially important for long-term planning, since even a 2 percent difference in monthly churn compounds dramatically over a year.</p>
-        <h3>Choosing the Right Plan</h3>
-        <p>The Lite plan at 5 percent is tempting for its low fee, but it lacks analytics, merch integration, and promotional tools that help you grow. Most creators benefit from the Pro plan at 8 percent, which pays for itself through better conversion and retention tools. Only consider Premium at 12 percent if you need team accounts or manage a high-volume page where dedicated support saves you significant time.</p>
+        <p>Switch to Advanced to model your situation in detail. You can set your monthly churn rate, the share of patrons paying in a currency other than your payout currency (Patreon charges 2.5% on those), and your payout method. If you are a grandfathered creator on one of Patreon's closed legacy plans, you can select it here — but only if you are already on it. The churn rate input matters most for long-term planning, since even a 2 percent difference in monthly churn compounds dramatically over a year.</p>
+        <h3>Why the Effective Fee Moves</h3>
+        <p>The platform fee is a clean 10% of gross, but payment processing is not — it is 2.9% <em>plus a flat $0.30 on every single pledge</em>. That flat charge is the whole story for small creators. At a $1 pledge it alone eats 30% of the payment, and the standard plan has no reduced micropayment rate to soften it. Raising your entry tier from $1 to $3, or moving patrons to annual billing so the flat fee is charged once rather than twelve times, does more for your take-home than anything on Patreon's side.</p>
         <h3>Maximizing Patron Retention</h3>
         <p>Churn is the silent revenue killer on Patreon. A healthy monthly churn rate is 3 to 7 percent. To stay in that range, deliver on your promises consistently, post patron-only content on a predictable schedule, and engage directly through comments and community posts. Creators who treat Patreon as a community rather than a tip jar see significantly lower churn. Consider offering an annual billing option, which locks in patrons and reduces payment-related churn from expired cards.</p>
       </div>
@@ -98,38 +112,91 @@ const relatedCalculators = [
   <Fragment slot="deep-dive">
     <section class="mb-10">
       <div class="prose prose-neutral max-w-none">
-        <h2>Patreon Plan Comparison</h2>
-        <p>Choosing the right Patreon plan directly affects your take-home. The table below compares what you keep at different revenue levels across all three plans, including estimated payment processing fees.</p>
+        <h2>What Patreon's 10% Actually Costs You</h2>
+        <p>The headline number is 10%, but nobody pays 10%. The table below was produced by running this calculator at 100 patrons on the standard plan, varying only the average pledge. Every row includes Patreon's 10%, payment processing at 2.9% plus $0.30 per patron, and a $0.25 direct-deposit payout fee.</p>
         <table>
           <thead>
             <tr>
-              <th>Monthly Gross</th>
-              <th>Lite (5%)</th>
-              <th>Pro (8%)</th>
-              <th>Premium (12%)</th>
+              <th>Average pledge</th>
+              <th>Monthly gross</th>
+              <th>Patreon fee</th>
+              <th>Processing</th>
+              <th>Net</th>
+              <th>Effective fee</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>$500</td><td>$440</td><td>$425</td><td>$405</td></tr>
-            <tr><td>$1,000</td><td>$885</td><td>$855</td><td>$815</td></tr>
-            <tr><td>$2,500</td><td>$2,225</td><td>$2,150</td><td>$2,050</td></tr>
-            <tr><td>$5,000</td><td>$4,460</td><td>$4,310</td><td>$4,110</td></tr>
-            <tr><td>$10,000</td><td>$8,930</td><td>$8,630</td><td>$8,230</td></tr>
+            <tr><td>$1</td><td>$100</td><td>$10.00</td><td>$32.90</td><td>$56.85</td><td><strong>43.2%</strong></td></tr>
+            <tr><td>$2</td><td>$200</td><td>$20.00</td><td>$35.80</td><td>$143.95</td><td>28.0%</td></tr>
+            <tr><td>$3</td><td>$300</td><td>$30.00</td><td>$38.70</td><td>$231.05</td><td>23.0%</td></tr>
+            <tr><td>$5</td><td>$500</td><td>$50.00</td><td>$44.50</td><td>$405.25</td><td>19.0%</td></tr>
+            <tr><td>$10</td><td>$1,000</td><td>$100.00</td><td>$59.00</td><td>$840.75</td><td>15.9%</td></tr>
+            <tr><td>$25</td><td>$2,500</td><td>$250.00</td><td>$102.50</td><td>$2,147.25</td><td>14.1%</td></tr>
           </tbody>
         </table>
-        <p>At $1,000/month gross, the difference between Lite and Pro is about $30/month. Whether Pro's additional features — analytics, promo tools, merch integration, and app access — are worth $360/year depends on how actively you use them to retain and convert patrons.</p>
+        <p>The pattern is worth internalising: <strong>your average pledge, not your patron count, sets your effective fee rate.</strong> A creator with 400 patrons at $1 and a creator with 40 patrons at $10 both gross $400, but the first loses about 43% to fees and the second about 16%.</p>
 
-        <h2>Worked Example: Growing from 0 to 200 Patrons</h2>
+        <h2>Legacy Plans: Only If You Already Have One</h2>
+        <p>Patreon used to sell a menu of plans. It does not any more. Three older plans still exist in the wild, held by creators who were on them before they closed, and all three are unavailable to anyone signing up today. The comparison below is here so grandfathered creators can see what their plan is worth — not as a menu to pick from.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>Availability</th>
+              <th>Platform fee</th>
+              <th>Net at 100 patrons &times; $5</th>
+              <th>Effective fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Standard</strong></td><td>The only plan you can join</td><td>10%</td><td>$405.25</td><td>19.0%</td></tr>
+            <tr><td>Founders</td><td>Closed since May 2019</td><td>5%</td><td>$436.75</td><td>12.7%</td></tr>
+            <tr><td>Pro</td><td>Closed {PATREON_LEGACY_CUTOFF}</td><td>8%</td><td>$415.25</td><td>17.0%</td></tr>
+            <tr><td>Pro + Merch</td><td>Closed {PATREON_LEGACY_CUTOFF}</td><td>11%</td><td>$400.25</td><td>20.0%</td></tr>
+          </tbody>
+        </table>
+        <p>Two things are easy to miss here. First, Founders creators also get cheaper processing (1.6% plus $0.30 rather than 2.9% plus $0.30), so the gap is wider than the 5-versus-10 headline suggests. Second, the legacy Pro plans keep a <strong>micropayment rate</strong> — 5% plus $0.10 on tiers priced at $3 or less — that the standard plan does not have. At 100 patrons pledging $3, a legacy Pro creator nets $250.75 against a standard-plan creator's $231.05, and actually beats a Founders creator's $249.95 despite paying a higher platform fee.</p>
+        <p>If you hold a legacy plan, the practical advice is narrow: <strong>do not unpublish your page.</strong> Unpublishing, republishing, or having Patreon unpublish the page for any reason moves you to the standard 10% plan and you cannot go back. Patreon's own guidance is to use the pause tool instead.</p>
+
+        <h2>Worked Example: Launching with 200 Patrons</h2>
         <p>Assume you have 10,000 social media followers and launch a Patreon with two tiers: $5/month for basic access and $15/month for premium content. A typical creator converts 1-3% of their audience to patrons. At a 2% conversion rate, you launch with 200 patrons.</p>
-        <p>If 70% choose the $5 tier (140 patrons = $700) and 30% choose the $15 tier (60 patrons = $900), your gross is $1,600/month. On the Pro plan (8%) with payment processing (~3.5%), your take-home is roughly $1,416/month or $16,992/year.</p>
-        <p>With a 5% monthly churn rate (losing 10 patrons/month) and adding 15 new patrons/month through consistent promotion, you grow by 5 net patrons per month. After 12 months, you would have approximately 260 patrons generating around $2,080 gross and $1,841 net per month.</p>
+        <p>If 70% choose the $5 tier (140 patrons = $700) and 30% choose the $15 tier (60 patrons = $900), your gross is $1,600/month — an average pledge of $8. Running that through this calculator on the standard plan: Patreon takes $160, payment processing takes $106.40, and the direct-deposit payout costs $0.25. Your take-home is <strong>$1,333.35 per month, or $16,000 per year</strong>, an effective fee of 16.7%.</p>
+        <p>With a 5% monthly churn rate (losing 10 patrons/month) and adding 15 new patrons/month through consistent promotion, you grow by 5 net patrons per month. After 12 months you would have approximately 260 patrons at the same $8 average, grossing $2,080 and netting <strong>$1,733.43</strong> per month.</p>
+        <p>If a quarter of those patrons pay in a currency other than your payout currency, Patreon's 2.5% conversion fee adds another $10 a month at the $1,600 level, pushing the effective rate from 16.7% to 17.3%. Taking payouts through PayPal instead of direct deposit costs 1% of the payout — $13.34 a month here rather than $0.25, which is the single most avoidable fee on this page.</p>
 
         <h2>Reducing Churn: The Biggest Lever for Patreon Revenue</h2>
         <p><strong>Deliver on your promises.</strong> The number one reason patrons cancel is unmet expectations. If you promise weekly exclusive content, deliver it every week. Inconsistency erodes trust faster than any other factor.</p>
-        <p><strong>Offer annual billing.</strong> Annual subscribers churn at roughly one-third the rate of monthly subscribers. Even a small discount (one or two months free) makes annual plans attractive. Aim for 30-40% of your base on annual billing for maximum stability.</p>
+        <p><strong>Offer annual billing.</strong> Annual subscribers churn at roughly one-third the rate of monthly subscribers, and the flat $0.30 processing charge hits once a year instead of twelve times. Even a small discount (one or two months free) makes annual plans attractive. Aim for 30-40% of your base on annual billing for maximum stability.</p>
         <p><strong>Build community, not just content.</strong> Patrons who interact with each other and with you are far less likely to leave than those who only consume content passively. Discord integration, patron-only comments, and monthly Q&A sessions create social bonds that make cancellation feel like leaving a community, not just unsubscribing.</p>
         <p><strong>Watch for payment-related churn.</strong> A significant portion of patron losses come from expired credit cards and failed payments, not deliberate cancellations. Patreon retries failed payments automatically, but you can reduce this by reminding patrons to update their payment info before billing cycles. Some creators send a friendly heads-up message at the start of each month.</p>
       </div>
+    </section>
+
+    <section class="card-elevated p-6 md:p-8 mb-10">
+      <h2 class="font-semibold text-neutral-900 mb-2">Fee Data &amp; Last Updated</h2>
+      <p class="text-sm text-neutral-500 mb-4">
+        Every Patreon rate on this page was read from Patreon's own published
+        documentation and last verified on <strong>{PATREON_FEES_LAST_VERIFIED}</strong>.
+        Platform fee schedules change without notice — confirm current rates with
+        Patreon before making a decision that depends on them.
+      </p>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="https://www.patreon.com/pricing" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline font-medium">Patreon pricing</a>
+          <span class="text-neutral-500"> — the 10% standard platform fee</span>
+        </li>
+        <li>
+          <a href="https://support.patreon.com/hc/en-us/articles/11111747095181-Creator-fees-overview" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline font-medium">Patreon Help Center: Creator fees overview</a>
+          <span class="text-neutral-500"> — legacy plan rates, payment processing rates, the 2.5% currency conversion fee, and payout transaction fees</span>
+        </li>
+      </ul>
+      <p class="text-sm text-neutral-500 mt-4">
+        This calculator models recurring membership pledges paid in USD by credit
+        card, Apple Pay, or US PayPal/Venmo. It does not model one-time digital
+        product sales, non-USD payout currencies, non-US PayPal patrons, or sales
+        tax. Estimates only — not tax, financial, or legal advice. Read our full
+        <a href="/disclaimer" class="text-primary-600 hover:underline">financial disclaimer</a>.
+      </p>
     </section>
   </Fragment>
 </CalculatorLayout>
