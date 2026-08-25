@@ -42,10 +42,30 @@ The fourth is the Airbnb answer specifically. The Airbnb calculator sits at posi
 
 | Wave | Status | Focus |
 |---|---|---|
-| **W1** | PROPOSED — awaiting rulings | Capture existing impressions (CTR), spec the hub, gather verified fee data |
-| W2 | NOT STARTED | Build the comparison hub component + first hub |
-| W3 | NOT STARTED | Fill named gaps (Buy Me a Coffee), second hub |
-| W4 | NOT STARTED | AdSense re-review once original value ships |
+| **W1** | **CLOSED** 2026-08-25 — 3 of 4 merged | CTR capture, hub spec, verified fee data |
+| **W2** | **RUNNING** | Correct wrong platform fees (blocker, D-011) + dead-link fix |
+| W3 | NOT STARTED | Redo calculator retitling against corrected fees; share-link state bug |
+| W4 | NOT STARTED | Build the first comparison hub per `docs/specs/comparison-hub.md` |
+| W5 | NOT STARTED | Buy Me a Coffee calculator (needs correct baseline + touches 2 hot spots) |
+| W6 | NOT STARTED | AdSense re-review once original value ships (D-004) |
+
+### W1 outcome
+
+Merged: `CHIP-HUB-SPEC` (584-line architecture spec) · `CHIP-CTR-BLOG` (10 blog titles, comparison-framed) · `CHIP-RESEARCH-PAYMENTS` (verified fee fact file).
+
+Rejected: `CHIP-CTR-CALC` — wrote 2024 Patreon plan tiers that no longer exist into page metadata (D-012). Its before/after table survives at `docs/notes/CHIP-CTR-CALC.md` as the starting point for the W3 redo.
+
+The wave's highest-value output was a finding nobody asked for: **all four creator payment calculators compute on wrong fees** (D-011). That is the category D-001 names as the site's strategic core.
+
+### W2 — running
+
+Five chips, disjoint files, concurrent. Four fee corrections at **Opus** (money math), one dead-link fix at **Sonnet** (mechanical).
+
+`CHIP-FEE-PATREON` · `CHIP-FEE-GUMROAD` · `CHIP-FEE-KOFI` · `CHIP-FEE-SUBSTACK` · `CHIP-DEADLINK-FIX`
+
+Ownership is one logic module + one component + one page per fee chip; the dead-link chip owns four components none of them touch. `KofiCalc.tsx` carries a fifth dead URL and was assigned to `CHIP-FEE-KOFI` rather than split across two chips.
+
+**None of them may change a page `title`, `description`, or `<h1>`** — that surface belongs to W3, and editing it here would collide.
 
 ---
 
