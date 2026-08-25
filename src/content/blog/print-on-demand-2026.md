@@ -1,6 +1,6 @@
 ---
-title: "Print-on-Demand in 2026: Printful vs Printify vs Merch by Amazon"
-description: "Compare Printful, Printify, and Merch by Amazon for print-on-demand profits. Per-unit costs, marketplace fees, and when POD beats holding inventory."
+title: "Printful vs Printify vs Merch by Amazon: 2026 Margins"
+description: "Base costs, Etsy and Amazon fee stacks, and return losses on the same t-shirt across all three — plus the volume where bulk printing beats print-on-demand."
 publishedDate: 2026-03-03
 category: creator
 calculatorSlug: /creator/print-on-demand-profit-calculator

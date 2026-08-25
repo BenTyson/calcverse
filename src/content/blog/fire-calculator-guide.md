@@ -1,6 +1,6 @@
 ---
-title: "FIRE Calculator: How to Know When You Can Retire Early"
-description: "How the FIRE number works, what the 4% rule actually means, and how to calculate when you can retire — including Coast FIRE and freelancer-specific strategies."
+title: "FIRE for Freelancers: Why Your Number Runs 10-20% Higher"
+description: "The 4% rule assumes a steady paycheck. Self-employment tax, variable income, and a larger cash buffer push a freelancer's FIRE number up. Here is the math."
 publishedDate: 2026-03-11
 category: finance
 calculatorSlug: /personal-finance/fire-calculator
