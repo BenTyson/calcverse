@@ -1,6 +1,6 @@
 ---
-title: "Substack vs Beehiiv vs ConvertKit: Newsletter Revenue Compared"
-description: "Compare Substack, Beehiiv, and ConvertKit fees side by side — platform cuts, payment processing, sponsorship CPM, and what newsletter creators actually keep."
+title: "Substack vs Beehiiv vs ConvertKit: What You Actually Keep"
+description: "Substack's cut scales with your revenue; Beehiiv's flat monthly fee does not. See where the lines cross for your subscriber count, plus sponsorship CPM math."
 publishedDate: 2026-01-26
 category: creator
 calculatorSlugs:

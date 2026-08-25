@@ -1,6 +1,6 @@
 ---
-title: "Self-Employment Tax Guide 2026: Rates, Rules, and How to Pay Less"
-description: "How self-employment tax works in 2026 — the 15.3% rate, Social Security and Medicare splits, deductions, and strategies to legally reduce what you owe."
+title: "Self-Employment Tax 2026: The 15.3% Rate and Deductions"
+description: "15.3% is 12.4% Social Security plus 2.9% Medicare, applied to 92.35% of net earnings — and the Social Security half stops at the annual wage base cap."
 publishedDate: 2026-01-13
 updatedDate: 2026-08-09
 category: freelance

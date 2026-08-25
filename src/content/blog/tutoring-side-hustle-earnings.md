@@ -1,6 +1,6 @@
 ---
-title: "How to Start a Tutoring Side Hustle (And What You Can Earn)"
-description: "Tutoring rates by platform, subject, and experience level. Compare Wyzant, Varsity Tutors, Tutor.com, and independent tutoring to find your real hourly earnings."
+title: "Tutoring Side Hustle Pay: Wyzant vs Varsity vs Independent"
+description: "Platforms bring you students and take a cut; independent keeps the cut but you find the clients. Compare real hourly pay after fees and unpaid prep time."
 publishedDate: 2026-02-24
 updatedDate: 2026-08-09
 category: side-hustle

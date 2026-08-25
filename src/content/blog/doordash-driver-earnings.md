@@ -1,6 +1,6 @@
 ---
-title: "How Much Do DoorDash Drivers Actually Make? (2026 Breakdown)"
-description: "Real DoorDash earnings data after expenses — base pay, tips, peak pay, hidden costs, and what top dashers actually take home per hour."
+title: "How Much DoorDash Pays After Gas, Car Wear, and Taxes"
+description: "Dashers see gross pay in the app. Here is the same money after fuel, vehicle wear, and self-employment tax — plus how to find your real hourly rate."
 publishedDate: 2026-02-20
 updatedDate: 2026-08-09
 category: gig-economy

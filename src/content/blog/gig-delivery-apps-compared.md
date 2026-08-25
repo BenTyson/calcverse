@@ -1,6 +1,6 @@
 ---
-title: "Gig Delivery Apps Compared: DoorDash vs Instacart vs Amazon Flex"
-description: "Compare real earnings, expenses, and working conditions across DoorDash, Instacart, and Amazon Flex. Data-driven breakdown of what drivers actually take home."
+title: "DoorDash vs Instacart vs Amazon Flex: Which Pays More?"
+description: "Net hourly pay after gas and vehicle wear, miles driven per dollar earned, physical demands, and scheduling — compared across all three delivery apps."
 publishedDate: 2026-01-17
 updatedDate: 2026-08-09
 category: gig-economy
