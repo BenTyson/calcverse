@@ -185,6 +185,35 @@ Two verified instances:
 
 **Sequencing:** `V-N1` — whether Stripe's 0.7% Billing fee applies to beehiiv — is open and load-bearing. Per D-014 the correction may publish both branches labelled, but may not pick one. `CHIP-FEE-NEWSLETTER` also needs `NewsletterRevenueCalc.tsx`, currently owned by `CHIP-CENTS-SWEEP`, so it cannot be spawned until that chip merges.
 
+## D-018 · Platform-fee guard shipped; two Command Center errors corrected by the chip — RULED 2026-08-26
+
+`scripts/check-platform-fees.mjs` now exists, closing the gap D-011 asserted and four chips reported. `npm run check` runs both guards.
+
+**The chip refused two of the four denylist entries I gave it, and was right both times:**
+
+1. I told it to deny Patreon `0.05` and `0.08`. Those are **current, correct legacy rates** — `patreon-earnings.ts:115-116` defines `legacy_founders: { rate: 0.05 }` and `legacy_pro: { rate: 0.08 }`, both live. Only `0.12` is fabricated. Encoding my brief would have made the guard fire on correct code every run.
+2. I told it to deny Gumroad's `10%`. Ten percent is Gumroad's real percentage; the defect was the claim of **flatness**, not the number.
+
+A guard that flags correct code is a guard people disable. Both corrections are the difference between a guard that survives and one that gets commented out.
+
+**It also rejected my proposed SE-tax detection rule with measurement rather than opinion.** I suggested flagging `15.3%` appearing without `92.35%` nearby; the chip measured that at **62 false positives out of 80 lines** and instead built a check that reproduces the *wrong formula* and matches against its output — **3 findings from 47 candidates at 100% precision.** That is better than what I specified.
+
+**New protocol rule, from this chip:** *a guard is not verified until you have watched it fail.* Exit code 0 from a check script means either "clean" or "broken." The chip's own first pass silently caught 16 of 17 planted defects because a trailing `\b` after `%` can never match `12%,` — a bug reading the code would not reveal. The Command Center independently re-ran the proof-of-catch before merging: a reintroduced `$6` Ko-fi Gold was caught in 5 places in built HTML with exit 1, and returned to exit 0 on restore.
+
+**Ratcheted, not fixed** — the guard passes while reporting 6 warnings that belong to other owners: `newsletter-revenue.ts` is a second ungoverned Substack implementation (blocker); `best-platforms-selling-digital-products.md:22` still claims a $29 Gumroad ebook nets $26.10 (really $25.60) which `CHIP-BLOG-FEE-COPY` missed; three SE-tax figures omit the 92.35% adjustment, two of them on calculator pages; and `gumroad-calculator.astro` hardcodes its verification date twice.
+
+## D-019 · Model tiering is validated; no reassignment needed — RULED 2026-08-26
+
+All twelve chips run to date reported, per `CHIP-PROTOCOL.md` §6, that their assigned tier was correct. **None requested a different tier.** The standing assignment rule is confirmed:
+
+| Work | Tier | Evidence from chip reports |
+|---|---|---|
+| Novel architecture, spec-writing, conversion/brand copy | **Fable** | `CHIP-HUB-SPEC`: "the value was in rejecting two plausible architectures and finding the cannibalization trap, not in the writing" |
+| Money math, fee corrections, refactors needing care, guards | **Opus** | `CHIP-FEE-GUMROAD`: a cheaper tier "would have added `+ 0.50` to the formula… passing every stated check while leaving the page's headline fee wrong on screen" |
+| Mechanical cleanup, string replacement | **Sonnet** | `CHIP-DEADLINK-FIX`: "Sonnet/medium was right-sized" |
+
+**Note on a near-miss:** `CHIP-CTR-BLOG` was assigned Opus where the tiering rule arguably called for Fable, since title copy is brand voice. The chip judged Opus correct and explained why — the difficulty was not the writing but three decisions where "the locally attractive move is the wrong one," including refusing to frame the DoorDash post as a comparison when comparison queries are where the impressions are. Accepted; the rule stands unchanged.
+
 ---
 
 # Part 2 — Standing decisions
