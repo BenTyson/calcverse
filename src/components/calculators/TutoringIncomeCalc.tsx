@@ -16,7 +16,7 @@ import {
   PLATFORM_PRESETS,
   type TutoringIncomeInputs,
 } from '../../lib/calculators/tutoring-income';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function TutoringIncomeCalc() {
@@ -36,7 +36,7 @@ export function TutoringIncomeCalc() {
     `Tutoring Income Calculator (CalcFalcon)\n` +
     `Weekly Net: ${formatCurrency(results.weeklyNet)}\n` +
     `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
-    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `https://calcfalcon.com/side-hustle/tutoring-income-calculator`;
 
   return (
@@ -187,7 +187,7 @@ export function TutoringIncomeCalc() {
           />
           <ResultCard
             label={<><Tooltip text="Your actual hourly rate including prep time">Effective Hourly</Tooltip></>}
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description="Including prep time"
           />
         </div>

@@ -14,7 +14,7 @@ import {
   CPM_BENCHMARKS,
   type PodcastSponsorshipInputs,
 } from '../../lib/calculators/podcast-sponsorship';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function PodcastSponsorshipCalc() {
@@ -29,7 +29,7 @@ export function PodcastSponsorshipCalc() {
     `Podcast Sponsorship Calculator (CalcFalcon)\n` +
     `Monthly Revenue: ${formatCurrency(results.netMonthly)}\n` +
     `Annual Revenue: ${formatCurrency(results.netAnnual)}\n` +
-    `Effective CPM: ${formatCurrency(results.effectiveCPM)}\n` +
+    `Effective CPM: ${formatCurrencyWithCents(results.effectiveCPM)}\n` +
     `https://calcfalcon.com/creator/podcast-calculator`;
 
   return (
@@ -211,7 +211,7 @@ export function PodcastSponsorshipCalc() {
           />
           <ResultCard
             label="Effective CPM"
-            value={formatCurrency(results.effectiveCPM)}
+            value={formatCurrencyWithCents(results.effectiveCPM)}
             description="Actual $/1000 downloads"
             category="creator"
           />

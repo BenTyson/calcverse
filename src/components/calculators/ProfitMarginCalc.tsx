@@ -15,7 +15,7 @@ import {
   QUICK_MODE_DEFAULTS,
   type ProfitMarginInputs,
 } from '../../lib/calculators/profit-margin';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function ProfitMarginCalc() {
@@ -167,7 +167,7 @@ export function ProfitMarginCalc() {
         {isAdvanced && inputs.unitsSold > 0 && (
           <div className="mb-6 p-4 bg-sidehustle-50 rounded-xl border border-sidehustle-100">
             <p className="text-sidehustle-800 font-medium">
-              Profit Per Unit: {formatCurrency(results.profitPerUnit)}
+              Profit Per Unit: {formatCurrencyWithCents(results.profitPerUnit)}
             </p>
             <p className="text-sidehustle-600 text-sm mt-1">
               Based on {inputs.unitsSold.toLocaleString()} units sold

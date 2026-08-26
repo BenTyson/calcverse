@@ -12,7 +12,7 @@ import {
   DEFAULT_INPUTS,
   type SubstackInputs,
 } from '../../lib/calculators/substack-revenue';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function SubstackCalc() {
@@ -24,7 +24,7 @@ export function SubstackCalc() {
     `Substack Revenue Calculator (CalcFalcon)\n` +
     `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
     `Annual Revenue: ${formatCurrency(results.annualNet)}\n` +
-    `Per Subscriber: ${formatCurrency(results.revenuePerSubscriber)}/mo\n` +
+    `Per Subscriber: ${formatCurrencyWithCents(results.revenuePerSubscriber)}/mo\n` +
     `https://calcfalcon.com/creator/substack-calculator`;
 
   return (
@@ -140,7 +140,7 @@ export function SubstackCalc() {
           />
           <ResultCard
             label="Per Subscriber"
-            value={formatCurrency(results.revenuePerSubscriber)}
+            value={formatCurrencyWithCents(results.revenuePerSubscriber)}
             description="Monthly net/subscriber"
           />
         </div>
@@ -150,11 +150,11 @@ export function SubstackCalc() {
             title="Fee Breakdown"
             category="creator"
             items={[
-              { label: 'Monthly Gross', value: formatCurrency(results.monthlyGross) },
-              { label: 'Substack Fee (10%)', value: `-${formatCurrency(results.substackFee)}` },
-              { label: <Tooltip text="Stripe card processing: 2.9% + $0.30 per transaction">Stripe Processing</Tooltip>, value: `-${formatCurrency(results.stripeProcessingFee)}` },
-              { label: <Tooltip text="Stripe's 0.7% Billing fee on recurring payments. Charged on top of card processing and NOT included in the Stripe processing figure Substack shows you — it appears separately as 'Stripe fee' under Transactions → All Activity. The 0.5% legacy rate expired June 30, 2025.">Stripe Billing Fee (0.7%)</Tooltip>, value: `-${formatCurrency(results.stripeBillingFee)}` },
-              { label: 'Net Revenue', value: formatCurrency(results.monthlyNet), highlight: true },
+              { label: 'Monthly Gross', value: formatCurrencyWithCents(results.monthlyGross) },
+              { label: 'Substack Fee (10%)', value: `-${formatCurrencyWithCents(results.substackFee)}` },
+              { label: <Tooltip text="Stripe card processing: 2.9% + $0.30 per transaction">Stripe Processing</Tooltip>, value: `-${formatCurrencyWithCents(results.stripeProcessingFee)}` },
+              { label: <Tooltip text="Stripe's 0.7% Billing fee on recurring payments. Charged on top of card processing and NOT included in the Stripe processing figure Substack shows you — it appears separately as 'Stripe fee' under Transactions → All Activity. The 0.5% legacy rate expired June 30, 2025.">Stripe Billing Fee (0.7%)</Tooltip>, value: `-${formatCurrencyWithCents(results.stripeBillingFee)}` },
+              { label: 'Net Revenue', value: formatCurrencyWithCents(results.monthlyNet), highlight: true },
             ]}
           />
           <div className="space-y-4">

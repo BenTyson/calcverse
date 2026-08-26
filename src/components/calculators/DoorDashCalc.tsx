@@ -12,7 +12,7 @@ import {
   DEFAULT_INPUTS,
   type DoorDashInputs,
 } from '../../lib/calculators/doordash-earnings';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function DoorDashCalc() {
@@ -24,7 +24,7 @@ export function DoorDashCalc() {
   const getResultsText = () =>
     `DoorDash Earnings Calculator (CalcFalcon)\n` +
     `Weekly Net: ${formatCurrency(results.weeklyNet)}\n` +
-    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
     `https://calcfalcon.com/gig-economy/doordash-calculator`;
 
@@ -149,12 +149,12 @@ export function DoorDashCalc() {
           />
           <ResultCard
             label="Effective Hourly"
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description="Net earnings/hour"
           />
           <ResultCard
             label="Per Delivery"
-            value={formatCurrency(results.earningsPerDelivery)}
+            value={formatCurrencyWithCents(results.earningsPerDelivery)}
             description="Base + tip avg"
           />
         </div>
@@ -187,7 +187,7 @@ export function DoorDashCalc() {
             <ResultCard
               label="Weekly Miles"
               value={results.weeklyMiles.toLocaleString()}
-              description={`${formatCurrency(results.costPerMile)}/mile gas`}
+              description={`${formatCurrencyWithCents(results.costPerMile)}/mile gas`}
               size="sm"
             />
             <div className="bg-gig-50 rounded-xl p-4 text-sm text-gig-800">

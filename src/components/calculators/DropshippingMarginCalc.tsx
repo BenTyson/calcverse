@@ -18,7 +18,7 @@ import {
   PLATFORM_PRESETS,
   type DropshippingMarginInputs,
 } from '../../lib/calculators/dropshipping-margin';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function DropshippingMarginCalc() {
@@ -40,7 +40,7 @@ export function DropshippingMarginCalc() {
 
   const getResultsText = () =>
     `Dropshipping Margin Calculator (CalcFalcon)\n` +
-    `Profit Per Order: ${formatCurrency(results.profitPerOrder)}\n` +
+    `Profit Per Order: ${formatCurrencyWithCents(results.profitPerOrder)}\n` +
     `Monthly Profit: ${formatCurrency(results.monthlyProfit)}\n` +
     `Profit Margin: ${results.profitMargin}%\n` +
     `ROAS: ${results.roas.toFixed(1)}x\n` +
@@ -215,9 +215,9 @@ export function DropshippingMarginCalc() {
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Profit Per Order"
-            value={formatCurrency(results.profitPerOrder)}
+            value={formatCurrencyWithCents(results.profitPerOrder)}
             numericValue={results.profitPerOrder}
-            formatFn={formatCurrency}
+            formatFn={formatCurrencyWithCents}
             description="After all per-order costs"
             highlight
             size="lg"
@@ -253,7 +253,7 @@ export function DropshippingMarginCalc() {
             data={donutData}
             category="sidehustle"
             innerLabel="Per Order"
-            innerValue={formatCurrency(results.profitPerOrder)}
+            innerValue={formatCurrencyWithCents(results.profitPerOrder)}
           />
         </ChartCard>
 
@@ -262,26 +262,26 @@ export function DropshippingMarginCalc() {
             title="Per-Order Breakdown"
             category="sidehustle"
             items={[
-              { label: 'Selling Price', value: formatCurrency(inputs.sellingPrice) },
-              { label: <Tooltip text="Cost paid to supplier for the product">Supplier Cost</Tooltip>, value: `-${formatCurrency(inputs.supplierCost)}` },
-              { label: <Tooltip text="Average advertising cost per acquired sale">Ad Spend</Tooltip>, value: `-${formatCurrency(inputs.adSpendPerSale)}` },
-              { label: <Tooltip text="Marketplace commission on each sale">Platform Fee</Tooltip>, value: `-${formatCurrency(results.platformFee)}` },
-              { label: <Tooltip text="Credit card or payment gateway fee">Processing Fee</Tooltip>, value: `-${formatCurrency(results.processingFee)}` },
-              { label: <Tooltip text="Average cost of returned orders spread across all orders">Returns</Tooltip>, value: `-${formatCurrency(results.returnCost)}` },
-              { label: <Tooltip text="Average cost of refunded orders spread across all orders">Refunds</Tooltip>, value: `-${formatCurrency(results.refundCost)}` },
-              { label: 'Profit Per Order', value: formatCurrency(results.profitPerOrder), highlight: true },
+              { label: 'Selling Price', value: formatCurrencyWithCents(inputs.sellingPrice) },
+              { label: <Tooltip text="Cost paid to supplier for the product">Supplier Cost</Tooltip>, value: `-${formatCurrencyWithCents(inputs.supplierCost)}` },
+              { label: <Tooltip text="Average advertising cost per acquired sale">Ad Spend</Tooltip>, value: `-${formatCurrencyWithCents(inputs.adSpendPerSale)}` },
+              { label: <Tooltip text="Marketplace commission on each sale">Platform Fee</Tooltip>, value: `-${formatCurrencyWithCents(results.platformFee)}` },
+              { label: <Tooltip text="Credit card or payment gateway fee">Processing Fee</Tooltip>, value: `-${formatCurrencyWithCents(results.processingFee)}` },
+              { label: <Tooltip text="Average cost of returned orders spread across all orders">Returns</Tooltip>, value: `-${formatCurrencyWithCents(results.returnCost)}` },
+              { label: <Tooltip text="Average cost of refunded orders spread across all orders">Refunds</Tooltip>, value: `-${formatCurrencyWithCents(results.refundCost)}` },
+              { label: 'Profit Per Order', value: formatCurrencyWithCents(results.profitPerOrder), highlight: true },
             ]}
           />
           <div className="space-y-4">
             <ResultCard
               label="Monthly Revenue"
               value={formatCurrency(results.monthlyRevenue)}
-              description={`${inputs.ordersPerMonth} orders x ${formatCurrency(inputs.sellingPrice)}`}
+              description={`${inputs.ordersPerMonth} orders x ${formatCurrencyWithCents(inputs.sellingPrice)}`}
               size="sm"
             />
             <ResultCard
               label="Total Per-Order Costs"
-              value={formatCurrency(results.totalPerOrderCosts)}
+              value={formatCurrencyWithCents(results.totalPerOrderCosts)}
               description="All costs before fixed expenses"
               size="sm"
             />

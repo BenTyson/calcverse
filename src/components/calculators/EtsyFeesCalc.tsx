@@ -13,7 +13,7 @@ import {
   DEFAULT_INPUTS,
   type EtsyFeeInputs,
 } from '../../lib/calculators/etsy-fees';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function EtsyFeesCalc() {
@@ -23,8 +23,8 @@ export function EtsyFeesCalc() {
 
   const getResultsText = () =>
     `Etsy Fee Calculator (CalcFalcon)\n` +
-    `Net Profit: ${formatCurrency(results.netProfit)}\n` +
-    `Total Fees: ${formatCurrency(results.totalFees)} (${results.feePercentage}%)\n` +
+    `Net Profit: ${formatCurrencyWithCents(results.netProfit)}\n` +
+    `Total Fees: ${formatCurrencyWithCents(results.totalFees)} (${results.feePercentage}%)\n` +
     `Profit Margin: ${results.profitMargin}%\n` +
     `https://calcfalcon.com/creator/etsy-fee-calculator`;
 
@@ -137,9 +137,9 @@ export function EtsyFeesCalc() {
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Net Profit"
-            value={formatCurrency(results.netProfit)}
+            value={formatCurrencyWithCents(results.netProfit)}
             numericValue={results.netProfit}
-            formatFn={formatCurrency}
+            formatFn={formatCurrencyWithCents}
             description="After all fees & costs"
             highlight
             size="lg"
@@ -147,7 +147,7 @@ export function EtsyFeesCalc() {
           />
           <ResultCard
             label="Total Fees"
-            value={formatCurrency(results.totalFees)}
+            value={formatCurrencyWithCents(results.totalFees)}
             description={`${results.feePercentage}% of sale`}
           />
           <ResultCard
@@ -168,7 +168,7 @@ export function EtsyFeesCalc() {
             ]}
             category="creator"
             innerLabel="Total Fees"
-            innerValue={formatCurrency(results.totalFees)}
+            innerValue={formatCurrencyWithCents(results.totalFees)}
           />
         </ChartCard>
 
@@ -177,25 +177,25 @@ export function EtsyFeesCalc() {
             title="Fee Breakdown"
             category="creator"
             items={[
-              { label: <Tooltip text="$0.20 per listing, renewed every 4 months or on sale">Listing Fee</Tooltip>, value: formatCurrency(results.listingFee) },
-              { label: <Tooltip text="6.5% of item price + shipping charged">Transaction Fee (6.5%)</Tooltip>, value: formatCurrency(results.transactionFee) },
-              { label: <Tooltip text="Credit card processing: 3% + $0.25 per transaction">Payment Processing</Tooltip>, value: formatCurrency(results.paymentProcessingFee) },
-              ...(results.etsyAdsFee > 0 ? [{ label: 'Etsy Ads', value: formatCurrency(results.etsyAdsFee) }] : []),
-              ...(results.offsiteAdsFee > 0 ? [{ label: <Tooltip text="12% fee on sales from off-platform advertising (Google, Facebook, etc.)">Offsite Ads</Tooltip>, value: formatCurrency(results.offsiteAdsFee) }] : []),
-              { label: 'Total Fees', value: formatCurrency(results.totalFees), highlight: true },
+              { label: <Tooltip text="$0.20 per listing, renewed every 4 months or on sale">Listing Fee</Tooltip>, value: formatCurrencyWithCents(results.listingFee) },
+              { label: <Tooltip text="6.5% of item price + shipping charged">Transaction Fee (6.5%)</Tooltip>, value: formatCurrencyWithCents(results.transactionFee) },
+              { label: <Tooltip text="Credit card processing: 3% + $0.25 per transaction">Payment Processing</Tooltip>, value: formatCurrencyWithCents(results.paymentProcessingFee) },
+              ...(results.etsyAdsFee > 0 ? [{ label: 'Etsy Ads', value: formatCurrencyWithCents(results.etsyAdsFee) }] : []),
+              ...(results.offsiteAdsFee > 0 ? [{ label: <Tooltip text="12% fee on sales from off-platform advertising (Google, Facebook, etc.)">Offsite Ads</Tooltip>, value: formatCurrencyWithCents(results.offsiteAdsFee) }] : []),
+              { label: 'Total Fees', value: formatCurrencyWithCents(results.totalFees), highlight: true },
             ]}
           />
           <div className="space-y-4">
             <ResultCard
               label="Gross Revenue"
-              value={formatCurrency(results.grossRevenue)}
+              value={formatCurrencyWithCents(results.grossRevenue)}
               description="Item + shipping"
               size="sm"
             />
             {isAdvanced && (
               <ResultCard
                 label="Total Costs"
-                value={formatCurrency(inputs.itemCost + inputs.shippingCost)}
+                value={formatCurrencyWithCents(inputs.itemCost + inputs.shippingCost)}
                 description="COGS + shipping"
                 size="sm"
               />

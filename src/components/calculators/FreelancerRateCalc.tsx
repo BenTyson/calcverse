@@ -14,7 +14,7 @@ import {
   DEFAULT_INPUTS,
   type FreelancerRateInputs,
 } from '../../lib/calculators/freelancer-rate';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function FreelancerRateCalc() {
@@ -208,7 +208,7 @@ export function FreelancerRateCalc() {
           <div className="space-y-4">
             <ResultCard
               label="Effective Hourly (After Tax)"
-              value={formatCurrency(results.effectiveHourlyAfterTax)}
+              value={formatCurrencyWithCents(results.effectiveHourlyAfterTax)}
               description="What you actually keep per hour"
               size="sm"
             />

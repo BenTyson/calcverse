@@ -15,7 +15,7 @@ import {
   QUICK_MODE_DEFAULTS,
   type TikTokEarningsInputs,
 } from '../../lib/calculators/tiktok-earnings';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function TikTokCalc() {
@@ -30,7 +30,7 @@ export function TikTokCalc() {
     `TikTok Earnings Calculator (CalcFalcon)\n` +
     `Monthly Earnings: ${formatCurrency(results.totalMonthly)}\n` +
     `Annual Earnings: ${formatCurrency(results.totalAnnual)}\n` +
-    `Per Video: ${formatCurrency(results.perVideo)}\n` +
+    `Per Video: ${formatCurrencyWithCents(results.perVideo)}\n` +
     `https://calcfalcon.com/creator/tiktok-calculator`;
 
   return (
@@ -210,7 +210,7 @@ export function TikTokCalc() {
           />
           <ResultCard
             label="Per Video"
-            value={formatCurrency(results.perVideo)}
+            value={formatCurrencyWithCents(results.perVideo)}
             description={`${inputs.videosPerWeek} videos/week`}
             category="creator"
           />

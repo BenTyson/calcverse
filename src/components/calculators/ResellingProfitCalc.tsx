@@ -18,7 +18,7 @@ import {
   PLATFORM_PRESETS,
   type ResellingProfitInputs,
 } from '../../lib/calculators/reselling-profit';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function ResellingProfitCalc() {
@@ -42,7 +42,7 @@ export function ResellingProfitCalc() {
 
   const getResultsText = () =>
     `Reselling Profit Calculator (CalcFalcon)\n` +
-    `Net Profit: ${formatCurrency(results.netProfit)}\n` +
+    `Net Profit: ${formatCurrencyWithCents(results.netProfit)}\n` +
     `Profit Margin: ${results.profitMargin}%\n` +
     `ROI: ${results.roi}%\n` +
     `Platform: ${platformLabel}\n` +
@@ -183,9 +183,9 @@ export function ResellingProfitCalc() {
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <ResultCard
             label="Net Profit"
-            value={formatCurrency(results.netProfit)}
+            value={formatCurrencyWithCents(results.netProfit)}
             numericValue={results.netProfit}
-            formatFn={formatCurrency}
+            formatFn={formatCurrencyWithCents}
             description="After all fees & costs"
             highlight
             size="lg"
@@ -214,7 +214,7 @@ export function ResellingProfitCalc() {
             ]}
             category="sidehustle"
             innerLabel="Net Profit"
-            innerValue={formatCurrency(results.netProfit)}
+            innerValue={formatCurrencyWithCents(results.netProfit)}
           />
         </ChartCard>
 
@@ -223,20 +223,20 @@ export function ResellingProfitCalc() {
             title="Profit Breakdown"
             category="sidehustle"
             items={[
-              { label: 'Selling Price', value: formatCurrency(inputs.sellingPrice) },
-              { label: 'Purchase Price', value: `-${formatCurrency(inputs.purchasePrice)}` },
-              { label: <Tooltip text={`Fee charged by ${platformLabel} for selling on their platform`}>Platform Fee ({inputs.platformFeePercent}%)</Tooltip>, value: `-${formatCurrency(results.platformFee)}` },
-              ...(results.processingFee > 0 ? [{ label: 'Processing Fee', value: `-${formatCurrency(results.processingFee)}` }] : []),
-              { label: 'Shipping Cost', value: `-${formatCurrency(inputs.shippingCost)}` },
-              ...(inputs.shippingMaterialCost > 0 ? [{ label: 'Materials', value: `-${formatCurrency(inputs.shippingMaterialCost)}` }] : []),
-              { label: 'Net Profit', value: formatCurrency(results.netProfit), highlight: true },
+              { label: 'Selling Price', value: formatCurrencyWithCents(inputs.sellingPrice) },
+              { label: 'Purchase Price', value: `-${formatCurrencyWithCents(inputs.purchasePrice)}` },
+              { label: <Tooltip text={`Fee charged by ${platformLabel} for selling on their platform`}>Platform Fee ({inputs.platformFeePercent}%)</Tooltip>, value: `-${formatCurrencyWithCents(results.platformFee)}` },
+              ...(results.processingFee > 0 ? [{ label: 'Processing Fee', value: `-${formatCurrencyWithCents(results.processingFee)}` }] : []),
+              { label: 'Shipping Cost', value: `-${formatCurrencyWithCents(inputs.shippingCost)}` },
+              ...(inputs.shippingMaterialCost > 0 ? [{ label: 'Materials', value: `-${formatCurrencyWithCents(inputs.shippingMaterialCost)}` }] : []),
+              { label: 'Net Profit', value: formatCurrencyWithCents(results.netProfit), highlight: true },
             ]}
           />
           <div className="space-y-4">
             {isAdvanced && inputs.hoursSpentSourcing > 0 && (
               <ResultCard
                 label="Effective Hourly Rate"
-                value={formatCurrency(results.netProfit / inputs.hoursSpentSourcing)}
+                value={formatCurrencyWithCents(results.netProfit / inputs.hoursSpentSourcing)}
                 description={`Based on ${inputs.hoursSpentSourcing} hrs`}
                 size="sm"
               />

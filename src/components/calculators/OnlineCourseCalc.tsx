@@ -16,7 +16,7 @@ import {
   QUICK_MODE_DEFAULTS,
   type OnlineCourseInputs,
 } from '../../lib/calculators/online-course-revenue';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const platformOptions = [
@@ -38,7 +38,7 @@ export function OnlineCourseCalc() {
     `Online Course Revenue Calculator (CalcFalcon)\n` +
     `Monthly Net Revenue: ${formatCurrency(results.monthlyNetRevenue)}\n` +
     `Annual Revenue: ${formatCurrency(results.annualRevenue)}\n` +
-    `Revenue per Student: ${formatCurrency(results.revenuePerStudent)}\n` +
+    `Revenue per Student: ${formatCurrencyWithCents(results.revenuePerStudent)}\n` +
     `https://calcfalcon.com/creator/online-course-revenue-calculator`;
 
   const showChart = results.breakdown.length > 1;
@@ -231,9 +231,9 @@ export function OnlineCourseCalc() {
           />
           <ResultCard
             label="Revenue per Student"
-            value={formatCurrency(results.revenuePerStudent)}
+            value={formatCurrencyWithCents(results.revenuePerStudent)}
             numericValue={results.revenuePerStudent}
-            formatFn={formatCurrency}
+            formatFn={formatCurrencyWithCents}
             description="Net per monthly student"
             category="creator"
           />

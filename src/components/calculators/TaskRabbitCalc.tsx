@@ -14,7 +14,7 @@ import {
   TASK_CATEGORIES,
   type TaskRabbitInputs,
 } from '../../lib/calculators/taskrabbit-earnings';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function TaskRabbitCalc() {
@@ -26,7 +26,7 @@ export function TaskRabbitCalc() {
   const getResultsText = () =>
     `TaskRabbit Earnings Calculator (CalcFalcon)\n` +
     `Weekly Net: ${formatCurrency(results.weeklyNet)}\n` +
-    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
     `https://calcfalcon.com/gig-economy/taskrabbit-calculator`;
 
@@ -162,12 +162,12 @@ export function TaskRabbitCalc() {
           />
           <ResultCard
             label="Effective Hourly"
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description="Including travel time"
           />
           <ResultCard
             label="Per Task Net"
-            value={formatCurrency(results.perTaskNet)}
+            value={formatCurrencyWithCents(results.perTaskNet)}
             description="After all deductions"
           />
         </div>

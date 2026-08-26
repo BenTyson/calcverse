@@ -14,7 +14,7 @@ import {
   QUICK_MODE_DEFAULTS,
   type BreakEvenInputs,
 } from '../../lib/calculators/break-even';
-import { formatCurrency, formatNumber } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents, formatNumber } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function BreakEvenCalc() {
@@ -27,7 +27,7 @@ export function BreakEvenCalc() {
     `Break-Even Calculator (CalcFalcon)\n` +
     `Break-Even Units: ${formatNumber(results.breakEvenUnits)}\n` +
     `Break-Even Revenue: ${formatCurrency(results.breakEvenRevenue)}\n` +
-    `Contribution Margin: ${formatCurrency(results.contributionMargin)}/unit\n` +
+    `Contribution Margin: ${formatCurrencyWithCents(results.contributionMargin)}/unit\n` +
     `https://calcfalcon.com/freelance/break-even-calculator`;
 
   return (
@@ -132,7 +132,7 @@ export function BreakEvenCalc() {
           />
           <ResultCard
             label="Contribution Margin"
-            value={formatCurrency(results.contributionMargin)}
+            value={formatCurrencyWithCents(results.contributionMargin)}
             description={`${results.contributionMarginRatio}% of price`}
           />
           {isAdvanced && results.targetProfitUnits > 0 && (
@@ -167,9 +167,9 @@ export function BreakEvenCalc() {
             category="freelance"
             items={[
               { label: 'Fixed Costs', value: formatCurrency(inputs.fixedCosts) },
-              { label: 'Variable Cost/Unit', value: formatCurrency(inputs.variableCostPerUnit) },
-              { label: 'Price/Unit', value: formatCurrency(inputs.pricePerUnit) },
-              { label: <Tooltip text="The amount each unit contributes to covering fixed costs after its variable cost is paid. Higher contribution margin means fewer units needed to break even.">Contribution Margin</Tooltip>, value: `${formatCurrency(results.contributionMargin)}/unit (${results.contributionMarginRatio}%)`, highlight: true },
+              { label: 'Variable Cost/Unit', value: formatCurrencyWithCents(inputs.variableCostPerUnit) },
+              { label: 'Price/Unit', value: formatCurrencyWithCents(inputs.pricePerUnit) },
+              { label: <Tooltip text="The amount each unit contributes to covering fixed costs after its variable cost is paid. Higher contribution margin means fewer units needed to break even.">Contribution Margin</Tooltip>, value: `${formatCurrencyWithCents(results.contributionMargin)}/unit (${results.contributionMarginRatio}%)`, highlight: true },
             ]}
           />
           <div className="space-y-4">
@@ -184,7 +184,7 @@ export function BreakEvenCalc() {
             {results.breakEvenUnits > 0 && inputs.pricePerUnit > inputs.variableCostPerUnit && (
               <div className="bg-freelance-50 rounded-xl p-4 text-sm text-freelance-800">
                 <strong>Insight:</strong> After selling {formatNumber(results.breakEvenUnits)} units, every additional
-                sale contributes {formatCurrency(results.contributionMargin)} directly to profit.
+                sale contributes {formatCurrencyWithCents(results.contributionMargin)} directly to profit.
                 {isAdvanced && results.targetProfitUnits > 0 && (
                   <> To earn {formatCurrency(inputs.targetProfit)} after tax, you need {formatNumber(results.targetProfitUnits)} units.</>
                 )}

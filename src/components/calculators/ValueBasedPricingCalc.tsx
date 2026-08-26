@@ -17,7 +17,7 @@ import {
   CONFIDENCE_OPTIONS,
   type ValueBasedPricingInputs,
 } from '../../lib/calculators/value-based-pricing';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function ValueBasedPricingCalc() {
@@ -29,7 +29,7 @@ export function ValueBasedPricingCalc() {
   const getResultsText = () =>
     `Value-Based Pricing Calculator (CalcFalcon)\n` +
     `Value-Based Price: ${formatCurrency(results.valueBasedPrice)}\n` +
-    `Effective Hourly Rate: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly Rate: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Premium Over Hourly: ${premiumSign}${results.premiumPercent}%\n` +
     `https://calcfalcon.com/freelance/value-based-pricing-calculator`;
 
@@ -177,7 +177,7 @@ export function ValueBasedPricingCalc() {
           />
           <ResultCard
             label="Effective Hourly Rate"
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description={`Over ${results.totalEstimatedHours} estimated hours`}
             category="freelance"
           />

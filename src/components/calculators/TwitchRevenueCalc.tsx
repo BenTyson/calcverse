@@ -13,7 +13,7 @@ import {
   distributeSubs,
   type TwitchRevenueInputs,
 } from '../../lib/calculators/twitch-revenue';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function TwitchRevenueCalc() {
@@ -37,7 +37,7 @@ export function TwitchRevenueCalc() {
     `Twitch Revenue Calculator (CalcFalcon)\n` +
     `Monthly Revenue: ${formatCurrency(results.netMonthly)}\n` +
     `Annual Revenue: ${formatCurrency(results.netAnnual)}\n` +
-    `Revenue Per Viewer: ${formatCurrency(results.revenuePerViewer)}/mo\n` +
+    `Revenue Per Viewer: ${formatCurrencyWithCents(results.revenuePerViewer)}/mo\n` +
     `https://calcfalcon.com/creator/twitch-calculator`;
 
   return (
@@ -213,7 +213,7 @@ export function TwitchRevenueCalc() {
           />
           <ResultCard
             label="Revenue Per Viewer"
-            value={formatCurrency(results.revenuePerViewer)}
+            value={formatCurrencyWithCents(results.revenuePerViewer)}
             description="Monthly per avg viewer"
             category="creator"
           />

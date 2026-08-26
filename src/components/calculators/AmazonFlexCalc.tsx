@@ -12,7 +12,7 @@ import {
   DEFAULT_INPUTS,
   type AmazonFlexInputs,
 } from '../../lib/calculators/amazon-flex';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function AmazonFlexCalc() {
@@ -24,7 +24,7 @@ export function AmazonFlexCalc() {
   const getResultsText = () =>
     `Amazon Flex Calculator (CalcFalcon)\n` +
     `Weekly Net: ${formatCurrency(results.weeklyNet)}\n` +
-    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
     `https://calcfalcon.com/gig-economy/amazon-flex-calculator`;
 
@@ -161,12 +161,12 @@ export function AmazonFlexCalc() {
           />
           <ResultCard
             label="Effective Hourly"
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description="Net earnings/hour"
           />
           <ResultCard
             label="Per Block Net"
-            value={formatCurrency(results.perBlockNet)}
+            value={formatCurrencyWithCents(results.perBlockNet)}
             description="After expenses"
           />
         </div>
