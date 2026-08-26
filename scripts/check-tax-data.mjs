@@ -156,7 +156,96 @@ for (const file of walk(SRC)) {
   });
 }
 
-// ---- Check 3: SourcesBlock must use the constants, not literals ------------
+// ---- Check 3: SE tax computed without the 92.35% adjustment ----------------
+/**
+ * A DIFFERENT DEFECT CLASS FROM EVERYTHING ABOVE.
+ *
+ * Checks 1 and 2 catch *superseded constants* — a value that was right once and
+ * is stale now. This catches a *wrong computation built from correct
+ * constants*. 15.3% is the right rate. $24,000 is the right income. Neither is
+ * superseded, so no denylist can see it. But `24000 * 0.153 = $3,672` omits the
+ * 92.35% step in §1402(a)(12), and the published figure is $281/yr too high.
+ *
+ * That instance sat in src/content/blog/substack-vs-beehiiv-newsletter-revenue.md
+ * through an audit that docs/BLOG-TAX-AUDIT.md records as CLOSED.
+ *
+ * Rather than denying a pattern, this reproduces the WRONG arithmetic and
+ * flags any line whose published figure matches it: a line is flagged only when
+ * some dollar figure on it equals another dollar figure x 15.3% (or x12 x 15.3%
+ * for a monthly amount) to within 0.12%, and does NOT equal the correctly
+ * adjusted product. Lines that mention 92.35 are skipped — a line stating the
+ * adjustment is applying it.
+ *
+ * MEASURED: 47 lines site-wide give SE-tax context plus two dollar figures.
+ * This flags 3. All 3 were checked by hand and all 3 are genuine. Loosening the
+ * tolerance to 0.5% adds 3 coincidental matches and drops precision to 50%.
+ */
+const SE_RATE = 0.153;
+const SE_ADJUSTMENT = 0.9235; // §1402(a)(12)
+const SE_CONTEXT = /self-employment tax|\bSE tax\b|self-employment taxes/i;
+/**
+ * Known, pre-existing instances. This number may only go DOWN. A new one is an
+ * error, so the class cannot grow while the backlog is worked off.
+ * At 0, delete the ratchet and push these into `errors`.
+ */
+const SE_BACKLOG = 3;
+
+const seFindings = [];
+for (const file of walk(SRC)) {
+  const rel = relative(ROOT, file);
+  readFileSync(file, 'utf8')
+    .split('\n')
+    .forEach((line, i) => {
+      if (/tax-data-ok/.test(line)) return;
+      if (!SE_CONTEXT.test(line)) return;
+      if (/92\.35|0\.9235/.test(line)) return; // the line applies the adjustment
+      const nums = [...line.matchAll(/\$([\d,]+(?:\.\d+)?)/g)].map((m) =>
+        Number(m[1].replace(/,/g, ''))
+      );
+      if (nums.length < 2) return;
+      for (const income of nums) {
+        for (const published of nums) {
+          if (income === published) continue;
+          for (const [mult, how] of [[1, ''], [12, ' (monthly figure, annualised)']]) {
+            const base = income * mult;
+            if (base < 1000) continue;
+            const unadjusted = base * SE_RATE;
+            const adjusted = base * SE_ADJUSTMENT * SE_RATE;
+            if (
+              Math.abs(published - unadjusted) / unadjusted < 0.0012 &&
+              Math.abs(published - adjusted) / adjusted > 0.005
+            ) {
+              seFindings.push(
+                `${rel}:${i + 1} — $${published.toLocaleString()} is $${base.toLocaleString()}` +
+                  `${how} x 15.3% with the 92.35% adjustment omitted. ` +
+                  `Correct: $${Math.round(adjusted).toLocaleString()}. ` +
+                  `Recompute by running the calculator, not by hand.`
+              );
+              return; // one per line
+            }
+          }
+        }
+      }
+    });
+}
+if (seFindings.length > SE_BACKLOG) {
+  errors.push(
+    `${seFindings.length} SE-tax figure(s) computed without the 92.35% ` +
+      `adjustment, but the backlog allows ${SE_BACKLOG}. A NEW one was ` +
+      `introduced. This number may only go down.`
+  );
+  warnings.push(...seFindings);
+} else {
+  if (seFindings.length < SE_BACKLOG) {
+    warnings.push(
+      `SE-adjustment backlog down to ${seFindings.length} (SE_BACKLOG says ` +
+        `${SE_BACKLOG}). Lower SE_BACKLOG in this file to lock the gain in.`
+    );
+  }
+  warnings.push(...seFindings);
+}
+
+// ---- Check 4: SourcesBlock must use the constants, not literals ------------
 for (const file of walk(join(SRC, 'pages'))) {
   const rel = relative(ROOT, file);
   const text = readFileSync(file, 'utf8');
@@ -171,7 +260,7 @@ for (const file of walk(join(SRC, 'pages'))) {
 
 // ---- Report ---------------------------------------------------------------
 if (warnings.length) {
-  console.log(`\n⚠  ${warnings.length} stale figure(s) in blog content (known backlog):`);
+  console.log(`\n⚠  ${warnings.length} tax-data warning(s) (known backlog):`);
   for (const w of warnings.slice(0, 40)) console.log(`   ${w}`);
   if (warnings.length > 40) console.log(`   ...and ${warnings.length - 40} more`);
 }
