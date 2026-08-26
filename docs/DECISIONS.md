@@ -158,6 +158,33 @@ The original operating model was "chips never commit or push; the Command Center
 
 **Still escalated to the human, not decided here:** anything that changes what the site *is* rather than fixing what it says — new URL structures, removing pages, monetization changes, and AdSense review submissions (D-004).
 
+## D-016 · Wrong computations are a distinct defect class from wrong constants — RULED 2026-08-25
+
+Fee and figure governance (D-007, D-011) has so far targeted **stale constants** — values that were once right. `CHIP-RESEARCH-NEWSLETTER` established a second class where **every constant is current and correct, and the published figure is still wrong.**
+
+Two verified instances:
+
+1. `src/content/blog/substack-vs-beehiiv-newsletter-revenue.md:197` publishes *"self-employment tax alone is approximately $3,672 per year"* on $24,000. That is `24000 × 0.153` — it omits the 92.35% adjustment. Correct: **$3,391**. The rate is right, the income is right, the arithmetic step is missing. **`docs/BLOG-TAX-AUDIT.md` is marked closed, so this survived an audit that believed it was finished.**
+2. `src/lib/calculators/newsletter-revenue.ts:59-64` adds Stripe's 2.9% on top of Kit's 3.5%, but Kit publishes that rate as **inclusive of card processing**. Both numbers are correct in isolation; stacking them is the defect.
+
+**Ruling:** a denylist cannot catch this class. Verification of any derived public figure must **recompute it**, not match it against known-bad values. `CHIP-PROTOCOL.md`'s "compute worked examples by running the calculator" already says this for chips; it now also binds audits — an audit may not be closed on the basis that no known-bad constant appears.
+
+**`docs/BLOG-TAX-AUDIT.md` is reopened** for the SE-tax class specifically.
+
+## D-017 · The newsletter comparison is unreliable in ranking, not just magnitude — RULED 2026-08-25
+
+`src/lib/calculators/newsletter-revenue.ts` and `substack-vs-beehiiv-newsletter-revenue.md` are treated as producing **unreliable platform rankings**, not merely imprecise numbers, until corrected.
+
+**Reasoning, from verified research:**
+- **beehiiv's 0% take rate is real but unreachable on the free plan.** Paid subscriptions require a paid plan; entry is **$49/mo**, and pricing is a **step function of total list size** ($49 → $329 across 1K–100K). The calculator models the 0% and never the $49–$329. There is no "Grow" plan and Max is $109–$459, not $399.
+- **Kit's rate is processing-inclusive** and the module double-counts (D-016).
+- **The `+ $0.30` per-transaction term is absent from all three branches** — 6% of a $5/month subscription.
+- At the module's own defaults it over-states monthly take-home by **$71 / $160 / $45** for Substack / beehiiv / Kit respectively. Because the errors differ per platform, **the winner it picks can be wrong**, which is worse than a uniform offset.
+
+**The $990/month crossover the blog tells readers to act on does not exist at any tier.** Because beehiiv's price moves with list size, the real crossover ranges from **$490/mo** at a 1,000-subscriber list to **$3,290/mo** at 100K. The post's own example at line 81 also inverts its conclusion.
+
+**Sequencing:** `V-N1` — whether Stripe's 0.7% Billing fee applies to beehiiv — is open and load-bearing. Per D-014 the correction may publish both branches labelled, but may not pick one. `CHIP-FEE-NEWSLETTER` also needs `NewsletterRevenueCalc.tsx`, currently owned by `CHIP-CENTS-SWEEP`, so it cannot be spawned until that chip merges.
+
 ---
 
 # Part 2 — Standing decisions
