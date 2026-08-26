@@ -12,7 +12,7 @@ import {
   QUICK_MODE_DEFAULTS,
   type InstacartEarningsInputs,
 } from '../../lib/calculators/instacart-earnings';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function InstacartCalc() {
@@ -33,7 +33,7 @@ export function InstacartCalc() {
   const getResultsText = () =>
     `Instacart Earnings Calculator (CalcFalcon)\n` +
     `Weekly Earnings: ${formatCurrency(results.netWeeklyEarnings)}\n` +
-    `Hourly Rate: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Hourly Rate: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Monthly Earnings: ${formatCurrency(results.netMonthlyEarnings)}\n` +
     `https://calcfalcon.com/gig-economy/instacart-calculator`;
 
@@ -217,13 +217,13 @@ export function InstacartCalc() {
           />
           <ResultCard
             label="Hourly Rate"
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description="Net per hour worked"
             category="gig"
           />
           <ResultCard
             label="Per Batch"
-            value={formatCurrency(results.earningsPerBatch)}
+            value={formatCurrencyWithCents(results.earningsPerBatch)}
             description="Net per order"
             category="gig"
           />

@@ -15,7 +15,7 @@ import {
   LOCATION_MULTIPLIERS,
   type YouTubeAdSenseInputs,
 } from '../../lib/calculators/youtube-adsense';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const nicheOptions = Object.entries(NICHE_CPMS).map(([value, data]) => ({
@@ -40,7 +40,7 @@ export function YouTubeAdSenseCalc() {
     `YouTube AdSense Calculator (CalcFalcon)\n` +
     `Monthly Earnings (Est.): ${formatCurrency(Math.round(results.monthlyEarnings.mid))}\n` +
     `Annual Earnings (Est.): ${formatCurrency(Math.round(results.annualEarnings.mid))}\n` +
-    `Per Video (Est.): ${formatCurrency(Math.round(results.earningsPerVideo.mid))}\n` +
+    `Per Video (Est.): ${formatCurrencyWithCents(results.earningsPerVideo.mid)}\n` +
     `https://calcfalcon.com/creator/youtube-adsense-calculator`;
 
   return (
@@ -129,7 +129,7 @@ export function YouTubeAdSenseCalc() {
           />
           <ResultCard
             label="Per Video (Est.)"
-            value={formatCurrency(Math.round(results.earningsPerVideo.mid))}
+            value={formatCurrencyWithCents(results.earningsPerVideo.mid)}
             description="Average per upload"
           />
           <ResultCard

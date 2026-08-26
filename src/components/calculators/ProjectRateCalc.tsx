@@ -16,7 +16,7 @@ import {
   RUSH_OPTIONS,
   type ProjectRateInputs,
 } from '../../lib/calculators/project-rate';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function ProjectRateCalc() {
@@ -27,7 +27,7 @@ export function ProjectRateCalc() {
   const getResultsText = () =>
     `Project Rate Calculator (CalcFalcon)\n` +
     `Project Price: ${formatCurrency(results.totalProjectPrice)}\n` +
-    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Base Hours Value: ${formatCurrency(results.basePrice)}\n` +
     `https://calcfalcon.com/freelance/project-rate-calculator`;
 
@@ -190,7 +190,7 @@ export function ProjectRateCalc() {
           />
           <ResultCard
             label="Effective Hourly"
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description="What you actually earn/hr"
             category="freelance"
           />

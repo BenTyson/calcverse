@@ -20,7 +20,7 @@ import {
   type KofiEarningsInputs,
   type KofiPlan,
 } from '../../lib/calculators/kofi-earnings';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const PLAN_OPTIONS: { value: KofiPlan; label: string }[] = [
@@ -242,7 +242,7 @@ export function KofiCalc() {
           <ResultCard
             label="Total Fees"
             value={`${results.feePercentage.toFixed(1)}%`}
-            description={formatCurrency(results.totalFees) + '/month'}
+            description={formatCurrencyWithCents(results.totalFees) + '/month'}
             category="creator"
           />
         </div>
@@ -265,18 +265,18 @@ export function KofiCalc() {
         <ResultBreakdown
           title="Earnings Breakdown"
           items={[
-            { label: 'Tip Revenue', value: formatCurrency(results.donationRevenue) },
-            { label: 'Membership Revenue', value: formatCurrency(results.membershipRevenue) },
-            ...(results.shopRevenue > 0 ? [{ label: 'Shop Sales', value: formatCurrency(results.shopRevenue) }] : []),
-            ...(results.commissionRevenue > 0 ? [{ label: 'Commission Revenue', value: formatCurrency(results.commissionRevenue) }] : []),
-            { label: 'Gross Monthly', value: formatCurrency(results.grossMonthly), highlight: true },
+            { label: 'Tip Revenue', value: formatCurrencyWithCents(results.donationRevenue) },
+            { label: 'Membership Revenue', value: formatCurrencyWithCents(results.membershipRevenue) },
+            ...(results.shopRevenue > 0 ? [{ label: 'Shop Sales', value: formatCurrencyWithCents(results.shopRevenue) }] : []),
+            ...(results.commissionRevenue > 0 ? [{ label: 'Commission Revenue', value: formatCurrencyWithCents(results.commissionRevenue) }] : []),
+            { label: 'Gross Monthly', value: formatCurrencyWithCents(results.grossMonthly), highlight: true },
             {
               label: (
                 <Tooltip text="Ko-fi's service fee is 5% on Standard (every payment type) and 5% on Ko-fi Free for memberships, commissions and shop sales — but 0% on one-off tips. Ko-fi Gold is 0% on everything.">
                   Ko-fi Service Fee ({PLAN_FEE_SUMMARY[plan]})
                 </Tooltip>
               ),
-              value: `-${formatCurrency(results.platformFees)}`,
+              value: `-${formatCurrencyWithCents(results.platformFees)}`,
             },
             ...(results.goldSubscriptionCost > 0
               ? [{
@@ -285,7 +285,7 @@ export function KofiCalc() {
                       Ko-fi Gold Subscription
                     </Tooltip>
                   ),
-                  value: `-${formatCurrency(results.goldSubscriptionCost)}`,
+                  value: `-${formatCurrencyWithCents(results.goldSubscriptionCost)}`,
                 }]
               : []),
             {
@@ -294,9 +294,9 @@ export function KofiCalc() {
                   Payment Processing
                 </Tooltip>
               ),
-              value: `-${formatCurrency(results.paymentProcessingFees)}`,
+              value: `-${formatCurrencyWithCents(results.paymentProcessingFees)}`,
             },
-            { label: 'Net Monthly', value: formatCurrency(results.netMonthly), highlight: true },
+            { label: 'Net Monthly', value: formatCurrencyWithCents(results.netMonthly), highlight: true },
           ]}
           category="creator"
         />
@@ -308,10 +308,10 @@ export function KofiCalc() {
           <div className="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-100">
             <h4 className="font-semibold text-amber-900 mb-2">How Ko-fi Gold compares</h4>
             <p className="text-amber-800 text-sm">
-              You are paying <strong>{formatCurrency(results.platformFees)}</strong>/month in Ko-fi
+              You are paying <strong>{formatCurrencyWithCents(results.platformFees)}</strong>/month in Ko-fi
               service fees. Ko-fi Gold costs <strong>${KOFI_GOLD_MONTHLY_COST}/month</strong> and
               removes the service fee entirely, so on these numbers the difference is{' '}
-              <strong>{formatCurrency(results.platformFees - KOFI_GOLD_MONTHLY_COST)}/month</strong> in
+              <strong>{formatCurrencyWithCents(results.platformFees - KOFI_GOLD_MONTHLY_COST)}/month</strong> in
               Gold&rsquo;s favour. Payment processing is unchanged either way.
               <span className="block mt-2 text-xs">
                 Ko-fi is de-emphasising Gold — its Gold page is headed &ldquo;You no longer need

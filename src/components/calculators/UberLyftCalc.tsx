@@ -13,7 +13,7 @@ import {
   DEFAULT_INPUTS,
   type UberLyftInputs,
 } from '../../lib/calculators/uber-lyft-earnings';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 const platformOptions = [
@@ -31,7 +31,7 @@ export function UberLyftCalc() {
   const getResultsText = () =>
     `Uber/Lyft Earnings Calculator (CalcFalcon)\n` +
     `Weekly Net: ${formatCurrency(results.weeklyNet)}\n` +
-    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Monthly Net: ${formatCurrency(results.monthlyNet)}\n` +
     `https://calcfalcon.com/gig-economy/uber-lyft-calculator`;
 
@@ -155,12 +155,12 @@ export function UberLyftCalc() {
           />
           <ResultCard
             label="Effective Hourly"
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             description={`${inputs.hoursWorked} hrs/week`}
           />
           <ResultCard
             label="Cost Per Mile"
-            value={formatCurrency(results.costPerMile)}
+            value={formatCurrencyWithCents(results.costPerMile)}
             description="Total vehicle cost"
           />
         </div>

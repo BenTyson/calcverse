@@ -15,7 +15,7 @@ import {
   formatPerWordRate,
   type FreelanceWritingRateInputs,
 } from '../../lib/calculators/freelance-writing-rate';
-import { formatCurrency } from '../../lib/utils/formatters';
+import { formatCurrency, formatCurrencyWithCents } from '../../lib/utils/formatters';
 import { useCalculatorState } from '../../hooks/useCalculatorState';
 
 export function FreelanceWritingRateCalc() {
@@ -28,7 +28,7 @@ export function FreelanceWritingRateCalc() {
     `Freelance Writing Rate Calculator (CalcFalcon)\n` +
     `Per-Word Rate: ${formatPerWordRate(results.perWordRate)}\n` +
     `Per-Article Rate: ${formatCurrency(results.perArticleRate)}\n` +
-    `Effective Hourly: ${formatCurrency(results.effectiveHourlyRate)}\n` +
+    `Effective Hourly: ${formatCurrencyWithCents(results.effectiveHourlyRate)}\n` +
     `Monthly (4 articles): ${formatCurrency(results.monthlyIncome4)}\n` +
     `Monthly (8 articles): ${formatCurrency(results.monthlyIncome8)}\n` +
     `https://calcfalcon.com/side-hustle/freelance-writing-rate-calculator`;
@@ -189,9 +189,9 @@ export function FreelanceWritingRateCalc() {
                 Effective Hourly Rate
               </Tooltip>
             }
-            value={formatCurrency(results.effectiveHourlyRate)}
+            value={formatCurrencyWithCents(results.effectiveHourlyRate)}
             numericValue={results.effectiveHourlyRate}
-            formatFn={formatCurrency}
+            formatFn={formatCurrencyWithCents}
             description="After all time included"
           />
         </div>
