@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check:tax-data": "node scripts/check-tax-data.mjs"
+    "check:tax-data": "node scripts/check-tax-data.mjs",
+    "check:fees": "node scripts/check-platform-fees.mjs",
+    "check": "npm run check:tax-data && npm run check:fees"
   },
   "engines": {
     "node": ">=20"
